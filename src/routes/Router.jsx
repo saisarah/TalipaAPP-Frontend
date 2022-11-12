@@ -6,6 +6,7 @@ import {
 import HomeLayout from "../components/HomeLayout/HomeLayout";
 import HomeCustomer from "../pages/home/customer/HomeCustomer";
 import Login from "../pages/login/Login";
+import Orders from "../pages/orders/Orders";
 
 const router = createBrowserRouter([
   {
@@ -17,7 +18,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/orders',
-        element: <div>Orders</div>
+        element: <Orders />
       },
       {
         path: '/messages',

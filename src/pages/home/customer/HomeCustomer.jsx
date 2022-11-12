@@ -1,4 +1,6 @@
 import {
+  ArrowLeftOutlined,
+  CaretLeftFilled,
   HomeFilled,
   MessageOutlined,
   SearchOutlined,
@@ -7,8 +9,9 @@ import {
   ShoppingFilled,
 } from "@ant-design/icons";
 import { Button, Input } from "antd";
+import { useState } from "react";
 
-function Product() {
+function Product({ setIsOpen }) {
   return (
     <div className="overflow-hidden rounded-xl bg-white shadow-xl">
       <div className="relative h-32 bg-yellow-500">
@@ -18,7 +21,12 @@ function Product() {
           className="absolute top-2 right-2"
         />
         <div className="absolute bottom-0 flex w-full items-end justify-between bg-white bg-opacity-20 px-2 pt-1">
-          <div className="text-lg font-semibold">Repolyo</div>
+          <div
+            onClick={() => setIsOpen(true)}
+            className="text-lg font-semibold"
+          >
+            Repolyo
+          </div>
           <div className="text-sm font-bold text-orange-900">₱20/kg</div>
         </div>
       </div>
@@ -27,7 +35,36 @@ function Product() {
   );
 }
 
+function Category() {
+  return (
+    <div className="relative h-28 w-28 flex-shrink-0 overflow-hidden rounded-lg bg-violet-500">
+      <div className="absolute bottom-0 w-full bg-slate-800 p-2 font-semibold text-white">
+        Vegetables
+      </div>
+    </div>
+  );
+}
+
+function ProductDetails({ setIsOpen }) {
+  return (
+    <div className="fixed inset-0 z-30 mx-auto  min-h-screen max-w-md bg-[#283618] flex flex-col">
+      <div className="p-8 px-4"><ArrowLeftOutlined onClick={() => setIsOpen(false)} className="text-white"/></div>
+      <div className="bg-white flex-grow rounded-t-3xl flex flex-col overflow-hidden">
+        <img src="https://via.placeholder.com/500x350" className="aspect-video w-full"/>
+
+        <div className="p-4">
+          <div className="text-2xl font-bold">Repolyo</div>
+          <p className="font-light mt-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore error eligendi temporibus! Incidunt dignissimos eveniet aliquid sit voluptas quae amet esse laudantium nostrum deleniti, nemo corporis ipsam aliquam quia eligendi?</p>
+        </div>
+
+      </div>
+    </div>
+  );
+}
+
 export default function HomeCustomer() {
+  const [isOpen, setIsOpen] = useState(true);
+
   return (
     <div className="p-4">
       <div className="text-2xl font-bold">Welcome DoSan!</div>
@@ -50,31 +87,11 @@ export default function HomeCustomer() {
         <div className="text-lg font-semibold">Categories</div>
 
         <div className="mt-2 flex gap-4 overflow-auto">
-          <div className="relative h-28 w-28 flex-shrink-0 overflow-hidden rounded-lg bg-violet-500">
-            <div className="absolute bottom-0 w-full bg-slate-800 p-2 font-semibold text-white">
-              Vegetables
-            </div>
-          </div>
-          <div className="relative h-28 w-28 flex-shrink-0 overflow-hidden rounded-lg bg-red-500">
-            <div className="absolute bottom-0 w-full bg-slate-800 p-2 font-semibold text-white">
-              Vegetables
-            </div>
-          </div>
-          <div className="relative h-28 w-28 flex-shrink-0 overflow-hidden rounded-lg bg-red-500">
-            <div className="absolute bottom-0 w-full bg-slate-800 p-2 font-semibold text-white">
-              Vegetables
-            </div>
-          </div>
-          <div className="relative h-28 w-28 flex-shrink-0 overflow-hidden rounded-lg bg-red-500">
-            <div className="absolute bottom-0 w-full bg-slate-800 p-2 font-semibold text-white">
-              Vegetables
-            </div>
-          </div>
-          <div className="relative h-28 w-28 flex-shrink-0 overflow-hidden rounded-lg bg-red-500">
-            <div className="absolute bottom-0 w-full bg-slate-800 p-2 font-semibold text-white">
-              Vegetables
-            </div>
-          </div>
+          <Category />
+          <Category />
+          <Category />
+          <Category />
+          <Category />
         </div>
       </div>
 
@@ -82,15 +99,19 @@ export default function HomeCustomer() {
         <div className="text-lg font-semibold">Whats on the market?</div>
 
         <div className="mt-4 grid grid-cols-2 gap-2">
-          <Product />
-          <Product />
-          <Product />
-          <Product />
-          <Product />
-          <Product />
-          <Product />
+          <Product setIsOpen={setIsOpen} />
+          <Product setIsOpen={setIsOpen} />
+          <Product setIsOpen={setIsOpen} />
+          <Product setIsOpen={setIsOpen} />
+          <Product setIsOpen={setIsOpen} />
+          <Product setIsOpen={setIsOpen} />
+          <Product setIsOpen={setIsOpen} />
+          <Product setIsOpen={setIsOpen} />
+          <Product setIsOpen={setIsOpen} />
         </div>
       </div>
+
+      {isOpen && <ProductDetails setIsOpen={setIsOpen}/>}
     </div>
   );
 }
