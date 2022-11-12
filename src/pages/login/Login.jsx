@@ -4,13 +4,15 @@ import { Link } from "react-router-dom";
 
 export default function Login() {
   return (
-    <div className="mx-8 flex min-h-screen flex-col justify-center py-8">
+    <div className="mx-auto flex min-h-screen max-w-md flex-col justify-center px-8 py-8">
       <img width={255} className="mx-auto" src="/assets/logo.png" />
       <div className="mt-16 flex  flex-col text-center">
         <span className="text-4xl font-extrabold text-[#273518]">
           Welcome Back
         </span>
-        <span className="text-sm text-slate-600 mt-2">Login to your account</span>
+        <span className="mt-2 text-sm text-slate-600">
+          Login to your account
+        </span>
       </div>
       <div className="mt-16">
         <Input
@@ -40,6 +42,9 @@ export default function Login() {
           >
             Sign In
           </button>
+          <p className="text-center">
+            Don't have an account? <Link to="/register">Sign Up</Link>
+          </p>
         </div>
       </div>
     </div>
