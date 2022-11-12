@@ -2,10 +2,11 @@ import { ArrowLeftOutlined, ShoppingCartOutlined } from "@ant-design/icons";
 import { Button, Input } from "antd";
 import { useState } from "react";
 
-function Product({ setIsOpen }) {
+function Product({ setIsOpen, image }) {
   return (
     <div className="overflow-hidden rounded-xl bg-white shadow-xl">
       <div className="relative h-32 bg-yellow-500">
+        <img src={image} className="absolute inset-0 h-full w-full object-cover"/>
         <Button
           type="text"
           icon={<ShoppingCartOutlined className="text-white" />}
@@ -105,15 +106,15 @@ export default function HomeCustomer() {
         <div className="text-lg font-semibold">Whats on the market?</div>
 
         <div className="mt-4 grid grid-cols-2 gap-2">
-          <Product setIsOpen={setIsOpen} />
-          <Product setIsOpen={setIsOpen} />
-          <Product setIsOpen={setIsOpen} />
-          <Product setIsOpen={setIsOpen} />
-          <Product setIsOpen={setIsOpen} />
-          <Product setIsOpen={setIsOpen} />
-          <Product setIsOpen={setIsOpen} />
-          <Product setIsOpen={setIsOpen} />
-          <Product setIsOpen={setIsOpen} />
+          <Product setIsOpen={setIsOpen} image="https://via.placeholder.com/400x400"/>
+          <Product setIsOpen={setIsOpen} image="https://via.placeholder.com/400x400" />
+          <Product setIsOpen={setIsOpen} image="https://via.placeholder.com/400x400" />
+          <Product setIsOpen={setIsOpen} image="https://via.placeholder.com/400x400" />
+          <Product setIsOpen={setIsOpen} image="https://via.placeholder.com/400x400" />
+          <Product setIsOpen={setIsOpen} image="https://via.placeholder.com/400x400" />
+          <Product setIsOpen={setIsOpen} image="https://via.placeholder.com/400x400" />
+          <Product setIsOpen={setIsOpen} image="https://via.placeholder.com/400x400" />
+          <Product setIsOpen={setIsOpen} image="https://via.placeholder.com/400x400" />
         </div>
       </div>
 
