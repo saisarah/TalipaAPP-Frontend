@@ -1,13 +1,4 @@
-import {
-  ArrowLeftOutlined,
-  CaretLeftFilled,
-  HomeFilled,
-  MessageOutlined,
-  SearchOutlined,
-  SettingOutlined,
-  ShoppingCartOutlined,
-  ShoppingFilled,
-} from "@ant-design/icons";
+import { ArrowLeftOutlined, ShoppingCartOutlined } from "@ant-design/icons";
 import { Button, Input } from "antd";
 import { useState } from "react";
 
@@ -35,9 +26,12 @@ function Product({ setIsOpen }) {
   );
 }
 
-function Category() {
+function Category({ image }) {
   return (
-    <div className="relative h-28 w-28 flex-shrink-0 overflow-hidden rounded-lg bg-violet-500">
+    <div
+      className="relative h-28 w-28 flex-shrink-0 overflow-hidden rounded-lg bg-cover"
+      style={{ backgroundImage: `url(${image})` }}
+    >
       <div className="absolute bottom-0 w-full bg-slate-800 p-2 font-semibold text-white">
         Vegetables
       </div>
@@ -47,16 +41,28 @@ function Category() {
 
 function ProductDetails({ setIsOpen }) {
   return (
-    <div className="fixed inset-0 z-30 mx-auto  min-h-screen max-w-md bg-[#283618] flex flex-col">
-      <div className="p-8 px-4"><ArrowLeftOutlined onClick={() => setIsOpen(false)} className="text-white"/></div>
-      <div className="bg-white flex-grow rounded-t-3xl flex flex-col overflow-hidden">
-        <img src="https://via.placeholder.com/500x350" className="aspect-video w-full"/>
+    <div className="fixed inset-0 z-30 mx-auto  flex min-h-screen max-w-md flex-col bg-[#283618]">
+      <div className="p-8 px-4">
+        <ArrowLeftOutlined
+          onClick={() => setIsOpen(false)}
+          className="text-white"
+        />
+      </div>
+      <div className="flex flex-grow flex-col overflow-hidden rounded-t-3xl bg-white">
+        <img
+          src="https://via.placeholder.com/500x350"
+          className="aspect-video w-full"
+        />
 
         <div className="p-4">
           <div className="text-2xl font-bold">Repolyo</div>
-          <p className="font-light mt-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore error eligendi temporibus! Incidunt dignissimos eveniet aliquid sit voluptas quae amet esse laudantium nostrum deleniti, nemo corporis ipsam aliquam quia eligendi?</p>
+          <p className="mt-4 font-light">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore
+            error eligendi temporibus! Incidunt dignissimos eveniet aliquid sit
+            voluptas quae amet esse laudantium nostrum deleniti, nemo corporis
+            ipsam aliquam quia eligendi?
+          </p>
         </div>
-
       </div>
     </div>
   );
@@ -87,11 +93,11 @@ export default function HomeCustomer() {
         <div className="text-lg font-semibold">Categories</div>
 
         <div className="mt-2 flex gap-4 overflow-auto">
-          <Category />
-          <Category />
-          <Category />
-          <Category />
-          <Category />
+          <Category image="https://via.placeholder.com/400x400" />
+          <Category image="https://via.placeholder.com/400x400" />
+          <Category image="https://via.placeholder.com/400x400" />
+          <Category image="https://via.placeholder.com/400x400" />
+          <Category image="https://via.placeholder.com/400x400" />
         </div>
       </div>
 
@@ -111,7 +117,7 @@ export default function HomeCustomer() {
         </div>
       </div>
 
-      {isOpen && <ProductDetails setIsOpen={setIsOpen}/>}
+      {isOpen && <ProductDetails setIsOpen={setIsOpen} />}
     </div>
   );
 }
