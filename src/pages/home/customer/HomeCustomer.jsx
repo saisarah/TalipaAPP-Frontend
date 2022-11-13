@@ -149,24 +149,24 @@ export default function HomeCustomer() {
 
         <div className="talipaapp-scrollbar mt-2 flex gap-4 overflow-x-auto">
           <Category
-            image="https://via.placeholder.com/400x400"
+            image="assets/image/vegetables.jpg"
             name="Vegetables"
           />
           <Category
-            image="https://via.placeholder.com/400x400"
-            name="Vegetables"
+            image="assets/image/fruits.jpg"
+            name="Fruits"
           />
           <Category
-            image="https://via.placeholder.com/400x400"
-            name="Vegetables"
+            image="assets/image/crop.jpg"
+            name="Crop"
           />
           <Category
-            image="https://via.placeholder.com/400x400"
-            name="Vegetables"
+            image="assets/image/meats.jpg"
+            name="Meats"
           />
           <Category
-            image="https://via.placeholder.com/400x400"
-            name="Vegetables"
+            image="assets/image/eggs.jpg"
+            name="Eggs"
           />
         </div>
       </div>
@@ -177,49 +177,45 @@ export default function HomeCustomer() {
         <div className="mt-4 grid grid-cols-2 gap-2">
           <Product
             setIsOpen={setIsOpen}
-            image="https://via.placeholder.com/400x400"
+            image="assets/image/repolyo.jpg"
             name="Repolyo"
           />
           <Product
             setIsOpen={setIsOpen}
-            image="https://via.placeholder.com/400x400"
-            name="Repolyo"
+            image="assets/image/karots.jpg"
+            name="Karots"
           />
           <Product
             setIsOpen={setIsOpen}
-            image="https://via.placeholder.com/400x400"
-            name="Repolyo"
+            image="assets/image/Brokolyo.jpg"
+            name="Brokolyo"
           />
           <Product
             setIsOpen={setIsOpen}
-            image="https://via.placeholder.com/400x400"
-            name="Repolyo"
+            image="assets/image/patatas.jpg"
+            name="Patatas"
           />
           <Product
             setIsOpen={setIsOpen}
-            image="https://via.placeholder.com/400x400"
-            name="Repolyo"
+            image="assets/image/luya.jpg"
+            name="Luya"
           />
           <Product
             setIsOpen={setIsOpen}
-            image="https://via.placeholder.com/400x400"
-            name="Repolyo"
+            image="assets/image/sibuyas.jpg"
+            name="Sibuyas"
           />
           <Product
             setIsOpen={setIsOpen}
-            image="https://via.placeholder.com/400x400"
-            name="Repolyo"
+            image="assets/image/kamatis.jpg"
+            name="Kamatis"
           />
           <Product
             setIsOpen={setIsOpen}
-            image="https://via.placeholder.com/400x400"
-            name="Repolyo"
+            image="assets/image/bawang.jpg"
+            name="Bawang"
           />
-          <Product
-            setIsOpen={setIsOpen}
-            image="https://via.placeholder.com/400x400"
-            name="Repolyo"
-          />
+
         </div>
       </div>
 
