@@ -36,10 +36,10 @@ export default function Orders() {
       <div className="text-2xl font-bold">My Purchases</div>
 
       <div className="mt-4 flex flex-col gap-4">
-        <TransactionCard image="https://via.placeholder.com/500x350"/>
-        <TransactionCard image="https://via.placeholder.com/500x350" />
-        <TransactionCard image="https://via.placeholder.com/500x350" />
-        <TransactionCard image="https://via.placeholder.com/500x350" />
+        <TransactionCard image="assets/image/sibuyas.jpg"/>
+        <TransactionCard image="assets/image/bawang.jpg" />
+        <TransactionCard image="assets/image/ubas.jpg" />
+        <TransactionCard image="assets/image/luya.jpg" />
       </div>
     </div>
   );
