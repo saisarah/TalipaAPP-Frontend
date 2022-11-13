@@ -2,6 +2,7 @@ import {
   createBrowserRouter,
   RouterProvider,
   Navigate,
+  createHashRouter,
 } from "react-router-dom";
 import HomeLayout from "../components/HomeLayout/HomeLayout";
 import HomeCustomer from "../pages/home/customer/HomeCustomer";
