@@ -1,9 +1,9 @@
-function TransactionCard() {
+function TransactionCard({ image }) {
   return (
     <div className="grid grid-cols-2 overflow-hidden rounded-xl bg-[#283618]">
       <div className="p-4">
         <img
-          src="https://via.placeholder.com/500x350"
+          src={image}
           className="h-full w-full rounded"
         />
       </div>
@@ -36,10 +36,10 @@ export default function Orders() {
       <div className="text-2xl font-bold">My Purchases</div>
 
       <div className="mt-4 flex flex-col gap-4">
-        <TransactionCard />
-        <TransactionCard />
-        <TransactionCard />
-        <TransactionCard />
+        <TransactionCard image="https://via.placeholder.com/500x350"/>
+        <TransactionCard image="https://via.placeholder.com/500x350" />
+        <TransactionCard image="https://via.placeholder.com/500x350" />
+        <TransactionCard image="https://via.placeholder.com/500x350" />
       </div>
     </div>
   );
