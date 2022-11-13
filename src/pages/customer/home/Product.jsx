@@ -14,7 +14,7 @@ export default function Product({ setIsOpen, image, name }) {
           icon={<ShoppingCartOutlined className="text-white" />}
           className="absolute top-2 right-2"
         />
-        <div className="absolute bottom-0 flex w-full items-end justify-between bg-white bg-opacity-20 px-2 pt-1">
+        <div className="absolute bottom-0 flex w-full items-end justify-between bg-gradient-to-t from-white to-transparent px-2 pt-1">
           <div
             onClick={() => setIsOpen(true)}
             className="text-lg font-semibold"
