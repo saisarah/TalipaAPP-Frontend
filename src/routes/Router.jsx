@@ -5,6 +5,7 @@ import {
   createHashRouter,
 } from "react-router-dom";
 import HomeLayout from "../components/HomeLayout/HomeLayout";
+import Messages from "../pages/customer/messages/Messages";
 import HomeCustomer from "../pages/home/customer/HomeCustomer";
 import Login from "../pages/login/Login";
 import Orders from "../pages/orders/Orders";
@@ -23,7 +24,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/messages',
-        element: <div>Messages</div>
+        element: <Messages />
       },
       {
         path: '/settings',
