@@ -6,9 +6,9 @@ import {
 } from "react-router-dom";
 import HomeLayout from "../components/HomeLayout/HomeLayout";
 import Messages from "../pages/customer/messages/Messages";
-import HomeCustomer from "../pages/home/customer/HomeCustomer";
+import Home from "../pages/customer/home/Home";
 import Login from "../pages/login/Login";
-import Orders from "../pages/orders/Orders";
+import Orders from "../pages/customer/orders/Orders";
 
 const router = createBrowserRouter([
   {
@@ -16,7 +16,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: '/',
-        element: <HomeCustomer />
+        element: <Home />
       },
       {
         path: '/orders',

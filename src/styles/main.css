@@ -8,7 +8,7 @@ body {
 }
 
 button {
-    @apply border-none;
+    @apply border-none cursor-pointer;
 }
 
 a {
@@ -30,7 +30,7 @@ a {
 }
 
 .talipaapp-button-1 {
-  @apply block bg-[#606C38] py-2.5 px-4 rounded text-white text-center;
+  @apply block bg-[#606C38] py-2.5 px-4 rounded text-white text-center hover:bg-[#606C38]/90;
 }
 
 .talipaapp-scrollbar {

@@ -3,7 +3,7 @@ import { Button, Input } from "antd";
 
 export default function Header() {
   return (
-    <div className="sticky -top-8 z-20 rounded-b-[2rem] bg-orange-200 p-8 pt-12 shadow-md">
+    <div style={{backgroundImage: 'url(/assets/image/header_background.png)'}} className="sticky -top-8 z-20 rounded-b-[2rem] p-8 pt-12 shadow-md">
       <div className="flex items-center gap-16">
         <Input
           prefix={<SearchOutlined className="mr-2" />}
