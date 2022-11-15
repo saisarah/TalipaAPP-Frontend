@@ -1,17 +1,11 @@
 import {
   BellOutlined,
   HeartOutlined,
-  HomeFilled,
-  MessageOutlined,
   SearchOutlined,
   ShoppingCartOutlined,
-  UserOutlined,
-  WalletOutlined,
 } from "@ant-design/icons";
-import { Badge, Tabs } from "antd";
-import { useContext, useState } from "react";
+import { Badge } from "antd";
 import { Link } from "react-router-dom";
-import { AppContext } from "../../../contexts/AppContext";
 
 function SubcategoryCard() {
   return (
@@ -28,27 +22,24 @@ function SubcategoryCard() {
 }
 
 export default function HomeCustomer() {
-  const { isLogin } = useContext(AppContext);
-  const [isOpen, setIsOpen] = useState(false);
-
   return (
-    <div className="mx-auto max-w-md pb-16">
+    <>
       <div className="bg-white px-4">
         <div className="flex items-center justify-between py-4">
           <h1 className="text-xl font-bold">Home</h1>
           <div className="space-x-4">
-            <button>
+            <Link to='/notifications'>
               <BellOutlined style={{ fontSize: 24 }} />
-            </button>
+            </Link>
             <Badge count={3}>
-              <button>
+              <Link to='/likes'>
                 <HeartOutlined style={{ fontSize: 24 }} />
-              </button>
+              </Link>
             </Badge>
             <Badge count={2}>
-              <button>
+              <Link to='/cart'>
                 <ShoppingCartOutlined style={{ fontSize: 24 }} />
-              </button>
+              </Link>
             </Badge>
           </div>
         </div>
@@ -83,21 +74,21 @@ export default function HomeCustomer() {
             />
           </div>
         </div>
+      </div>
 
-        <div className="mt-2 flex overflow-x-auto">
-          <button className="whitespace-nowrap border-b-2 border-primary px-4 py-2 text-primary">
-            Fruits
-          </button>
-          <button className="whitespace-nowrap border-b-2 border-white px-4 py-2">
-            Vegetables
-          </button>
-          <button className="whitespace-nowrap border-b-2 border-white px-4 py-2">
-            Meats
-          </button>
-          <button className="whitespace-nowrap border-b-2 border-white px-4 py-2">
-            Root Crops
-          </button>
-        </div>
+      <div className="pt-2 flex overflow-x-auto bg-white px-4 sticky top-0 shadow">
+        <button className="whitespace-nowrap border-b-2 border-primary px-4 py-2 text-primary">
+          Fruits
+        </button>
+        <button className="whitespace-nowrap border-b-2 border-white px-4 py-2">
+          Vegetables
+        </button>
+        <button className="whitespace-nowrap border-b-2 border-white px-4 py-2">
+          Meats
+        </button>
+        <button className="whitespace-nowrap border-b-2 border-white px-4 py-2">
+          Root Crops
+        </button>
       </div>
 
       <div className="py-4">
@@ -114,26 +105,6 @@ export default function HomeCustomer() {
           <SubcategoryCard />
         </div>
       </div>
-
-
-      <div className="fixed bottom-0 flex w-full max-w-md bg-white text-xs shadow">
-        <button className="flex flex-grow flex-col items-center gap-1 py-3 text-primary">
-          <HomeFilled style={{ fontSize: 20 }} />
-          Home
-        </button>
-        <button className="flex flex-grow flex-col items-center gap-1 py-3">
-          <WalletOutlined style={{ fontSize: 20 }} />
-          E-Wallet
-        </button>
-        <button className="flex flex-grow flex-col items-center gap-1 py-3">
-          <MessageOutlined style={{ fontSize: 20 }} />
-          Messages
-        </button>
-        <button className="flex flex-grow flex-col items-center gap-1 py-3">
-          <UserOutlined style={{ fontSize: 20 }} />
-          Account
-        </button>
-      </div>
-    </div>
+    </>
   );
 }

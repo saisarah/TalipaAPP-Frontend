@@ -5,6 +5,10 @@ body {
   @apply bg-slate-100 font-sans text-slate-700;
 }
 
+a {
+  @apply text-current;
+}
+
 .ant-rate-star:not(:last-child) {
   margin-right: 2px;
 }

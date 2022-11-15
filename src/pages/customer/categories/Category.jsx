@@ -9,7 +9,7 @@ function ProductCard()
     <div className="bg-white shadow rounded">
       <div className="bg-slate-300 w-full aspect-square"></div>
       <div className="p-4 flex flex-col">
-        <Link className="text-current text-base" to="/">Fresh fruit apple</Link>
+        <Link className="text-current text-base" to="/products/1">Fresh fruit apple</Link>
         <span className="text-base text-primary font-medium">₱100.00</span>
         <div className="flex items-end gap-2">
           <Rate className="text-sm" allowHalf={true} value={4.5} disabled />
