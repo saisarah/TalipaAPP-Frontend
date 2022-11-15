@@ -3,6 +3,7 @@ import {
   RouterProvider,
   Navigate,
   createHashRouter,
+  Outlet,
 } from "react-router-dom";
 import HomeLayout from "../components/HomeLayout/HomeLayout";
 import Messages from "../pages/customer/messages/Messages";
@@ -12,23 +13,11 @@ import Orders from "../pages/customer/orders/Orders";
 
 const router = createBrowserRouter([
   {
-    element: <HomeLayout />,
+    element: <Outlet />, //Customer,
     children: [
       {
-        path: '/',
+        path: "/",
         element: <Home />
-      },
-      {
-        path: '/orders',
-        element: <Orders />
-      },
-      {
-        path: '/messages',
-        element: <Messages />
-      },
-      {
-        path: '/settings',
-        element: <div>Settings</div>
       }
     ]
   },

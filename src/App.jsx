@@ -1,6 +1,13 @@
+import { ConfigProvider } from "antd";
 import { useState } from "react";
 import { AppContextProvider } from "./contexts/AppContext";
 import Router from "./routes/Router";
+
+ConfigProvider.config({
+  theme: {
+    primaryColor: '#16a34a', //bg-green-600
+  }
+})
 
 function App() {
   const [isLogin, setIsLogin] = useState(false);
