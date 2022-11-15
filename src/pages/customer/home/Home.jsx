@@ -10,52 +10,19 @@ import {
 } from "@ant-design/icons";
 import { Badge, Tabs } from "antd";
 import { useContext, useState } from "react";
+import { Link } from "react-router-dom";
 import { AppContext } from "../../../contexts/AppContext";
 
-function Fruits() {
+function SubcategoryCard() {
   return (
-    <div className="p-4">
-      <div className="grid grid-cols-2 gap-2">
-        <div className="bg-white p-4 text-center shadow">
-          <h5 className="font-semibold">Apples</h5>
-          <div className="aspect-square w-full rounded bg-slate-400"></div>
-        </div>
-
-        <div className="bg-white p-4 text-center shadow">
-          <h5 className="font-semibold">Oranges</h5>
-          <div className="aspect-square w-full rounded bg-slate-400"></div>
-        </div>
-
-        <div className="bg-white p-4 text-center shadow">
-          <h5 className="font-semibold">Kiwi</h5>
-          <div className="aspect-square w-full rounded bg-slate-400"></div>
-        </div>
-
-        <div className="bg-white p-4 text-center shadow">
-          <h5 className="font-semibold">Bananas</h5>
-          <div className="aspect-square w-full rounded bg-slate-400"></div>
-        </div>
-
-        <div className="bg-white p-4 text-center shadow">
-          <h5 className="font-semibold">Avocados</h5>
-          <div className="aspect-square w-full rounded bg-slate-400"></div>
-        </div>
-
-        <div className="bg-white p-4 text-center shadow">
-          <h5 className="font-semibold">Coconuts</h5>
-          <div className="aspect-square w-full rounded bg-slate-400"></div>
-        </div>
-
-        <div className="bg-white p-4 text-center shadow">
-          <h5 className="font-semibold">Coconuts</h5>
-          <div className="aspect-square w-full rounded bg-slate-400"></div>
-        </div>
-
-        <div className="bg-white p-4 text-center shadow">
-          <h5 className="font-semibold">Coconuts</h5>
-          <div className="aspect-square w-full rounded bg-slate-400"></div>
-        </div>
-      </div>
+    <div className="bg-white p-4 text-center shadow">
+      <Link
+        to="/categories/1"
+        className="mb-2 block font-semibold text-current"
+      >
+        Apples
+      </Link>
+      <div className="aspect-square w-full rounded bg-slate-400"></div>
     </div>
   );
 }
@@ -65,7 +32,7 @@ export default function HomeCustomer() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="mx-auto flex min-h-screen max-w-md flex-col pb-16">
+    <div className="mx-auto max-w-md pb-16">
       <div className="bg-white px-4">
         <div className="flex items-center justify-between py-4">
           <h1 className="text-xl font-bold">Home</h1>
@@ -116,42 +83,38 @@ export default function HomeCustomer() {
             />
           </div>
         </div>
+
+        <div className="mt-2 flex overflow-x-auto">
+          <button className="whitespace-nowrap border-b-2 border-primary px-4 py-2 text-primary">
+            Fruits
+          </button>
+          <button className="whitespace-nowrap border-b-2 border-white px-4 py-2">
+            Vegetables
+          </button>
+          <button className="whitespace-nowrap border-b-2 border-white px-4 py-2">
+            Meats
+          </button>
+          <button className="whitespace-nowrap border-b-2 border-white px-4 py-2">
+            Root Crops
+          </button>
+        </div>
       </div>
 
-      <div className="flex-grow">
-        <Tabs
-          tabBarStyle={{
-            marginBottom: 0,
-            backgroundColor: "#fff",
-            padding: "0 1rem",
-            position: "sticky",
-            top: 0,
-            zIndex: 10,
-          }}
-          items={[
-            {
-              label: "Fruits",
-              key: "1",
-              children: <Fruits />,
-            },
-            {
-              label: "Vegetables",
-              key: "2",
-              children: <Fruits />,
-            },
-            {
-              label: "Meats",
-              key: "3",
-              children: <Fruits />,
-            },
-            {
-              label: "Root Crops",
-              key: "4",
-              children: <Fruits />,
-            },
-          ]}
-        />
+      <div className="py-4">
+        <div className="grid grid-cols-2 gap-2">
+          <SubcategoryCard />
+          <SubcategoryCard />
+          <SubcategoryCard />
+          <SubcategoryCard />
+          <SubcategoryCard />
+          <SubcategoryCard />
+          <SubcategoryCard />
+          <SubcategoryCard />
+          <SubcategoryCard />
+          <SubcategoryCard />
+        </div>
       </div>
+
 
       <div className="fixed bottom-0 flex w-full max-w-md bg-white text-xs shadow">
         <button className="flex flex-grow flex-col items-center gap-1 py-3 text-primary">

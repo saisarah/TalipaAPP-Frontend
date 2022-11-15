@@ -10,6 +10,7 @@ import Messages from "../pages/customer/messages/Messages";
 import Home from "../pages/customer/home/Home";
 import Login from "../pages/login/Login";
 import Orders from "../pages/customer/orders/Orders";
+import Category from "../pages/customer/categories/Category";
 
 const router = createBrowserRouter([
   {
@@ -18,6 +19,10 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />
+      },
+      {
+        path: "/categories/:id",
+        element: <Category />
       }
     ]
   },

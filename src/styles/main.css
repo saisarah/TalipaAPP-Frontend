@@ -5,6 +5,10 @@ body {
   @apply bg-slate-100 font-sans text-slate-700;
 }
 
+.ant-rate-star:not(:last-child) {
+  margin-right: 2px;
+}
+
 .talipaapp-input-1,
 .talipaapp-input-1 input {
   @apply bg-[#C2CFA0] text-sm text-[#424b27] placeholder:text-[#606C38];
