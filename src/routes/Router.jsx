@@ -2,6 +2,7 @@ import {
   createBrowserRouter,
   RouterProvider,
   Outlet,
+  createHashRouter,
 } from "react-router-dom";
 import Home from "../pages/customer/home/Home";
 import Login from "../pages/login/Login";
@@ -15,7 +16,9 @@ import Cart from "../pages/customer/cart/Cart";
 import Likes from "../pages/customer/likes/Likes";
 import Notifications from "../pages/customer/notifications/Notifications";
 
-const router = createBrowserRouter([
+const platform = import.meta.env.VITE_PLATFLORM;
+
+const routes = [
   {
     element: <Outlet />, //Customer,
     children: [
@@ -70,7 +73,11 @@ const router = createBrowserRouter([
     path: "/register",
     element: <div>Register</div>,
   },
-]);
+]
+
+const router = (platform === 'android') 
+  ? createHashRouter(routes)
+  : createBrowserRouter(routes);
 
 export default function Router() {
   return <RouterProvider router={router} />;
