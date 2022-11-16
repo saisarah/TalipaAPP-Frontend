@@ -1,10 +1,11 @@
+import UnderConstruction from "../../../components/UnderConstruction";
 
 
 export default function Messages()
 {
   return (
     <div>
-      Messages Page
+      <UnderConstruction />
     </div>
   )
 }
