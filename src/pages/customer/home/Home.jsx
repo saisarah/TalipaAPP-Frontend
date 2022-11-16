@@ -4,69 +4,14 @@ import {
   SearchOutlined,
   ShoppingCartOutlined,
 } from "@ant-design/icons";
-import { Badge, Empty, Spin } from "antd";
+import { Badge } from "antd";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { sleep } from "../../../helpers/utils";
+import CategoryTab from "./CategoryTab";
 import categories from "./homeData";
+import SubCategories from "./SubCategories";
 
-function SubcategoryCard({ name, image }) {
-  return (
-    <div className="bg-white p-4 text-center shadow">
-      <Link
-        to="/categories/1"
-        className="mb-2 block font-semibold text-current"
-      >
-        {name}
-      </Link>
-      <div className="aspect-square w-full rounded bg-slate-400"></div>
-    </div>
-  );
-}
-
-function CategoryTab({ selectedCategory, setSelectedCategory }) {
-  return (
-    <div className="talipaapp-scrollbar sticky top-0 flex overflow-x-auto bg-white px-4 pt-2 shadow">
-      {categories.map(({ name }, i) => (
-        <button
-          onClick={() => setSelectedCategory(i)}
-          key={name}
-          className={`whitespace-nowrap border-b-2 px-4 py-2 ${
-            selectedCategory === i
-              ? "border-primary text-primary"
-              : "border-white"
-          }`}
-        >
-          {name}
-        </button>
-      ))}
-    </div>
-  );
-}
-
-function SubCategories({ category, isLoading }) {
-  const { subcategory } = category;
-
-  if (isLoading) {
-    return (
-      <div className="flex justify-center my-8">
-        <Spin size="large" tip="Fetching data"/>
-      </div>
-    )
-  }
-
-  if (subcategory.length === 0) {
-    return <Empty />;
-  }
-
-  return (
-    <div className="grid grid-cols-2 gap-2">
-      {subcategory.map(({ name, image }) => (
-        <SubcategoryCard key={name} name={name} image={image} />
-      ))}
-    </div>
-  );
-}
 
 export default function HomeCustomer() {
   const [selectedCategory, setSelectedCategory] = useState(0);
