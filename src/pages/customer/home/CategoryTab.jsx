@@ -1,5 +1,5 @@
 
-export default function CategoryTab({ selectedCategory, setSelectedCategory }) {
+export default function CategoryTab({ selectedCategory, setSelectedCategory, categories }) {
   return (
     <div className="talipaapp-scrollbar sticky top-0 flex overflow-x-auto bg-white px-4 pt-2 shadow">
       {categories.map(({ name }, i) => (

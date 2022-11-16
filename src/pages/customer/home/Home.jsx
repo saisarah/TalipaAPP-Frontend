@@ -81,6 +81,7 @@ export default function HomeCustomer() {
       <CategoryTab
         selectedCategory={selectedCategory}
         setSelectedCategory={changeCategory}
+        categories={categories}
       />
 
       <div className="py-4">        
