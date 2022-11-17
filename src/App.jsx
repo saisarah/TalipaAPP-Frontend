@@ -9,6 +9,8 @@ ConfigProvider.config({
   }
 })
 
+const isAndroid = import.meta.env.VITE_PLATFLORM;
+
 function App() {
   const [isLogin, setIsLogin] = useState(false);
 
@@ -18,6 +20,7 @@ function App() {
       setIsLogin={setIsLogin}
       email="customer@gmail.com"
       password="password1234"
+      isAndroid={isAndroid}
     >
       <Router />
     </AppContextProvider>
