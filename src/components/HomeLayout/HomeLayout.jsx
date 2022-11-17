@@ -4,13 +4,8 @@ import Navbar from "./Navbar";
 
 export default function HomeLayout() {
   return (
-    <div className="mx-auto flex min-h-screen max-w-md flex-col relative">
-      <Header />
-
-      <div className="flex-grow">
-        <Outlet />
-      </div>
-
+    <div className="max-w-md mx-auto min-h-screen pb-16">
+      <Outlet />
       <Navbar />
     </div>
   );

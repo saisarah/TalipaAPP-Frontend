@@ -1,4 +1,5 @@
 const defaultTheme = require('tailwindcss/defaultTheme')
+const colors = require('tailwindcss/colors')
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -6,12 +7,17 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        'sans': ['Mulish', ...defaultTheme.fontFamily.sans]
+        'sans': ['Inter', ...defaultTheme.fontFamily.sans]
+      },
+      colors: {
+        primary: 'rgb(var(--color-primary) / <alpha-value>)',
       }
     },
   },
-  corePlugins: {
-    preflight: false
-  },
-  plugins: [],
+  plugins: [
+    function({ addVariant }) {
+      addVariant('child', '& > *');
+      addVariant('child-hover', '& > *:hover');
+    }
+  ],
 };

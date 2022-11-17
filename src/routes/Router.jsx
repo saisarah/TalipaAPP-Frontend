@@ -1,34 +1,67 @@
 import {
   createBrowserRouter,
   RouterProvider,
-  Navigate,
+  Outlet,
   createHashRouter,
 } from "react-router-dom";
-import HomeLayout from "../components/HomeLayout/HomeLayout";
-import Messages from "../pages/customer/messages/Messages";
 import Home from "../pages/customer/home/Home";
 import Login from "../pages/login/Login";
-import Orders from "../pages/customer/orders/Orders";
+import Category from "../pages/customer/categories/Category";
+import Product from "../pages/customer/products/Product";
+import HomeLayout from "../components/HomeLayout/HomeLayout";
+import Wallet from "../pages/customer/wallet/Wallet";
+import Messages from "../pages/customer/messages/Messages";
+import Account from "../pages/customer/account/Account";
+import Cart from "../pages/customer/cart/Cart";
+import Likes from "../pages/customer/likes/Likes";
+import Notifications from "../pages/customer/notifications/Notifications";
 
-const router = createBrowserRouter([
+const platform = import.meta.env.VITE_PLATFLORM;
+
+const routes = [
   {
-    element: <HomeLayout />,
+    element: <Outlet />, //Customer,
     children: [
       {
-        path: '/',
-        element: <Home />
+        element: <HomeLayout />,
+        children: [
+          {
+            path: '/',
+            element: <Home />
+          },
+          {
+            path: '/wallet',
+            element: <Wallet />
+          },
+          {
+            path: '/messages',
+            element: <Messages />
+          },
+          {
+            path: '/account',
+            element: <Account />
+          }
+        ]
       },
       {
-        path: '/orders',
-        element: <Orders />
+        path: "/categories/:id",
+        element: <Category />
       },
       {
-        path: '/messages',
-        element: <Messages />
+        path: "/products/:id",
+        element: <Product />
       },
       {
-        path: '/settings',
-        element: <div>Settings</div>
+        path: '/cart',
+        element: <Cart />
+      },
+      {
+        path: '/likes',
+        element: <Likes />
+      },
+      {
+        path: '/notifications',
+        element: <Notifications />
       }
     ]
   },
@@ -40,7 +73,11 @@ const router = createBrowserRouter([
     path: "/register",
     element: <div>Register</div>,
   },
-]);
+]
+
+const router = (platform === 'android') 
+  ? createHashRouter(routes)
+  : createBrowserRouter(routes);
 
 export default function Router() {
   return <RouterProvider router={router} />;
