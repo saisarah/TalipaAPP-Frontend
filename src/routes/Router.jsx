@@ -40,6 +40,10 @@ const routes = [
           {
             path: '/account',
             element: <Account />
+          },
+          {
+            path: '/notifications',
+            element: <Notifications />
           }
         ]
       },
@@ -59,10 +63,7 @@ const routes = [
         path: '/likes',
         element: <Likes />
       },
-      {
-        path: '/notifications',
-        element: <Notifications />
-      }
+      
     ]
   },
   {
