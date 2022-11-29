@@ -63,7 +63,7 @@ export default function Account()
         <p className="text-base font-bold">My orders</p>
         <div className="space-x-4">
           <Link to='/account'>
-            <p>View all <span className="font-bold">></span></p>
+            <p>View all <span className="font-bold"></span></p>
             {/* <RightOutlined/> */}
           </Link>
         </div>
@@ -110,7 +110,7 @@ export default function Account()
         <p className="text-base font-bold">Other services</p>
         <div className="space-x-4">
           <Link to='/account'>
-            <p>View all <span className="font-bold">></span></p>
+            <p>View all <span className="font-bold"></span></p>
             {/* <RightOutlined/> */}
           </Link>
         </div>

@@ -12,19 +12,17 @@ import CategoryTab from "./CategoryTab";
 import categories from "./homeData";
 import SubCategories from "./SubCategories";
 
-function Card(props) {
+function Card({ src, title }) {
   return (
     <div className="flex flex-col items-center gap-2 rounded-md bg-white py-4 shadow-md">
-      <img src={props.src} className="h-20" />
-      <span className="text-lg font-bold">{props.title}</span>
+      <img src={src} className="h-20" />
+      <span className="text-lg font-bold">{title}</span>
     </div>
   );
 }
 
 function Banner(props) {
-  return (
-      <img src={props.src} className="h-40 w-auto rounded-md shadow-md"/>
-  )
+  return <img src={props.src} className="h-40 w-auto rounded-md shadow-md" />;
 }
 
 export default function HomeCustomer() {
@@ -41,23 +39,23 @@ export default function HomeCustomer() {
   return (
     <>
       <div className="flex flex-row items-center gap-2 px-4 py-2">
-        <img src="/assets/logo.png" className="h-10" />
+        <img src="/assets/images/logo.png" className="h-20 w-auto" />
         <span className="whitespace-nowrap text-lg font-bold text-primary">
           Hello Juan
         </span>
       </div>
 
-      <div className="flex flex-row gap-4 overflow-x-auto talipaapp-scrollbar mx-4">
-        <Banner src="/assets/images/banner1.svg"/>
-        <Banner src="/assets/images/banner2.svg"/>
+      <div className="talipaapp-scrollbar mx-4 flex flex-row gap-4 overflow-x-auto">
+        <Banner src="/assets/images/banner1.png" />
+        <Banner src="/assets/images/banner2.png" />
       </div>
 
-      <div className="mt-4 grid grid-cols-2 gap-2 mx-4">
-        <Card title="Seller" src="/assets/images/seller.svg"/>
-        <Card title="Buyer" src="/assets/images/buyer.svg"/>
-        <Card title="Association" src="/assets/images/association.svg"/>
-        <Card title="Public Market" src="/assets/images/market.svg"/>
-        <Card title="News" src="/assets/images/news.svg"/>
+      <div className="mx-4 mt-4 grid grid-cols-2 gap-2">
+        <Card title="Seller" src="/assets/images/seller.png" />
+        <Card title="Buyer" src="/assets/images/buyer.png" />
+        <Card title="Association" src="/assets/images/association.png" />
+        <Card title="Public Market" src="/assets/images/market.png" />
+        <Card title="News" src="/assets/images/news.png" />
       </div>
     </>
   );

@@ -15,6 +15,11 @@ import Account from "../pages/customer/account/Account";
 import Cart from "../pages/customer/cart/Cart";
 import Likes from "../pages/customer/likes/Likes";
 import Notifications from "../pages/customer/notifications/Notifications";
+import Information from "../pages/farmer-registration/Information";
+import Address from "../pages/farmer-registration/Address";
+import Farm from "../pages/farmer-registration/Farm";
+import Crops from "../pages/farmer-registration/Crops";
+import Registration from "../pages/farmer-registration/Registration";
 
 const platform = import.meta.env.VITE_PLATFLORM;
 
@@ -26,59 +31,79 @@ const routes = [
         element: <HomeLayout />,
         children: [
           {
-            path: '/',
-            element: <Home />
+            path: "/",
+            element: <Home />,
           },
           {
-            path: '/wallet',
-            element: <Wallet />
+            path: "/home",
+            element: <Home />,
           },
           {
-            path: '/messages',
-            element: <Messages />
+            path: "/wallet",
+            element: <Wallet />,
           },
           {
-            path: '/account',
-            element: <Account />
+            path: "/messages",
+            element: <Messages />,
           },
           {
-            path: '/notifications',
-            element: <Notifications />
-          }
-        ]
+            path: "/account",
+            element: <Account />,
+          },
+          {
+            path: "/notifications",
+            element: <Notifications />,
+          },
+        ],
       },
       {
         path: "/categories/:id",
-        element: <Category />
+        element: <Category />,
       },
       {
         path: "/products/:id",
-        element: <Product />
+        element: <Product />,
       },
       {
-        path: '/cart',
-        element: <Cart />
+        path: "/cart",
+        element: <Cart />,
       },
       {
-        path: '/likes',
-        element: <Likes />
+        path: "/likes",
+        element: <Likes />,
       },
-      
-    ]
+    ],
   },
   {
     path: "/login",
     element: <Login />,
   },
   {
-    path: "/register",
-    element: <div>Register</div>,
+    path: "/registration",
+    element: <Registration />,
   },
-]
+  {
+    path: "/information",
+    element: <Information />,
+  },
+  {
+    path: "/address",
+    element: <Address />,
+  },
+  {
+    path: "/farm",
+    element: <Farm />,
+  },
+  {
+    path: "/crops",
+    element: <Crops />,
+  },
+];
 
-const router = (platform === 'android') 
-  ? createHashRouter(routes)
-  : createBrowserRouter(routes);
+const router =
+  platform === "android"
+    ? createHashRouter(routes)
+    : createBrowserRouter(routes);
 
 export default function Router() {
   return <RouterProvider router={router} />;

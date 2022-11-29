@@ -4,7 +4,7 @@ import Navbar from "./Navbar";
 
 export default function HomeLayout() {
   return (
-    <div className="max-w-md mx-auto min-h-screen pb-16">
+    <div className="mx-auto min-h-screen max-w-md pb-16">
       <Outlet />
       <Navbar />
     </div>

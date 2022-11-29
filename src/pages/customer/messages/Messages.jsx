@@ -57,8 +57,6 @@ export default function user()
       <Messages user="Basilio"  displayphoto="https://via.placeholder.com/59x59"/>
       <Messages user="Doctor Tiburcio de Espadaña" displayphoto="https://via.placeholder.com/59x59"/>
       <Messages user="Lt. Guevara" displayphoto="https://via.placeholder.com/59x59"/>
-      
-    
     </div>
   );
 }
