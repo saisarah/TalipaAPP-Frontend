@@ -6,6 +6,7 @@ import {
 } from "react-router-dom";
 import Home from "../pages/customer/home/Home";
 import Login from "../pages/login/Login";
+import Verification from "../pages/login/Verification";
 import Category from "../pages/customer/categories/Category";
 import Product from "../pages/customer/products/Product";
 import HomeLayout from "../components/HomeLayout/HomeLayout";
@@ -26,59 +27,63 @@ const routes = [
         element: <HomeLayout />,
         children: [
           {
-            path: '/',
-            element: <Home />
+            path: "/",
+            element: <Home />,
           },
           {
-            path: '/wallet',
-            element: <Wallet />
+            path: "/wallet",
+            element: <Wallet />,
           },
           {
-            path: '/messages',
-            element: <Messages />
+            path: "/messages",
+            element: <Messages />,
           },
           {
-            path: '/account',
-            element: <Account />
+            path: "/account",
+            element: <Account />,
           },
           {
-            path: '/notifications',
-            element: <Notifications />
-          }
-        ]
+            path: "/notifications",
+            element: <Notifications />,
+          },
+        ],
       },
       {
         path: "/categories/:id",
-        element: <Category />
+        element: <Category />,
       },
       {
         path: "/products/:id",
-        element: <Product />
+        element: <Product />,
       },
       {
-        path: '/cart',
-        element: <Cart />
+        path: "/cart",
+        element: <Cart />,
       },
       {
-        path: '/likes',
-        element: <Likes />
+        path: "/likes",
+        element: <Likes />,
       },
-      
-    ]
+    ],
   },
   {
     path: "/login",
     element: <Login />,
   },
   {
+    path: "/verification",
+    element: <Verification />,
+  },
+  {
     path: "/register",
     element: <div>Register</div>,
   },
-]
+];
 
-const router = (platform === 'android') 
-  ? createHashRouter(routes)
-  : createBrowserRouter(routes);
+const router =
+  platform === "android"
+    ? createHashRouter(routes)
+    : createBrowserRouter(routes);
 
 export default function Router() {
   return <RouterProvider router={router} />;
