@@ -1,89 +1,88 @@
-import { Button, Checkbox, Form, Input, Spin } from "antd";
-import {
-  LockOutlined,
-  UserOutlined,
-  LeftOutlined,
-  BorderBottomOutlined,
-} from "@ant-design/icons";
+import { Button } from "antd";
+import { LeftOutlined } from "@ant-design/icons";
 import OTPInput, { ResendOTP } from "otp-input-react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
+function OTPButton({ children, className = "", onClick }) {
+  return (
+    <Button
+      onClick={onClick}
+      className={`aspect-square h-auto w-1/3 border-none ${className}`}
+      type="ghost"
+    >
+      {children}
+    </Button>
+  );
+}
+
 export default function Login() {
   const [OTP, setOTP] = useState("");
 
+  const append = (n) => {
+    setOTP((OTP) => {
+      if (OTP.length < 4 && n >= 0) return OTP + n;
+      if (OTP.length > 0 && n < 0) return OTP.substring(0, OTP.length - 1);
+      return OTP;
+    });
+  };
+
   return (
-    <>
-      <div className="mx-auto min-h-screen max-w-md bg-white p-5">
-        <Link to={"/login"}>
-          <LeftOutlined />
-        </Link>
-        <p>Verification</p>
+    <div className="mx-auto flex min-h-screen max-w-md flex-col bg-slate-50 p-4">
+      <Link to={"/login"}>
+        <LeftOutlined />
+      </Link>
 
-        <div className="my-6">
-          <h1 className="text-xl font-bold">We sent you an SMS code</h1>
-          <p>
-            on number: <span className="text-primary">+63 9** **** ****</span>
-          </p>
-        </div>
+      <p className="my-4">Verification</p>
+      <span className="block text-xl font-bold">
+        We sent you an SMS verification code
+      </span>
+      <span>On number: +639384379875</span>
 
-        <br />
-        <br />
-        <br />
-        <br />
+      <div className="mt-4 flex flex-grow flex-col justify-end">
         <OTPInput
           inputStyles={{
-            // border: "1px solid black",
-            borderRadius: "3px",
-            width: "60px",
-            height: "60px",
+            borderRadius: "4px",
+            width: "100%",
+            height: "auto",
+            marginRight: 0,
+            aspectRatio: 1,
             boxShadow: "2px 2px 2px 2px #ccc",
             outlineColor: "green",
           }}
-          className="my-auto items-center justify-center"
+          className="items-center justify-between gap-4 font-bold"
           value={OTP}
           onChange={setOTP}
           autoFocus
           OTPLength={4}
           otpType="number"
-          disabled={false}
-          // secure
         />
-        <br />
-        {/* <ResendOTP onResendClick={() => console.log("Code not received?")} /> */}
 
-        <div className="mb-6 text-center">
-          <Link>Code not received?</Link>
+        <div className="mt-4 text-center">
+          <span>Code not received? </span>
+          <span>Resend</span>
         </div>
 
-        <div>
-          <div className="mb-10 grid grid-cols-3 items-center gap-4">
-            <Button style={{ border: "none" }}>1</Button>
-            <Button style={{ border: "none" }}>2</Button>
-            <Button style={{ border: "none" }}>3</Button>
-          </div>
-          <div className="mb-10 grid grid-cols-3 items-center gap-4">
-            <Button style={{ border: "none" }}>4</Button>
-            <Button style={{ border: "none" }}>5</Button>
-            <Button style={{ border: "none" }}>6</Button>
-          </div>
-          <div className="mb-10 grid grid-cols-3 items-center gap-4">
-            <Button style={{ border: "none" }}>7</Button>
-            <Button style={{ border: "none" }}>8</Button>
-            <Button style={{ border: "none" }}>9</Button>
-          </div>
-          <div className="mb-10 grid grid-cols-3 items-center gap-4">
-            <Button style={{ border: "none" }}></Button>
-            <Button style={{ border: "none" }}>0</Button>
-            <Button
-              className="grid justify-items-center"
-              style={{ border: "none" }}
-            >
-              <img src="/assets/images/icon _delete.svg" alt="" />
-            </Button>
-          </div>
+        <div className="mt-4 flex flex-wrap justify-end">
+          <OTPButton onClick={() => append(1)}>1</OTPButton>
+          <OTPButton onClick={() => append(2)}>2</OTPButton>
+          <OTPButton onClick={() => append(3)}>3</OTPButton>
+          <OTPButton onClick={() => append(4)}>4</OTPButton>
+          <OTPButton onClick={() => append(5)}>5</OTPButton>
+          <OTPButton onClick={() => append(6)}>6</OTPButton>
+          <OTPButton onClick={() => append(7)}>7</OTPButton>
+          <OTPButton onClick={() => append(8)}>8</OTPButton>
+          <OTPButton onClick={() => append(9)}>9</OTPButton>
+          <OTPButton onClick={() => append(0)}>0</OTPButton>
+          <OTPButton onClick={() => append(-1)}>
+            <img
+              className="mx-auto"
+              src="/assets/images/icon _delete.svg"
+              alt=""
+            />
+          </OTPButton>
         </div>
       </div>
-    </>
+    </div>
   );
 }
