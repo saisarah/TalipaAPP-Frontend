@@ -32,7 +32,8 @@ export default [
       {
         path: '/notifications',
         element: <Notifications />
-      }
+      },
+      
     ]
   },
   {

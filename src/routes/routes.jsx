@@ -4,6 +4,7 @@ import vendorRoutes from "./vendorRoutes";
 import farmerRoutes from "./farmerRoutes";
 import Verification from "../pages/login/Verification";
 import VendorGate from "../components/VendorGate";
+import FarmersProfile from "../pages/farmersProfile/FarmersProfile";
 export default [
   {
     element: <VendorGate />,
@@ -25,5 +26,9 @@ export default [
   {
     path: "/register",
     element: <div>Register</div>,
+  },
+  {
+    path: "/farmersProfile",
+    element: <FarmersProfile/>,
   },
 ];
