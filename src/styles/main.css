@@ -13,6 +13,10 @@ a {
   margin-right: 2px;
 }
 
+.anticon svg {
+  vertical-align: baseline;
+}
+
 .talipaapp-input-1,
 .talipaapp-input-1 input {
   @apply bg-[#C2CFA0] text-sm text-[#424b27] placeholder:text-[#606C38];
@@ -39,4 +43,3 @@ a {
 .talipaapp-scrollbar::-webkit-scrollbar { width: 5px; }
 .talipaapp-scrollbar::-webkit-scrollbar-track { background-color: #f1f1f1; }
 .talipaapp-scrollbar::-webkit-scrollbar-thumb { background-color: rgb(179, 179, 179); }
-
