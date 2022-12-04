@@ -2,10 +2,10 @@ import { createContext } from "react";
 
 export const AppContext = createContext({})
 
-export function AppContextProvider({ children, isLogin, setIsLogin, email, password })
+export function AppContextProvider({ children  })
 {
   return (
-    <AppContext.Provider value={{ isLogin, setIsLogin, email, password }}>
+    <AppContext.Provider value={{}}>
       {children}
     </AppContext.Provider>
   )
