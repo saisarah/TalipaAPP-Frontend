@@ -25,11 +25,16 @@ export default function Verification({ reset, phone }) {
 
   const [OTP, setOTP] = useState("");
   const { mutate, isLoading } = useMutation(verifyLoginOtp, {
-    onSuccess(data) {
-      console.log(data)
-      localStorage.setItem('auth_token', data.plainTextToken)
-      setAuthorization(data.plainTextToken)
-      navigate('/')
+    onSuccess({ token, user }) {
+      localStorage.setItem('auth_token', token)
+      setAuthorization(token)
+
+      if (user.user_type === 'farmer')
+        navigate('/farmer')
+      else if (user.user_type === 'vendor')
+        navigate('/')
+      else
+        throw 'Invalid User Type'
     },
     onError(error) {
       message.error(getErrorMessage(error))
