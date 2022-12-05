@@ -1,9 +1,10 @@
-import { Outlet } from "react-router-dom";
-import Login from "../pages/login/Login";
 import vendorRoutes from "./vendorRoutes";
 import farmerRoutes from "./farmerRoutes";
-import Verification from "../pages/login/Verification";
 import VendorGate from "../components/VendorGate";
+import FarmerGate from "../components/FarmerGate";
+import GuestGate from "../components/GuestGate";
+import guestRoutes from "./guestRoutes";
+
 export default [
   {
     element: <VendorGate />,
@@ -11,19 +12,11 @@ export default [
   },
   {
     path: "/farmer",
-    element: <Outlet />,
+    element: <FarmerGate />,
     children: farmerRoutes,
   },
   {
-    path: "/login",
-    element: <Login />,
-  },
-  {
-    path: "/verification",
-    element: <Verification />,
-  },
-  {
-    path: "/register",
-    element: <div>Register</div>,
+    element: <GuestGate />,
+    children: guestRoutes
   },
 ];
