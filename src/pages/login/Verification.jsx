@@ -2,9 +2,10 @@ import { Button, Spin } from "antd";
 import { LeftOutlined } from "@ant-design/icons";
 import OTPInput, { ResendOTP } from "otp-input-react";
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import { useMutation } from "@tanstack/react-query";
 import { verifyLoginOtp } from "../../apis/AuthApi";
+import { setAuthorization } from "../../helpers/Http";
+import { useNavigate } from "react-router-dom";
 
 function OTPButton({ children, className = "", onClick }) {
   return (
@@ -19,10 +20,16 @@ function OTPButton({ children, className = "", onClick }) {
 }
 
 export default function Verification({ reset, phone }) {
+
+  const navigate = useNavigate()
+
   const [OTP, setOTP] = useState("");
   const { mutate, isLoading } = useMutation(verifyLoginOtp, {
     onSuccess(data) {
       console.log(data)
+      localStorage.setItem('auth_token', data.plainTextToken)
+      setAuthorization(data.plainTextToken)
+      navigate('/')
     },
     onError(error) {
       console.log(error)
@@ -56,7 +63,7 @@ export default function Verification({ reset, phone }) {
         <span className="block text-xl font-bold">
           We sent you an SMS verification code
         </span>
-        <span>On number: +639384379875</span>
+        <span>On number: +63{phone}</span>
 
         <div className="mt-4 flex flex-grow flex-col justify-end">
           <OTPInput

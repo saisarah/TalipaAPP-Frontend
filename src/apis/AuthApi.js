@@ -10,9 +10,10 @@ export const sendLoginOtp = async (contact_number) => {
 }
 
 export const verifyLoginOtp = async ({contact_number, code}) => {
-    return await Http.post('/login/verify-otp', {
+    const { data } = await Http.post('/login/verify-otp', {
         contact_number,
         code,
         device_name: 'TalipaAPP FrontEnd'
     })
+    return data
 }
