@@ -1,10 +1,10 @@
-import { Button, Spin } from "antd";
+import { Button, message, Spin } from "antd";
 import { LeftOutlined } from "@ant-design/icons";
 import OTPInput, { ResendOTP } from "otp-input-react";
 import { useEffect, useState } from "react";
 import { useMutation } from "@tanstack/react-query";
 import { verifyLoginOtp } from "../../apis/AuthApi";
-import { setAuthorization } from "../../helpers/Http";
+import { getErrorMessage, setAuthorization } from "../../helpers/Http";
 import { useNavigate } from "react-router-dom";
 
 function OTPButton({ children, className = "", onClick }) {
@@ -32,7 +32,7 @@ export default function Verification({ reset, phone }) {
       navigate('/')
     },
     onError(error) {
-      console.log(error)
+      message.error(getErrorMessage(error))
       setOTP('')
     }
   })

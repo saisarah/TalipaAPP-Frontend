@@ -1,18 +1,16 @@
 import { useMutation } from "@tanstack/react-query";
-import { Button, Input } from "antd";
+import { Button, Input, message, notification } from "antd";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { sendLoginOtp } from "../../apis/AuthApi";
+import { getErrorMessage } from "../../helpers/Http";
 import Verification from "./Verification";
 
 export default function Login() {
   const [phone, setPhone] = useState("");
   const { mutate, isLoading, isSuccess, reset } = useMutation(sendLoginOtp, {
-    onSuccess(data) {
-      console.log(data)
-    },
     onError(error) {
-
+      message.error(getErrorMessage(error))
     }
   })
   

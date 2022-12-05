@@ -6,7 +6,8 @@ export const fetchCurrentUser = async () => {
 }
 
 export const sendLoginOtp = async (contact_number) => {
-    return await Http.post('/login/send-otp', {contact_number})
+    const { data } = await Http.post('/login/send-otp', {contact_number})
+    return data
 }
 
 export const verifyLoginOtp = async ({contact_number, code}) => {
