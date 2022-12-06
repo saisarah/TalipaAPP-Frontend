@@ -5,5 +5,15 @@ import queryKeyFactory from "../queryKeyFactory";
 
 export default function useCurrentUserQuery()
 {
-    return useQuery(queryKeyFactory.currentUser, fetchCurrentUser)
+    const queryClient = useQueryClient()
+
+    return useQuery(queryKeyFactory.currentUser, fetchCurrentUser, {
+        retry: 0,
+        staleTime: 1000 * 60 * 60 * 2,
+        onError(error){
+            if (error?.response.status === 401) {
+                queryClient.setQueryData(queryKeyFactory.currentUser, null)
+            }
+        }
+    })
 }

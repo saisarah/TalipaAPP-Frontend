@@ -15,13 +15,6 @@ ConfigProvider.config({
 const isAndroid = import.meta.env.VITE_PLATFLORM;
 
 function App() {
-
-  useEffect(() => {
-    if (localStorage.getItem('auth_token')) {
-      setAuthorization(localStorage.getItem('auth_token'))
-    }
-  }, [])
-
   return (
     <ReactQueryProvider>
       <AppContextProvider isAndroid={isAndroid}>

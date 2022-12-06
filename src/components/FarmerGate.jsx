@@ -3,7 +3,7 @@ import useCurrentUserQuery from "../query/queries/useCurrentUserQuery";
 import SplashScreen from "./SplashScreen";
 
 
-export default function VendorGate()
+export default function FarmerGate()
 {
     const { isLoading, isError, data:user } = useCurrentUserQuery()
 
@@ -11,7 +11,7 @@ export default function VendorGate()
         return <SplashScreen />
     }
 
-    if (user === null || user.user_type !== 'vendor') {
+    if (user === null || user.user_type !== 'farmer') {
         return <Navigate to="/login" />
     }
     
