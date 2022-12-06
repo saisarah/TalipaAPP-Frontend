@@ -2,7 +2,7 @@ import { LeftOutlined } from "@ant-design/icons";
 import { Button, Form, Input, Select, Steps } from "antd";
 import { useState } from "react";
 
-function PersonalInformationForm({setStep}) {
+function PersonalInformationForm({ setStep }) {
   return (
     <Form layout="vertical" onFinish={() => setStep(1)}>
       <Form.Item className="mb-4" label="Firstname" hasFeedback>
@@ -68,9 +68,79 @@ function PersonalInformationForm({setStep}) {
   );
 }
 
-function AddressForm()
-{
-  return 'Address Form'
+function AddressForm({ setStep }) {
+  return (
+    <Form layout="vertical" onFinish={() => setStep(2)}>
+      <Form.Item className="mb-4" label="Region" hasFeedback initialValue="">
+        <Select size="large" className="rounded">
+          <Select.Option value="">Region#</Select.Option>
+          <Select.Option value="male">Region#</Select.Option>
+          <Select.Option value="female">Region#</Select.Option>
+        </Select>
+      </Form.Item>
+
+      <Form.Item className="mb-4" label="Province" hasFeedback initialValue="">
+        <Select size="large" className="rounded">
+          <Select.Option value="">ProvinceName</Select.Option>
+          <Select.Option value="male">ProvinceName</Select.Option>
+          <Select.Option value="female">ProvinceName</Select.Option>
+        </Select>
+      </Form.Item>
+
+      <Form.Item className="mb-4" label="City" hasFeedback initialValue="">
+        <Select size="large" className="rounded">
+          <Select.Option value="">CityName</Select.Option>
+          <Select.Option value="male">Cityname</Select.Option>
+          <Select.Option value="female">Cityname</Select.Option>
+        </Select>
+      </Form.Item>
+
+      <Form.Item className="mb-4" label="Baranggay" hasFeedback initialValue="">
+        <Select size="large" className="rounded">
+          <Select.Option value="">Baranggayname</Select.Option>
+          <Select.Option value="male">Baranggayname</Select.Option>
+          <Select.Option value="female">Baranggayname</Select.Option>
+        </Select>
+      </Form.Item>
+
+      <Form.Item
+        className="mb-4"
+        label="Street/Building Name"
+        hasFeedback
+        initialValue=""
+      >
+        <Select size="large" className="rounded">
+          <Select.Option value="">Street/Building</Select.Option>
+          <Select.Option value="male">Street/Building</Select.Option>
+          <Select.Option value="female">Street/Building</Select.Option>
+        </Select>
+      </Form.Item>
+
+      <Form.Item
+        className="mb-4"
+        label="House/unit/ Floor"
+        hasFeedback
+        initialValue=""
+      >
+        <Select size="large" className="rounded">
+          <Select.Option value="">House/Unit/Floor</Select.Option>
+          <Select.Option value="male">House/Unit/Floor</Select.Option>
+          <Select.Option value="female">House/Unit/Floor</Select.Option>
+        </Select>
+      </Form.Item>
+
+      <div className="mb-4 flex justify-end">
+        <Button
+          type="primary"
+          className="rounded"
+          htmlType="submit"
+          size="large"
+        >
+          Next
+        </Button>
+      </div>
+    </Form>
+  );
 }
 
 export default function RegistrationForm({ reset }) {
@@ -89,7 +159,7 @@ export default function RegistrationForm({ reset }) {
         current={step}
         direction="vertical"
       />
-      {step === 0 && <PersonalInformationForm setStep={setStep}/>}
+      {step === 0 && <PersonalInformationForm setStep={setStep} />}
       {step === 1 && <AddressForm />}
     </div>
   );
