@@ -9,11 +9,14 @@ export default function GuestGate() {
     return <SplashScreen />;
   }
 
-  if (isSuccess && user.user_type === "farmer")
+  if (user === null)
+    return <Outlet />
+
+  if (user.user_type === "farmer")
     return <Navigate to="/farmer" />;
 
-  if (isSuccess && user.user_type === "vendor")
+  if (user.user_type === "vendor")
     return <Navigate to="/" />;
 
-  return <Outlet />;
+  throw "Unknown user type"
 }

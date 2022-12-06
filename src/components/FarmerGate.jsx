@@ -11,7 +11,7 @@ export default function FarmerGate()
         return <SplashScreen />
     }
 
-    if (isError || user.user_type !== 'farmer') {
+    if (user === null || user.user_type !== 'farmer') {
         return <Navigate to="/login" />
     }
     

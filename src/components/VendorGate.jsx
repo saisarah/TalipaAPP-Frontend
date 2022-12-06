@@ -11,7 +11,7 @@ export default function VendorGate()
         return <SplashScreen />
     }
 
-    if (isError || user.user_type !== 'vendor') {
+    if (user === null || user.user_type !== 'vendor') {
         return <Navigate to="/login" />
     }
     
