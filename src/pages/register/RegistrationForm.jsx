@@ -1,6 +1,20 @@
 import { LeftOutlined } from "@ant-design/icons";
 import { Button, Form, Input, Select, Steps } from "antd";
 import { useState } from "react";
+import {
+  regions,
+  provinces,
+  cities,
+  barangays,
+} from "select-philippines-address";
+
+regions().then((region) => console.log(region));
+regionByCode("01").then((region) => console.log(region.region_name));
+provinces("01").then((province) => console.log(province));
+provincesByCode("01").then((province) => console.log(province));
+provinceByName("Rizal").then((province) => console.log(province.province_code));
+cities("0128").then((city) => console.log(city));
+barangays("052011").then((barangays) => console.log(barangays));
 
 function PersonalInformationForm({ setStep }) {
   return (
@@ -73,7 +87,7 @@ function AddressForm({ setStep }) {
     <Form layout="vertical" onFinish={() => setStep(2)}>
       <Form.Item className="mb-4" label="Region" hasFeedback initialValue="">
         <Select size="large" className="rounded">
-          <Select.Option value="">Region#</Select.Option>
+          <Select.Option value=""></Select.Option>
           <Select.Option value="male">Region#</Select.Option>
           <Select.Option value="female">Region#</Select.Option>
         </Select>
