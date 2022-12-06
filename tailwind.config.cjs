@@ -7,10 +7,17 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        'sans': ['Inter', ...defaultTheme.fontFamily.sans]
+        'sans': ['Inter', ...defaultTheme.fontFamily.sans],
+        'nerko':['Nerko One']
       },
       colors: {
-        primary: 'rgb(var(--color-primary) / <alpha-value>)',
+        // primary: 'rgb(var(--color-primary) / <alpha-value>)',
+        'primary': '#314026',
+        'bg-primary-accent-1': '#526A40',
+        'bg-primary-accent-2': '#739559',
+        'bg-primary-accent-3': '#94BF73',
+        'bg-primary-accent-4': '#B5EA8C',
+
       }
     },
   },
