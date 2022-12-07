@@ -13,10 +13,10 @@ module.exports = {
       colors: {
         // primary: 'rgb(var(--color-primary) / <alpha-value>)',
         'primary': '#314026',
-        'bg-primary-accent-1': '#526A40',
-        'bg-primary-accent-2': '#739559',
-        'bg-primary-accent-3': '#94BF73',
-        'bg-primary-accent-4': '#B5EA8C',
+        'primary-accent-1': '#526A40',
+        'primary-accent-2': '#739559',
+        'primary-accent-3': '#94BF73',
+        'primary-accent-4': '#B5EA8C',
 
       }
     },
