@@ -1,5 +1,4 @@
 const defaultTheme = require('tailwindcss/defaultTheme')
-const colors = require('tailwindcss/colors')
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -10,7 +9,17 @@ module.exports = {
         'sans': ['Inter', ...defaultTheme.fontFamily.sans]
       },
       colors: {
-        primary: 'rgb(var(--color-primary) / <alpha-value>)',
+        /**
+         * When Changing the primary color
+         * also update the color of Antd Primary Color Located
+         * in src/App.jsx
+         */
+        'primary': '#314026',
+        'primary-accent-1': '#526A40',
+        'primary-accent-2': '#739559',
+        'primary-accent-3': '#94BF73',
+        'primary-accent-4': '#B5EA8C',
+
       }
     },
   },
