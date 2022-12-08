@@ -4,7 +4,10 @@ import PageHeader from "../../../components/PageHeader";
 
 const MainButton = ({ to, label }) => {
   return (
-    <Link to={to} className="flex aspect-square flex-col items-center justify-center gap-4 p-4 transition duration-300 hover:bg-primary-accent-3 hover:text-white">
+    <Link
+      to={to}
+      className="flex aspect-square flex-col items-center justify-center gap-4 p-4 transition duration-300 hover:bg-primary-accent-3 hover:text-white"
+    >
       <AntDesignOutlined style={{ fontSize: "48px" }} />
       <span>{label}</span>
     </Link>
@@ -14,7 +17,10 @@ const MainButton = ({ to, label }) => {
 export default function FarmerHome() {
   return (
     <div className="mx-auto min-h-screen max-w-md bg-white">
-      <PageHeader title="TalipaAPP" />
+      <PageHeader
+        left={<img src="/assets/images/logo.png" className="h-16" />}
+        title="TalipaAPP"
+      />
 
       <div className="grid grid-cols-2 divide-x divide-y divide-slate-100 sm:grid-cols-3">
         <MainButton to="/farmer/home" label="Home" />

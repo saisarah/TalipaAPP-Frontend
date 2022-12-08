@@ -1,8 +1,9 @@
 import { useMutation } from "@tanstack/react-query";
-import { Button, Input, message, notification } from "antd";
+import { Button, Input, message } from "antd";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { sendLoginOtp } from "../../apis/AuthApi";
+import PageHeader from "../../components/PageHeader";
 import { getErrorMessage } from "../../helpers/Http";
 import Verification from "./Verification";
 
@@ -22,47 +23,52 @@ export default function Login() {
   if (isSuccess) return <Verification reset={reset} phone={phone}/>
 
   return (
-    <div className="mx-auto flex min-h-screen max-w-md flex-col bg-slate-50 p-4 px-8 text-center">
-      <img className="mr-auto" src="/assets/images/logo.svg" alt="" />
+    <div className="mx-auto min-h-screen max-w-md bg-white">
+      <PageHeader left={<img src="/assets/images/logo.png" className="h-16" />} title="Login" />
 
-      <p className="">Enter your phone number to get start.</p>
-      <div className="flex-grow">
-        <Input
-          size="large"
-          className="rounded"
-          addonBefore="+63"
-          placeholder="923 4567 890"
-          onChange={(e) => setPhone(e.target.value)}
-          value={phone}
-          maxLength="10"
-        />
+      <div className="flex flex-col  p-4 px-8 text-center">
 
-        <Button
-          className="my-12 mb-6 rounded"
-          block
-          size="large"
-          type="primary"
-          loading={isLoading}
-          onClick={sendOtp}
-        >
-          Next
-        </Button>
+        <img className="mr-auto" src="/assets/images/logo.svg" alt="" />
 
-        <p>
-          <span>Dont have an account</span>
-          <br />
-          <span>
-            Sign up
-            <Link className="text-primary" to={"/register"}>
-              here
-            </Link>
-          </span>
-        </p>
+        <p className="">Enter your phone number to get start.</p>
+        <div className="flex-grow">
+          <Input
+            size="large"
+            className="rounded"
+            addonBefore="+63"
+            placeholder="923 4567 890"
+            onChange={(e) => setPhone(e.target.value)}
+            value={phone}
+            maxLength="10"
+          />
+
+          <Button
+            className="my-12 mb-6 rounded"
+            block
+            size="large"
+            type="primary"
+            loading={isLoading}
+            onClick={sendOtp}
+          >
+            Next
+          </Button>
+
+          <p>
+            <span>Dont have an account</span>
+            <br />
+            <span>
+              Sign up
+              <Link className="ml-1 text-primary" to={"/register"}>
+                here
+              </Link>
+            </span>
+          </p>
+        </div>
+
+        <Link to={"/"} className="">
+          Help Center
+        </Link>
       </div>
-
-      <Link to={"/"} className="">
-        Help Center
-      </Link>
     </div>
   );
 }
