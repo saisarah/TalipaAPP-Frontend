@@ -7,7 +7,7 @@ export default function Register() {
   const [accountType, setAccountType] = useState(null);
 
   return (
-    <div className="mx-auto min-h-screen max-w-md bg-slate-50">
+    <div className="mx-auto min-h-screen max-w-md bg-white">
       {accountType === null ? (
         <ChooseAccountType setAccountType={setAccountType} />
       ) : (
