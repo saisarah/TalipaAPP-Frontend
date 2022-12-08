@@ -8,7 +8,7 @@ import { setAuthorization } from "./helpers/Http";
 
 ConfigProvider.config({
   theme: {
-    primaryColor: "#16a34a", //bg-green-600
+    primaryColor: "#314026",
   },
 });
 

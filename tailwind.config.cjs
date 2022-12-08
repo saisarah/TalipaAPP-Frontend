@@ -1,5 +1,4 @@
 const defaultTheme = require('tailwindcss/defaultTheme')
-const colors = require('tailwindcss/colors')
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -7,11 +6,14 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        'sans': ['Inter', ...defaultTheme.fontFamily.sans],
-        'nerko':['Nerko One']
+        'sans': ['Inter', ...defaultTheme.fontFamily.sans]
       },
       colors: {
-        // primary: 'rgb(var(--color-primary) / <alpha-value>)',
+        /**
+         * When Changing the primary color
+         * also update the color of Antd Primary Color Located
+         * in src/App.jsx
+         */
         'primary': '#314026',
         'primary-accent-1': '#526A40',
         'primary-accent-2': '#739559',
