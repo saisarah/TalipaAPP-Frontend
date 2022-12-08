@@ -2,10 +2,11 @@ import { Button, message, Spin } from "antd";
 import { LeftOutlined } from "@ant-design/icons";
 import OTPInput, { ResendOTP } from "otp-input-react";
 import { useEffect, useState } from "react";
-import { useMutation } from "@tanstack/react-query";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { verifyLoginOtp } from "../../apis/AuthApi";
 import { getErrorMessage, setAuthorization } from "../../helpers/Http";
 import { useNavigate } from "react-router-dom";
+import queryKeyFactory from "../../query/queryKeyFactory";
 
 function OTPButton({ children, className = "", onClick }) {
   return (
@@ -22,12 +23,14 @@ function OTPButton({ children, className = "", onClick }) {
 export default function Verification({ reset, phone }) {
 
   const navigate = useNavigate()
+  const queryClient = useQueryClient()
 
   const [OTP, setOTP] = useState("");
   const { mutate, isLoading } = useMutation(verifyLoginOtp, {
     onSuccess({ token, user }) {
       localStorage.setItem('auth_token', token)
       setAuthorization(token)
+      queryClient.setQueryData(queryKeyFactory.currentUser, user)
 
       if (user.user_type === 'farmer')
         navigate('/farmer')
