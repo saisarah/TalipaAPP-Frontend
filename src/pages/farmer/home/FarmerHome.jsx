@@ -1,11 +1,16 @@
-import { AntDesignOutlined } from "@ant-design/icons";
-import { Link } from "react-router-dom";
+import { AntDesignOutlined, QuestionCircleTwoTone } from "@ant-design/icons";
+import { useQueryClient } from "@tanstack/react-query";
+import { Modal } from "antd";
+import { Link, useNavigate } from "react-router-dom";
 import PageHeader from "../../../components/PageHeader";
+import { setAuthorization } from "../../../helpers/Http";
+import queryKeyFactory from "../../../query/queryKeyFactory";
 
-const MainButton = ({ to, label, src = null }) => {
+const MainButton = ({ onClick, to, label, src = null }) => {
   return (
     <Link
       to={to}
+      onClick={onClick}
       className="flex aspect-square flex-col items-center justify-center gap-4 p-4 transition duration-300 hover:bg-primary-accent-3 hover:text-white"
     >
       {src === null ? (
@@ -19,6 +24,20 @@ const MainButton = ({ to, label, src = null }) => {
 };
 
 export default function FarmerHome() {
+  const queryClient = useQueryClient();
+
+  const confirmLogout = () => {
+    Modal.confirm({
+      icon: <QuestionCircleTwoTone />,
+      onOk() {
+        localStorage.clear();
+        setAuthorization(undefined);
+        queryClient.setQueryData(queryKeyFactory.currentUser, null);
+      },
+      content: "Are you sure you want to log?",
+    });
+  };
+
   return (
     <div className="mx-auto min-h-screen max-w-md bg-white">
       <PageHeader
@@ -47,7 +66,7 @@ export default function FarmerHome() {
         <MainButton src="/assets/icons/orders.png" label="Orders" />
         <MainButton src="/assets/icons/crops.png" label="Crops" />
         <MainButton label="Help" />
-        <MainButton label="Logout" />
+        <MainButton onClick={confirmLogout} label="Logout" />
       </div>
     </div>
   );
