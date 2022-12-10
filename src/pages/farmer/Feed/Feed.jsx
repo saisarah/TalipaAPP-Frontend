@@ -6,32 +6,31 @@ import { getPosts } from "../posts";
 import PostCard from "./PostCard";
 import { Spin } from "antd";
 
-function CropsFilter()
-{
+function CropsFilter() {
   return (
-      <div className="p-4 flex gap-4">
-        <div className="flex flex-col items-center gap-1">
-          <div className="h-12 w-12 bg-slate-400 rounded-full"></div>
-          <span className="text-xs">Mango</span>
-        </div>
-        <div className="flex flex-col items-center gap-1">
-          <div className="h-12 w-12 bg-slate-400 rounded-full"></div>
-          <span className="text-xs">Banana</span>
-        </div>
-        <div className="flex flex-col items-center gap-1">
-          <div className="h-12 w-12 bg-slate-400 rounded-full"></div>
-          <span className="text-xs">Pineapple</span>
-        </div>
-        <div className="flex flex-col items-center gap-1">
-          <div className="h-12 w-12 bg-slate-400 rounded-full"></div>
-          <span className="text-xs">Garlic</span>
-        </div>
-        <div className="flex flex-col items-center gap-1">
-          <div className="h-12 w-12 bg-slate-400 rounded-full"></div>
-          <span className="text-xs">Onion</span>
-        </div>
+    <div className="flex gap-4 p-4">
+      <div className="flex flex-col items-center gap-1">
+        <div className="h-12 w-12 rounded-full bg-slate-400"></div>
+        <span className="text-xs">Mango</span>
       </div>
-  )
+      <div className="flex flex-col items-center gap-1">
+        <div className="h-12 w-12 rounded-full bg-slate-400"></div>
+        <span className="text-xs">Banana</span>
+      </div>
+      <div className="flex flex-col items-center gap-1">
+        <div className="h-12 w-12 rounded-full bg-slate-400"></div>
+        <span className="text-xs">Pineapple</span>
+      </div>
+      <div className="flex flex-col items-center gap-1">
+        <div className="h-12 w-12 rounded-full bg-slate-400"></div>
+        <span className="text-xs">Garlic</span>
+      </div>
+      <div className="flex flex-col items-center gap-1">
+        <div className="h-12 w-12 rounded-full bg-slate-400"></div>
+        <span className="text-xs">Onion</span>
+      </div>
+    </div>
+  );
 }
 
 export default function Feed() {
@@ -58,10 +57,10 @@ export default function Feed() {
 
       {isLoading ? (
         <div className="flex items-center justify-center py-16">
-          <Spin tip="Fetching posts"/>
+          <Spin tip="Fetching posts" />
         </div>
       ) : (
-        <div className="my-6 flex flex-col">
+        <div className="my-6 flex flex-col gap-4">
           {posts.map((post) => (
             <PostCard key={post.id} {...post} />
           ))}

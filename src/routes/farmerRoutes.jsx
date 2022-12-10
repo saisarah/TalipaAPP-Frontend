@@ -1,16 +1,16 @@
 import Feed from "../pages/farmer/Feed/Feed";
 import FarmerHome from "../pages/farmer/home/FarmerHome";
 import PostDetails from "../pages/farmer/PostDetails/PostDetails";
-import FarmersProfile from "../pages/farmersProfile/FarmersProfile";
+import Profile from "../pages/farmer/Profile/Profile";
 
 export default [
   {
     path: "",
-    element: <FarmerHome />
+    element: <FarmerHome />,
   },
   {
     path: "home",
-    element: <Feed />
+    element: <Feed />,
   },
   {
     path: "posts/:id",
@@ -18,6 +18,6 @@ export default [
   },
   {
     path: "profile",
-    element: <FarmersProfile/>
-  }
-]
+    element: <Profile />,
+  },
+];

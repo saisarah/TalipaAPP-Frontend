@@ -3,7 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 import { Link, useParams } from "react-router-dom";
 import PageHeader from "../../../components/PageHeader";
 import { getPost } from "../posts";
-import { Spin } from "antd";
+import { Spin, Descriptions } from "antd";
 
 export default function PostDetails() {
   const { id } = useParams();
@@ -44,8 +44,17 @@ export default function PostDetails() {
             <p className="mt-2 whitespace-pre-line">{caption}</p>
           </div>
 
-          <div className="mt-4 bg-white border-y ">
-
+          <div className="mt-4 border-y border-slate-200 bg-white p-4">
+            <Descriptions
+              title="Pricing Table"
+              bordered
+              size="small"
+              column={1}
+            >
+              <Descriptions.Item label="Small">30PHP / kg</Descriptions.Item>
+              <Descriptions.Item label="Medium">40PHP / kg</Descriptions.Item>
+              <Descriptions.Item label="Large">70PHP / kg</Descriptions.Item>
+            </Descriptions>
           </div>
         </div>
       )}
