@@ -51,12 +51,20 @@ export default function FarmerHome() {
           to="/farmer/home"
           label="Home"
         />
-        <MainButton src="/assets/icons/comments.png" label="Messages" />
+        <MainButton
+          to="/farmer/messages"
+          src="/assets/icons/comments.png"
+          label="Messages"
+        />
         <MainButton
           src="/assets/icons/notifications.png"
           label="Notifications"
         />
-        <MainButton src="/assets/icons/group.png" label="Group" />
+        <MainButton
+          to="/farmer/groups"
+          src="/assets/icons/group.png"
+          label="Group"
+        />
         <MainButton src="/assets/icons/settings.png" label="Settings" />
         <MainButton
           to="/farmer/profile"
