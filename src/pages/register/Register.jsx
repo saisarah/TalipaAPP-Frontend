@@ -1,7 +1,8 @@
 import { useState } from "react";
-import ChooseAccountType from "./ChooseAccountType";
+import { Link } from "react-router-dom";
+import PageHeader from "../../components/PageHeader";
+import ChooseAccountType from "./forms/ChooseAccountType";
 import RegistrationForm from "./RegistrationForm";
-
 
 export default function Register() {
   const [accountType, setAccountType] = useState(null);

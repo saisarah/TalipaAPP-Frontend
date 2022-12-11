@@ -1,18 +1,27 @@
 import { Link } from "react-router-dom";
 import PageHeader from "../../../components/PageHeader";
 import { ArrowLeftOutlined } from "@ant-design/icons";
-import { Button, Tag } from "antd";
+import { Button, Spin, Tag } from "antd";
 import { useState } from "react";
+import GroupItem from "./GroupItem";
+import { useQuery } from "@tanstack/react-query";
+import { getGroups } from "./groups";
 
-function GroupItem({ name, membersCount, type }) {
-  return (
-    <div className="flex gap-4 bg-white p-4">
-      <div className="h-[72px] w-[72px] flex-shrink-0 rounded bg-slate-300"></div>
-      <div className="flex flex-grow flex-col">
-        <span className="font-bold">{name}</span>
-        <span>{type}</span>
-        <span className="text-slate-500">{membersCount} Members</span>
+function SuggestedGroups() {
+  const { data, isLoading } = useQuery(["groups"], getGroups);
+
+  if (isLoading)
+    return (
+      <div className="flex flex-col items-center py-16">
+        <Spin />
       </div>
+    );
+
+  return (
+    <div className="divide-y divide-slate-200">
+      {data.map((group) => (
+        <Group key={group.id} {...group} />
+      ))}
     </div>
   );
 }
@@ -50,37 +59,7 @@ export default function Group() {
       </div>
 
       {active === "join" ? (
-        <div className="divide-y divide-slate-200">
-          <GroupItem
-            name="Totong Lipay Farmers Association"
-            membersCount={235}
-            type="Association"
-          />
-
-          <GroupItem
-            name="Federation of Free Farmers"
-            membersCount={187}
-            type="Cooperatives"
-          />
-
-          <GroupItem
-            name="Maharlika Organic Food Producers and Farmers Association"
-            membersCount={235}
-            type="Association"
-          />
-
-          <GroupItem
-            name="Belgomar Upland Farmers Association"
-            membersCount={235}
-            type="Association"
-          />
-
-          <GroupItem
-            name="Minongan Livelihood Farmers Association, Inc"
-            membersCount={235}
-            type="Association"
-          />
-        </div>
+        <SuggestedGroups />
       ) : (
         <div className="flex flex-col items-center gap-4 bg-slate-100 py-16">
           <img src="/assets/temp/group/group_illustration.png" />

@@ -24,7 +24,7 @@ export default function Login() {
 
   return (
     <div className="mx-auto min-h-screen max-w-md bg-white">
-      <PageHeader left={<img src="/assets/images/logo.png" className="h-16" />} title="Login" />
+      <PageHeader title="Login" />
 
       <div className="flex flex-col  p-4 px-8 text-center">
 

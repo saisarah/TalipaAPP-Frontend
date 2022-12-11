@@ -1,7 +1,21 @@
+import { Link } from "react-router-dom";
+import PageHeader from "../../../components/PageHeader";
+
 export default function ChooseAccountType({ setAccountType }) {
   return (
     <div className="flex h-screen flex-col bg-gray-700">
-      <button onClick={() => setAccountType('vendor')} className="relative grid flex-shrink-0 flex-grow place-content-center">
+      <PageHeader
+        left={
+          <Link to="/login">
+            <img src="/assets/images/logo.png" className="h-16" />
+          </Link>
+        }
+        title="Choose an Account Type"
+      />
+      <button
+        onClick={() => setAccountType("vendor")}
+        className="relative grid flex-shrink-0 flex-grow place-content-center"
+      >
         <img
           className="absolute inset-0 h-full w-full object-cover"
           src="/assets/images/vendor.png"
@@ -10,7 +24,10 @@ export default function ChooseAccountType({ setAccountType }) {
           Vendor
         </span>
       </button>
-      <button onClick={() => setAccountType('farmer')} className="relative grid flex-shrink-0 flex-grow place-content-center">
+      <button
+        onClick={() => setAccountType("farmer")}
+        className="relative grid flex-shrink-0 flex-grow place-content-center"
+      >
         <img
           className="absolute inset-0 h-full w-full object-cover"
           src="/assets/images/farmer.png"

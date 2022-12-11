@@ -1,9 +1,9 @@
 import { Button, Form, Input, Select } from "antd";
 import { useEffect, useState } from "react";
-import useBarangaysQuery from "../../query/queries/address/useBarangaysQuery";
-import { useCitiesQuery } from "../../query/queries/address/useCitiesQuery";
-import useProvincesQuery from "../../query/queries/address/useProvincesQuery";
-import useRegionQuery from "../../query/queries/address/useRegionQuery";
+import useBarangaysQuery from "../../../query/queries/address/useBarangaysQuery";
+import { useCitiesQuery } from "../../../query/queries/address/useCitiesQuery";
+import useProvincesQuery from "../../../query/queries/address/useProvincesQuery";
+import useRegionQuery from "../../../query/queries/address/useRegionQuery";
 
 export default function AddressForm({ setStep }) {
   const [selectedRegion, setSelectedRegion] = useState(null);
