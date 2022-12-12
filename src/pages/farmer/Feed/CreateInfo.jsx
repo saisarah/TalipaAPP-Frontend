@@ -1,7 +1,5 @@
-import { ArrowLeftOutlined } from "@ant-design/icons";
 import { Button } from "antd";
-import { Link } from "react-router-dom";
-import PageHeader from "../../../components/PageHeader";
+import Link from "antd/lib/typography/Link";
 
 export default function CreateInfo() {
   return (
@@ -15,9 +13,11 @@ export default function CreateInfo() {
           Farmer groups are group of individual farmers, an association,
           cooperative or any legal entity with a common farming interest.
         </p>
-        <Button className="mt-2 text-lg text-[#739559]" size={"large"}>
-          Create
-        </Button>
+        <Link to="/farmer/posts/create">
+          <Button className="mt-2 text-lg text-[#739559]" size={"large"}>
+            Create
+          </Button>
+        </Link>
       </div>
     </div>
   );
