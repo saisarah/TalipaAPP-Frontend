@@ -47,12 +47,13 @@ export default function Feed() {
         title="Home"
       />
 
-      <div className="sticky top-0 grid h-16 grid-cols-2 bg-white text-lg shadow-md">
+      <div className="sticky top-0 grid h-16 grid-cols-3 bg-white text-lg shadow-md">
         <div className="flex items-center justify-center border-b border-primary text-primary">
           For Sale
         </div>
 
         <div className="flex items-center justify-center">Demands</div>
+        <div className="flex items-center justify-center">Create Post</div>
       </div>
 
       {isLoading ? (
@@ -67,5 +68,6 @@ export default function Feed() {
         </div>
       )}
     </div>
+    
   );
 }

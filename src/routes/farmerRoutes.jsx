@@ -1,3 +1,5 @@
+import CreatePost from "../pages/farmer/createPost/CreatePost";
+import PostInformation from "../pages/farmer/createPost/PostInformation";
 import Feed from "../pages/farmer/Feed/Feed";
 import Group from "../pages/farmer/group/Group";
 import FarmerHome from "../pages/farmer/home/FarmerHome";
@@ -10,7 +12,7 @@ export default [
     path: "",
     element: <FarmerHome />,
   },
-  {
+  { 
     path: "home",
     element: <Feed />,
   },
@@ -29,5 +31,13 @@ export default [
   {
     path: "groups",
     element: <Group />,
+  },
+  {
+    path: "createpost",
+    element: <CreatePost />,
+  },
+  {
+    path: "postinformation",
+    element: <PostInformation />,
   },
 ];
