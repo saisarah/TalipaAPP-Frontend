@@ -43,7 +43,7 @@ export const crops = [
         
       ]
 
-      export const PricingType = [
+      export const pricingType = [
 
         {
             value: "Straight",
@@ -55,3 +55,20 @@ export const crops = [
           },
           
         ]
+
+        export const size = [
+
+          {
+              value: "Small",
+              label: "Small",
+            },
+            {
+              value: "Medium",
+              label: "Medium",
+            },
+            {
+              value: "Large",
+              label: "Large",
+            },
+            
+          ]

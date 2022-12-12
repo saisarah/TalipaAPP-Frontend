@@ -1,5 +1,5 @@
 import { Button } from "antd";
-import Link from "antd/lib/typography/Link";
+import { Link } from "react-router-dom";
 
 export default function CreateInfo() {
   return (
