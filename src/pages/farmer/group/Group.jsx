@@ -1,33 +1,17 @@
 import { Link } from "react-router-dom";
 import PageHeader from "../../../components/PageHeader";
 import { ArrowLeftOutlined } from "@ant-design/icons";
-import { Button, Spin, Tag } from "antd";
+import { Button } from "antd";
 import { useState } from "react";
-import GroupItem from "./GroupItem";
-import { useQuery } from "@tanstack/react-query";
-import { getGroups } from "./groups";
+import SuggestedGroups from "./components/SuggestedGroups";
+import GroupInvitation from "./GroupInvitation";
 
-function SuggestedGroups() {
-  const { data, isLoading } = useQuery(["groups"], getGroups);
-
-  if (isLoading)
-    return (
-      <div className="flex flex-col items-center py-16">
-        <Spin />
-      </div>
-    );
-
-  return (
-    <div className="divide-y divide-slate-200">
-      {data.map((group) => (
-        <GroupItem key={group.id} {...group} />
-      ))}
-    </div>
-  );
-}
+const HAS_INVITATION = false;
 
 export default function Group() {
   const [active, setActive] = useState("join");
+
+  if (HAS_INVITATION) return <GroupInvitation />;
 
   return (
     <div className="mx-auto max-w-md bg-slate-50">
