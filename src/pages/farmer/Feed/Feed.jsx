@@ -1,11 +1,9 @@
 import { ArrowLeftOutlined } from "@ant-design/icons";
-import { useQuery } from "@tanstack/react-query";
 import { Link } from "react-router-dom";
 import PageHeader from "../../../components/PageHeader";
-import { getPosts } from "../posts";
-import PostCard from "./PostCard";
-import { Spin } from "antd";
 import { useState } from "react";
+import ForSale from "./ForSale";
+import CreateInfo from "./CreateInfo";
 
 function CropsFilter() {
   return (
@@ -35,10 +33,7 @@ function CropsFilter() {
 }
 
 export default function Feed() {
-  const { data: posts, isLoading } = useQuery(["posts"], getPosts);
-
-  const [active, setActive] = useState("");
-  
+  const [active, setActive] = useState("demands");
 
   return (
     <div className="mx-auto min-h-screen max-w-md  bg-slate-50">
@@ -50,26 +45,36 @@ export default function Feed() {
         }
         title="Home"
       />
-      <div className="sticky top-0 grid h-16 grid-cols-3 bg-white text-lg shadow-md">
-        <div className="flex items-center justify-center border-b border-primary text-primary">
-          For Sale
-        </div>
 
-        <div className="flex items-center justify-center">Demands</div>
-        <div className="flex items-center justify-center">Create Post</div>
+      <div className="sticky top-0 grid h-16 grid-cols-3 bg-white text-lg shadow-md">
+        <button
+          onClick={() => setActive("demands")}
+          className={`flex items-center justify-center ${
+            active === "demands" ? "border-b border-primary text-primary" : ""
+          }`}
+        >
+          Demands
+        </button>
+        <button
+          onClick={() => setActive("for_sale")}
+          className={`flex items-center justify-center ${
+            active === "for_sale" ? "border-b border-primary text-primary" : ""
+          }`}
+        >
+          For Sale
+        </button>
+        <button
+          onClick={() => setActive("create")}
+          className={`flex items-center justify-center ${
+            active === "create" ? "border-b border-primary text-primary" : ""
+          }`}
+        >
+          Create Post
+        </button>
       </div>
 
-      {isLoading ? (
-        <div className="flex items-center justify-center py-16">
-          <Spin tip="Fetching posts" />
-        </div>
-      ) : (
-        <div className="my-6 flex flex-col gap-4">
-          {posts.map((post) => (
-            <PostCard key={post.id} {...post} />
-          ))}
-        </div>
-      )}
+      {active === "for_sale" && <ForSale />}
+      {active === "create" && <CreateInfo />}
     </div>
   );
 }
