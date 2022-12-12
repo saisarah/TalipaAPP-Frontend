@@ -71,7 +71,7 @@ export default function FarmerHome() {
           src="/assets/icons/farmer.png"
           label="Profile"
         />
-        <MainButton src="/assets/icons/orders.png" label="Orders" />
+        <MainButton to="/farmer/orders" src="/assets/icons/orders.png" label="Orders" />
         <MainButton src="/assets/icons/crops.png" label="Crops" />
         <MainButton label="Help" />
         <MainButton onClick={confirmLogout} label="Logout" />

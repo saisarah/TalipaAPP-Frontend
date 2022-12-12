@@ -6,6 +6,7 @@ import FarmerHome from "../pages/farmer/home/FarmerHome";
 import PostDetails from "../pages/farmer/PostDetails/PostDetails";
 import Profile from "../pages/farmer/Profile/Profile";
 import Conversations from "../pages/messages/Conversations";
+import Orders from "../pages/orders/Orders";
 
 export default [
   {
@@ -27,6 +28,10 @@ export default [
   {
     path: "profile",
     element: <Profile />,
+  },
+  {
+    path: "orders",
+    element: <Orders />,
   },
   {
     path: "messages",
