@@ -35,7 +35,7 @@ export default function Conversations() {
             <ArrowLeftOutlined style={{ fontSize: "16px" }} />
           </Link>
         }
-        title="Conversions"
+        title="Conversations"
       />
       <div className="py-2 px-4">
         <div className="flex gap-2 rounded bg-slate-200 p-3">
