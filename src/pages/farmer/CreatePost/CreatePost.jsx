@@ -1,4 +1,5 @@
-import { Select } from "antd";
+import { Form, Select } from "antd";
+import { crops } from "./Crops";
 
 const handleChange = (value) => {
   console.log(`selected ${value}`);
@@ -52,10 +53,32 @@ function Post({ fields, fieldholder }) {
   );
 }
 
+function SelectComponent({ label, options, name, placeholder }) {
+  return (
+    <Form.Item label={label}>
+      <Select
+        placeholder={placeholder}
+        size="large"
+        options={crops}
+        name={name}
+      />
+    </Form.Item>
+  );
+}
+
 export default function CreatePost() {
   return (
     <div className="mx-auto min-h-screen max-w-md">
-      <Post fieldholder={"Pineapple"} fields={"Commodity"} />
+     <Form layout="vertical">
+        <SelectComponent
+          label="Commodity"
+          name="commodity"
+          placeholder="Select commodity"
+          options={[{crops}
+            
+          ]}
+        />
+      </Form>
     </div>
   );
 }
