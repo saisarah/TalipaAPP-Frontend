@@ -8,7 +8,7 @@ import { Button } from "antd";
 import { useState } from "react";
 import Join from "../components/Join";
 import Forum from "../components/Forum";
-import { type } from "os";
+// import { type } from "os";
 
 export default function GroupInfo() {
   const [active, setActive] = useState("join");
@@ -35,9 +35,8 @@ export default function GroupInfo() {
         style={{ marginTop: "-45px" }}
       />
       <div className="my-6 text-center">
-        <h1>{id}</h1>
-        <h1>Totong Lipay Farmers Association {name}</h1>
-        <h1>Association {type}</h1>
+        <h1>Totong Lipay Farmers Association</h1>
+        <h1>Association</h1>
         {/* <h1>{membersCount} Members</h1> */}
         <p>200 Members</p>
         <Button type="primary" className="mx-auto">
