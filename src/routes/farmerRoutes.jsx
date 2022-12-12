@@ -1,5 +1,6 @@
 import Feed from "../pages/farmer/Feed/Feed";
 import Group from "../pages/farmer/group/Group";
+import GroupInfo from "../pages/farmer/group/GroupInfo/GroupInfo";
 import FarmerHome from "../pages/farmer/home/FarmerHome";
 import PostDetails from "../pages/farmer/PostDetails/PostDetails";
 import Profile from "../pages/farmer/Profile/Profile";
@@ -29,5 +30,9 @@ export default [
   {
     path: "groups",
     element: <Group />,
+  },
+  {
+    path: "groups/:id",
+    element: <GroupInfo />,
   },
 ];

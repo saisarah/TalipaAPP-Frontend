@@ -27,3 +27,7 @@ export const getGroups = async () => {
     return groups
 }
 
+export const getGroup = async (id) => {
+    const groups = await getGroups()
+    return groups.find(group => group.id === id)
+}
