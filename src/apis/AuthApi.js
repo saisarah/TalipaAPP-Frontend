@@ -18,3 +18,8 @@ export const verifyLoginOtp = async ({contact_number, code}) => {
     })
     return data
 }
+
+
+export const validateData = async (data) => {
+    await Http.post('/register/validator', data)
+}

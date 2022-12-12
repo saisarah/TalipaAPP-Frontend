@@ -6,8 +6,16 @@ import PageHeader from "../../components/PageHeader";
 import AddressForm from "./forms/AddressForm";
 import PersonalInformationForm from "./forms/PersonalInformationForm";
 
-export default function RegistrationForm({ reset }) {
+const vendorSteps = [{ title: "Personal Information" }, { title: "Address" }];
+const farmerSteps = [
+  { title: "Personal Information" },
+  { title: "Address" },
+  { title: "Farm Information" },
+];
+
+export default function RegistrationForm({ accountType, reset }) {
   const [step, setStep] = useState(0);
+  const [personalInformationData, setPersonalInformationData] = useState({});
 
   return (
     <>
@@ -21,14 +29,21 @@ export default function RegistrationForm({ reset }) {
       />
       <div className="p-4">
         <Steps
-          items={[{ title: "Personal Information" }, { title: "Address" }]}
+          items={accountType === "farmer" ? farmerSteps : vendorSteps}
           size="small"
           className="mb-8"
           current={step}
-          direction="vertical"
+          type="inline"
+          
         />
-        {step === 0 && <PersonalInformationForm setStep={setStep} />}
-        {step === 1 && <AddressForm />}
+        {step === 0 && (
+          <PersonalInformationForm
+            personalInformationData={personalInformationData}
+            setPersonalInformationData={setPersonalInformationData}
+            setStep={setStep}
+          />
+        )}
+        {step === 1 && <AddressForm setStep={setStep} />}
       </div>
     </>
   );

@@ -1,9 +1,11 @@
 import { Button, Form, Input, Select } from "antd";
 import { useEffect, useState } from "react";
+import FormItem from "../../../components/FormItem";
 import useBarangaysQuery from "../../../query/queries/address/useBarangaysQuery";
 import { useCitiesQuery } from "../../../query/queries/address/useCitiesQuery";
 import useProvincesQuery from "../../../query/queries/address/useProvincesQuery";
 import useRegionQuery from "../../../query/queries/address/useRegionQuery";
+import { rules } from "../rules";
 
 export default function AddressForm({ setStep }) {
   const [selectedRegion, setSelectedRegion] = useState(null);
@@ -36,7 +38,7 @@ export default function AddressForm({ setStep }) {
 
   return (
     <Form layout="vertical" onFinish={() => setStep(2)}>
-      <Form.Item className="mb-4" label="Region" hasFeedback initialValue="">
+      <FormItem name="region" label="Region" rules={rules.region}>
         <Select
           value={selectedRegion}
           onChange={(region) => setSelectedRegion(region)}
@@ -46,9 +48,9 @@ export default function AddressForm({ setStep }) {
           options={regions}
           loading={fetchingRegions}
         />
-      </Form.Item>
+      </FormItem>
 
-      <Form.Item className="mb-4" label="Province" hasFeedback initialValue="">
+      <FormItem name="province" rules={rules.province} label="Province">
         <Select
           value={selectedProvince}
           onChange={(province) => setSelectedProvince(province)}
@@ -58,9 +60,9 @@ export default function AddressForm({ setStep }) {
           options={provinces}
           loading={fetchingProvinces}
         />
-      </Form.Item>
+      </FormItem>
 
-      <Form.Item className="mb-4" label="City" hasFeedback initialValue="">
+      <FormItem name="city" rules={rules.city} label="City">
         <Select
           value={selectedCity}
           onChange={(city) => setSelectedCity(city)}
@@ -70,9 +72,9 @@ export default function AddressForm({ setStep }) {
           options={cities}
           loading={fetchingCities}
         />
-      </Form.Item>
+      </FormItem>
 
-      <Form.Item className="mb-4" label="Baranggay" hasFeedback initialValue="">
+      <FormItem name="barangay" label="Baranggay" rules={rules.barangay}>
         <Select
           value={selectedBarangay}
           onChange={(brgy) => setSelectedBarangay(brgy)}
@@ -82,37 +84,30 @@ export default function AddressForm({ setStep }) {
           options={barangays}
           loading={fetchingBarangays}
         />
-      </Form.Item>
+      </FormItem>
 
-      <Form.Item
-        className="mb-4"
+      <FormItem
         label="Street/Building Name"
-        hasFeedback
-        initialValue=""
-      >
-        <Input
-          type="text"
-          placeholder="Enter your street or building name"
-          size="large"
-          className="rounded"
-        />
-      </Form.Item>
+        placeholder="Enter your street or building name"
+        name="street"
+        rules={rules.street}
+      />
 
-      <Form.Item
-        className="mb-4"
+      <FormItem
         label="House/Unit/Floor"
-        hasFeedback
-        initialValue=""
-      >
-        <Input
-          type="text"
-          placeholder="Enter your House number"
+        placeholder="Enter your house number"
+        name="house_number"
+        rules={rules.house_number}
+      />
+
+      <div className="mb-4 flex justify-between">
+        <Button
           size="large"
           className="rounded"
-        />
-      </Form.Item>
-
-      <div className="mb-4 flex justify-end">
+          onClick={() => setStep((step) => step - 1)}
+        >
+          Back
+        </Button>
         <Button
           type="primary"
           className="rounded"

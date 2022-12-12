@@ -1,43 +1,23 @@
 import { Button, Form, Input, Select } from "antd";
+import FormItem from "../../../components/FormItem";
 import { rules } from "../rules";
 
-// Form Item Wrapper
-// Just to make the code simpler
-const FormItem = ({
-  children,
-  name,
-  rules,
-  label,
-  placeholder,
-  type = "text",
-  addonBefore,
-  requiredMark,
-}) => {
-  return (
-    <Form.Item
-      requiredMark={requiredMark}
-      rules={rules}
-      name={name}
-      className="mb-4"
-      label={label}
-      hasFeedback
-    >
-      {children || (
-        <Input
-          addonBefore={addonBefore}
-          type={type}
-          placeholder={placeholder}
-          size="large"
-          className="rounded"
-        />
-      )}
-    </Form.Item>
-  );
-};
+export default function PersonalInformationForm({
+  personalInformationData,
+  setPersonalInformationData,
+  setStep,
+}) {
+  const handleSubmit = (data) => {
+    setPersonalInformationData(data);
+    setStep((step) => step + 1);
+  };
 
-export default function PersonalInformationForm({ setStep }) {
   return (
-    <Form layout="vertical" onFinish={() => setStep(1)}>
+    <Form
+      initialValues={personalInformationData}
+      layout="vertical"
+      onFinish={handleSubmit}
+    >
       <FormItem
         name="firstname"
         rules={rules.firstname}
@@ -64,6 +44,8 @@ export default function PersonalInformationForm({ setStep }) {
         placeholder="912 3456 789"
         addonBefore="+63"
         type="number"
+        validateFirst
+        max={10}
       />
 
       <FormItem
@@ -73,6 +55,7 @@ export default function PersonalInformationForm({ setStep }) {
         requiredMark="optional"
         type="email"
         label="Email"
+        validateFirst
       />
 
       <FormItem

@@ -5,6 +5,7 @@ import PageHeader from "../../../components/PageHeader";
 import { getPosts } from "../posts";
 import PostCard from "./PostCard";
 import { Spin } from "antd";
+import { useState } from "react";
 
 function CropsFilter() {
   return (
@@ -36,6 +37,9 @@ function CropsFilter() {
 export default function Feed() {
   const { data: posts, isLoading } = useQuery(["posts"], getPosts);
 
+  const [active, setActive] = useState("");
+  
+
   return (
     <div className="mx-auto min-h-screen max-w-md  bg-slate-50">
       <PageHeader
@@ -46,13 +50,13 @@ export default function Feed() {
         }
         title="Home"
       />
-
-      <div className="sticky top-0 grid h-16 grid-cols-2 bg-white text-lg shadow-md">
+      <div className="sticky top-0 grid h-16 grid-cols-3 bg-white text-lg shadow-md">
         <div className="flex items-center justify-center border-b border-primary text-primary">
           For Sale
         </div>
 
         <div className="flex items-center justify-center">Demands</div>
+        <div className="flex items-center justify-center">Create Post</div>
       </div>
 
       {isLoading ? (

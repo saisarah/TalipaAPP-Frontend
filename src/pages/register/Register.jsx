@@ -12,7 +12,10 @@ export default function Register() {
       {accountType === null ? (
         <ChooseAccountType setAccountType={setAccountType} />
       ) : (
-        <RegistrationForm reset={() => setAccountType(null)} />
+        <RegistrationForm
+          accountType={accountType}
+          reset={() => setAccountType(null)}
+        />
       )}
     </div>
   );

@@ -2,7 +2,7 @@ import Http from "../helpers/Http";
 
 export const fetchRegions = async () => {
   const { data } = await Http.get("/philippine-addresses/regions");
-  return data;
+  return data.filter(region => region.region_code === "13");
 };
 
 export const fetchProvinces = async (region) => {

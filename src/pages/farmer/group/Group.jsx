@@ -20,7 +20,7 @@ function SuggestedGroups() {
   return (
     <div className="divide-y divide-slate-200">
       {data.map((group) => (
-        <Group key={group.id} {...group} />
+        <GroupItem key={group.id} {...group} />
       ))}
     </div>
   );
