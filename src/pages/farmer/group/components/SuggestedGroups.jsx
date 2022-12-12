@@ -1,5 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { Spin } from "antd";
+import { getGroups } from "../groups";
 import GroupItem from "./GroupItem";
 
 export default function SuggestedGroups() {
