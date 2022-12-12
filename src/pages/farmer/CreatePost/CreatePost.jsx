@@ -1,3 +1,5 @@
+import { Select } from "antd";
+
 const handleChange = (value) => {
   console.log(`selected ${value}`);
 };
@@ -46,7 +48,7 @@ function Post({ fields, fieldholder }) {
           ]}
         />
       </label>
-    </>
+      </>
   );
 }
 
