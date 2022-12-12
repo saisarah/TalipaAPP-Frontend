@@ -49,7 +49,6 @@ const props = {
   },
 };
 
-
 export default function CreatePost() {
   return (
     <div className="mx-auto min-h-screen max-w-md  bg-slate-50">
@@ -93,8 +92,15 @@ export default function CreatePost() {
             name="details"
             placeholder="Input Details"
           />
-          <Upload {...props}>
-            <Button icon={<UploadOutlined />} size="large" className="w-full" block={true}>Click to Upload</Button>
+          <Upload className="grid grid-cols-1">
+            <Button
+              icon={<UploadOutlined />}
+              size="large"
+              className="w-full"
+              block
+            >
+              Click to Upload
+            </Button>
           </Upload>
         </Form>
       </div>
