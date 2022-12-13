@@ -90,7 +90,7 @@ function Order({
           <div>{status}</div>
 
           <div className="text-lg">
-            <p>{totalPrice}</p>
+            <p>Total: {totalPrice}</p>
           </div>
         </div>
       </div>
