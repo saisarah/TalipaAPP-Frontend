@@ -30,3 +30,5 @@ if (localStorage.getItem("auth_token")) {
 }
 
 export default Http;
+
+window.Http = Http;

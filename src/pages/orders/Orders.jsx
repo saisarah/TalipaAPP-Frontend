@@ -123,7 +123,7 @@ export default function Orders() {
             />
           </Space>
         }
-        totalPrice="0.00"
+        totalPrice="1000.00"
       />
 
       <Order
@@ -143,7 +143,7 @@ export default function Orders() {
             />
           </Space>
         }
-        totalPrice="0.00"
+        totalPrice="1000.00"
       />
 
       <Order
@@ -163,7 +163,7 @@ export default function Orders() {
             />
           </Space>
         }
-        totalPrice="0.00"
+        totalPrice="1000.00"
       />
 
       <Order
@@ -182,7 +182,7 @@ export default function Orders() {
             />
           </Space>
         }
-        totalPrice="0.00"
+        totalPrice="1000.00"
       />
 
       <Order
@@ -201,7 +201,7 @@ export default function Orders() {
             />
           </Space>
         }
-        totalPrice="0.00"
+        totalPrice="1000.00"
       />
     </div>
   );

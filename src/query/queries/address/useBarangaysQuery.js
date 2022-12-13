@@ -8,7 +8,7 @@ export default function useBarangaysQuery(region, province, city) {
     queryKeyFactory.barangays(region, province, city),
     () => fetchBarangays(region, province, city),
     {
-      enabled: region !== null && province !== null && city !== null,
+      enabled: !!region  && !!province && !!city,
       staleTime: Infinity,
       select: (barangays) => {
         return barangays.map(({ brgy_name, ...rest }) => {

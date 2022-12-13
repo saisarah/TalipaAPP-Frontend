@@ -8,7 +8,7 @@ export function useCitiesQuery(region, province) {
     queryKeyFactory.cities(region, province),
     () => fetchCities(region, province),
     {
-      enabled: region !== null && province !== null,
+      enabled: !!region && !!province ,
       staleTime: Infinity,
       select: (cities) => {
         return cities.map(({ city_name, ...rest }) => {
