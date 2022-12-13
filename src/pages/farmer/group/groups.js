@@ -29,5 +29,5 @@ export const getGroups = async () => {
 
 export const getGroup = async (id) => {
     const groups = await getGroups()
-    return groups.find(group => group.id === id)
+    return groups.find(group => group.id == id)
 }
