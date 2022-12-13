@@ -8,7 +8,7 @@ export default function useProvincesQuery(region) {
     queryKeyFactory.provinces(region),
     () => fetchProvinces(region),
     {
-      enabled: region !== null,
+      enabled: !!region,
       staleTime: Infinity,
       select: (provinces) => {
         return provinces.map(({ province_name, ...rest }) => {
