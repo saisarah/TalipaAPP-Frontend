@@ -119,7 +119,12 @@ export default function Orders() {
         location="NCR,Caloocan City"
         status={
           <Space>
-            <Badge className="text-lg" status="success" text="Completed" />
+            <Badge
+              className="text-lg"
+              status="success"
+              color="#16a34a"
+              text={<span className="text-lg text-[#16a34a]">Shipped</span>}
+            />
           </Space>
         }
         totalPrice="0.00"
@@ -134,7 +139,70 @@ export default function Orders() {
         location="NCR,Caloocan City"
         status={
           <Space>
-            <Badge className="text-lg" status="error" text="Cancelled" />
+            <Badge
+              className="text-lg"
+              status="error"
+              color="#dc2626"
+              text={<span className="text-lg text-[#dc2626]">Canceled</span>}
+            />
+          </Space>
+        }
+        totalPrice="0.00"
+      />
+
+      <Order
+        vendor="ATCOST"
+        displayphoto="https://images.unsplash.com/photo-1618556782763-ac991d2fdac8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
+        date="3 days ago"
+        orderName="Manga"
+        orderQuntity="100kg"
+        location="NCR,Caloocan City"
+        status={
+          <Space>
+            <Badge
+              className="text-lg"
+              color="#2563eb"
+              status="processing"
+              text={<span className="text-lg text-[#2563eb]">Shipped</span>}
+            />
+          </Space>
+        }
+        totalPrice="0.00"
+      />
+
+      <Order
+        vendor="ATCOST"
+        displayphoto="https://images.unsplash.com/photo-1618556782763-ac991d2fdac8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
+        date="3 days ago"
+        orderName="Manga"
+        orderQuntity="100kg"
+        location="NCR,Caloocan City"
+        status={
+          <Space>
+            <Badge
+              status="warning"
+              color="#ca8a04"
+              text={<span className="text-lg text-[#ca8a04]">Confirmed </span>}
+            />
+          </Space>
+        }
+        totalPrice="0.00"
+      />
+
+      <Order
+        vendor="ATCOST"
+        displayphoto="https://images.unsplash.com/photo-1618556782763-ac991d2fdac8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
+        date="3 days ago"
+        orderName="Manga"
+        orderQuntity="100kg"
+        location="NCR,Caloocan City"
+        status={
+          <Space>
+            <Badge
+              status="warning"
+              color="#ea580c"
+              text={<span className="text-lg text-[#ea580c]">Pending</span>}
+            />
           </Space>
         }
         totalPrice="0.00"
