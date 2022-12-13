@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import PageHeader from "../../components/PageHeader";
-import { ArrowLeftOutlined, UserOutlined } from "@ant-design/icons";
+import { ArrowLeftOutlined } from "@ant-design/icons";
 import { Avatar, Badge, Space } from "antd";
 
 function Order({
