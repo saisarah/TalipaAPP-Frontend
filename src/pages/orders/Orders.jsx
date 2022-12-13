@@ -20,7 +20,7 @@ function Order({
           <a href="#" className="flex w-full items-center gap-2 p-4">
             <>
               <div>
-                <Avatar size={69} src={displayphoto} />
+                <Avatar size={64} src={displayphoto} />
               </div>
             </>
             <div className="flex h-full flex-grow flex-col leading-4">
