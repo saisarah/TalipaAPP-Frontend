@@ -18,11 +18,7 @@ function Order({
       <ul className="">
         <li className="">
           <a href="#" className="flex w-full items-center gap-2 p-4">
-            <>
-              <div>
-                <Avatar size={64} src={displayphoto} />
-              </div>
-            </>
+            <Avatar size={64} src={displayphoto} />
             <div className="flex h-full flex-grow flex-col leading-4">
               <span className="text-xl font-bold">{vendor}</span>
               <span className="">{date}</span>
