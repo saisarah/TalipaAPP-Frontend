@@ -29,7 +29,7 @@ export default function user()
   return (
     <div className="bg-white ">
       <div className="px-4 flex items-center justify-between py-4">
-          <h1 className="text-xl font-bold ">Messages</h1>
+          <h1 className="text-2xl font-bold ">Messages</h1>
       </div>
       <div className="py-2 px-4">
           <div className="flex gap-2 rounded bg-slate-200 p-3">
