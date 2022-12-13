@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import PageHeader from "../../components/PageHeader";
 import { ArrowLeftOutlined } from "@ant-design/icons";
-import { Badge, Space } from "antd";
+import { Avatar, Badge, Space } from "antd";
 
 function Order({
   vendor,
@@ -14,19 +14,11 @@ function Order({
   totalPrice,
 }) {
   return (
-    <div className=" w-full border-b border-t bg-white">
+    <div className=" mb-4 w-full border-b border-t bg-white">
       <ul className="">
         <li className="">
           <a href="#" className="flex w-full items-center gap-2 p-4">
-            <span className="">
-              <img
-                className="rounded-full"
-                src={displayphoto}
-                alt=""
-                height={69}
-                width={69}
-              />
-            </span>
+            <Avatar size={64} src={displayphoto} />
             <div className="flex h-full flex-grow flex-col leading-4">
               <span className="text-xl font-bold">{vendor}</span>
               <span className="">{date}</span>
@@ -85,7 +77,7 @@ function Order({
       </div>
 
       {/* Order status */}
-      <div className="with-full border-b border-t">
+      <div className="with-full border-b border-t pt-4">
         <div className="flex justify-between px-4">
           <div>{status}</div>
 
