@@ -6,7 +6,7 @@ import { useState } from "react";
 import SuggestedGroups from "./components/SuggestedGroups";
 import GroupInvitation from "./GroupInvitation";
 
-const HAS_INVITATION = true;
+const HAS_INVITATION = false;
 
 export default function Group() {
   const [active, setActive] = useState("join");
