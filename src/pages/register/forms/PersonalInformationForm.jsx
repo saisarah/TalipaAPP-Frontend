@@ -38,7 +38,7 @@ export default function PersonalInformationForm({
       />
 
       <FormItem
-        name="phone"
+        name="contact_number"
         rules={rules.phone}
         label="Phone"
         placeholder="912 3456 789"

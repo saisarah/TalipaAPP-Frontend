@@ -4,6 +4,8 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import PageHeader from "../../components/PageHeader";
 import AddressForm from "./forms/AddressForm";
+import CropSelection from "./forms/CropsSelection";
+import FarmInformation from "./forms/FarmInformation";
 import PersonalInformationForm from "./forms/PersonalInformationForm";
 
 const vendorSteps = [{ title: "Personal Information" }, { title: "Address" }];
@@ -16,6 +18,8 @@ const farmerSteps = [
 export default function RegistrationForm({ accountType, reset }) {
   const [step, setStep] = useState(0);
   const [personalInformationData, setPersonalInformationData] = useState({});
+  const [addressData, setAddressData] = useState({});
+  const [farmInformationData, setFarmInformationData] = useState({});
 
   return (
     <>
@@ -34,7 +38,6 @@ export default function RegistrationForm({ accountType, reset }) {
           className="mb-8"
           current={step}
           type="inline"
-          
         />
         {step === 0 && (
           <PersonalInformationForm
@@ -43,7 +46,23 @@ export default function RegistrationForm({ accountType, reset }) {
             setStep={setStep}
           />
         )}
-        {step === 1 && <AddressForm setStep={setStep} />}
+        {step === 1 && (
+          <AddressForm
+            addressData={addressData}
+            setAddressData={setAddressData}
+            setStep={setStep}
+          />
+        )}
+
+        {step === 2 && (
+          <FarmInformation
+            addressData={addressData}
+            personalInformationData={personalInformationData}
+            farmInformationData={farmInformationData}
+            setFarmInformationData={setFarmInformationData}
+            setStep={setStep}
+          />
+        )}
       </div>
     </>
   );

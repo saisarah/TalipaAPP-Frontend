@@ -67,5 +67,17 @@ export const rules = {
     ],
     house_number: [
         { required: true, message: "Please enter your house number" },
+    ],
+    farm_area: [
+        { required: true, message: "Please enter your farm area" },
+    ],
+    farm_type: [
+        { required: true, message: "Please select your farm type" },
+    ],
+    ownership_type: [
+        { required: true, message: "Please enter your ownership type" },
+    ],
+    crops: [
+        { required: true, message: "Please select your crops" },
     ]
   };

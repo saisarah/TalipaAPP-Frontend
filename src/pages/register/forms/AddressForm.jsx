@@ -1,17 +1,22 @@
 import { Button, Form, Input, Select } from "antd";
 import { useEffect, useState } from "react";
 import FormItem from "../../../components/FormItem";
+import { useEffectSkipFirst } from "../../../helpers/hooks";
 import useBarangaysQuery from "../../../query/queries/address/useBarangaysQuery";
 import { useCitiesQuery } from "../../../query/queries/address/useCitiesQuery";
 import useProvincesQuery from "../../../query/queries/address/useProvincesQuery";
 import useRegionQuery from "../../../query/queries/address/useRegionQuery";
 import { rules } from "../rules";
 
-export default function AddressForm({ setStep }) {
-  const [selectedRegion, setSelectedRegion] = useState(null);
-  const [selectedProvince, setSelectedProvince] = useState(null);
-  const [selectedCity, setSelectedCity] = useState(null);
-  const [selectedBarangay, setSelectedBarangay] = useState(null);
+export default function AddressForm({ addressData, setAddressData, setStep }) {
+  const [selectedRegion, setSelectedRegion] = useState(addressData.region);
+  const [selectedProvince, setSelectedProvince] = useState(
+    addressData.province
+  );
+  const [selectedCity, setSelectedCity] = useState(addressData.city);
+  const [selectedBarangay, setSelectedBarangay] = useState(
+    addressData.barangay
+  );
 
   const { data: regions, isFetching: fetchingRegions } = useRegionQuery();
   const { data: provinces, isFetching: fetchingProvinces } =
@@ -26,18 +31,23 @@ export default function AddressForm({ setStep }) {
     selectedCity
   );
 
-  useEffect(() => {
+  useEffectSkipFirst(() => {
     setSelectedProvince(null);
   }, [selectedRegion]);
-  useEffect(() => {
+  useEffectSkipFirst(() => {
     setSelectedCity(null);
   }, [selectedProvince]);
-  useEffect(() => {
+  useEffectSkipFirst(() => {
     setSelectedBarangay(null);
   }, [selectedCity]);
 
+  const handleSubmit = (data) => {
+    setAddressData(data);
+    setStep((step) => step + 1);
+  };
+
   return (
-    <Form layout="vertical" onFinish={() => setStep(2)}>
+    <Form layout="vertical" onFinish={handleSubmit} initialValues={addressData}>
       <FormItem name="region" label="Region" rules={rules.region}>
         <Select
           value={selectedRegion}
@@ -62,7 +72,7 @@ export default function AddressForm({ setStep }) {
         />
       </FormItem>
 
-      <FormItem name="city" rules={rules.city} label="City">
+      <FormItem name="municipality" rules={rules.city} label="City">
         <Select
           value={selectedCity}
           onChange={(city) => setSelectedCity(city)}
