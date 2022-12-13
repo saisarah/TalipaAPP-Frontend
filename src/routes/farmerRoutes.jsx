@@ -1,9 +1,8 @@
 import Feed from "../pages/farmer/Feed/Feed";
 import Group from "../pages/farmer/group/Group";
-import GroupInvitation from "../pages/farmer/group/GroupInvitation";
 import FarmerHome from "../pages/farmer/home/FarmerHome";
 import PostDetails from "../pages/farmer/PostDetails/PostDetails";
-import Profile from "../pages/farmer/Profile/Profile"; 
+import Profile from "../pages/farmer/Profile/Profile";
 import Conversations from "../pages/messages/Conversations";
 
 export default [
@@ -30,9 +29,5 @@ export default [
   {
     path: "groups",
     element: <Group />,
-  },
-  {
-    path: "GroupInvitation",
-    element: <GroupInvitation />,
   },
 ];
