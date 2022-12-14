@@ -92,7 +92,7 @@ function Order({
 
 export default function Orders() {
   return (
-    <div className="mx-auto max-w-md bg-slate-50">
+    <div className="mx-auto max-w-md bg-white">
       <PageHeader
         left={
           <Link to="/farmer">
@@ -101,6 +101,23 @@ export default function Orders() {
         }
         title="Orders"
       />
+      <div class="no-scrollbar flex flex-nowrap overflow-x-auto p-4">
+        <button>
+          <div className="mx-2 rounded-xl bg-[#BBF7D0] py-1 px-4">All</div>
+        </button>
+        <button>
+          <div className="mx-2 rounded-xl bg-slate-200 py-1 px-4">Pending</div>
+        </button>
+        <button>
+          <div className="mx-2 rounded-xl bg-slate-200 py-1 px-4">Completed</div>
+        </button>
+        <button>
+          <div className="mx-2 rounded-xl bg-slate-200 py-1 px-4">Shipped</div>
+        </button>
+        <button>
+          <div className="mx-2 rounded-xl bg-slate-200 py-1 px-4">Canceled</div>
+        </button>
+      </div>
 
       <Order
         vendor="ATCOST"
@@ -115,7 +132,7 @@ export default function Orders() {
               className="text-lg"
               status="success"
               color="#16a34a"
-              text={<span className="text-lg text-[#16a34a]">Shipped</span>}
+              text={<span className="text-lg text-[#16a34a]">Completed</span>}
             />
           </Space>
         }
