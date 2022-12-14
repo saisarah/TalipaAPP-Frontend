@@ -115,7 +115,7 @@ export default function Orders() {
               className="text-lg"
               status="success"
               color="#16a34a"
-              text={<span className="text-lg text-[#16a34a]">Shipped</span>}
+              text={<span className="text-lg text-[#16a34a]">Completed</span>}
             />
           </Space>
         }
