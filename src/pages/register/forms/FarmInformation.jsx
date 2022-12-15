@@ -1,50 +1,54 @@
-import { useMutation } from "@tanstack/react-query";
-import { Button, Form, Modal, notification, Select } from "antd";
-import { useNavigate } from "react-router-dom";
-import { farmerRegister } from "../../../apis/AuthApi";
+import { UploadOutlined } from "@ant-design/icons";
+import { Button, Form, Select, Upload } from "antd";
+import { useState } from "react";
 import FormItem from "../../../components/FormItem";
+import { useRegistrationContext } from "../../../contexts/RegistrationContext";
+import { useFarmerRegistration } from "../../../query/mutations/useFarmerRegistration";
 import useCropsQuery from "../../../query/queries/useCropsQuery";
 import { rules } from "../rules";
 
-export default function FarmInformation({
-  personalInformationData,
-  addressData,
-  farmInformationData,
-  setFarmInformationData,
-  setStep,
-}) {
-  const { data: crops, isLoading: fetchingCrops } = useCropsQuery({
-    select: (data) => data.map(({ name, id }) => ({ value: id, label: name })),
-  });
-  const navigate = useNavigate();
-  const { mutate, isLoading } = useMutation(farmerRegister, {
-    onSuccess() {
-      Modal.success({ content: "Registered Successfully" });
-      navigate("/login");
-    },
-    onError(e) {
-      Modal.error({ content: "An error occured while registering" });
-    },
-  });
+const documentType = {
+  "Registered Owner": [
+    "Individual Certificate of Land Ownership Award",
+    "Certificate of Title or Regular Title",
+    "Certificate of Ancestral Domain Title",
+    "Certificate of Ancestral Land Title",
+    "Certificate of Land Transfer",
+    "Agricultural Sales Patent",
+    "Emancipation Patent",
+    "Co-ownership CLOA",
+    "Homestead Patent",
+    "Collective CLOA",
+    "Tax Declaration",
+    "Free Patent",
+    "Others",
+  ],
+  Tenant: ["Rent Receipt"],
+};
 
-  const handleSubmit = (data) => {
-    if (isLoading) return;
-    setFarmInformationData(data);
-    mutate({ ...data, ...addressData, ...personalInformationData });
+export default function FarmInformation() {
+  const { setStep, data, setData } = useRegistrationContext();
+
+  const { data: crops, isLoading: fetchingCrops } = useCropsQuery();
+  const { mutate, isLoading } = useFarmerRegistration();
+  const [selectedOwnershipType, setSelectedOwnershipType] = useState(null);
+  const [documentImage, setDocumentImage] = useState([]);
+
+  const handleSubmit = (farmData) => {
+    setData((data) => ({ ...data, ...farmData }));
+    setStep((step) => step + 1);
   };
 
   return (
-    <Form
-      layout="vertical"
-      onFinish={handleSubmit}
-      initialValues={farmInformationData}
-    >
+    <Form layout="vertical" onFinish={handleSubmit} initialValues={data}>
       <FormItem
-        inputProps={{ min: 1 }}
+        inputProps={{ min: 1, addonAfter: "ha" }}
         label="Farm Area"
         name="farm_area"
         type="number"
         rules={rules.farm_area}
+        tooltip="The total hectares of your farm"
+        placeholder="Enter the total hectares of your farm"
       />
 
       <FormItem label="Farm Type" name="farm_type" rules={rules.farm_type}>
@@ -60,14 +64,62 @@ export default function FarmInformation({
         placeholder="Enter ownership type here"
         label="Ownership Type"
         name="ownership_type"
-      />
+      >
+        <Select
+          size="large"
+          className="rounded"
+          placeholder="Select Ownership Type"
+          value={selectedOwnershipType}
+          onChange={(e) => setSelectedOwnershipType(e)}
+        >
+          <Select.Option value="Registered Owner">
+            Registered Owner
+          </Select.Option>
+          <Select.Option value="Tenant">Tenant</Select.Option>
+        </Select>
+      </FormItem>
+
+      {selectedOwnershipType && (
+        <>
+          <FormItem
+            placeholder="Select Document"
+            label="Proof of Ownership"
+            name="document_type"
+          >
+            <Select
+              size="large"
+              className="rounded"
+              options={documentType[selectedOwnershipType].map((type) => ({
+                value: type,
+              }))}
+            />
+          </FormItem>
+
+          <FormItem name="document" label="Add Photos">
+            <Upload
+              onRemove={() => setDocumentImage([])}
+              fileList={documentImage}
+              beforeUpload={(file) => {
+                setDocumentImage([file]);
+                return false;
+              }}
+              listType="picture"
+              className="grid grid-cols-1"
+            >
+              <Button icon={<UploadOutlined />} size="large" block>
+                Click to Upload
+              </Button>
+            </Upload>
+          </FormItem>
+        </>
+      )}
 
       <FormItem rules={rules.crops} name="crops" label="Select Crops you Grow">
         <Select
           mode="multiple"
           size="large"
           className="rounded"
-          options={crops}
+          options={crops?.map(({ name, id }) => ({ value: id, label: name }))}
           loading={fetchingCrops}
           placeholder="Select a crops"
         />

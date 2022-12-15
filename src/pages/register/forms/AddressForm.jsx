@@ -1,6 +1,7 @@
-import { Button, Form, Input, Select } from "antd";
-import { useEffect, useState } from "react";
+import { Button, Form, Select } from "antd";
+import { useState } from "react";
 import FormItem from "../../../components/FormItem";
+import { useRegistrationContext } from "../../../contexts/RegistrationContext";
 import { useEffectSkipFirst } from "../../../helpers/hooks";
 import useBarangaysQuery from "../../../query/queries/address/useBarangaysQuery";
 import { useCitiesQuery } from "../../../query/queries/address/useCitiesQuery";
@@ -8,15 +9,11 @@ import useProvincesQuery from "../../../query/queries/address/useProvincesQuery"
 import useRegionQuery from "../../../query/queries/address/useRegionQuery";
 import { rules } from "../rules";
 
-export default function AddressForm({ addressData, setAddressData, setStep }) {
-  const [selectedRegion, setSelectedRegion] = useState(addressData.region);
-  const [selectedProvince, setSelectedProvince] = useState(
-    addressData.province
-  );
-  const [selectedCity, setSelectedCity] = useState(addressData.city);
-  const [selectedBarangay, setSelectedBarangay] = useState(
-    addressData.barangay
-  );
+const useAddressFormState = (data) => {
+  const [selectedRegion, setSelectedRegion] = useState(data.region);
+  const [selectedProvince, setSelectedProvince] = useState(data.province);
+  const [selectedCity, setSelectedCity] = useState(data.municipality);
+  const [selectedBarangay, setSelectedBarangay] = useState(data.barangay);
 
   const { data: regions, isFetching: fetchingRegions } = useRegionQuery();
   const { data: provinces, isFetching: fetchingProvinces } =
@@ -41,13 +38,55 @@ export default function AddressForm({ addressData, setAddressData, setStep }) {
     setSelectedBarangay(null);
   }, [selectedCity]);
 
-  const handleSubmit = (data) => {
-    setAddressData(data);
+  return {
+    selectedRegion,
+    selectedProvince,
+    selectedCity,
+    selectedBarangay,
+    setSelectedRegion,
+    setSelectedProvince,
+    setSelectedCity,
+    setSelectedBarangay,
+    regions,
+    provinces,
+    cities,
+    barangays,
+    fetchingRegions,
+    fetchingProvinces,
+    fetchingCities,
+    fetchingBarangays,
+  };
+};
+
+export default function AddressForm() {
+  const { setStep, data, setData } = useRegistrationContext();
+
+  const {
+    selectedRegion,
+    selectedProvince,
+    selectedCity,
+    selectedBarangay,
+    setSelectedRegion,
+    setSelectedProvince,
+    setSelectedCity,
+    setSelectedBarangay,
+    regions,
+    provinces,
+    cities,
+    barangays,
+    fetchingRegions,
+    fetchingProvinces,
+    fetchingCities,
+    fetchingBarangays,
+  } = useAddressFormState(data);
+
+  const handleSubmit = (addressData) => {
+    setData((data) => ({ ...data, ...addressData }));
     setStep((step) => step + 1);
   };
 
   return (
-    <Form layout="vertical" onFinish={handleSubmit} initialValues={addressData}>
+    <Form layout="vertical" onFinish={handleSubmit} initialValues={data}>
       <FormItem name="region" label="Region" rules={rules.region}>
         <Select
           value={selectedRegion}
@@ -62,6 +101,7 @@ export default function AddressForm({ addressData, setAddressData, setStep }) {
 
       <FormItem name="province" rules={rules.province} label="Province">
         <Select
+          disabled={!selectedRegion}
           value={selectedProvince}
           onChange={(province) => setSelectedProvince(province)}
           size="large"
@@ -74,6 +114,7 @@ export default function AddressForm({ addressData, setAddressData, setStep }) {
 
       <FormItem name="municipality" rules={rules.city} label="City">
         <Select
+          disabled={!selectedProvince}
           value={selectedCity}
           onChange={(city) => setSelectedCity(city)}
           size="large"
@@ -86,6 +127,7 @@ export default function AddressForm({ addressData, setAddressData, setStep }) {
 
       <FormItem name="barangay" label="Baranggay" rules={rules.barangay}>
         <Select
+          disabled={!selectedCity}
           value={selectedBarangay}
           onChange={(brgy) => setSelectedBarangay(brgy)}
           size="large"
