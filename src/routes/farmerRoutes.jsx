@@ -1,6 +1,7 @@
 import CreatePost from "../pages/farmer/CreatePost/CreatePost";
 import Feed from "../pages/farmer/Feed/Feed";
 import Group from "../pages/farmer/group/Group";
+import GroupNew from "../pages/farmer/group/Create/CreateGroup";
 import GroupInfo from "../pages/farmer/group/GroupInfo/GroupInfo";
 import FarmerHome from "../pages/farmer/home/FarmerHome";
 import PostDetails from "../pages/farmer/PostDetails/PostDetails";
@@ -44,5 +45,9 @@ export default [
   {
     path: "groups/:id",
     element: <GroupInfo />,
+  },
+  {
+    path: "groups/new",
+    element: <GroupNew />,
   },
 ];

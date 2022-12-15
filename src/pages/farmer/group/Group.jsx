@@ -52,9 +52,11 @@ export default function Group() {
             Farmer groups are group of individual farmers, an association,
             cooperative or any legal entity with a common farming interest.
           </span>
-          <Button className="rounded" size="large">
-            Create
-          </Button>
+          <Link to="/farmer/groups/new">
+            <Button className="rounded" size="large">
+              Create
+            </Button>
+          </Link>
         </div>
       )}
     </div>
