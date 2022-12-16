@@ -8,5 +8,8 @@ export const rules = {
     grouptype: [
         { required: true, message: "Please select a Ground type" }
     ],
+    auth: [
+        { required: true, message: "Please insert a Authorization Letter" }
+    ],
 
 }   

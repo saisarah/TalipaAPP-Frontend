@@ -57,7 +57,7 @@ export default function CreateGroup() {
   });
 
   return (
-    <div className="mx-auto min-h-screen max-w-md bg-slate-50">
+    <div className="mx-auto min-h-screen max-w-md bg-slate-50 bg-white">
       <PageHeader
         left={
           <Link to="/farmer/groups">
@@ -72,25 +72,34 @@ export default function CreateGroup() {
           <FormItem label="Name" name="name" rules={rules.name} />
           <FormItem label="Address" name="address" rules={rules.address} />
           <FormItem label="Group type" name="grouptype" rules={rules.grouptype}>
-            <Select placeholder="Select Group type" options={grouptype} />
-          </FormItem>
-
-          <FormItem label="Year Founded (optional)" name="details">
-            <Input.TextArea
+            <Select
+              placeholder="Select Group type"
               size="large"
-              className="rounded"
-              placeholder="Add a short description"
+              options={grouptype}
             />
           </FormItem>
-          <FormItem label="Authorization Letter">
-            <Upload className="grid grid-cols-1">
+
+          <FormItem
+            type="date"
+            label={
+              <span>
+                Year Founded <span className="text-gray-400">(optional)</span>
+              </span>
+            }
+            name="details"
+            size="large"
+            className="rounded"
+            placeholder="Add a short description"
+          />
+          <FormItem label="Authorization Letter" rules={rules.auth}>
+            <Upload className="grid grid-cols-1" maxCount={1}>
               <Button icon={<UploadOutlined />} size="large" block>
                 Click to Upload
               </Button>
             </Upload>
           </FormItem>
           <Button
-            className="mt-2 w-full rounded bg-[#739559] text-lg font-bold text-white  "
+            className="mt-2 w-full rounded bg-[#739559] font-bold text-white  "
             size={"large"}
           >
             Next
