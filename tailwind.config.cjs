@@ -14,12 +14,12 @@ module.exports = {
          * also update the color of Antd Primary Color Located
          * in src/App.jsx
          */
-        'primary': '#314026',
-        'primary-accent-1': '#526A40',
-        'primary-accent-2': '#739559',
-        'primary-accent-3': '#94BF73',
-        'primary-accent-4': '#B5EA8C',
-
+        'primary': '#739559',
+        'primary-accent-1': '#314026',
+        'primary-accent-2': '#526A40',
+        'primary-accent-3': '#739559',
+        'primary-accent-4': '#94BF73',
+        'primary-accent-5': '#B5EA8C',
       }
     },
   },
