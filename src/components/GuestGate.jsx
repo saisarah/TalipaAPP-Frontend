@@ -3,20 +3,17 @@ import useCurrentUserQuery from "../query/queries/useCurrentUserQuery";
 import SplashScreen from "./SplashScreen";
 
 export default function GuestGate() {
-  const { isLoading, isError, data: user, isSuccess } = useCurrentUserQuery();
+  const { isLoading, data: user } = useCurrentUserQuery();
 
   if (isLoading) {
     return <SplashScreen />;
   }
 
-  if (user === null)
-    return <Outlet />
+  if (user === null) return <Outlet />;
 
-  if (user.user_type === "farmer")
-    return <Navigate to="/farmer" />;
+  if (user.user_type === "farmer") return <Navigate to="/farmer" />;
 
-  if (user.user_type === "vendor")
-    return <Navigate to="/" />;
+  if (user.user_type === "vendor") return <Navigate to="/" />;
 
-  throw "Unknown user type"
+  throw "Unknown user type";
 }

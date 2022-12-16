@@ -5,6 +5,12 @@ export const fetchCurrentUser = async () => {
     return data
 }
 
+// Credentials must contain contact_number and password
+export const login = async (credentials) => { 
+    const { data } = await Http.post('/login', {...credentials, device_name: 'TalipaAPP FrontEnd'})
+    return data
+}
+
 export const sendLoginOtp = async (contact_number) => {
     const { data } = await Http.post('/login/send-otp', {contact_number})
     return data
