@@ -1,9 +1,8 @@
 import { UploadOutlined } from "@ant-design/icons";
-import { Button, Form, Select, Upload } from "antd";
+import { Button, Form, notification, Select, Upload } from "antd";
 import { useState } from "react";
 import FormItem from "../../../components/FormItem";
 import { useRegistrationContext } from "../../../contexts/RegistrationContext";
-import { useFarmerRegistration } from "../useFarmerRegistration";
 import useCropsQuery from "../../../query/queries/useCropsQuery";
 import { rules } from "../rules";
 
@@ -36,6 +35,12 @@ export default function FarmInformation() {
   const [documentImage, setDocumentImage] = useState(data.document);
 
   const handleSubmit = (farmData) => {
+    if (!documentImage) {
+      notification.error({
+        message: "Please upload document for verification",
+      });
+      return;
+    }
     setData((data) => ({ ...data, ...farmData, document: documentImage }));
     setStep((step) => step + 1);
   };
@@ -83,11 +88,12 @@ export default function FarmInformation() {
       {selectedOwnershipType && (
         <>
           <FormItem
-            placeholder="Select Document"
+            rules={[{ required: true }]}
             label="Proof of Ownership"
             name="document_type"
           >
             <Select
+              placeholder="Select Document"
               size="large"
               className="rounded"
               options={documentType[selectedOwnershipType].map((type) => ({

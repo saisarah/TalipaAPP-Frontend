@@ -7,13 +7,15 @@ import { useOtp } from "../useOtp";
 
 export const VerificationForm = () => {
   const { data, setStep } = useRegistrationContext();
-  const { mutate, isLoading } = useFarmerRegistration()
+  const { mutate, isLoading } = useFarmerRegistration();
   const { contact_number } = data;
 
   const { sendOtp, isSending, throttle } = useOtp();
 
   const handleSubmit = ({ code }) => {
-    console.log(toFormData({ ...data, code }));
+    if (isLoading) return;
+    const formData = toFormData({ ...data, code });
+    mutate(formData);
   };
 
   return (
@@ -62,6 +64,7 @@ export const VerificationForm = () => {
           size="large"
           htmlType="submit"
           type="primary"
+          loading={isLoading}
         >
           Submit
         </Button>
