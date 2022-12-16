@@ -1,25 +1,29 @@
 import { ArrowLeftOutlined, LeftOutlined } from "@ant-design/icons";
 import { Button, Steps } from "antd";
+import { useContext } from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import PageHeader from "../../components/PageHeader";
+import {
+  RegistrationContext,
+  useRegistrationContext,
+} from "../../contexts/RegistrationContext";
 import AddressForm from "./forms/AddressForm";
 import CropSelection from "./forms/CropsSelection";
 import FarmInformation from "./forms/FarmInformation";
 import PersonalInformationForm from "./forms/PersonalInformationForm";
+import { VerificationForm } from "./forms/VerificationForm";
 
 const vendorSteps = [{ title: "Personal Information" }, { title: "Address" }];
 const farmerSteps = [
   { title: "Personal Information" },
   { title: "Address" },
   { title: "Farm Information" },
+  { title: "Verification" },
 ];
 
 export default function RegistrationForm({ accountType, reset }) {
-  const [step, setStep] = useState(0);
-  const [personalInformationData, setPersonalInformationData] = useState({});
-  const [addressData, setAddressData] = useState({});
-  const [farmInformationData, setFarmInformationData] = useState({});
+  const { step } = useRegistrationContext();
 
   return (
     <>
@@ -39,30 +43,10 @@ export default function RegistrationForm({ accountType, reset }) {
           current={step}
           type="inline"
         />
-        {step === 0 && (
-          <PersonalInformationForm
-            personalInformationData={personalInformationData}
-            setPersonalInformationData={setPersonalInformationData}
-            setStep={setStep}
-          />
-        )}
-        {step === 1 && (
-          <AddressForm
-            addressData={addressData}
-            setAddressData={setAddressData}
-            setStep={setStep}
-          />
-        )}
-
-        {step === 2 && (
-          <FarmInformation
-            addressData={addressData}
-            personalInformationData={personalInformationData}
-            farmInformationData={farmInformationData}
-            setFarmInformationData={setFarmInformationData}
-            setStep={setStep}
-          />
-        )}
+        {step === 0 && <PersonalInformationForm />}
+        {step === 1 && <AddressForm />}
+        {step === 2 && <FarmInformation />}
+        {step === 3 && <VerificationForm />}
       </div>
     </>
   );
