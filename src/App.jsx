@@ -2,13 +2,13 @@ import { ConfigProvider } from "antd";
 import { AppContextProvider } from "./contexts/AppContext";
 import ReactQueryProvider from "./query/ReactQueryProvider";
 import Router from "./routes/Router";
-import { ReactQueryDevtools } from "@tanstack/react-query-devtools"
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { useEffect } from "react";
 import { setAuthorization } from "./helpers/Http";
 
 ConfigProvider.config({
   theme: {
-    primaryColor: "#314026",
+    primaryColor: "#739559",
   },
 });
 
