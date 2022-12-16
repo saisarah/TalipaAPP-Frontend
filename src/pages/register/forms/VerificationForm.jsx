@@ -1,17 +1,19 @@
 import { Button, Form } from "antd";
-import { useContext } from "react";
+import { toFormData } from "axios";
 import FormItem from "../../../components/FormItem";
-import { RegistrationContext } from "../../../contexts/RegistrationContext";
+import { useRegistrationContext } from "../../../contexts/RegistrationContext";
+import { useFarmerRegistration } from "../useFarmerRegistration";
 import { useOtp } from "../useOtp";
 
 export const VerificationForm = () => {
-  const { data, setStep } = useContext(RegistrationContext);
+  const { data, setStep } = useRegistrationContext();
+  const { mutate, isLoading } = useFarmerRegistration()
   const { contact_number } = data;
 
   const { sendOtp, isSending, throttle } = useOtp();
 
-  const handleSubmit = (data) => {
-    console.log(data);
+  const handleSubmit = ({ code }) => {
+    console.log(toFormData({ ...data, code }));
   };
 
   return (
@@ -38,6 +40,8 @@ export const VerificationForm = () => {
         <FormItem
           label="Code"
           name="code"
+          rules={[{ required: true }]}
+          // required
           inputProps={{
             suffix: (
               <Button
@@ -53,11 +57,10 @@ export const VerificationForm = () => {
         />
 
         <Button
-          className="mb-4"
+          className="my-4"
           block
           size="large"
           htmlType="submit"
-          // loading={registering}
           type="primary"
         >
           Submit

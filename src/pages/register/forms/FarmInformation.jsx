@@ -3,7 +3,7 @@ import { Button, Form, Select, Upload } from "antd";
 import { useState } from "react";
 import FormItem from "../../../components/FormItem";
 import { useRegistrationContext } from "../../../contexts/RegistrationContext";
-import { useFarmerRegistration } from "../../../query/mutations/useFarmerRegistration";
+import { useFarmerRegistration } from "../useFarmerRegistration";
 import useCropsQuery from "../../../query/queries/useCropsQuery";
 import { rules } from "../rules";
 
@@ -30,12 +30,13 @@ export default function FarmInformation() {
   const { setStep, data, setData } = useRegistrationContext();
 
   const { data: crops, isLoading: fetchingCrops } = useCropsQuery();
-  const { mutate, isLoading } = useFarmerRegistration();
-  const [selectedOwnershipType, setSelectedOwnershipType] = useState(null);
-  const [documentImage, setDocumentImage] = useState([]);
+  const [selectedOwnershipType, setSelectedOwnershipType] = useState(
+    data.ownership_type
+  );
+  const [documentImage, setDocumentImage] = useState(data.document);
 
   const handleSubmit = (farmData) => {
-    setData((data) => ({ ...data, ...farmData }));
+    setData((data) => ({ ...data, ...farmData, document: documentImage }));
     setStep((step) => step + 1);
   };
 
@@ -95,12 +96,12 @@ export default function FarmInformation() {
             />
           </FormItem>
 
-          <FormItem name="document" label="Add Photos">
+          <FormItem label="Add Photos">
             <Upload
-              onRemove={() => setDocumentImage([])}
-              fileList={documentImage}
+              onRemove={() => setDocumentImage(null)}
+              fileList={documentImage && [documentImage]}
               beforeUpload={(file) => {
-                setDocumentImage([file]);
+                setDocumentImage(file);
                 return false;
               }}
               listType="picture"
@@ -130,7 +131,6 @@ export default function FarmInformation() {
           size="large"
           className="rounded"
           onClick={() => setStep((step) => step - 1)}
-          disabled={isLoading}
         >
           Back
         </Button>
@@ -139,7 +139,6 @@ export default function FarmInformation() {
           className="rounded"
           htmlType="submit"
           size="large"
-          loading={isLoading}
         >
           Next
         </Button>
