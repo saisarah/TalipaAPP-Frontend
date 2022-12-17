@@ -1,62 +1,8 @@
 import { Button, Form, Select } from "antd";
-import { useState } from "react";
 import FormItem from "../../../components/FormItem";
 import { useRegistrationContext } from "../../../contexts/RegistrationContext";
-import { useEffectSkipFirst } from "../../../helpers/hooks";
-import useBarangaysQuery from "../../../query/queries/address/useBarangaysQuery";
-import { useCitiesQuery } from "../../../query/queries/address/useCitiesQuery";
-import useProvincesQuery from "../../../query/queries/address/useProvincesQuery";
-import useRegionQuery from "../../../query/queries/address/useRegionQuery";
 import { rules } from "../rules";
-
-const useAddressFormState = (data) => {
-  const [selectedRegion, setSelectedRegion] = useState(data.region);
-  const [selectedProvince, setSelectedProvince] = useState(data.province);
-  const [selectedCity, setSelectedCity] = useState(data.municipality);
-  const [selectedBarangay, setSelectedBarangay] = useState(data.barangay);
-
-  const { data: regions, isFetching: fetchingRegions } = useRegionQuery();
-  const { data: provinces, isFetching: fetchingProvinces } =
-    useProvincesQuery(selectedRegion);
-  const { data: cities, isFetching: fetchingCities } = useCitiesQuery(
-    selectedRegion,
-    selectedProvince
-  );
-  const { data: barangays, isFetching: fetchingBarangays } = useBarangaysQuery(
-    selectedRegion,
-    selectedProvince,
-    selectedCity
-  );
-
-  useEffectSkipFirst(() => {
-    setSelectedProvince(null);
-  }, [selectedRegion]);
-  useEffectSkipFirst(() => {
-    setSelectedCity(null);
-  }, [selectedProvince]);
-  useEffectSkipFirst(() => {
-    setSelectedBarangay(null);
-  }, [selectedCity]);
-
-  return {
-    selectedRegion,
-    selectedProvince,
-    selectedCity,
-    selectedBarangay,
-    setSelectedRegion,
-    setSelectedProvince,
-    setSelectedCity,
-    setSelectedBarangay,
-    regions,
-    provinces,
-    cities,
-    barangays,
-    fetchingRegions,
-    fetchingProvinces,
-    fetchingCities,
-    fetchingBarangays,
-  };
-};
+import { useAddressFormState } from "../useAddressFormState";
 
 export default function AddressForm() {
   const { setStep, data, setData } = useRegistrationContext();
@@ -78,7 +24,7 @@ export default function AddressForm() {
     fetchingProvinces,
     fetchingCities,
     fetchingBarangays,
-  } = useAddressFormState(data);
+  } = useAddressFormState();
 
   const handleSubmit = (addressData) => {
     setData((data) => ({ ...data, ...addressData }));

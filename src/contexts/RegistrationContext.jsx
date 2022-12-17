@@ -7,7 +7,7 @@ export const useRegistrationContext = () => {
   return useContext(RegistrationContext);
 };
 
-export function RegisterContextProvider({ children }) {
+export function RegisterContextProvider({ accountType, children }) {
   const [step, setStep] = useState(0);
   const [data, setData] = useState({});
   const [personalInformationData, setPersonalInformationData] = useState({});
@@ -15,6 +15,7 @@ export function RegisterContextProvider({ children }) {
   const [farmInformationData, setFarmInformationData] = useState({});
 
   const value = {
+    accountType,
     step,
     setStep,
     personalInformationData,

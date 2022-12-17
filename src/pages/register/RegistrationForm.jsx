@@ -14,22 +14,34 @@ import FarmInformation from "./forms/FarmInformation";
 import PersonalInformationForm from "./forms/PersonalInformationForm";
 import { VerificationForm } from "./forms/VerificationForm";
 
-const vendorSteps = [{ title: "Personal Information" }, { title: "Address" }];
+const vendorSteps = [
+  { title: "Personal Information", form: <PersonalInformationForm /> },
+  { title: "Address", form: <AddressForm /> },
+  { title: "Verification", form: <VerificationForm /> },
+];
 const farmerSteps = [
-  { title: "Personal Information" },
-  { title: "Address" },
-  { title: "Farm Information" },
-  { title: "Verification" },
+  { title: "Personal Information", form: <PersonalInformationForm /> },
+  { title: "Address", form: <AddressForm /> },
+  { title: "Farm Information", form: <FarmInformation /> },
+  { title: "Verification", form: <VerificationForm /> },
 ];
 
 export default function RegistrationForm({ accountType, reset }) {
-  const { step } = useRegistrationContext();
+  const { step, setStep, setData } = useRegistrationContext();
+  const { form } =
+    accountType === "farmer" ? farmerSteps[step] : vendorSteps[step];
 
   return (
     <>
       <PageHeader
         left={
-          <button onClick={() => reset()}>
+          <button
+            onClick={() => {
+              setStep(0);
+              setData({});
+              reset();
+            }}
+          >
             <ArrowLeftOutlined />
           </button>
         }
@@ -43,10 +55,7 @@ export default function RegistrationForm({ accountType, reset }) {
           current={step}
           type="inline"
         />
-        {step === 0 && <PersonalInformationForm />}
-        {step === 1 && <AddressForm />}
-        {step === 2 && <FarmInformation />}
-        {step === 3 && <VerificationForm />}
+        {form}
       </div>
     </>
   );
