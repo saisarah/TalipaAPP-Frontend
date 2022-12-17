@@ -12,11 +12,13 @@ import AddressForm from "./forms/AddressForm";
 import CropSelection from "./forms/CropsSelection";
 import FarmInformation from "./forms/FarmInformation";
 import PersonalInformationForm from "./forms/PersonalInformationForm";
+import { VendorInformation } from "./forms/VendorInformation";
 import { VerificationForm } from "./forms/VerificationForm";
 
 const vendorSteps = [
   { title: "Personal Information", form: <PersonalInformationForm /> },
   { title: "Address", form: <AddressForm /> },
+  { title: "Vendor Information", form: <VendorInformation /> },
   { title: "Verification", form: <VerificationForm /> },
 ];
 const farmerSteps = [
