@@ -4,8 +4,8 @@ import {
   PlusOutlined,
   UploadOutlined,
 } from "@ant-design/icons";
-import { Button, Form, Input, Select, Space, Upload } from "antd";
-import { Link } from "react-router-dom";
+import { Button, Form, Input, Modal, Select, Space, Upload } from "antd";
+import { Link, useNavigate } from "react-router-dom";
 import PageHeader from "../../../components/PageHeader";
 import { pricingType, size, unit } from "./post-data";
 import { rules } from "./rules";
@@ -13,6 +13,9 @@ import TextArea from "antd/lib/input/TextArea";
 import useCropsQuery from "../../../query/queries/useCropsQuery";
 import FormItem from "../../../components/FormItem";
 import { useState } from "react";
+import { toFormData } from "../../../helpers/utils";
+import { useMutation } from "@tanstack/react-query";
+import { createPost } from "../../../apis/Post";
 
 const units = [
   { value: "kg", label: "Kilogram" },
@@ -27,10 +30,23 @@ function SelectComponent({ label, name, placeholder, options }) {
   );
 }
 
-function InputComponent({ placeholder, label, name, addonAfter }) {
+function InputComponent({
+  placeholder,
+  label,
+  name,
+  addonAfter,
+  required = false,
+  type = null,
+}) {
   return (
-    <Form.Item label={label} name={name} rules={rules.commodity}>
-      <Input addonAfter={addonAfter} placeholder={placeholder} size="large" />
+    <Form.Item label={label} name={name}>
+      <Input
+        type={type}
+        required={required}
+        addonAfter={addonAfter}
+        placeholder={placeholder}
+        size="large"
+      />
     </Form.Item>
   );
 }
@@ -68,6 +84,28 @@ export default function CreatePost() {
 
   const [selectedUnit, setSelectedUnit] = useState("kg");
   const [isStraight, setIsStraight] = useState(false);
+  const [attachments, setAttachments] = useState([]);
+  const navigate = useNavigate();
+
+  const { mutate, isLoading } = useMutation(createPost, {
+    onSuccess(data) {
+      console.log(data);
+      Modal.success({content: "Post created successfully"});
+      navigate("/farmer/home");
+    },
+    onError(error) {
+      Modal.error({ content: "An error occurred" });
+      console.log(error);
+    },
+  });
+
+  const handleSubmit = (data) => {
+    console.log({ ...data, attachments });
+    if (isLoading) return;
+    const formData = toFormData(data);
+    formData.append("attachments", attachments[0]);
+    mutate(formData);
+  };
 
   return (
     <div className="mx-auto min-h-screen max-w-md bg-slate-50">
@@ -80,12 +118,37 @@ export default function CreatePost() {
         title="Create Post"
       />
       <div className="p-4">
-        <Form layout="vertical">
-          <FormItem label="Commodity" name="commodity" rules={rules.commodity}>
+        <Form layout="vertical" onFinish={handleSubmit}>
+          <FormItem label="Commodity" name="commodity">
             <Select
+              required
               placeholder="Select Commodity"
               options={crops}
               size="large"
+              className="rounded"
+              loading={fetchingCrops}
+            />
+          </FormItem>
+
+          <FormItem label="Delivery Options" name="delivery_options">
+            <Select
+              required
+              placeholder="Select Available Delivery Options"
+              options={[{ value: "Pick-up" }, { value: "Transportify" }]}
+              size="large"
+              mode="multiple"
+              className="rounded"
+              loading={fetchingCrops}
+            />
+          </FormItem>
+
+          <FormItem label="Payment Options" name="payment_options">
+            <Select
+              required
+              placeholder="Select Available Payment Options"
+              options={[{ value: "GCash" }, { value: "Cash" }]}
+              size="large"
+              mode="multiple"
               className="rounded"
               loading={fetchingCrops}
             />
@@ -119,25 +182,26 @@ export default function CreatePost() {
             </Select>
           </FormItem>
 
-          <div
-            className={`grid gap-4 ${
-              isStraight ? "grid-cols-2" : "grid-cols-1"
-            }`}
-          >
-            <FormItem
-              label="Total Stocks"
-              name="stocks"
-              inputProps={{ addonAfter: selectedUnit }}
-            />
-            {isStraight && (
+          {isStraight && (
+            <div className="grid grid-cols-2 gap-4">
+              <FormItem
+                className="hidden"
+                name="sizes"
+                inputProps={{ value: "__default" }}
+              />
+              {/* <input type="hidden" name="sizes[0]" value="__default" /> */}
+              <FormItem
+                label="Total Stocks"
+                name="stocks"
+                inputProps={{ addonAfter: selectedUnit }}
+              />
               <FormItem
                 label="Price"
-                name="price"
+                name="prices"
                 inputProps={{ addonAfter: `/${selectedUnit}` }}
               />
-            )}
-          </div>
-
+            </div>
+          )}
           <FormItem label="Details" name="details">
             <Input.TextArea
               size="large"
@@ -147,7 +211,19 @@ export default function CreatePost() {
           </FormItem>
 
           <FormItem label="Add Photos">
-            <Upload className="grid grid-cols-1">
+            <Upload
+              onRemove={(file) => {
+                setAttachments((attachments) =>
+                  attachments.filter((a) => a !== file)
+                );
+              }}
+              fileList={attachments}
+              beforeUpload={(file) => {
+                setAttachments((files) => [...files, file]);
+                return false;
+              }}
+              className="grid grid-cols-1"
+            >
               <Button icon={<UploadOutlined />} size="large" block>
                 Click to Upload
               </Button>
@@ -156,33 +232,47 @@ export default function CreatePost() {
 
           {!isStraight && (
             <>
-              <div className="grid grid-cols-2 gap-2">
-                <SelectComponent
+              <div className="grid grid-cols-3 gap-2">
+                {/* <InputComponent
                   label="Size"
-                  name="size"
-                  placeholder="Input Size"
-                  options={size}
-                />
+                  name="sizes"
+                  placeholder="Input Price"
+                /> */}
+                <FormItem name="sizes" label="Size">
+                  <Select className="rounded" placeholder="Select size" size="large">
+                    <Select.Option>Small</Select.Option>
+                    <Select.Option>Medium</Select.Option>
+                    <Select.Option>Large</Select.Option>
+                  </Select>
+                </FormItem>
                 <InputComponent
+                  type="number"
                   label="Price"
-                  name="price"
+                  name="prices"
                   placeholder="Input Price"
                   addonAfter={`/${selectedUnit}`}
                 />
+                <InputComponent
+                  type="number"
+                  label="Stock"
+                  name="stocks"
+                  placeholder="Input Stock"
+                  addonAfter={`${selectedUnit}`}
+                />
               </div>
 
-              <Button
-                icon={<PlusOutlined />}
-                className="float-right mt-2 text-lg font-bold text-[#739559]"
-                size={"large"}
-              >
-                Add Size
-              </Button>
+              <div className="flex justify-end">
+                <Button icon={<PlusOutlined />}>Add Size</Button>
+              </div>
             </>
           )}
           <Button
-            className="mt-2 w-full rounded bg-[#739559] text-lg font-bold text-white  "
-            size={"large"}
+            className="mt-4"
+            htmlType="submit"
+            block
+            type="primary"
+            size="large"
+            loading={isLoading}
           >
             Post
           </Button>
