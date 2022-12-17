@@ -39,3 +39,8 @@ export const farmerRegister = async (_data) => {
     const { data } = await Http.post('/register/farmer', _data)
     return data
 }
+
+export const vendorRegister = async (_data) => {
+    const { data } = await Http.post('/register/vendor', _data)
+    return data
+}

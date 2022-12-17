@@ -1,24 +1,33 @@
-import { Button, Form, Upload } from "antd";
+import { Button, Form, notification, Select, Upload } from "antd";
 import { useState } from "react";
 import FormItem from "../../../components/FormItem";
 import { useRegistrationContext } from "../../../contexts/RegistrationContext";
 import { UploadOutlined } from "@ant-design/icons";
+import { rules } from "../rules";
+import useCropsQuery from "../../../query/queries/useCropsQuery";
 
 export const VendorInformation = () => {
-  const { data, setStep } = useRegistrationContext();
+  const { data, setStep, setData } = useRegistrationContext();
   const [documentImage, setDocumentImage] = useState(data.document);
+  const { data: crops, isLoading: fetchingCrops } = useCropsQuery();
 
   const handleSubmit = (vendorData) => {
+    if (!documentImage) {
+      notification.error({
+        message: "Please upload document for verification",
+      });
+      return;
+    }
+
     setData((data) => ({ ...data, ...vendorData, document: documentImage }));
     setStep((step) => step + 1);
   };
 
   return (
-    <Form layout="vertical" onFinish={handleSubmit}>
+    <Form layout="vertical" initialValues={data} onFinish={handleSubmit}>
       <FormItem
         label="Market"
         name="public_market"
-        type="number"
         placeholder="Enter the market where you sell your commodities."
         requiredMark="optional"
       />
@@ -38,6 +47,17 @@ export const VendorInformation = () => {
             Click to Upload
           </Button>
         </Upload>
+      </FormItem>
+
+      <FormItem rules={rules.crops} name="crops" label="Select Crops you Sell">
+        <Select
+          mode="multiple"
+          size="large"
+          className="rounded"
+          options={crops?.map(({ name, id }) => ({ value: id, label: name }))}
+          loading={fetchingCrops}
+          placeholder="Select a crops"
+        />
       </FormItem>
 
       <div className="mb-4 flex justify-between">
