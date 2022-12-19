@@ -22,7 +22,7 @@ export default function PostCard({ author, id, created_at, caption, attachments 
       <p className="whitespace-pre-line py-2">{caption}</p>
 
       <div className="-mx-4">
-        <img className=" aspect-square w-full" src={config('PUBLIC_URL') + "/" + attachments[0].source} />
+        <img className=" aspect-square w-full" src={attachments[0].source} />
       </div>
 
       <div className="mt-2 flex">

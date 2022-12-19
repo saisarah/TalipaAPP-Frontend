@@ -1,5 +1,5 @@
 import { ArrowLeftOutlined } from "@ant-design/icons";
-import { Link } from "react-router-dom";
+import { Link, useParams, useSearchParams } from "react-router-dom";
 import PageHeader from "../../../components/PageHeader";
 import { useState } from "react";
 import ForSale from "./ForSale";
@@ -33,7 +33,15 @@ function CropsFilter() {
 }
 
 export default function Feed() {
-  const [active, setActive] = useState("demands");
+  const [params, setParams] = useSearchParams()
+  const feed = params.get("feed")
+  const defaultActive = "demands"
+  // const [active, setActive] = useState("demands");
+  const active = (tab) => {
+    if (tab === feed) return true
+    if (tab === defaultActive & feed != "sale" && feed != "create") return true;
+    return false;
+  }
 
   return (
     <div className="mx-auto min-h-screen max-w-md  bg-slate-50">
@@ -47,34 +55,31 @@ export default function Feed() {
       />
 
       <div className="sticky top-0 grid h-16 grid-cols-3 bg-white text-lg shadow-md">
-        <button
-          onClick={() => setActive("demands")}
-          className={`flex items-center justify-center ${
-            active === "demands" ? "border-b border-primary text-primary" : ""
-          }`}
+        <Link to='?feed=demands'
+          // onClick={() => setActive("demands")}
+          className={`flex items-center justify-center ${active("demands") ? "border-b border-primary text-primary" : ""
+            }`}
         >
           Demands
-        </button>
-        <button
-          onClick={() => setActive("for_sale")}
-          className={`flex items-center justify-center ${
-            active === "for_sale" ? "border-b border-primary text-primary" : ""
-          }`}
+        </Link>
+        <Link  to='?feed=sale'
+          // onClick={() => setActive("for_sale")}
+          className={`flex items-center justify-center ${active("sale") ? "border-b border-primary text-primary" : ""
+            }`}
         >
           For Sale
-        </button>
-        <button
-          onClick={() => setActive("create")}
-          className={`flex items-center justify-center ${
-            active === "create" ? "border-b border-primary text-primary" : ""
-          }`}
+        </Link>
+        <Link to='?feed=create'
+          // onClick={() => setActive("create")}
+          className={`flex items-center justify-center ${active("create") ? "border-b border-primary text-primary" : ""
+            }`}
         >
           Create Post
-        </button>
+        </Link>
       </div>
 
-      {active === "for_sale" && <ForSale />}
-      {active === "create" && <CreateInfo />}
+      {active("sale") && <ForSale />}
+      {active("create") && <CreateInfo />}
     </div>
   );
 }

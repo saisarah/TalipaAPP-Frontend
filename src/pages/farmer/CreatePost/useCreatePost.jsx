@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { createPost } from "../../../apis/Post";
 import { getErrorMessage } from "../../../helpers/Http";
 
+const SUCCESS_REDIRECT = "/farmer/home?feed=sale"
 
 const useCreatePostMutation = () => {
 
@@ -14,7 +15,7 @@ const useCreatePostMutation = () => {
         onSuccess(data) {
             console.log(data);
             Modal.success({ content: "Post created successfully" });
-            navigate("/farmer/home");
+            navigate(SUCCESS_REDIRECT);
         },
         onError(error) {
             Modal.error({ content: getErrorMessage(error) });
