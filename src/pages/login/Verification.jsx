@@ -21,35 +21,30 @@ function OTPButton({ children, className = "", onClick }) {
 }
 
 export default function Verification({ reset, phone }) {
-
-  const navigate = useNavigate()
-  const queryClient = useQueryClient()
+  const navigate = useNavigate();
+  const queryClient = useQueryClient();
 
   const [OTP, setOTP] = useState("");
   const { mutate, isLoading } = useMutation(verifyLoginOtp, {
     onSuccess({ token, user }) {
-      localStorage.setItem('auth_token', token)
-      setAuthorization(token)
-      queryClient.setQueryData(queryKeyFactory.currentUser, user)
+      setAuthorization(token);
+      queryClient.setQueryData(queryKeyFactory.currentUser, user);
 
-      if (user.user_type === 'farmer')
-        navigate('/farmer')
-      else if (user.user_type === 'vendor')
-        navigate('/')
-      else
-        throw 'Invalid User Type'
+      if (user.user_type === "farmer") navigate("/farmer");
+      else if (user.user_type === "vendor") navigate("/");
+      else throw "Invalid User Type";
     },
     onError(error) {
-      message.error(getErrorMessage(error))
-      setOTP('')
-    }
-  })
+      message.error(getErrorMessage(error));
+      setOTP("");
+    },
+  });
 
   useEffect(() => {
     if (OTP.length === 4) {
-      mutate({ code: OTP, contact_number:phone })
+      mutate({ code: OTP, contact_number: phone });
     }
-  }, [OTP])
+  }, [OTP]);
 
   const append = (n) => {
     setOTP((OTP) => {
@@ -65,7 +60,6 @@ export default function Verification({ reset, phone }) {
         <Button type="text" onClick={reset} className="self-start">
           <LeftOutlined />
         </Button>
-
 
         <p className="my-4">Verification</p>
         <span className="block text-xl font-bold">

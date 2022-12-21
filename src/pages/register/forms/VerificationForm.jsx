@@ -2,20 +2,29 @@ import { Button, Form } from "antd";
 import { toFormData } from "axios";
 import FormItem from "../../../components/FormItem";
 import { useRegistrationContext } from "../../../contexts/RegistrationContext";
-import { useFarmerRegistration } from "../useFarmerRegistration";
+import {
+  useFarmerRegistration,
+  useVendorRegistration,
+} from "../useFarmerRegistration";
 import { useOtp } from "../useOtp";
 
 export const VerificationForm = () => {
-  const { data, setStep } = useRegistrationContext();
-  const { mutate, isLoading } = useFarmerRegistration();
+  const { data, setStep, accountType } = useRegistrationContext();
+  const { mutate: mutateFarmer, isLoading: isLoading1 } =
+    useFarmerRegistration();
+  const { mutate: mutateVendor, isLoading: isLoading2 } =
+    useVendorRegistration();
   const { contact_number } = data;
+  const isLoading = isLoading1 || isLoading2;
 
   const { sendOtp, isSending, throttle } = useOtp();
 
   const handleSubmit = ({ code }) => {
     if (isLoading) return;
     const formData = toFormData({ ...data, code });
-    mutate(formData);
+
+    if (accountType === "farmer") mutateFarmer(formData);
+    else mutateVendor(formData);
   };
 
   return (

@@ -7,7 +7,7 @@ export default function Register() {
   const [accountType, setAccountType] = useState(null);
 
   return (
-    <RegisterContextProvider>
+    <RegisterContextProvider accountType={accountType}>
       <div className="mx-auto min-h-screen max-w-md bg-white">
         {accountType === null ? (
           <ChooseAccountType setAccountType={setAccountType} />
