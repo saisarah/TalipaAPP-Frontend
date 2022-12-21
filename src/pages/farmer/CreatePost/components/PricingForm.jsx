@@ -48,14 +48,14 @@ export const PricingForm = ({ sizes, setSizes, unit }) => {
 
     return (
         <>
-            {sizes.map(({ size }, i) => (
+            {sizes.map(({ size, value }, i) => (
                 <div className="flex gap-2" key={size}>
                     <div className="grid grid-cols-3 gap-2 flex-grow">
-                        <FormItem name={`_sizes[${size}]`} label="Size" initialValue={size}>
-                            <Select onChange={newVal => updateSizeValue(size, newVal)} className="rounded" placeholder="Select size" size="large" options={[{ value: size }, ...availableSizes]} />
+                        <FormItem label="Size">
+                            <Select value={size} onChange={newVal => updateSizeValue(size, newVal)} className="rounded" placeholder="Select size" size="large" options={[{ value: size }, ...availableSizes]} />
                         </FormItem>
-                        <FormItem rules={required()} name={`_prices[${size}]`} onChange={e => updatePrice(size, e)} type="number" label="Price" placeholder="(e.g. ₱20)" inputProps={{ prefix: "₱", suffix: `/${unit}`, min: 1 }} />
-                        <FormItem rules={required()} name={`_stocks[${size}]`} onChange={e => updateStock(size, e)} tooltip="Number of available commodities" type="number" label="Stocks" inputProps={{ suffix: `${unit}`, min: 1 }} />
+                        <FormItem rules={required()} onChange={e => updatePrice(size, e)} type="number" label="Price" placeholder="(e.g. ₱20)" inputProps={{ prefix: "₱", suffix: `/${unit}`, min: 1 }} />
+                        <FormItem rules={required()} onChange={e => updateStock(size, e)} tooltip="Number of available commodities" type="number" label="Stocks" inputProps={{ suffix: `${unit}`, min: 1 }} />
                     </div>
                     {sizes.length > 1 &&
                         <div className="flex items-center">

@@ -114,12 +114,12 @@ export default function CreatePost() {
               {/* <input type="hidden" name="sizes[0]" value="__default" /> */}
               <FormItem
                 label="Total Stocks"
-                name="stocks"
+                name="stock"
                 inputProps={{ addonAfter: selectedUnit }}
               />
               <FormItem
                 label="Price"
-                name="prices"
+                name="price"
                 inputProps={{ addonAfter: `/${selectedUnit}` }}
               />
             </div>

@@ -24,14 +24,18 @@ const useCreatePostMutation = () => {
     });
 }
 
-export const useCreatePost = (attachments, sizes) => {
+export const useCreatePost = (attachments, not_straight_sizes) => {
 
     const { mutate, isLoading } = useCreatePostMutation()
 
     const handleSubmit = (data) => {
-        console.log({ ...data, attachments, sizes });
+        
+        const sizes = data.is_straight 
+            ? [ {size: 'N/A', price: data.price, stock: data.stock} ]
+            : not_straight_sizes
+
         if (isLoading) return;
-        const formData = toFormData({...data, sizes, attachments});
+        const formData = toFormData({...data, attachments, sizes});
         // formData.append("attachments", attachments[0]);
         mutate(formData);
     };

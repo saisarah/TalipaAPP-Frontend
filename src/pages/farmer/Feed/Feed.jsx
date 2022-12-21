@@ -57,7 +57,6 @@ export default function Feed() {
 
       <div className="sticky top-0 grid h-16 grid-cols-3 bg-white text-lg shadow-md">
         <Link to='?feed=demands'
-          // onClick={() => setActive("demands")}
           className={`flex items-center justify-center ${active("demands") ? "border-b border-primary text-primary" : ""
             }`}
         >
