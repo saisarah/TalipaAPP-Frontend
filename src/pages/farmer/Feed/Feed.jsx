@@ -4,6 +4,7 @@ import PageHeader from "../../../components/PageHeader";
 import { useState } from "react";
 import ForSale from "./ForSale";
 import CreateInfo from "./CreateInfo";
+import { Demands } from "./Demands";
 
 function CropsFilter() {
   return (
@@ -78,6 +79,7 @@ export default function Feed() {
         </Link>
       </div>
 
+      {active("demands") && <Demands />}
       {active("sale") && <ForSale />}
       {active("create") && <CreateInfo />}
     </div>

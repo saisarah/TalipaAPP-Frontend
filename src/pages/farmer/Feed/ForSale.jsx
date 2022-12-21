@@ -15,10 +15,12 @@ export default function ForSale() {
     );
 
   return (
-    <div className="my-6 flex flex-col gap-4">
+    <div className="my-6 columns-2 gap-4 px-4">
       {posts.map((post) => (
         <PostCard key={post.id} {...post} />
       ))}
+        {/* <img className="mb-4" src="https://source.unsplash.com/random/1" /> */}
+
     </div>
   );
 }

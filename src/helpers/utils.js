@@ -18,3 +18,7 @@ export const toFormData = (object) => {
     });
     return formData;
 }
+
+export const currency = (value) => {
+    return `₱${value.toFixed(2)}`
+}
