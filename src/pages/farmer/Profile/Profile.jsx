@@ -5,9 +5,33 @@ import {
 } from "@ant-design/icons";
 import { Link } from "react-router-dom";
 import PageHeader from "../../../components/PageHeader";
-import { Avatar } from "antd";
+import { Avatar, Spin } from "antd";
 import useCurrentUserQuery from "../../../query/queries/useCurrentUserQuery";
 import { Button, Empty } from "antd";
+import { useQuery } from "@tanstack/react-query";
+import { fetchPosts, fetchUserPosts } from "@/apis/Post";
+import PostCard from "@/components/PostCard";
+
+const UserPosts = ({ id }) => {
+  const { data: posts, isLoading } = useQuery(["users", id, "posts"], () =>
+    fetchUserPosts(id)
+  );
+
+  if (isLoading)
+    return (
+      <div className="flex items-center justify-center py-16">
+        <Spin tip="Fetching posts" />
+      </div>
+    );
+
+  return (
+    <div className=" columns-2 gap-2 px-1 py-4">
+      {posts.map((post) => (
+        <PostCard key={post.id} {...post} />
+      ))}
+    </div>
+  );
+};
 
 export default function Profile() {
   const { data: user } = useCurrentUserQuery();
@@ -25,6 +49,7 @@ export default function Profile() {
       <div className="flex aspect-video flex-col items-center justify-end bg-slate-300">
         <Avatar
           icon={<UserOutlined />}
+          src={user.profile_picture}
           size={120}
           className="relative -bottom-[60px]"
         />
@@ -46,11 +71,12 @@ export default function Profile() {
         </div>
       </div>
 
-      <div className="py-16">
+      <UserPosts id={user.id} />
+      {/* <div className="py-16">
         <Empty description="You don't have any post yet">
           <Button type="primary">Create Now</Button>
         </Empty>
-      </div>
+      </div> */}
     </div>
   );
 }

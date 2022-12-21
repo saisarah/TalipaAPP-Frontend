@@ -10,3 +10,8 @@ export const fetchPosts = async () => {
     const { data } = await Http.get('/posts')
     return data
 }
+
+export const fetchUserPosts = async (id) => {
+    const { data } = await Http.get(`/users/${id}/posts`)
+    return data
+}

@@ -1,10 +1,8 @@
 import { Avatar, Carousel, Image, Typography } from "antd";
 import { Link } from "react-router-dom";
 import moment from "moment";
-import config from "../../../../config";
-import useCropsQuery, {
-  useCrop,
-} from "../../../../query/queries/useCropsQuery";
+import config from "../config";
+import useCropsQuery, { useCrop } from "../query/queries/useCropsQuery";
 import MapPinOutline from "@/icons/heroicons/MapPinOutline.jsx";
 import { currency } from "@/helpers/utils";
 
@@ -33,13 +31,13 @@ export default function PostCard({
   created_at,
   caption,
   attachments,
-  display_price
+  display_price,
 }) {
   // console.log(props);
   const crop = useCrop(crop_id);
 
   return (
-    <div className="flex flex-col break-inside-avoid	 border border-slate-200 bg-white shadow-sm h-full mb-2">
+    <div className="mb-2 flex h-full	 break-inside-avoid flex-col border border-slate-200 bg-white shadow-sm">
       {/* <PostCardImage attachments={attachments} /> */}
       <Image
         className="aspect-square object-cover"
@@ -50,10 +48,12 @@ export default function PostCard({
       <div className="flex flex-col p-2">
         <div className="text-xs text-slate-600">{crop?.name}</div>
         <div className="text-xl font-semibold">{caption}</div>
-        <span className="text-base font-medium text-primary">{currency(display_price)}</span>
+        <span className="text-base font-medium text-primary">
+          {currency(display_price)}
+        </span>
 
         <div className="mt-2 flex items-center gap-2 overflow-hidden overflow-ellipsis text-xs text-slate-400">
-          Seller: {author.firstname} {author.lastname}          
+          Seller: {author.firstname} {author.lastname}
         </div>
 
         <div className="mt-2 flex items-center gap-2 overflow-hidden overflow-ellipsis text-xs text-slate-400">
@@ -62,7 +62,6 @@ export default function PostCard({
             Sta. Rosa City, Laguna hkkn
           </span>
         </div>
-
       </div>
     </div>
   );
