@@ -13,7 +13,7 @@ function Messages({user, displayphoto}){
               </span>
               <div className="flex flex-col h-full flex-grow leading-4">
                 <span className="text-xl font-bold">{user}</span>
-                <span class="">No unread messages</span>
+                <span className="">No unread messages</span>
               </div>
               </a>
             </li>

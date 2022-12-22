@@ -1,62 +1,107 @@
+import { setAuthorization } from "@/helpers/Http";
 import UserFilled from "@/icons/heroicons/UserFilled";
 import useCurrentUserQuery from "@/query/queries/useCurrentUserQuery";
+import queryKeyFactory from "@/query/queryKeyFactory";
 import {
   BellFilled,
   HomeFilled,
   MenuUnfoldOutlined,
   MessageFilled,
   QuestionCircleFilled,
+  QuestionCircleTwoTone,
   SettingFilled,
 } from "@ant-design/icons";
-import { Avatar, Button, Divider } from "antd";
-import { createContext, useState } from "react";
-import { Outlet } from "react-router-dom";
+import { Avatar, Button, Divider, Modal } from "antd";
+import { createContext, useContext, useEffect, useState } from "react";
+import { Link, Outlet } from "react-router-dom";
 import PageHeader from "../PageHeader";
 
-const VendorLayoutContext = createContext();
+export const VendorLayoutContext = createContext();
+
+export const useTitle = (newTitle) => {
+  const { title, setTitle } = useContext(VendorLayoutContext);
+
+  useEffect(() => {
+    setTitle((title) => {
+      return { current: newTitle, previous: title.current };
+    });
+
+    return () => {
+      setTitle((title) => {
+        return { current: title.previous, previous: title.current };
+      });
+    };
+  }, []);
+};
 
 export const VendorLayout = () => {
   const [sideNavOpen, setSideNavOpen] = useState(false);
-  const {data:user} = useCurrentUserQuery()
+  const { data: user } = useCurrentUserQuery();
+  const [title, setTitle] = useState({ current: "TalipaAPP", previous: null });
+
+  const confirmLogout = () => {
+    Modal.confirm({
+      icon: <QuestionCircleTwoTone />,
+      onOk() {
+        localStorage.clear();
+        setAuthorization(undefined);
+        queryClient.setQueryData(queryKeyFactory.currentUser, null);
+      },
+      content: "Are you sure you want to log?",
+    });
+  };
 
   return (
-    <VendorLayoutContext.Provider value={{}}>
+    <VendorLayoutContext.Provider value={{ title, setTitle }}>
       <div className="relative mx-auto min-h-screen max-w-md">
         <PageHeader
-          left={<Button onClick={() => setSideNavOpen(true)} type="text" icon={<MenuUnfoldOutlined />} />}
-          title="Home"
+          left={
+            <Button
+              onClick={() => setSideNavOpen(true)}
+              type="text"
+              icon={<MenuUnfoldOutlined />}
+            />
+          }
+          title={title.current}
         />
         <Outlet />
 
         <div className={`${sideNavOpen ? "" : "hidden"}`}>
-          <div onClick={() => setSideNavOpen(false)} className="absolute inset-0 z-20 bg-black/50"></div>
-          <div className="w-25% absolute left-0 top-0 bottom-0 z-[21] min-w-[300px] bg-white py-8">
+          <div
+            onClick={() => setSideNavOpen(false)}
+            className="absolute inset-0 z-20 bg-black/50"
+          ></div>
+          <div className="w-25% fixed top-0 bottom-0 z-[21] h-screen min-w-[300px] overflow-y-auto bg-white py-8">
             <div className="flex items-center gap-2 px-4">
               <Avatar size="large" />
               <div className="">
-                <div className="font-semibold leading-4">
-                  {user.fullname}
-                </div>
+                <div className="font-semibold leading-4">{user.fullname}</div>
                 <div className="text-xs">Vendor</div>
               </div>
             </div>
             <Divider />
 
             <div className="flex flex-col pr-4">
-              <div className="flex items-center gap-2 rounded-r-full bg-primary py-2 pl-8 text-white">
+              <Link
+                to="/"
+                className="flex items-center gap-2 rounded-r-full bg-primary py-2 pl-8 text-white"
+              >
                 <HomeFilled />
                 Home
-              </div>
+              </Link>
 
               <div className="flex items-center gap-2 rounded-r-full py-2 pl-8">
                 <BellFilled />
                 Notifications
               </div>
 
-              <div className="flex items-center gap-2 rounded-r-full py-2 pl-8">
+              <Link
+                to="/messages"
+                className="flex items-center gap-2 rounded-r-full py-2 pl-8"
+              >
                 <MessageFilled />
                 Messages
-              </div>
+              </Link>
 
               <div className="flex items-center gap-2 rounded-r-full py-2 pl-8">
                 <UserFilled />
@@ -89,7 +134,10 @@ export const VendorLayout = () => {
 
               <Divider />
 
-              <div className="flex items-center gap-2 rounded-r-full py-2 pl-8">
+              <button
+                onClick={confirmLogout}
+                className="flex items-center gap-2 rounded-r-full py-2 pl-8"
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
@@ -103,7 +151,7 @@ export const VendorLayout = () => {
                   />
                 </svg>
                 Logout
-              </div>
+              </button>
             </div>
           </div>
         </div>
