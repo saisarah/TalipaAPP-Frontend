@@ -73,7 +73,7 @@ export const VendorLayout = () => {
           ></div>
           <div className="w-25% fixed top-0 bottom-0 z-[21] h-screen min-w-[300px] overflow-y-auto bg-white py-8">
             <div className="flex items-center gap-2 px-4">
-              <Avatar size="large" />
+              <Avatar size="large" src={user.profile_picture} />
               <div className="">
                 <div className="font-semibold leading-4">{user.fullname}</div>
                 <div className="text-xs">Vendor</div>
