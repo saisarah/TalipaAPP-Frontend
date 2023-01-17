@@ -1,5 +1,5 @@
 import { ArrowLeftOutlined, UploadOutlined } from "@ant-design/icons";
-import { Button, Form, Input, Select, Space, Upload } from "antd";
+import { Button, DatePicker, Form, Input, Select, Space, Upload } from "antd";
 import { Link } from "react-router-dom";
 import PageHeader from "../../../../components/PageHeader";
 import { grouptype } from "./post-data";
@@ -80,7 +80,7 @@ export default function CreateGroup() {
           </FormItem>
 
           <FormItem
-            type="date"
+            type="number"
             label={
               <span>
                 Year Founded <span className="text-gray-400">(optional)</span>
@@ -90,7 +90,10 @@ export default function CreateGroup() {
             size="large"
             className="rounded"
             placeholder="Add a short description"
-          />
+          >
+              <DatePicker className="w-full" size="large" picker="year" />
+              
+        </FormItem>
           <FormItem label="Authorization Letter" rules={rules.auth}>
             <Upload className="grid grid-cols-1" maxCount={1}>
               <Button icon={<UploadOutlined />} size="large" block>
@@ -98,12 +101,10 @@ export default function CreateGroup() {
               </Button>
             </Upload>
           </FormItem>
-          <Button
-            className="mt-2 w-full rounded bg-[#739559] font-bold text-white  "
-            size={"large"}
-          >
-            Next
-          </Button>
+          <div className="flex justify-end">
+                      <button type="submit" class="ant-btn ant-btn-primary ant-btn-lg rounded" ant-click-animating-without-extra-node="false"><span>Next</span></button>
+          </div>
+
         </Form>
       </div>
     </div>
