@@ -9,6 +9,7 @@ import PostDetails from "../pages/farmer/PostDetails/PostDetails";
 import Profile from "../pages/farmer/Profile/Profile";
 import Conversations from "../pages/messages/Conversations";
 import Orders from "../pages/orders/Orders";
+import CreateDiscussion from "@/pages/farmer/group/CreateDiscussion";
 
 export default [
   {
@@ -54,5 +55,9 @@ export default [
   {
     path: "groups/posts/1",
     element: <GroupPostDetails />,
+  },
+  {
+    path: "groups/CreateDiscussion",
+    element: <CreateDiscussion />,
   },
 ];
