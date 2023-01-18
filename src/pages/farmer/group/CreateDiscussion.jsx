@@ -2,34 +2,38 @@ import PageHeader from "@/components/PageHeader";
 import {
   ArrowLeftOutlined,
   FileImageOutlined,
-  PlusOutlined,
   TagOutlined,
-  TagsOutlined,
 } from "@ant-design/icons";
 import { Button, Space, Tag } from "antd";
 import { Link } from "react-router-dom";
+
+import { PlusOutlined } from "@ant-design/icons";
+import { Input, theme, Tooltip } from "antd";
+import { useEffect, useRef, useState } from "react";
 
 function CreateDiscussion({ title, tags, image }) {
   return (
     <>
       <div className="w-full">
-        <div className="mb-4 mt-4 w-full border bg-white px-4 py-4">
+        <div className="mb-4 mt-4 w-full border bg-white px-4 pt-4">
           <span className="text-lg text-black">{title}</span>
 
           <div className="with-full pt-4">
-            <div className="inline-flex gap-4">
+            <div className="inline-flex gap-4 ">
               <div>
                 <Button
+                  className="text-slate-400"
                   icon={<TagOutlined />}
                   size="large"
                   type="text"
                   style={{ padding: "0" }}
                 >
-                  Add Tag
+                  Add tags
                 </Button>
               </div>
               <div>
                 <Button
+                  className="text-slate-400"
                   icon={<FileImageOutlined />}
                   size="large"
                   type="text"
@@ -53,7 +57,7 @@ function CreateDiscussion({ title, tags, image }) {
         w-full
         px-4 py-4  text-base
         font-normal
-        text-gray-700
+        text-gray-400
         transition
         ease-in-out
         focus:border-blue-600 focus:bg-white focus:text-gray-700 focus:outline-none
