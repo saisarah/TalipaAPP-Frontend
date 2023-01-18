@@ -10,6 +10,8 @@ import PostDetails from "../pages/farmer/PostDetails/PostDetails";
 import Profile from "../pages/farmer/Profile/Profile";
 import Conversations from "../pages/messages/Conversations";
 import Orders from "../pages/orders/Orders";
+import Search from "antd/lib/transfer/search";
+import SearchGroup from "../pages/farmer/group/Create/SearchGroup";
 
 export default [
   {
@@ -59,5 +61,9 @@ export default [
   {
     path: "groups/new",
     element: <GroupNew />,
+  },
+  {
+    path: "groups/SearchGroup",
+    element: <SearchGroup />,
   },
 ];

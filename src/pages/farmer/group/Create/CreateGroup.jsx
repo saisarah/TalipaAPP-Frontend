@@ -102,7 +102,9 @@ export default function CreateGroup() {
             </Upload>
           </FormItem>
           <div className="flex justify-end">
-                      <button type="submit" class="ant-btn ant-btn-primary ant-btn-lg rounded" ant-click-animating-without-extra-node="false"><span>Next</span></button>
+                      <button type="submit" class="ant-btn ant-btn-primary ant-btn-lg rounded" ant-click-animating-without-extra-node="false"><span>
+                      <Link to="/farmer/groups/seachGroup">Next</Link>
+</span></button>
           </div>
 
         </Form>
