@@ -9,7 +9,7 @@ import PostDetails from "../pages/farmer/PostDetails/PostDetails";
 import Profile from "../pages/farmer/Profile/Profile";
 import Conversations from "../pages/messages/Conversations";
 import Orders from "../pages/orders/Orders";
-import CreateDiscussion from "@/pages/farmer/group/CreateDiscussion";
+import CreateDiscussion from "@/pages/farmer/group/CreateDiscussion/CreateDiscussion";
 
 export default [
   {
