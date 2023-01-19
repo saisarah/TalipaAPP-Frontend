@@ -9,3 +9,9 @@ export default function useCropsQuery(options = {})
         ...options
     })
 }
+
+
+export const useCrop = (id) => {
+    const { data:crops } = useCropsQuery()
+    return crops && crops.find(crop => crop.id === id)
+}

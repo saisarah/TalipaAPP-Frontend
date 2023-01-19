@@ -1,5 +1,6 @@
 const configuration = Object.freeze({
-    'API_URL': import.meta.env.VITE_API_URL
+    'API_URL': import.meta.env.VITE_API_URL,
+    'PUBLIC_URL': import.meta.env.VITE_PUBLIC_URL,
 })
 
 export default function config(key, fallback = null)

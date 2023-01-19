@@ -25,7 +25,11 @@ function Banner(props) {
   return <img src={props.src} className="h-40 w-auto rounded-md shadow-md" />;
 }
 
-export default function HomeCustomer() {
+export default function Home() {
+  return "Test";
+}
+
+export function HomeCustomer() {
   const [selectedCategory, setSelectedCategory] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
 

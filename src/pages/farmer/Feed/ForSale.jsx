@@ -1,10 +1,11 @@
 import { useQuery } from "@tanstack/react-query";
 import { Spin } from "antd";
+import { fetchPosts } from "../../../apis/Post";
 import { getPosts } from "../posts";
-import PostCard from "./components/PostCard";
+import PostCard from "../../../components/PostCard";
 
 export default function ForSale() {
-  const { data: posts, isLoading } = useQuery(["posts"], getPosts);
+  const { data: posts, isLoading } = useQuery(["posts"], fetchPosts);
 
   if (isLoading)
     return (
@@ -14,7 +15,7 @@ export default function ForSale() {
     );
 
   return (
-    <div className="my-6 flex flex-col gap-4">
+    <div className=" columns-2 gap-2 px-1 py-4">
       {posts.map((post) => (
         <PostCard key={post.id} {...post} />
       ))}

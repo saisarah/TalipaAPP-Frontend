@@ -7,19 +7,23 @@ const Http = axios.create({
 
 export function setAuthorization(token) {
   Http.defaults.headers["Authorization"] = `Bearer ${token}`;
+  localStorage.setItem("auth_token", token)
 }
+
+const isValidationError = (err) => (err?.response?.status === 422)
+const isUnauthenticated = (err) => (err?.response?.status === 401)
 
 export function getErrorMessage(error)
 {
     if (error.response === null)
         return 'An unknown error occured'
     
-    const { status, response } = error
+    const { response } = error
 
-    if (status === 422)
+    if (isValidationError(error))
         return response.data.message;
     
-    if (status === 401)
+    if (isUnauthenticated(error))
         return response.data?.message || 'You are not authorized to perform this action'
     
     return response.data?.message || 'An unknown error occured'

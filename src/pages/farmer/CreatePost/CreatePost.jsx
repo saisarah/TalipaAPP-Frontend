@@ -1,73 +1,34 @@
 import {
   ArrowLeftOutlined,
-  MinusCircleOutlined,
-  PlusOutlined,
   UploadOutlined,
 } from "@ant-design/icons";
-import { Button, Form, Input, Select, Space, Upload } from "antd";
-import { Link } from "react-router-dom";
+import { Button, Form, Input, Modal, Select, Upload } from "antd";
+import { Link, useNavigate } from "react-router-dom";
 import PageHeader from "../../../components/PageHeader";
-import { pricingType, size, unit } from "./post-data";
-import { rules } from "./rules";
-import TextArea from "antd/lib/input/TextArea";
 import useCropsQuery from "../../../query/queries/useCropsQuery";
 import FormItem from "../../../components/FormItem";
 import { useState } from "react";
+import { allSizes, PricingForm } from "./components/PricingForm";
+import { useCreatePost } from "./useCreatePost";
+import { required } from "./rules";
 
-const units = [
-  { value: "kg", label: "Kilogram" },
-  { value: "pc", label: "Piece" },
-];
-
-function SelectComponent({ label, name, placeholder, options }) {
-  return (
-    <Form.Item label={label} name={name} rules={rules.commodity}>
-      <Select placeholder={placeholder} size="large" options={options} />
-    </Form.Item>
-  );
-}
-
-function InputComponent({ placeholder, label, name, addonAfter }) {
-  return (
-    <Form.Item label={label} name={name} rules={rules.commodity}>
-      <Input addonAfter={addonAfter} placeholder={placeholder} size="large" />
-    </Form.Item>
-  );
-}
-
-function TextAreaComponent({ placeholder, label, name }) {
-  return (
-    <Form.Item label={label} name={name}>
-      <TextArea rows={4} placeholder={placeholder} />
-    </Form.Item>
-  );
-}
-
-const props = {
-  name: "file",
-  action: "https://www.mocky.io/v2/5cc8019d300000980a055e76",
-  headers: {
-    authorization: "authorization-text",
-  },
-  onChange(info) {
-    if (info.file.status !== "uploading") {
-      console.log(info.file, info.fileList);
-    }
-    if (info.file.status === "done") {
-      message.success(`${info.file.name} file uploaded successfully`);
-    } else if (info.file.status === "error") {
-      message.error(`${info.file.name} file upload failed.`);
-    }
-  },
-};
 
 export default function CreatePost() {
   const { data: crops, isLoading: fetchingCrops } = useCropsQuery({
     select: (data) => data.map(({ name, id }) => ({ value: id, label: name })),
   });
 
+  const [sizes, setSizes] = useState([{
+    size: allSizes[0],
+    price: null,
+    stock: null
+  }])
+
   const [selectedUnit, setSelectedUnit] = useState("kg");
   const [isStraight, setIsStraight] = useState(false);
+  const [attachments, setAttachments] = useState([]);
+
+  const { handleSubmit, isLoading } = useCreatePost(attachments, sizes)
 
   return (
     <div className="mx-auto min-h-screen max-w-md bg-slate-50">
@@ -80,12 +41,36 @@ export default function CreatePost() {
         title="Create Post"
       />
       <div className="p-4">
-        <Form layout="vertical">
-          <FormItem label="Commodity" name="commodity" rules={rules.commodity}>
+        <Form layout="vertical" onFinish={handleSubmit}>
+          <FormItem rules={required()} label="Commodity" name="crop_id">
             <Select
               placeholder="Select Commodity"
               options={crops}
               size="large"
+              className="rounded"
+              loading={fetchingCrops}
+            />
+          </FormItem>
+
+          <FormItem rules={required()} label="Delivery Options" name="delivery_options">
+            <Select
+              required
+              placeholder="Select Available Delivery Options"
+              options={[{ value: "Pick-up" }, { value: "Transportify" }]}
+              size="large"
+              mode="multiple"
+              className="rounded"
+              loading={fetchingCrops}
+            />
+          </FormItem>
+
+          <FormItem rules={required()} label="Payment Options" name="payment_options">
+            <Select
+              required
+              placeholder="Select Available Payment Options"
+              options={[{ value: "GCash" }, { value: "Cash" }]}
+              size="large"
+              mode="multiple"
               className="rounded"
               loading={fetchingCrops}
             />
@@ -114,31 +99,32 @@ export default function CreatePost() {
               value={isStraight}
               onChange={(isStraight) => setIsStraight(isStraight)}
             >
-              <Select.Option value={true}>Straight</Select.Option>
-              <Select.Option value={false}>Not Straight</Select.Option>
+              <Select.Option value={1}>Straight</Select.Option>
+              <Select.Option value={0}>Not Straight</Select.Option>
             </Select>
           </FormItem>
 
-          <div
-            className={`grid gap-4 ${
-              isStraight ? "grid-cols-2" : "grid-cols-1"
-            }`}
-          >
-            <FormItem
-              label="Total Stocks"
-              name="stocks"
-              inputProps={{ addonAfter: selectedUnit }}
-            />
-            {isStraight && (
+          {Boolean(isStraight) && (
+            <div className="grid grid-cols-2 gap-4">
+              <FormItem
+                className="hidden"
+                name="sizes"
+                inputProps={{ value: "__default" }}
+              />
+              {/* <input type="hidden" name="sizes[0]" value="__default" /> */}
+              <FormItem
+                label="Total Stocks"
+                name="stock"
+                inputProps={{ addonAfter: selectedUnit }}
+              />
               <FormItem
                 label="Price"
                 name="price"
                 inputProps={{ addonAfter: `/${selectedUnit}` }}
               />
-            )}
-          </div>
-
-          <FormItem label="Details" name="details">
+            </div>
+          )}
+          <FormItem rules={required()} label="Details" name="details">
             <Input.TextArea
               size="large"
               className="rounded"
@@ -147,42 +133,33 @@ export default function CreatePost() {
           </FormItem>
 
           <FormItem label="Add Photos">
-            <Upload className="grid grid-cols-1">
+            <Upload
+              onRemove={(file) => {
+                setAttachments((attachments) => {
+                  return attachments.filter((a) => a !== file)
+                });
+              }}
+              fileList={attachments}
+              beforeUpload={(file) => {
+                setAttachments((files) => [...files, file]);
+                return false;
+              }}
+              className="grid grid-cols-1"
+            >
               <Button icon={<UploadOutlined />} size="large" block>
                 Click to Upload
               </Button>
             </Upload>
           </FormItem>
 
-          {!isStraight && (
-            <>
-              <div className="grid grid-cols-2 gap-2">
-                <SelectComponent
-                  label="Size"
-                  name="size"
-                  placeholder="Input Size"
-                  options={size}
-                />
-                <InputComponent
-                  label="Price"
-                  name="price"
-                  placeholder="Input Price"
-                  addonAfter={`/${selectedUnit}`}
-                />
-              </div>
-
-              <Button
-                icon={<PlusOutlined />}
-                className="float-right mt-2 text-lg font-bold text-[#739559]"
-                size={"large"}
-              >
-                Add Size
-              </Button>
-            </>
-          )}
+          {!isStraight && <PricingForm unit={selectedUnit} sizes={sizes} setSizes={setSizes} />}
           <Button
-            className="mt-2 w-full rounded bg-[#739559] text-lg font-bold text-white  "
-            size={"large"}
+            className="mt-4"
+            htmlType="submit"
+            block
+            type="primary"
+            size="large"
+            loading={isLoading}
           >
             Post
           </Button>
