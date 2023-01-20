@@ -91,9 +91,8 @@ export default function CreateGroup() {
             className="rounded"
             placeholder="Add a short description"
           >
-              <DatePicker className="w-full" size="large" picker="year" />
-              
-        </FormItem>
+            <DatePicker className="w-full" size="large" picker="year" />
+          </FormItem>
           <FormItem label="Authorization Letter" rules={rules.auth}>
             <Upload className="grid grid-cols-1" maxCount={1}>
               <Button icon={<UploadOutlined />} size="large" block>
@@ -101,12 +100,17 @@ export default function CreateGroup() {
               </Button>
             </Upload>
           </FormItem>
-          <div className="flex justify-end">
-                      <button type="submit" class="ant-btn ant-btn-primary ant-btn-lg rounded" ant-click-animating-without-extra-node="false"><span>
-                      <Link to="/farmer/groups/seachGroup">Next</Link>
-</span></button>
+          <div className="mb-4 flex justify-end">
+            <Button
+              type="primary"
+              className="rounded"
+              htmlType="submit"
+              size="large"
+              onClick={() => setStep((step) => step - 1)}
+            >
+              Next
+            </Button>
           </div>
-
         </Form>
       </div>
     </div>
