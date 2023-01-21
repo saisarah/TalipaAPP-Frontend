@@ -1,19 +1,18 @@
-import CreatePost from "../pages/farmer/CreatePost/CreatePost";
-import Home from "../pages/farmer/Home/Home";
-import Group from "../pages/farmer/group/Group";
-import GroupInfo from "../pages/farmer/group/GroupInfo/GroupInfo";
-import { Posts as GroupPosts } from "../pages/farmer/group/Posts/Posts";
-import { PostDetails as GroupPostDetails } from "../pages/farmer/group/PostDetails/PostDetails";
-import MainMenu from "../pages/farmer/MainMenu/MainMenu";
-import PostDetails from "../pages/farmer/PostDetails/PostDetails";
-import Profile from "../pages/farmer/Profile/Profile";
-import Conversations from "../pages/farmer/messages/Conversations";
-import Orders from "../pages/farmer/orders/Orders";
-
+import Orders from "@/pages/customer/orders/Orders";
+import CreatePost from "@/pages/farmer/CreatePost/CreatePost";
+import GroupPosts from "@/pages/farmer/group/components/GroupPosts";
+import Group from "@/pages/farmer/group/Group";
+import GroupInfo from "@/pages/farmer/group/GroupInfo/GroupInfo";
+import Home from "@/pages/farmer/Home/Home";
+import MainMenu from "@/pages/farmer/MainMenu/MainMenu";
+import Conversations from "@/pages/farmer/messages/Conversations";
+import PostDetails from "@/pages/farmer/PostDetails/PostDetails";
+import Profile from "@/pages/farmer/Profile/Profile";
+import { PostDetails as GroupPostDetails } from "@/pages/farmer/group/PostDetails/PostDetails";
 
 /**
  * All of the path is under farmer route
- * e.g. 
+ * e.g.
  * home => /farmer/home
  * post/create => /farmer/post/create
  */
