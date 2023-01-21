@@ -1,9 +1,14 @@
 import { ArrowLeftOutlined } from "@ant-design/icons";
 import { useQuery } from "@tanstack/react-query";
 import { Link, useParams } from "react-router-dom";
-import PageHeader from "../../../components/PageHeader";
-import { getPost } from "../posts";
+import PageHeader from "../components/PageHeader";
 import { Spin, Descriptions } from "antd";
+
+const getPost = async (id) => {
+  return {
+    
+  }
+}
 
 export default function PostDetails() {
   const { id } = useParams();

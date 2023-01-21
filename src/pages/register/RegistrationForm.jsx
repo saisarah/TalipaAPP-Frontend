@@ -3,7 +3,7 @@ import { Button, Steps } from "antd";
 import { useContext } from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import PageHeader from "../../components/PageHeader";
+import PageHeader from "../farmer/components/PageHeader";
 import {
   RegistrationContext,
   useRegistrationContext,

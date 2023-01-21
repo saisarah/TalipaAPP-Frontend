@@ -1,10 +1,11 @@
 import { ArrowLeftOutlined } from "@ant-design/icons";
-import { Link, useParams, useSearchParams } from "react-router-dom";
-import PageHeader from "../../../components/PageHeader";
+import { Link } from "react-router-dom";
+import PageHeader from "../components/PageHeader";
 import { useState } from "react";
 import ForSale from "./ForSale";
 import CreateInfo from "./CreateInfo";
 import { Demands } from "./Demands";
+import { useTab } from "@/helpers/hooks";
 
 function CropsFilter() {
   return (
@@ -33,16 +34,21 @@ function CropsFilter() {
   );
 }
 
+const TabLink = ({ children, tab, isActive }) => {
+  return (
+    <Link
+      to={`?tab=${tab}`}
+      className={`flex items-center justify-center ${
+        isActive(tab) ? "border-b border-primary text-primary" : ""
+      }`}
+    >
+      {children}
+    </Link>
+  );
+};
+
 export default function Home() {
-  const [params, setParams] = useSearchParams()
-  const feed = params.get("feed")
-  const defaultActive = "demands"
-  // const [active, setActive] = useState("demands");
-  const active = (tab) => {
-    if (tab === feed) return true
-    if (tab === defaultActive & feed != "sale" && feed != "create") return true;
-    return false;
-  }
+  const { isActive } = useTab(["demands", "sale", "create"], "demands");
 
   return (
     <div className="mx-auto min-h-screen max-w-md  bg-slate-50">
@@ -56,31 +62,20 @@ export default function Home() {
       />
 
       <div className="sticky top-0 grid h-16 grid-cols-3 bg-white text-lg shadow-md">
-        <Link to='?feed=demands'
-          className={`flex items-center justify-center ${active("demands") ? "border-b border-primary text-primary" : ""
-            }`}
-        >
+        <TabLink tab="demands" isActive={isActive}>
           Demands
-        </Link>
-        <Link  to='?feed=sale'
-          // onClick={() => setActive("for_sale")}
-          className={`flex items-center justify-center ${active("sale") ? "border-b border-primary text-primary" : ""
-            }`}
-        >
+        </TabLink>
+        <TabLink tab="sale" isActive={isActive}>
           For Sale
-        </Link>
-        <Link to='?feed=create'
-          // onClick={() => setActive("create")}
-          className={`flex items-center justify-center ${active("create") ? "border-b border-primary text-primary" : ""
-            }`}
-        >
+        </TabLink>
+        <TabLink tab="create" isActive={isActive}>
           Create Post
-        </Link>
+        </TabLink>
       </div>
 
-      {active("demands") && <Demands />}
-      {active("sale") && <ForSale />}
-      {active("create") && <CreateInfo />}
+      {isActive("demands") && <Demands />}
+      {isActive("sale") && <ForSale />}
+      {isActive("create") && <CreateInfo />}
     </div>
   );
 }

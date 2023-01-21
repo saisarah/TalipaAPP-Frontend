@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { useParams } from "react-router-dom";
 import { getGroup } from "../groups";
-import PageHeader from "../../../../components/PageHeader";
+import PageHeader from "../../components/PageHeader";
 import { ArrowLeftOutlined } from "@ant-design/icons";
 import { Button, Spin } from "antd";
 import { useState } from "react";

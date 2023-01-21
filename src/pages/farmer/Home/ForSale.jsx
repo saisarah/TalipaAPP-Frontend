@@ -1,8 +1,7 @@
+import { fetchPosts } from "@/apis/Post";
+import PostCard from "@/components/PostCard";
 import { useQuery } from "@tanstack/react-query";
 import { Spin } from "antd";
-import { fetchPosts } from "../../../apis/Post";
-import { getPosts } from "../posts";
-import PostCard from "../../../components/PostCard";
 
 export default function ForSale() {
   const { data: posts, isLoading } = useQuery(["posts"], fetchPosts);

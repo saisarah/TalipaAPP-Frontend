@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import PageHeader from "../../../components/PageHeader";
+import PageHeader from "../../farmer/components/PageHeader";
 
 export default function ChooseAccountType({ setAccountType }) {
   return (

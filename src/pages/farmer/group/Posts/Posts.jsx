@@ -8,7 +8,7 @@ import { Dropdown, Input, Spin, Space } from "antd";
 // import type { MenuProps } from "antd";
 import { useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import PageHeader from "../../../../components/PageHeader";
+import PageHeader from "../../components/PageHeader";
 import { About } from "../components/About";
 
 import { items } from "./post-data";

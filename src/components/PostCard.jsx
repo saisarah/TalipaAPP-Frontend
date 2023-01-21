@@ -1,25 +1,8 @@
-import { Carousel, Image } from "antd";
+import { Image } from "antd";
 import { useCrop } from "../query/queries/useCropsQuery";
 import MapPinOutline from "@/icons/heroicons/MapPinOutline.jsx";
 import { currency } from "@/helpers/utils";
-
-export const PostCardImage = ({ attachments }) => {
-  return (
-    <Carousel>
-      {attachments.map((attachment) => (
-        <div className="relative aspect-square w-full" key={attachment.id}>
-          <Image
-            className="object-cover"
-            width="100%"
-            height="100%"
-            preview={{ visible: false }}
-            src={attachment.source}
-          />
-        </div>
-      ))}
-    </Carousel>
-  );
-};
+import { Link } from "react-router-dom";
 
 export default function PostCard({
   crop_id,
@@ -35,7 +18,6 @@ export default function PostCard({
 
   return (
     <div className="mb-2 flex h-full	 break-inside-avoid flex-col border border-slate-200 bg-white shadow-sm">
-      {/* <PostCardImage attachments={attachments} /> */}
       <Image
         className="aspect-square object-cover"
         width="100%"
@@ -44,7 +26,7 @@ export default function PostCard({
       />
       <div className="flex flex-col p-2">
         <div className="text-xs text-slate-600">{crop?.name}</div>
-        <div className="text-xl font-semibold">{caption}</div>
+        <Link to={`/farmer/posts/${id}`} className="text-xl font-semibold">{caption}</Link>
         <span className="text-base font-medium text-primary">
           {currency(display_price)}
         </span>

@@ -4,7 +4,7 @@ import {
   UserOutlined,
 } from "@ant-design/icons";
 import { Link } from "react-router-dom";
-import PageHeader from "../../../components/PageHeader";
+import PageHeader from "../components/PageHeader";
 import { Avatar, Spin } from "antd";
 import useCurrentUserQuery from "../../../query/queries/useCurrentUserQuery";
 import { Button, Empty } from "antd";
