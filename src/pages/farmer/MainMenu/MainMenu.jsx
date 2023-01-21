@@ -16,7 +16,7 @@ import notificationsImg from './images/notifications.png'
 import ordersImg from './images/orders.png'
 import settingsImg from './images/settings.png'
 
-export default function FarmerHome() {
+export default function MainMenu() {
   const queryClient = useQueryClient();
 
   const confirmLogout = () => {

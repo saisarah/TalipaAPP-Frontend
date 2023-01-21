@@ -4,16 +4,23 @@ import Group from "../pages/farmer/group/Group";
 import GroupInfo from "../pages/farmer/group/GroupInfo/GroupInfo";
 import { Posts as GroupPosts } from "../pages/farmer/group/Posts/Posts";
 import { PostDetails as GroupPostDetails } from "../pages/farmer/group/PostDetails/PostDetails";
-import FarmerHome from "../pages/farmer/home/FarmerHome";
+import MainMenu from "../pages/farmer/MainMenu/MainMenu";
 import PostDetails from "../pages/farmer/PostDetails/PostDetails";
 import Profile from "../pages/farmer/Profile/Profile";
 import Conversations from "../pages/messages/Conversations";
 import Orders from "../pages/orders/Orders";
 
+
+/**
+ * All of the path is under farmer route
+ * e.g. 
+ * home => /farmer/home
+ * post/create => /farmer/post/create
+ */
 export default [
   {
     path: "",
-    element: <FarmerHome />,
+    element: <MainMenu />,
   },
   {
     path: "home",
