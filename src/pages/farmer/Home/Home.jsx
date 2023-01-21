@@ -33,7 +33,7 @@ function CropsFilter() {
   );
 }
 
-export default function Feed() {
+export default function Home() {
   const [params, setParams] = useSearchParams()
   const feed = params.get("feed")
   const defaultActive = "demands"

@@ -1,5 +1,5 @@
 import CreatePost from "../pages/farmer/CreatePost/CreatePost";
-import Feed from "../pages/farmer/Feed/Feed";
+import Home from "../pages/farmer/Home/Home";
 import Group from "../pages/farmer/group/Group";
 import GroupInfo from "../pages/farmer/group/GroupInfo/GroupInfo";
 import { Posts as GroupPosts } from "../pages/farmer/group/Posts/Posts";
@@ -24,7 +24,7 @@ export default [
   },
   {
     path: "home",
-    element: <Feed />,
+    element: <Home />,
   },
   {
     path: "posts/create",

@@ -1,5 +1,5 @@
 import { useTitle } from "@/components/VendorLayout/VendorLayout";
-import ForSale from "@/pages/farmer/Feed/ForSale";
+import ForSale from "@/pages/farmer/Home/ForSale";
 import { Link, useSearchParams } from "react-router-dom";
 
 export const Home = () => {
