@@ -1,6 +1,6 @@
 import { ArrowLeftOutlined } from "@ant-design/icons";
 import { Link } from "react-router-dom";
-import PageHeader from "../components/PageHeader";
+import PageHeader from "../../../components/PageHeader";
 import { useState } from "react";
 import ForSale from "./ForSale";
 import CreateInfo from "./CreateInfo";

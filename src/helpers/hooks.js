@@ -1,6 +1,5 @@
-import { useEffect } from "react";
-import { useState } from "react";
-import { useSearchParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useLocation, useNavigationType, useSearchParams } from "react-router-dom";
 
 export const useEffectSkipFirst = (callback, dependencies) => {
   const [isFirst, setIsFirst] = useState(true);
@@ -23,3 +22,22 @@ export const useTab = (tabs, defaultActive) => {
 
   return { isActive };
 };
+
+export const useHistoryStack = () => {
+  const [stack, setStack] = useState([]);
+  const { pathname } = useLocation();
+  const type = useNavigationType();
+//   console.log(stack);
+
+  useEffect(() => {
+    if (type === "POP") {
+      setStack((prev) => prev.slice(0, prev.length - 1));
+    } else if (type === "PUSH") {
+      setStack((prev) => [...prev, pathname]);
+    } else {
+      setStack((prev) => [...prev.slice(0, prev.length - 1), pathname]);
+    }
+  }, [pathname, type]);
+
+  return stack;
+}

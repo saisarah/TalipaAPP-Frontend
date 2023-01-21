@@ -1,4 +1,4 @@
-import PageHeader from "@/pages/farmer/components/PageHeader";
+import PageHeader from "@/components/PageHeader";
 import queryKeyFactory from "@/query/queryKeyFactory";
 import { QuestionCircleTwoTone } from "@ant-design/icons";
 import { useQueryClient } from "@tanstack/react-query";

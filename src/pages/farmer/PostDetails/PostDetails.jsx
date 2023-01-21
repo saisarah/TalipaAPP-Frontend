@@ -1,21 +1,15 @@
 import { ArrowLeftOutlined } from "@ant-design/icons";
 import { useQuery } from "@tanstack/react-query";
 import { Link, useParams } from "react-router-dom";
-import PageHeader from "../components/PageHeader";
+import PageHeader from "../../../components/PageHeader";
 import { Avatar, Button, Descriptions, Divider, Rate } from "antd";
-import Http from "@/helpers/Http";
 import { LoadingSkeleton } from "@/components/LoadingSkeleton";
-import moment from "moment";
 import { currency } from "@/helpers/utils";
-
-const getPost = async (id) => {
-  const { data } = await Http.get(`/posts/${id}`);
-  return data;
-};
+import { fetchPost } from "@/apis/Post";
 
 export default function PostDetails() {
   const { id } = useParams();
-  const { data: post, isLoading } = useQuery(["posts", id], () => getPost(id));
+  const { data: post, isLoading } = useQuery(["posts", id], () => fetchPost(id));
 
   return (
     <div className="mx-auto min-h-screen max-w-md  bg-white">

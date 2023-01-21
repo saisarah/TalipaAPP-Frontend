@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import PageHeader from "../components/PageHeader";
+import PageHeader from "../../../components/PageHeader";
 import { ArrowLeftOutlined } from "@ant-design/icons";
 import { Button } from "antd";
 import Invitation from "./components/Invitation";

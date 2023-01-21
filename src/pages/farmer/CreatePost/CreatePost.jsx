@@ -4,7 +4,7 @@ import {
 } from "@ant-design/icons";
 import { Button, Form, Input, Modal, Select, Upload } from "antd";
 import { Link, useNavigate } from "react-router-dom";
-import PageHeader from "../components/PageHeader";
+import PageHeader from "../../../components/PageHeader";
 import useCropsQuery from "../../../query/queries/useCropsQuery";
 import FormItem from "../../../components/FormItem";
 import { useState } from "react";

@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import PageHeader from "../components/PageHeader";
+import PageHeader from "../../../components/PageHeader";
 import { ArrowLeftOutlined, SearchOutlined } from "@ant-design/icons";
 
 function Messages({ user, displayphoto }) {
