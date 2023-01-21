@@ -1,14 +1,9 @@
-import {
-  useTitle,
-  VendorLayoutContext,
-} from "@/components/VendorLayout/VendorLayout";
+import { useTitle } from "@/components/VendorLayout/VendorLayout";
 import ForSale from "@/pages/farmer/Feed/ForSale";
-import { useContext, useEffect } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 
 export const Home = () => {
   const [params] = useSearchParams();
-  const { title, setTitle } = useContext(VendorLayoutContext);
   const feed = params.get("feed");
   const defaultActive = "sale";
 
