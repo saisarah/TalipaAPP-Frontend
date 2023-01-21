@@ -1,27 +1,20 @@
-import { AntDesignOutlined, QuestionCircleTwoTone } from "@ant-design/icons";
+import PageHeader from "@/components/PageHeader";
+import queryKeyFactory from "@/query/queryKeyFactory";
+import { QuestionCircleTwoTone } from "@ant-design/icons";
 import { useQueryClient } from "@tanstack/react-query";
 import { Modal } from "antd";
-import { Link, useNavigate } from "react-router-dom";
-import PageHeader from "../../../components/PageHeader";
 import { setAuthorization } from "../../../helpers/Http";
-import queryKeyFactory from "../../../query/queryKeyFactory";
+import { MenuButton } from "./components/MenuButton";
 
-const MainButton = ({ onClick, to, label, src = null }) => {
-  return (
-    <Link
-      to={to}
-      onClick={onClick}
-      className="flex aspect-square flex-col items-center justify-center gap-4 p-4 transition duration-300 hover:bg-primary-accent-3 hover:text-white"
-    >
-      {src === null ? (
-        <AntDesignOutlined style={{ fontSize: "48px" }} />
-      ) : (
-        <img src={src} height="48px" width="48px" />
-      )}
-      <span>{label}</span>
-    </Link>
-  );
-};
+//assets
+import homeImg from './images/home.png'
+import commentsImg from './images/comments.png'
+import cropsImg from './images/crops.png'
+import farmerImg from './images/farmer.png'
+import groupImg from './images/group.png'
+import notificationsImg from './images/notifications.png'
+import ordersImg from './images/orders.png'
+import settingsImg from './images/settings.png'
 
 export default function FarmerHome() {
   const queryClient = useQueryClient();
@@ -34,7 +27,7 @@ export default function FarmerHome() {
         setAuthorization(undefined);
         queryClient.setQueryData(queryKeyFactory.currentUser, null);
       },
-      content: "Are you sure you want to log?",
+      content: "Are you sure you want to log out?",
     });
   };
 
@@ -46,35 +39,35 @@ export default function FarmerHome() {
       />
 
       <div className="grid grid-cols-2 divide-x divide-y divide-slate-100 sm:grid-cols-3">
-        <MainButton
-          src="/assets/icons/home.png"
+        <MenuButton
+          src={homeImg}
           to="/farmer/home"
           label="Home"
         />
-        <MainButton
+        <MenuButton
           to="/farmer/messages"
-          src="/assets/icons/comments.png"
+          src={commentsImg}
           label="Messages"
         />
-        <MainButton
-          src="/assets/icons/notifications.png"
+        <MenuButton
+          src={notificationsImg}
           label="Notifications"
         />
-        <MainButton
+        <MenuButton
           to="/farmer/groups"
-          src="/assets/icons/group.png"
+          src={groupImg}
           label="Group"
         />
-        <MainButton src="/assets/icons/settings.png" label="Settings" />
-        <MainButton
+        <MenuButton src={settingsImg} label="Settings" />
+        <MenuButton
           to="/farmer/profile"
-          src="/assets/icons/farmer.png"
+          src={farmerImg}
           label="Profile"
         />
-        <MainButton to="/farmer/orders" src="/assets/icons/orders.png" label="Orders" />
-        <MainButton src="/assets/icons/crops.png" label="Crops" />
-        <MainButton label="Help" />
-        <MainButton onClick={confirmLogout} label="Logout" />
+        <MenuButton to="/farmer/orders" src={ordersImg} label="Orders" />
+        <MenuButton src={cropsImg} label="Crops" />
+        <MenuButton label="Help" />
+        <MenuButton onClick={confirmLogout} label="Logout" />
       </div>
     </div>
   );
