@@ -11,6 +11,7 @@ import {
   QuestionCircleTwoTone,
   SettingFilled,
 } from "@ant-design/icons";
+import { useQueryClient } from "@tanstack/react-query";
 import { Avatar, Button, Divider, Modal } from "antd";
 import { createContext, useContext, useEffect, useState } from "react";
 import { Link, Outlet } from "react-router-dom";
@@ -19,7 +20,7 @@ import PageHeader from "../PageHeader";
 export const VendorLayoutContext = createContext();
 
 export const useTitle = (newTitle) => {
-  const { title, setTitle } = useContext(VendorLayoutContext);
+  const { setTitle } = useContext(VendorLayoutContext);
 
   useEffect(() => {
     setTitle((title) => {
@@ -38,6 +39,7 @@ export const VendorLayout = () => {
   const [sideNavOpen, setSideNavOpen] = useState(false);
   const { data: user } = useCurrentUserQuery();
   const [title, setTitle] = useState({ current: "TalipaAPP", previous: null });
+  const queryClient = useQueryClient()
 
   const confirmLogout = () => {
     Modal.confirm({
