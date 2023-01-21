@@ -1,12 +1,12 @@
+import PageHeader from "@/components/PageHeader";
 import { Link } from "react-router-dom";
-import PageHeader from "../../../../components/PageHeader";
 
 export default function ChooseAccountType({ setAccountType }) {
   return (
     <div className="flex h-screen flex-col bg-gray-700">
       <PageHeader
         left={
-          <Link to="/login">
+          <Link to="/login" replace>
             <img src="/assets/images/logo.png" className="h-16" />
           </Link>
         }

@@ -27,7 +27,6 @@ export const useHistoryStack = () => {
   const [stack, setStack] = useState([]);
   const { pathname } = useLocation();
   const type = useNavigationType();
-//   console.log(stack);
 
   useEffect(() => {
     if (type === "POP") {
@@ -35,7 +34,12 @@ export const useHistoryStack = () => {
     } else if (type === "PUSH") {
       setStack((prev) => [...prev, pathname]);
     } else {
-      setStack((prev) => [...prev.slice(0, prev.length - 1), pathname]);
+      setStack((prev) => {
+        if (prev.length === 0) 
+          return []
+
+        return [...prev.slice(0, prev.length - 1), pathname]
+      });
     }
   }, [pathname, type]);
 

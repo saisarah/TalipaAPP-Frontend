@@ -1,6 +1,5 @@
-import { Link } from "react-router-dom";
-import PageHeader from "../../../components/PageHeader";
-import { ArrowLeftOutlined, SearchOutlined } from "@ant-design/icons";
+import { SearchOutlined } from "@ant-design/icons";
+import PageHeader from "@/components/PageHeader";
 
 function Messages({ user, displayphoto }) {
   return (
@@ -29,14 +28,7 @@ function Messages({ user, displayphoto }) {
 export default function Conversations() {
   return (
     <div className="mx-auto max-w-md bg-slate-50">
-      <PageHeader
-        left={
-          <Link to="/farmer">
-            <ArrowLeftOutlined style={{ fontSize: "16px" }} />
-          </Link>
-        }
-        title="Conversations"
-      />
+      <PageHeader back="/farmer" title="Conversations" />
       <div className="py-2 px-4">
         <div className="flex gap-2 rounded bg-slate-200 p-3">
           <SearchOutlined style={{ fontSize: 20 }} className="text-slate-500" />

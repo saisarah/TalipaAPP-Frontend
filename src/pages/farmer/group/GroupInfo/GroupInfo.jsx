@@ -1,14 +1,11 @@
-import { Link } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { useParams } from "react-router-dom";
 import { getGroup } from "../groups";
-import PageHeader from "../../../../components/PageHeader";
-import { ArrowLeftOutlined } from "@ant-design/icons";
 import { Button, Spin } from "antd";
 import { useState } from "react";
 import Join from "../components/Join";
 import Forum from "../components/Forum";
-// import { type } from "os";
+import PageHeader from "@/components/PageHeader";
 
 export default function GroupInfo() {
   const [active, setActive] = useState("join");
@@ -20,14 +17,7 @@ export default function GroupInfo() {
 
   return (
     <div className="mx-auto min-h-screen max-w-md bg-white">
-      <PageHeader
-        left={
-          <Link to="/farmer/groups">
-            <ArrowLeftOutlined style={{ fontSize: "16px" }} />
-          </Link>
-        }
-        title="Group"
-      />
+      <PageHeader back="/farmer/groups" title="Group" />
 
       {isLoading ? (
         <div className="flex items-center justify-center py-16">

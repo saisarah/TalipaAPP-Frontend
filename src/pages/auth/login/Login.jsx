@@ -1,11 +1,11 @@
+import { login } from "@/apis/AuthApi";
+import FormItem from "@/components/FormItem";
+import PageHeader from "@/components/PageHeader";
+import { getErrorMessage, setAuthorization } from "@/helpers/Http";
+import queryKeyFactory from "@/query/queryKeyFactory";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { Button, Form, Input, notification } from "antd";
 import { Link } from "react-router-dom";
-import { login } from "../../../apis/AuthApi";
-import FormItem from "../../../components/FormItem";
-import PageHeader from "../../../components/PageHeader";
-import { getErrorMessage, setAuthorization } from "../../../helpers/Http";
-import queryKeyFactory from "../../../query/queryKeyFactory";
 
 export default function Login() {
   const queryClient = useQueryClient();

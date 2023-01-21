@@ -1,15 +1,8 @@
-import { ArrowLeftOutlined, LeftOutlined } from "@ant-design/icons";
-import { Button, Steps } from "antd";
-import { useContext } from "react";
-import { useState } from "react";
-import { Link } from "react-router-dom";
-import PageHeader from "../../../components/PageHeader";
-import {
-  RegistrationContext,
-  useRegistrationContext,
-} from "../../../contexts/RegistrationContext";
+import PageHeader from "@/components/PageHeader";
+import { useRegistrationContext } from "@/contexts/RegistrationContext";
+import { ArrowLeftOutlined } from "@ant-design/icons";
+import { Steps } from "antd";
 import AddressForm from "./forms/AddressForm";
-import CropSelection from "./forms/CropsSelection";
 import FarmInformation from "./forms/FarmInformation";
 import PersonalInformationForm from "./forms/PersonalInformationForm";
 import { VendorInformation } from "./forms/VendorInformation";

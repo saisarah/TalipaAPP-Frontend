@@ -1,11 +1,10 @@
-import { ArrowLeftOutlined } from "@ant-design/icons";
 import { useQuery } from "@tanstack/react-query";
-import { Link, useParams } from "react-router-dom";
-import PageHeader from "../../../components/PageHeader";
-import { Avatar, Button, Descriptions, Divider, Rate } from "antd";
+import { useParams } from "react-router-dom";
+import { Avatar, Button, Descriptions, Rate } from "antd";
 import { LoadingSkeleton } from "@/components/LoadingSkeleton";
 import { currency } from "@/helpers/utils";
 import { fetchPost } from "@/apis/Post";
+import PageHeader from "@/components/PageHeader";
 
 export default function PostDetails() {
   const { id } = useParams();
@@ -14,11 +13,7 @@ export default function PostDetails() {
   return (
     <div className="mx-auto min-h-screen max-w-md  bg-white">
       <PageHeader
-        left={
-          <Link to="/farmer/home?tab=sale">
-            <ArrowLeftOutlined style={{ fontSize: "16px" }} />
-          </Link>
-        }
+        back="/farmer/home?tab=sale"
         title="Post Details"
       />
 

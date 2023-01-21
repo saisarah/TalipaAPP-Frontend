@@ -1,7 +1,5 @@
-import { Link } from "react-router-dom";
-import PageHeader from "../../../components/PageHeader";
-import { ArrowLeftOutlined } from "@ant-design/icons";
 import { Avatar, Badge, Space } from "antd";
+import PageHeader from "@/components/PageHeader";
 
 function Order({
   vendor,
@@ -93,14 +91,7 @@ function Order({
 export default function Orders() {
   return (
     <div className="mx-auto max-w-md bg-white">
-      <PageHeader
-        left={
-          <Link to="/farmer">
-            <ArrowLeftOutlined style={{ fontSize: "16px" }} />
-          </Link>
-        }
-        title="Orders"
-      />
+      <PageHeader to="/farmer" title="Orders" />
       <div class="no-scrollbar flex flex-nowrap overflow-x-auto p-4">
         <button>
           <div className="mx-2 rounded-xl bg-[#BBF7D0] py-1 px-4">All</div>
@@ -109,7 +100,9 @@ export default function Orders() {
           <div className="mx-2 rounded-xl bg-slate-200 py-1 px-4">Pending</div>
         </button>
         <button>
-          <div className="mx-2 rounded-xl bg-slate-200 py-1 px-4">Completed</div>
+          <div className="mx-2 rounded-xl bg-slate-200 py-1 px-4">
+            Completed
+          </div>
         </button>
         <button>
           <div className="mx-2 rounded-xl bg-slate-200 py-1 px-4">Shipped</div>

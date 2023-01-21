@@ -1,11 +1,35 @@
-import { ArrowLeftOutlined } from "@ant-design/icons";
 import { Link } from "react-router-dom";
-import PageHeader from "../../../components/PageHeader";
-import { useState } from "react";
 import ForSale from "./ForSale";
 import CreateInfo from "./CreateInfo";
 import { Demands } from "./Demands";
 import { useTab } from "@/helpers/hooks";
+import PageHeader from "@/components/PageHeader";
+
+export default function Home() {
+  const { isActive } = useTab(["demands", "sale", "create"], "demands");
+
+  return (
+    <div className="mx-auto min-h-screen max-w-md  bg-slate-50">
+      <PageHeader back="/farmer" title="Home" />
+
+      <div className="sticky top-0 grid h-16 grid-cols-3 bg-white text-lg shadow-md">
+        <TabLink tab="demands" isActive={isActive}>
+          Demands
+        </TabLink>
+        <TabLink tab="sale" isActive={isActive}>
+          For Sale
+        </TabLink>
+        <TabLink tab="create" isActive={isActive}>
+          Create Post
+        </TabLink>
+      </div>
+
+      {isActive("demands") && <Demands />}
+      {isActive("sale") && <ForSale />}
+      {isActive("create") && <CreateInfo />}
+    </div>
+  );
+}
 
 function CropsFilter() {
   return (
@@ -34,48 +58,16 @@ function CropsFilter() {
   );
 }
 
-const TabLink = ({ children, tab, isActive }) => {
+function TabLink({ children, tab, isActive }) {
   return (
     <Link
       to={`?tab=${tab}`}
       className={`flex items-center justify-center ${
         isActive(tab) ? "border-b border-primary text-primary" : ""
       }`}
+      replace
     >
       {children}
     </Link>
-  );
-};
-
-export default function Home() {
-  const { isActive } = useTab(["demands", "sale", "create"], "demands");
-
-  return (
-    <div className="mx-auto min-h-screen max-w-md  bg-slate-50">
-      <PageHeader
-        left={
-          <Link to="/farmer">
-            <ArrowLeftOutlined style={{ fontSize: "16px" }} />
-          </Link>
-        }
-        title="Home"
-      />
-
-      <div className="sticky top-0 grid h-16 grid-cols-3 bg-white text-lg shadow-md">
-        <TabLink tab="demands" isActive={isActive}>
-          Demands
-        </TabLink>
-        <TabLink tab="sale" isActive={isActive}>
-          For Sale
-        </TabLink>
-        <TabLink tab="create" isActive={isActive}>
-          Create Post
-        </TabLink>
-      </div>
-
-      {isActive("demands") && <Demands />}
-      {isActive("sale") && <ForSale />}
-      {isActive("create") && <CreateInfo />}
-    </div>
   );
 }

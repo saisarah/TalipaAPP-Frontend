@@ -1,3 +1,4 @@
+import PageHeader from "@/components/PageHeader";
 import { setAuthorization } from "@/helpers/Http";
 import UserFilled from "@/icons/heroicons/UserFilled";
 import useCurrentUserQuery from "@/query/queries/useCurrentUserQuery";
@@ -15,7 +16,6 @@ import { useQueryClient } from "@tanstack/react-query";
 import { Avatar, Button, Divider, Modal } from "antd";
 import { createContext, useContext, useEffect, useState } from "react";
 import { Link, Outlet } from "react-router-dom";
-import PageHeader from "../../../../components/PageHeader";
 
 export const VendorLayoutContext = createContext();
 

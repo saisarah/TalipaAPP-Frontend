@@ -1,6 +1,4 @@
-import { Link } from "react-router-dom";
-import PageHeader from "@/components/PageHeader";
-import { ArrowLeftOutlined, SearchOutlined } from "@ant-design/icons";
+import { SearchOutlined } from "@ant-design/icons";
 import { useTitle } from "@/pages/vendor/components/VendorLayout/VendorLayout";
 
 function MessagesItem({ user, displayphoto }) {
