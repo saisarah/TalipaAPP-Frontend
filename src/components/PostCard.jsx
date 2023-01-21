@@ -4,16 +4,16 @@ import MapPinOutline from "@/icons/heroicons/MapPinOutline.jsx";
 import { currency } from "@/helpers/utils";
 import { Link } from "react-router-dom";
 
-export default function PostCard({
-  crop_id,
-  author,
-  id,
-  created_at,
-  caption,
-  attachments,
-  display_price,
-}) {
-  // console.log(props);
+export default function PostCard({ post, to }) {
+  const {
+    crop_id,
+    author,
+    id,
+    created_at,
+    caption,
+    attachments,
+    display_price,
+  } = post;
   const crop = useCrop(crop_id);
 
   return (
@@ -26,7 +26,9 @@ export default function PostCard({
       />
       <div className="flex flex-col p-2">
         <div className="text-xs text-slate-600">{crop?.name}</div>
-        <Link to={`/farmer/posts/${id}`} className="text-xl font-semibold">{caption}</Link>
+        <Link to={to} className="text-xl font-semibold">
+          {caption}
+        </Link>
         <span className="text-base font-medium text-primary">
           {currency(display_price)}
         </span>
@@ -44,5 +46,4 @@ export default function PostCard({
       </div>
     </div>
   );
-
 }

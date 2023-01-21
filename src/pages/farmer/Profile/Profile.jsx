@@ -27,7 +27,7 @@ const UserPosts = ({ id }) => {
   return (
     <div className=" columns-2 gap-2 px-1 py-4">
       {posts.map((post) => (
-        <PostCard key={post.id} {...post} />
+        <PostCard key={post.id} post={post} to={`/farmer/posts/${post.id}`} />
       ))}
     </div>
   );
