@@ -1,10 +1,10 @@
 import { Button, Form, notification, Select, Upload } from "antd";
 import { useState } from "react";
-import FormItem from "../../../components/FormItem";
-import { useRegistrationContext } from "../../../contexts/RegistrationContext";
+import FormItem from "../../../../components/FormItem";
+import { useRegistrationContext } from "../../../../contexts/RegistrationContext";
 import { UploadOutlined } from "@ant-design/icons";
 import { rules } from "../rules";
-import useCropsQuery from "../../../query/queries/useCropsQuery";
+import useCropsQuery from "../../../../query/queries/useCropsQuery";
 
 export const VendorInformation = () => {
   const { data, setStep, setData } = useRegistrationContext();

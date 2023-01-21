@@ -1,7 +1,7 @@
 import { useMutation } from "@tanstack/react-query";
 import { Modal } from "antd";
 import { useNavigate } from "react-router-dom";
-import { farmerRegister, vendorRegister } from "../../apis/AuthApi";
+import { farmerRegister, vendorRegister } from "../../../apis/AuthApi";
 
 
 export const useFarmerRegistration = () => {

@@ -15,7 +15,7 @@ import { useQueryClient } from "@tanstack/react-query";
 import { Avatar, Button, Divider, Modal } from "antd";
 import { createContext, useContext, useEffect, useState } from "react";
 import { Link, Outlet } from "react-router-dom";
-import PageHeader from "../../pages/farmer/components/PageHeader";
+import PageHeader from "../../../farmer/components/PageHeader";
 
 export const VendorLayoutContext = createContext();
 

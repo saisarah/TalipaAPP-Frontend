@@ -1,6 +1,6 @@
 import { useMutation } from "@tanstack/react-query";
 import { useEffect, useState } from "react";
-import { sendRegisterOtp } from "../../apis/AuthApi";
+import { sendRegisterOtp } from "../../../apis/AuthApi";
 
 export const useOtp = () => {
     const [throttle, setThrottle] = useState(0);

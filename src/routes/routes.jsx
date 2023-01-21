@@ -1,7 +1,7 @@
 import vendorRoutes from "./vendorRoutes";
 import farmerRoutes from "./farmerRoutes";
 import VendorGate from "../components/VendorGate";
-import FarmerGate from "../components/FarmerGate";
+import FarmerGate from "./gates/FarmerGate";
 import GuestGate from "../components/GuestGate";
 import guestRoutes from "./guestRoutes";
 

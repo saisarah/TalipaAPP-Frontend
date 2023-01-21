@@ -1,6 +1,6 @@
 import axios from "axios";
-import { validateData } from "../../apis/AuthApi";
-import { asyncWrapper } from "../../helpers/utils";
+import { validateData } from "../../../apis/AuthApi";
+import { asyncWrapper } from "../../../helpers/utils";
 
 export const rules = {
     firstname: [

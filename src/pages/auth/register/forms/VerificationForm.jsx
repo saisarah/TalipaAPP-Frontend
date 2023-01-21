@@ -1,7 +1,7 @@
 import { Button, Form } from "antd";
 import { toFormData } from "axios";
-import FormItem from "../../../components/FormItem";
-import { useRegistrationContext } from "../../../contexts/RegistrationContext";
+import FormItem from "../../../../components/FormItem";
+import { useRegistrationContext } from "../../../../contexts/RegistrationContext";
 import {
   useFarmerRegistration,
   useVendorRegistration,

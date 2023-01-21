@@ -1,6 +1,6 @@
+import SplashScreen from "@/components/SplashScreen";
+import useCurrentUserQuery from "@/query/queries/useCurrentUserQuery";
 import { Navigate, Outlet } from "react-router-dom";
-import useCurrentUserQuery from "../query/queries/useCurrentUserQuery";
-import SplashScreen from "./SplashScreen";
 
 
 export default function FarmerGate()

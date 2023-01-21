@@ -3,10 +3,10 @@ import { LeftOutlined } from "@ant-design/icons";
 import OTPInput, { ResendOTP } from "otp-input-react";
 import { useEffect, useState } from "react";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { verifyLoginOtp } from "../../apis/AuthApi";
-import { getErrorMessage, setAuthorization } from "../../helpers/Http";
+import { verifyLoginOtp } from "../../../apis/AuthApi";
+import { getErrorMessage, setAuthorization } from "../../../helpers/Http";
 import { useNavigate } from "react-router-dom";
-import queryKeyFactory from "../../query/queryKeyFactory";
+import queryKeyFactory from "../../../query/queryKeyFactory";
 
 function OTPButton({ children, className = "", onClick }) {
   return (

@@ -1,7 +1,7 @@
 import { Button, Form, Input, Select } from "antd";
 import { useContext } from "react";
-import FormItem from "../../../components/FormItem";
-import { RegistrationContext } from "../../../contexts/RegistrationContext";
+import FormItem from "../../../../components/FormItem";
+import { RegistrationContext } from "../../../../contexts/RegistrationContext";
 import { rules } from "../rules";
 
 export default function PersonalInformationForm() {

@@ -1,10 +1,10 @@
 import { useState } from "react";
-import { useRegistrationContext } from "../../contexts/RegistrationContext";
-import { useEffectSkipFirst } from "../../helpers/hooks";
-import useBarangaysQuery from "../../query/queries/address/useBarangaysQuery";
-import { useCitiesQuery } from "../../query/queries/address/useCitiesQuery";
-import useProvincesQuery from "../../query/queries/address/useProvincesQuery";
-import useRegionQuery from "../../query/queries/address/useRegionQuery";
+import { useRegistrationContext } from "../../../contexts/RegistrationContext";
+import { useEffectSkipFirst } from "../../../helpers/hooks";
+import useBarangaysQuery from "../../../query/queries/address/useBarangaysQuery";
+import { useCitiesQuery } from "../../../query/queries/address/useCitiesQuery";
+import useProvincesQuery from "../../../query/queries/address/useProvincesQuery";
+import useRegionQuery from "../../../query/queries/address/useRegionQuery";
 
 const regionFilters = {
     'farmer': ["01", "02", "04", "17", "05", "14", "13"],

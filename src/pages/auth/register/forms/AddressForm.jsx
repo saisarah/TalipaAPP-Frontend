@@ -1,6 +1,6 @@
 import { Button, Form, Select } from "antd";
-import FormItem from "../../../components/FormItem";
-import { useRegistrationContext } from "../../../contexts/RegistrationContext";
+import FormItem from "../../../../components/FormItem";
+import { useRegistrationContext } from "../../../../contexts/RegistrationContext";
 import { rules } from "../rules";
 import { useAddressFormState } from "../useAddressFormState";
 

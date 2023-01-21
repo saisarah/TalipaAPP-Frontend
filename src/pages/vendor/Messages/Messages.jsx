@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import PageHeader from "@/pages/farmer/components/PageHeader";
 import { ArrowLeftOutlined, SearchOutlined } from "@ant-design/icons";
-import { useTitle } from "@/components/VendorLayout/VendorLayout";
+import { useTitle } from "@/pages/vendor/components/VendorLayout/VendorLayout";
 
 function MessagesItem({ user, displayphoto }) {
   return (

@@ -1,4 +1,4 @@
-import { useTitle } from "@/components/VendorLayout/VendorLayout";
+import { useTitle } from "@/pages/vendor/components/VendorLayout/VendorLayout";
 import ForSale from "@/pages/farmer/Home/ForSale";
 import { Link, useSearchParams } from "react-router-dom";
 

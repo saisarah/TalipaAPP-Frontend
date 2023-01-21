@@ -1,9 +1,9 @@
 import { UploadOutlined } from "@ant-design/icons";
 import { Button, Form, notification, Select, Upload } from "antd";
 import { useState } from "react";
-import FormItem from "../../../components/FormItem";
-import { useRegistrationContext } from "../../../contexts/RegistrationContext";
-import useCropsQuery from "../../../query/queries/useCropsQuery";
+import FormItem from "../../../../components/FormItem";
+import { useRegistrationContext } from "../../../../contexts/RegistrationContext";
+import useCropsQuery from "../../../../query/queries/useCropsQuery";
 import { rules } from "../rules";
 
 const documentType = {

@@ -7,8 +7,8 @@ import { PostDetails as GroupPostDetails } from "../pages/farmer/group/PostDetai
 import MainMenu from "../pages/farmer/MainMenu/MainMenu";
 import PostDetails from "../pages/farmer/PostDetails/PostDetails";
 import Profile from "../pages/farmer/Profile/Profile";
-import Conversations from "../pages/messages/Conversations";
-import Orders from "../pages/orders/Orders";
+import Conversations from "../pages/farmer/messages/Conversations";
+import Orders from "../pages/farmer/orders/Orders";
 
 
 /**

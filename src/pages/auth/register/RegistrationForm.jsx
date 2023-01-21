@@ -3,11 +3,11 @@ import { Button, Steps } from "antd";
 import { useContext } from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import PageHeader from "../farmer/components/PageHeader";
+import PageHeader from "../../farmer/components/PageHeader";
 import {
   RegistrationContext,
   useRegistrationContext,
-} from "../../contexts/RegistrationContext";
+} from "../../../contexts/RegistrationContext";
 import AddressForm from "./forms/AddressForm";
 import CropSelection from "./forms/CropsSelection";
 import FarmInformation from "./forms/FarmInformation";
