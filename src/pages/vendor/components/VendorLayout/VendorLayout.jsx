@@ -55,7 +55,7 @@ export const VendorLayout = () => {
 
   return (
     <VendorLayoutContext.Provider value={{ title, setTitle }}>
-      <div className="relative mx-auto min-h-screen max-w-md">
+      <div className="relative app-size">
         <PageHeader
           left={
             <Button

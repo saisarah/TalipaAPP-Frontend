@@ -32,7 +32,7 @@ export default function MainMenu() {
   };
 
   return (
-    <div className="mx-auto min-h-screen max-w-md bg-white">
+    <div className="app-size bg-white">
       <PageHeader
         left={<img src="/assets/images/logo.png" className="h-16" />}
         title="TalipaAPP"

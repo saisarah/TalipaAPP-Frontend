@@ -16,7 +16,7 @@ export const Posts = () => {
     getGroup(id)
   );
   return (
-    <div className="mx-auto min-h-screen max-w-md">
+    <div className="app-size">
       <PageHeader back="/farmer/groups" title="Group" />
 
       {/* {isLoading ? (

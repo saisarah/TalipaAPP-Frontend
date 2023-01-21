@@ -16,7 +16,7 @@ export default function GroupInfo() {
   );
 
   return (
-    <div className="mx-auto min-h-screen max-w-md bg-white">
+    <div className="app-size bg-white">
       <PageHeader back="/farmer/groups" title="Group" />
 
       {isLoading ? (

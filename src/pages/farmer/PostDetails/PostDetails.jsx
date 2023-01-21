@@ -11,7 +11,7 @@ export default function PostDetails() {
   const { data: post, isLoading } = useQuery(["posts", id], () => fetchPost(id));
 
   return (
-    <div className="mx-auto min-h-screen max-w-md  bg-white">
+    <div className="app-size bg-white">
       <PageHeader
         back="/farmer/home?tab=sale"
         title="Post Details"

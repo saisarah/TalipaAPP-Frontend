@@ -9,7 +9,7 @@ import PageHeader from "@/components/PageHeader";
 
 export default function GroupInvitation() {
   return (
-    <div className="mx-auto min-h-screen max-w-md">
+    <div className="app-size">
       <PageHeader back="/farmer" title="Group" />
       <Invitation
         profileName="Sarah Grace Oben"

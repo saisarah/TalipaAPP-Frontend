@@ -35,7 +35,7 @@ export default function Profile() {
   const { data: user } = useCurrentUserQuery();
 
   return (
-    <div className="mx-auto min-h-screen max-w-md  bg-slate-50">
+    <div className="app-size bg-slate-50">
       <PageHeader back="/farmer" title="Profile" />
       <div className="flex aspect-video flex-col items-center justify-end bg-slate-300">
         <Avatar

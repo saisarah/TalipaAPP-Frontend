@@ -9,7 +9,7 @@ export default function Home() {
   const { isActive } = useTab(["demands", "sale", "create"], "demands");
 
   return (
-    <div className="mx-auto min-h-screen max-w-md  bg-slate-50">
+    <div className="app-size bg-slate-50">
       <PageHeader back="/farmer" title="Home" />
 
       <div className="sticky top-0 grid h-16 grid-cols-3 bg-white text-lg shadow-md">

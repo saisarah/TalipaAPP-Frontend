@@ -28,7 +28,7 @@ export default function Login() {
   };
 
   return (
-    <div className="mx-auto min-h-screen max-w-md bg-white">
+    <div className="app-size bg-white">
       <PageHeader title="Login" />
 
       <div className="flex flex-col  p-4 px-8 text-center">

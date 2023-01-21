@@ -8,7 +8,7 @@ export default function Register() {
 
   return (
     <RegisterContextProvider accountType={accountType}>
-      <div className="mx-auto min-h-screen max-w-md bg-white">
+      <div className="app-size bg-white">
         {accountType === null ? (
           <ChooseAccountType setAccountType={setAccountType} />
         ) : (

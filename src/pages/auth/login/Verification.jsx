@@ -56,7 +56,7 @@ export default function Verification({ reset, phone }) {
 
   return (
     <Spin tip="Verifying your code" spinning={isLoading}>
-      <div className="mx-auto flex min-h-screen max-w-md flex-col bg-slate-50 p-4">
+      <div className="app-size flex flex-col bg-slate-50 p-4">
         <Button type="text" onClick={reset} className="self-start">
           <LeftOutlined />
         </Button>
