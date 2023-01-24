@@ -2,7 +2,7 @@ import { PlusOutlined } from "@ant-design/icons";
 import { Input, Tag } from "antd";
 import { useState } from "react";
 
-const colors = ["red", "green", "blue", "magenta", "yellow", "pink"];
+const colors = ["red", "green", "blue", "yellow", "magenta", "pink"];
 
 export default function Tags() {
   const [tags, setTags] = useState([]);
@@ -15,7 +15,7 @@ export default function Tags() {
         ...tags,
         {
           name: inputValue,
-          color: colors[(Math.random() * colors.length) / 0],
+          color: colors[(Math.random() * colors.length) | 0],
         },
       ];
     });
@@ -37,7 +37,7 @@ export default function Tags() {
           onChange={(e) => setInputValue(e.target.value)}
           onPressEnter={handleInputConfirm}
           onBlur={handleInputConfirm}
-          className="mr-4 w-[78px] align-top"
+          className="mr-2 w-[78px] align-top"
           type="text"
           size="small"
         />
