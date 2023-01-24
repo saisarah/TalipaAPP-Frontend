@@ -38,7 +38,7 @@ export default [
     element: <Profile />,
   },
   {
-    path: "orders",
+  path: "orders",
     element: <Orders />,
   },
   {
