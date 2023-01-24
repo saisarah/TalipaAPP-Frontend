@@ -44,7 +44,7 @@ export default function SearchGroup() {
           );
         })}
       </div>
-      <div className="flex-col-2 flex gap-2 bg-slate-100 py-16">
+      <div className="flex-col-2 flex gap-4 mx-7 bg-slate-100 py-16">
         <Button className="text-bold hover:bg-primary-500 flex-grow border-primary text-primary">
           Back
         </Button>
