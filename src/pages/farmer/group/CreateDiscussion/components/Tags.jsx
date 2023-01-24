@@ -27,7 +27,7 @@ export default function Tags() {
           onChange={e => setInputValue(e.target.value)}
           onPressEnter={handleInputConfirm}
           onBlur={handleInputConfirm}
-          className="mr-2 w-[78px] align-top"
+          className="mr-4 w-[78px] align-top"
           type="text"
           size="small"
         />
