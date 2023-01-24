@@ -2,6 +2,8 @@ import { PlusOutlined } from "@ant-design/icons";
 import { Input, Tag } from "antd";
 import { useState } from "react";
 
+const colors = ["red", "green", "blue", "magenta", "yellow", "pink"];
+
 export default function Tags() {
   const [tags, setTags] = useState([]);
   const [inputVisible, setInputVisible] = useState(false);
@@ -9,22 +11,30 @@ export default function Tags() {
 
   const handleInputConfirm = () => {
     setTags((tags) => {
-        return [...tags, inputValue]
-    })
-    setInputValue('')
-    setInputVisible(false)
+      return [
+        ...tags,
+        {
+          name: inputValue,
+          color: colors[(Math.random() * colors.length) / 0],
+        },
+      ];
+    });
+    setInputValue("");
+    setInputVisible(false);
   };
 
   return (
     <>
       {tags.map((tag) => (
-        <Tag closable key={tag}>{tag}</Tag>
+        <Tag color={tag.color} closable key={tag}>
+          {tag.name}
+        </Tag>
       ))}
 
       {inputVisible ? (
         <Input
           value={inputValue}
-          onChange={e => setInputValue(e.target.value)}
+          onChange={(e) => setInputValue(e.target.value)}
           onPressEnter={handleInputConfirm}
           onBlur={handleInputConfirm}
           className="mr-4 w-[78px] align-top"
