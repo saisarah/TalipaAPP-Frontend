@@ -80,21 +80,21 @@ export function PostDetails() {
           </Button>
         </div>
       </div>
-      <div className="mx-2 mt-2 flex flex-col gap-2 bg-white py-4">
+      <div className="mx-2 mt-2 flex flex-col bg-white py-4">
         <OtherUser
           profileName="Joshua Villanueva"
           time="5 hours ago"
           description="Meron ako rito madaam 1k pieces nga lang."
         />
       </div>
-      <div className="mx-2 mt-2 flex flex-col gap-2 bg-white py-4">
+      <div className="mx-2 mt-2 flex flex-col bg-white py-4">
         <OtherUser
           profileName="Jhunriz Lalata"
           time="2 hours ago"
           description="Up."
         />
       </div>
-      <div className="mx-2 mt-2 flex flex-col gap-2 bg-white py-4">
+      <div className="mx-2 mt-2 flex flex-col bg-white py-4">
         <OtherUser
           profileName="Ruel Almonia"
           time="5 minutes ago"
