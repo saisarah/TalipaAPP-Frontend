@@ -1,6 +1,6 @@
 import Orders from "@/pages/customer/orders/Orders";
 import CreatePost from "@/pages/farmer/CreatePost/CreatePost";
-import GroupPosts from "@/pages/farmer/group/components/GroupPosts";
+import { Posts as GroupPosts } from "@/pages/farmer/group/Posts/Posts";
 import Group from "@/pages/farmer/group/Group";
 import GroupInfo from "@/pages/farmer/group/GroupInfo/GroupInfo";
 import Home from "@/pages/farmer/Home/Home";

@@ -42,6 +42,8 @@ export default function CreatePost() {
             />
           </FormItem>
 
+          <FormItem rules={required()} label="Title" name="title" />
+
           <FormItem
             rules={required()}
             label="Delivery Options"

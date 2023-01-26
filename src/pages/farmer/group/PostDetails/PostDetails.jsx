@@ -1,3 +1,4 @@
+import PageHeader from "@/components/PageHeader";
 import {
   ArrowLeftOutlined,
   LikeFilled,
@@ -7,15 +8,14 @@ import {
 import { Avatar, Button } from "antd";
 import TextArea from "antd/lib/input/TextArea";
 import { Link } from "react-router-dom";
-import PageHeader from "../../../../components/PageHeader";
 function OtherUser({ profileName, src, postDate, description, time }) {
   return (
     <>
       <div className="flex flex-col">
         <div className="flex">
           <Avatar className="ml-2 mr-2 h-10 w-10 border-2 border-green-600" />
-          <div className="flex flex-col flex-grow ">
-            <div className="flex justify-between mr-4">
+          <div className="flex flex-grow flex-col ">
+            <div className="mr-4 flex justify-between">
               <span className="font-bold leading-tight">{profileName}</span>
               <LikeFilled />
             </div>
@@ -54,14 +54,7 @@ function User({ profileName, src, postDate, description, time }) {
 export function PostDetails() {
   return (
     <div className="mx-auto min-h-screen max-w-md bg-slate-50">
-      <PageHeader
-        left={
-          <Link to="/farmer/home">
-            <ArrowLeftOutlined style={{ fontSize: "16px" }} />
-          </Link>
-        }
-        title="Sarah Oben's Post"
-      />
+      <PageHeader back="/farmer/groups/posts" title="Sarah Oben's Post" />
       <div className=" mt-2 flex flex-col gap-2 bg-white py-4">
         <User
           profileName="Sarah Oben"
@@ -80,21 +73,21 @@ export function PostDetails() {
           </Button>
         </div>
       </div>
-      <div className="mx-2 mt-2 flex flex-col bg-white py-4">
+      <div className="mx-2 mt-2 flex flex-col bg-white py-4 shadow">
         <OtherUser
           profileName="Joshua Villanueva"
           time="5 hours ago"
           description="Meron ako rito madaam 1k pieces nga lang."
         />
       </div>
-      <div className="mx-2 mt-2 flex flex-col bg-white py-4">
+      <div className="mx-2 mt-2 flex flex-col bg-white py-4 shadow">
         <OtherUser
           profileName="Jhunriz Lalata"
           time="2 hours ago"
           description="Up."
         />
       </div>
-      <div className="mx-2 mt-2 flex flex-col bg-white py-4">
+      <div className="mx-2 mt-2 flex flex-col bg-white py-4 shadow">
         <OtherUser
           profileName="Ruel Almonia"
           time="5 minutes ago"
@@ -107,7 +100,10 @@ export function PostDetails() {
           placeholder="Leave a comment"
           className="border-none"
         />
-        <Button type="Primary" className="float-right bg-[#739559] text-white border rounded-md">
+        <Button
+          type="Primary"
+          className="float-right rounded-md border bg-[#739559] text-white"
+        >
           Comment
         </Button>
       </div>

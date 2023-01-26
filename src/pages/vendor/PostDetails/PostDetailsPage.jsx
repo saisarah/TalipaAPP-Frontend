@@ -2,8 +2,9 @@ import { fetchPost } from "@/apis/Post";
 import { LoadingSkeleton } from "@/components/LoadingSkeleton";
 import PageHeader from "@/components/PageHeader";
 import { currency } from "@/helpers/utils";
+import { useCrop } from "@/query/queries/useCropsQuery";
 import { useQuery } from "@tanstack/react-query";
-import { Avatar, Button, Descriptions, Rate } from "antd";
+import { Avatar, Button, Descriptions, Divider, Rate } from "antd";
 import { useParams } from "react-router-dom";
 
 export function PostDetailsPage() {
@@ -11,10 +12,11 @@ export function PostDetailsPage() {
   const { data: post, isLoading } = useQuery(["posts", id], () =>
     fetchPost(id)
   );
+  const crop = useCrop(post?.crop_id);
 
   return (
     <div className="app-size bg-white">
-      <PageHeader back="/" title="Post Details" />
+      <PageHeader back="/" title={crop?.name || "Post Details"} />
 
       <LoadingSkeleton loadingText="Fetching Post" loading={isLoading}>
         {!isLoading && <PostDetails post={post} />}
@@ -24,7 +26,16 @@ export function PostDetailsPage() {
 }
 
 function PostDetails({ post }) {
-  const { attachments, caption, display_price, unit, author } = post;
+  const {
+    attachments,
+    title,
+    caption,
+    display_price,
+    unit,
+    author,
+    pricing_type,
+    prices,
+  } = post;
 
   return (
     <>
@@ -36,19 +47,10 @@ function PostDetails({ post }) {
       </div>
       <div className="p-4">
         <div className="flex justify-between">
-          <h1 className="text-xl font-semibold">{caption}</h1>
+          <h1 className="text-xl font-semibold">{title}</h1>
           <span className="text-lg">
             {currency(display_price)} / {unit}
           </span>
-        </div>
-        <div>
-          <div>Available Sizes</div>
-          <div className="flex gap-2">
-            <Button shape="round" disabled>S</Button>
-            <Button shape="round" disabled>M</Button>
-            <Button shape="round">L</Button>
-            <Button shape="round">XL</Button>
-          </div>
         </div>
 
         <div className="mt-4 flex items-center border-y py-2">
@@ -74,22 +76,40 @@ function PostDetails({ post }) {
           <Descriptions.Item label="Delivery Method">
             Transportify
           </Descriptions.Item>
-          <Descriptions.Item label="Available">1000kg</Descriptions.Item>
+
+          {pricing_type === "Straight" && (
+            <Descriptions.Item label="Available">
+              {prices[0].stocks}
+              {unit}
+            </Descriptions.Item>
+          )}
         </Descriptions>
 
-        <Descriptions
-          className="mt-4"
-          title="Prices"
-          size="small"
-          bordered
-          column={1}
-        >
-          <Descriptions.Item label="Large">{currency(120)} / kg</Descriptions.Item>
-          <Descriptions.Item label="Extra Large">{currency(155)} / kg</Descriptions.Item>
-        </Descriptions>
-        <Button size="large" className="mt-4" type="primary" block>Order Now</Button>
+        {pricing_type !== "Straight" && (
+          <Descriptions
+            className="mt-4"
+            title="Prices"
+            size="small"
+            bordered
+            column={1}
+          >
+            <Descriptions.Item label="Large">
+              {currency(120)} / kg
+            </Descriptions.Item>
+            <Descriptions.Item label="Extra Large">
+              {currency(155)} / kg
+            </Descriptions.Item>
+          </Descriptions>
+        )}
+
+        <Divider />
+
+        <p>{caption}</p>
+
+        <Button size="large" className="mt-4" type="primary" block>
+          Order Now
+        </Button>
       </div>
-
     </>
   );
 }
