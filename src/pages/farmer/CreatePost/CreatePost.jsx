@@ -28,7 +28,7 @@ export default function CreatePost() {
   const { handleSubmit, isLoading } = useCreatePost(attachments, sizes);
 
   return (
-    <div className="apps-size bg-slate-50">
+    <div className="app-size bg-slate-50">
       <PageHeader back="/farmer/home?tab=create" title="Create Post" />
       <div className="p-4">
         <Form layout="vertical" onFinish={handleSubmit}>
