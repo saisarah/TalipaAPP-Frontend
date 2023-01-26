@@ -3,7 +3,7 @@ import { CloseCircleOutlined, SearchOutlined } from "@ant-design/icons";
 import { Avatar, Button } from "antd";
 import { useState } from "react";
 
-export default function SearchGroup() {
+export default function SearchGroup({ setStep }) {
   const [members, setMembers] = useState([
     "Reilly Rubante",
     "Paolo Ortega",
@@ -11,9 +11,7 @@ export default function SearchGroup() {
   ]);
 
   return (
-    <div className="mx-auto min-h-screen max-w-md bg-[#F4F4F4]">
-      <PageHeader title="Create Group" back="/farmer/groups/new" />
-
+    <>
       <div className="bg-white p-4">
         <span className="text-lg font-semibold">Invite Members</span>
       </div>
@@ -45,13 +43,13 @@ export default function SearchGroup() {
         })}
       </div>
       <div className="flex-col-2 flex gap-4 mx-7 bg-slate-100 py-16">
-        <Button className="text-bold hover:bg-primary-500 flex-grow border-primary text-primary">
+        <Button onClick={() => setStep(0)} className="text-bold hover:bg-primary-500 flex-grow border-primary text-primary">
           Back
         </Button>
         <Button type="primary" className="hover:bg-primary-500 flex-grow">
           Create
         </Button>
       </div>
-    </div>
+    </>
   );
 }

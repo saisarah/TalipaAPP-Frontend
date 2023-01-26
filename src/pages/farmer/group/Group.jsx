@@ -3,6 +3,7 @@ import { useState } from "react";
 import SuggestedGroups from "./components/SuggestedGroups";
 import GroupInvitation from "./GroupInvitation";
 import PageHeader from "@/components/PageHeader";
+import { Link } from "react-router-dom";
 
 const HAS_INVITATION = false;
 
