@@ -9,6 +9,7 @@ import Conversations from "@/pages/farmer/messages/Conversations";
 import PostDetails from "@/pages/farmer/PostDetails/PostDetails";
 import Profile from "@/pages/farmer/Profile/Profile";
 import { PostDetails as GroupPostDetails } from "@/pages/farmer/group/PostDetails/PostDetails";
+import CreateGroup from "@/pages/farmer/group/CreateGroup/CreateGroup";
 
 /**
  * All of the path is under farmer route
@@ -60,5 +61,9 @@ export default [
   {
     path: "groups/posts/1",
     element: <GroupPostDetails />,
+  },
+  {
+    path: "groups/new",
+    element: <CreateGroup />,
   },
 ];

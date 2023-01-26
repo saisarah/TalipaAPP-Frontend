@@ -3,6 +3,7 @@ import { useState } from "react";
 import SuggestedGroups from "./components/SuggestedGroups";
 import GroupInvitation from "./GroupInvitation";
 import PageHeader from "@/components/PageHeader";
+import { Link } from "react-router-dom";
 
 const HAS_INVITATION = false;
 
@@ -43,9 +44,11 @@ export default function Group() {
             Farmer groups are group of individual farmers, an association,
             cooperative or any legal entity with a common farming interest.
           </span>
-          <Button className="rounded" size="large">
-            Create
-          </Button>
+          <Link to="/farmer/groups/new">
+            <Button className="rounded" size="large">
+              Create
+            </Button>
+          </Link>
         </div>
       )}
     </div>
