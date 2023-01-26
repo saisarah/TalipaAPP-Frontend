@@ -1,10 +1,8 @@
-import { Link } from "react-router-dom";
-import PageHeader from "../../../components/PageHeader";
-import { ArrowLeftOutlined } from "@ant-design/icons";
 import { Button } from "antd";
 import { useState } from "react";
 import SuggestedGroups from "./components/SuggestedGroups";
 import GroupInvitation from "./GroupInvitation";
+import PageHeader from "@/components/PageHeader";
 
 const HAS_INVITATION = false;
 
@@ -15,14 +13,7 @@ export default function Group() {
 
   return (
     <div className="mx-auto max-w-md bg-slate-50">
-      <PageHeader
-        left={
-          <Link to="/farmer">
-            <ArrowLeftOutlined style={{ fontSize: "16px" }} />
-          </Link>
-        }
-        title="Group"
-      />
+      <PageHeader back="/farmer" title="Group" />
       <div className="sticky top-0 grid h-16 grid-cols-2 bg-white text-lg shadow-md">
         <button
           onClick={() => setActive("join")}

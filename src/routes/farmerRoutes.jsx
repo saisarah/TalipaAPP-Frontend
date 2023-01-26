@@ -1,26 +1,29 @@
-import CreatePost from "../pages/farmer/CreatePost/CreatePost";
-import Feed from "../pages/farmer/Feed/Feed";
-import Group from "../pages/farmer/group/Group";
-import GroupNew from "../pages/farmer/group/Create/CreateGroup";
-import GroupInfo from "../pages/farmer/group/GroupInfo/GroupInfo";
-import { Posts as GroupPosts } from "../pages/farmer/group/Posts/Posts";
-import { PostDetails as GroupPostDetails } from "../pages/farmer/group/PostDetails/PostDetails";
-import FarmerHome from "../pages/farmer/home/FarmerHome";
-import PostDetails from "../pages/farmer/PostDetails/PostDetails";
-import Profile from "../pages/farmer/Profile/Profile";
-import Conversations from "../pages/messages/Conversations";
-import Orders from "../pages/orders/Orders";
-import Search from "antd/lib/transfer/search";
-import SearchGroup from "../pages/farmer/group/Create/SearchGroup";
+import Orders from "@/pages/customer/orders/Orders";
+import CreatePost from "@/pages/farmer/CreatePost/CreatePost";
+import GroupPosts from "@/pages/farmer/group/components/GroupPosts";
+import Group from "@/pages/farmer/group/Group";
+import GroupInfo from "@/pages/farmer/group/GroupInfo/GroupInfo";
+import Home from "@/pages/farmer/Home/Home";
+import MainMenu from "@/pages/farmer/MainMenu/MainMenu";
+import Conversations from "@/pages/farmer/messages/Conversations";
+import PostDetails from "@/pages/farmer/PostDetails/PostDetails";
+import Profile from "@/pages/farmer/Profile/Profile";
+import { PostDetails as GroupPostDetails } from "@/pages/farmer/group/PostDetails/PostDetails";
 
+/**
+ * All of the path is under farmer route
+ * e.g.
+ * home => /farmer/home
+ * post/create => /farmer/post/create
+ */
 export default [
   {
     path: "",
-    element: <FarmerHome />,
+    element: <MainMenu />,
   },
   {
     path: "home",
-    element: <Feed />,
+    element: <Home />,
   },
   {
     path: "posts/create",
@@ -35,7 +38,7 @@ export default [
     element: <Profile />,
   },
   {
-    path: "orders",
+  path: "orders",
     element: <Orders />,
   },
   {

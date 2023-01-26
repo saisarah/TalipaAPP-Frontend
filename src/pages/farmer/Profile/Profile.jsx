@@ -1,16 +1,14 @@
 import {
-  ArrowLeftOutlined,
   EditOutlined,
   UserOutlined,
 } from "@ant-design/icons";
-import { Link } from "react-router-dom";
-import PageHeader from "../../../components/PageHeader";
 import { Avatar, Spin } from "antd";
 import useCurrentUserQuery from "../../../query/queries/useCurrentUserQuery";
-import { Button, Empty } from "antd";
+import { Button } from "antd";
 import { useQuery } from "@tanstack/react-query";
-import { fetchPosts, fetchUserPosts } from "@/apis/Post";
+import { fetchUserPosts } from "@/apis/Post";
 import PostCard from "@/components/PostCard";
+import PageHeader from "@/components/PageHeader";
 
 const UserPosts = ({ id }) => {
   const { data: posts, isLoading } = useQuery(["users", id, "posts"], () =>
@@ -27,7 +25,7 @@ const UserPosts = ({ id }) => {
   return (
     <div className=" columns-2 gap-2 px-1 py-4">
       {posts.map((post) => (
-        <PostCard key={post.id} {...post} />
+        <PostCard key={post.id} post={post} to={`/farmer/posts/${post.id}`} />
       ))}
     </div>
   );
@@ -37,15 +35,8 @@ export default function Profile() {
   const { data: user } = useCurrentUserQuery();
 
   return (
-    <div className="mx-auto min-h-screen max-w-md  bg-slate-50">
-      <PageHeader
-        left={
-          <Link to="/farmer">
-            <ArrowLeftOutlined style={{ fontSize: "16px" }} />
-          </Link>
-        }
-        title="Profile"
-      />
+    <div className="app-size bg-slate-50">
+      <PageHeader back="/farmer" title="Profile" />
       <div className="flex aspect-video flex-col items-center justify-end bg-slate-300">
         <Avatar
           icon={<UserOutlined />}
