@@ -1,10 +1,12 @@
 import { fetchPost } from "@/apis/Post";
 import { LoadingSkeleton } from "@/components/LoadingSkeleton";
+import Page from "@/components/Page";
 import PageHeader from "@/components/PageHeader";
 import { currency } from "@/helpers/utils";
 import { useCrop } from "@/query/queries/useCropsQuery";
 import { useQuery } from "@tanstack/react-query";
 import { Avatar, Button, Descriptions, Divider, Rate } from "antd";
+import { motion, AnimatePresence } from "framer-motion";
 import { useParams } from "react-router-dom";
 
 export function PostDetailsPage() {
@@ -15,13 +17,13 @@ export function PostDetailsPage() {
   const crop = useCrop(post?.crop_id);
 
   return (
-    <div className="app-size bg-white">
+    <Page className="bg-white">
       <PageHeader back="/" title={crop?.name || "Post Details"} />
 
       <LoadingSkeleton loadingText="Fetching Post" loading={isLoading}>
         {!isLoading && <PostDetails post={post} />}
       </LoadingSkeleton>
-    </div>
+    </Page>
   );
 }
 
@@ -104,7 +106,7 @@ function PostDetails({ post }) {
 
         <Divider />
 
-        <p>{caption}</p>
+        <p className="whitespace-pre-line">{caption}</p>
 
         <Button size="large" className="mt-4" type="primary" block>
           Order Now

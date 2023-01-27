@@ -5,13 +5,14 @@ import { LoadingSkeleton } from "@/components/LoadingSkeleton";
 import { currency } from "@/helpers/utils";
 import { fetchPost } from "@/apis/Post";
 import PageHeader from "@/components/PageHeader";
+import Page from "@/components/Page";
 
 export default function PostDetails() {
   const { id } = useParams();
   const { data: post, isLoading } = useQuery(["posts", id], () => fetchPost(id));
 
   return (
-    <div className="app-size bg-white">
+    <Page className="bg-white">
       <PageHeader
         back="/farmer/home?tab=sale"
         title="Post Details"
@@ -23,7 +24,7 @@ export default function PostDetails() {
       >
         <PostInformation post={post} />
       </LoadingSkeleton>
-    </div>
+    </Page>
   );
 }
 

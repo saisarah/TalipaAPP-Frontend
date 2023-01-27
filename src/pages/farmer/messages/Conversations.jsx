@@ -1,5 +1,6 @@
 import { SearchOutlined } from "@ant-design/icons";
 import PageHeader from "@/components/PageHeader";
+import Page from "@/components/Page";
 
 function Messages({ user, displayphoto }) {
   return (
@@ -27,7 +28,7 @@ function Messages({ user, displayphoto }) {
 
 export default function Conversations() {
   return (
-    <div className="mx-auto max-w-md bg-slate-50">
+    <Page className="bg-slate-50">
       <PageHeader back="/farmer" title="Conversations" />
       <div className="py-2 px-4">
         <div className="flex gap-2 rounded bg-slate-200 p-3">
@@ -52,6 +53,6 @@ export default function Conversations() {
         user="At Cosco Market"
         displayphoto="https://via.placeholder.com/59x59"
       />
-    </div>
+    </Page>
   );
 }

@@ -16,6 +16,7 @@ import { useQueryClient } from "@tanstack/react-query";
 import { Avatar, Button, Divider, Modal } from "antd";
 import { createContext, useContext, useEffect, useState } from "react";
 import { Link, Outlet } from "react-router-dom";
+import { motion } from "framer-motion";
 
 export const VendorLayoutContext = createContext();
 

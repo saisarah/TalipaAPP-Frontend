@@ -4,12 +4,13 @@ import CreateInfo from "./CreateInfo";
 import { Demands } from "./Demands";
 import { useTab } from "@/helpers/hooks";
 import PageHeader from "@/components/PageHeader";
+import Page from "@/components/Page";
 
 export default function Home() {
   const { isActive } = useTab(["demands", "sale", "create"], "demands");
 
   return (
-    <div className="app-size bg-slate-50">
+    <Page className="bg-slate-50">
       <PageHeader back="/farmer" title="Home" />
 
       <div className="sticky top-0 grid h-16 grid-cols-3 bg-white text-lg shadow-md">
@@ -27,7 +28,7 @@ export default function Home() {
       {isActive("demands") && <Demands />}
       {isActive("sale") && <ForSale />}
       {isActive("create") && <CreateInfo />}
-    </div>
+    </Page>
   );
 }
 

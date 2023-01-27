@@ -5,6 +5,7 @@ import GroupInvitation from "./GroupInvitation";
 import PageHeader from "@/components/PageHeader";
 import { Link } from "react-router-dom";
 import groupIllustrationImg from "./images/group_illustration.png"
+import Page from "@/components/Page";
 
 const HAS_INVITATION = false;
 
@@ -14,7 +15,7 @@ export default function Group() {
   if (HAS_INVITATION) return <GroupInvitation />;
 
   return (
-    <div className="mx-auto max-w-md bg-slate-50">
+    <Page className="bg-slate-50">
       <PageHeader back="/farmer" title="Group" />
       <div className="sticky top-0 grid h-16 grid-cols-2 bg-white text-lg shadow-md">
         <button
@@ -52,6 +53,6 @@ export default function Group() {
           </Link>
         </div>
       )}
-    </div>
+    </Page>
   );
 }
