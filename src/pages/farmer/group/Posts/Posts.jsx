@@ -7,6 +7,7 @@ import { About } from "../components/About";
 import { items } from "./post-data";
 import MemberPosts from "../components/MembersPosts";
 import PageHeader from "@/components/PageHeader";
+import groupIllustrationImg from "./images/group_illustration.png"
 
 export const Posts = () => {
   const [active, setActive] = useState("forum");
@@ -67,7 +68,7 @@ export const Posts = () => {
           <MemberPosts />
         ) : (
           <div className="flex flex-col items-center gap-4 bg-slate-100 py-16">
-            <img src="/assets/temp/group/group_illustration.png" />
+            <img src={groupIllustrationImg} />
             <span className="text-lg font-bold">Create Group</span>
             <span className="px-2 text-center">
               Farmer groups are group of individual farmers, an association,
