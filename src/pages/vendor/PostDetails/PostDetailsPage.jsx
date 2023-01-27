@@ -6,8 +6,9 @@ import { currency } from "@/helpers/utils";
 import { useCrop } from "@/query/queries/useCropsQuery";
 import { useQuery } from "@tanstack/react-query";
 import { Avatar, Button, Descriptions, Divider, Rate } from "antd";
-import { motion, AnimatePresence } from "framer-motion";
+import { useState } from "react";
 import { useParams } from "react-router-dom";
+import { SetQuantityStraight } from "./components/SetQuantityStraight";
 
 export function PostDetailsPage() {
   const { id } = useParams();
@@ -28,6 +29,8 @@ export function PostDetailsPage() {
 }
 
 function PostDetails({ post }) {
+  const [isOpen, setIsOpen] = useState(false);
+
   const {
     attachments,
     title,
@@ -108,10 +111,22 @@ function PostDetails({ post }) {
 
         <p className="whitespace-pre-line">{caption}</p>
 
-        <Button size="large" className="mt-4" type="primary" block>
+        <Button
+          onClick={() => setIsOpen(true)}
+          size="large"
+          className="mt-4"
+          type="primary"
+          block
+        >
           Order Now
         </Button>
       </div>
+
+      {pricing_type === "Straight" &&
+        <SetQuantityStraight unit={unit} caption={caption} title={title} price={prices[0]} isOpen={isOpen} setIsOpen={setIsOpen} />
+      }
+      
     </>
   );
 }
+
