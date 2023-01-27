@@ -9,6 +9,7 @@ import { useQuery } from "@tanstack/react-query";
 import { fetchUserPosts } from "@/apis/Post";
 import PostCard from "@/components/PostCard";
 import PageHeader from "@/components/PageHeader";
+import Page from "@/components/Page";
 
 const UserPosts = ({ id }) => {
   const { data: posts, isLoading } = useQuery(["users", id, "posts"], () =>
@@ -35,7 +36,7 @@ export default function Profile() {
   const { data: user } = useCurrentUserQuery();
 
   return (
-    <div className="app-size bg-slate-50">
+    <Page className="bg-slate-50">
       <PageHeader back="/farmer" title="Profile" />
       <div className="flex aspect-video flex-col items-center justify-end bg-slate-300">
         <Avatar
@@ -68,6 +69,6 @@ export default function Profile() {
           <Button type="primary">Create Now</Button>
         </Empty>
       </div> */}
-    </div>
+    </Page>
   );
 }

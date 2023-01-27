@@ -1,5 +1,6 @@
 import { Avatar, Badge, Space } from "antd";
 import PageHeader from "@/components/PageHeader";
+import Page from "@/components/Page";
 
 function Order({
   vendor,
@@ -90,8 +91,8 @@ function Order({
 
 export default function Orders() {
   return (
-    <div className="mx-auto max-w-md bg-white">
-      <PageHeader to="/farmer" title="Orders" />
+    <Page className="bg-white">
+      <PageHeader back="/farmer" title="Orders" />
       <div class="no-scrollbar flex flex-nowrap overflow-x-auto p-4">
         <button>
           <div className="mx-2 rounded-xl bg-[#BBF7D0] py-1 px-4">All</div>
@@ -209,6 +210,6 @@ export default function Orders() {
         }
         totalPrice="1000.00"
       />
-    </div>
+    </Page>
   );
 }

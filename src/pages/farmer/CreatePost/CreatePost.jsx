@@ -7,6 +7,7 @@ import { required } from "./rules";
 import PageHeader from "@/components/PageHeader";
 import useCropsQuery from "@/query/queries/useCropsQuery";
 import FormItem from "@/components/FormItem";
+import Page from "@/components/Page";
 
 export default function CreatePost() {
   const { data: crops, isLoading: fetchingCrops } = useCropsQuery({
@@ -28,7 +29,7 @@ export default function CreatePost() {
   const { handleSubmit, isLoading } = useCreatePost(attachments, sizes);
 
   return (
-    <div className="app-size bg-slate-50">
+    <Page className="bg-slate-50">
       <PageHeader back="/farmer/home?tab=create" title="Create Post" />
       <div className="p-4">
         <Form layout="vertical" onFinish={handleSubmit}>
@@ -171,6 +172,6 @@ export default function CreatePost() {
           </Button>
         </Form>
       </div>
-    </div>
+    </Page>
   );
 }

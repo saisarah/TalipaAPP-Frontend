@@ -10,6 +10,7 @@ export default function PostCard({ post, to }) {
     author,
     id,
     created_at,
+    title,
     caption,
     attachments,
     display_price,
@@ -27,7 +28,7 @@ export default function PostCard({ post, to }) {
       <div className="flex flex-col p-2">
         <div className="text-xs text-slate-600">{crop?.name}</div>
         <Link to={to} className="text-xl font-semibold">
-          {caption}
+          {title}
         </Link>
         <span className="text-base font-medium text-primary">
           {currency(display_price)}

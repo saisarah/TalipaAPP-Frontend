@@ -1,4 +1,3 @@
-import Orders from "@/pages/customer/orders/Orders";
 import CreatePost from "@/pages/farmer/CreatePost/CreatePost";
 import { Posts as GroupPosts } from "@/pages/farmer/group/Posts/Posts";
 import Group from "@/pages/farmer/group/Group";
@@ -10,6 +9,7 @@ import PostDetails from "@/pages/farmer/PostDetails/PostDetails";
 import Profile from "@/pages/farmer/Profile/Profile";
 import { PostDetails as GroupPostDetails } from "@/pages/farmer/group/PostDetails/PostDetails";
 import CreateGroup from "@/pages/farmer/group/CreateGroup/CreateGroup";
+import Orders from "@/pages/farmer/orders/Orders";
 
 /**
  * All of the path is under farmer route
