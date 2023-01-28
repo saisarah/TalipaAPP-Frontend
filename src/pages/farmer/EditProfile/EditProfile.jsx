@@ -18,7 +18,7 @@ export default function EditProfiles() {
           <Avatar
             icon={<UserOutlined />}
             // src={user.profile_picture}
-            src="/public/assets/images/rose.jpg"
+            src="/public/assets/images/himeno.jpg"
             size={120}
             className="-top-[60px] z-0 border-2 border-solid border-[#739559]"
           />
