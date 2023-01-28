@@ -107,7 +107,7 @@ function Buyer({
 
       <Modal
         open={open}
-        title={name}
+        // title={name}
         onOk={handleOk}
         onCancel={handleCancel}
         footer={[
