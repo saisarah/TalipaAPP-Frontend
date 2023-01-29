@@ -14,8 +14,26 @@ export default function EditProfiles() {
       <Page className="bg-white">
         <PageHeader back="/farmer/profile" title="Edit Profile" />
 
-        <div className="flex aspect-video flex-col items-center justify-end bg-slate-300">
-          <div className="absolute flex basis-auto flex-col justify-center"></div>
+        <div className="relative flex aspect-video flex-col items-center justify-end bg-slate-300">
+          <img
+            className="z-0 object-cover"
+            src="/public/assets/images/himeno.jpg"
+            alt=""
+          />
+          <div className="top-10 inline-flex justify-center">
+            <Button
+              className="edit-button z-1 absolute  border-none bg-slate-900 bg-opacity-40 text-white  hover:border-none hover:bg-slate-500 hover:bg-opacity-40 hover:text-white"
+              icon={<CameraOutlined />}
+              shape="circle"
+              size="large"
+            />
+            <Button
+              className="edit-button z-1 absolute border-none bg-slate-900 bg-opacity-40 text-white  hover:border-none hover:bg-slate-500 hover:bg-opacity-40 hover:text-white"
+              icon={<CameraOutlined />}
+              shape="circle"
+              size="large"
+            />
+          </div>
         </div>
 
         <div className="relative flex justify-center">
@@ -34,7 +52,7 @@ export default function EditProfiles() {
           />
         </div>
 
-        <Form className="p-4" layout="vertical ">
+        <Form className="-mt-[50px] p-4" layout="vertical">
           <FormItem
             initialValue={data.firstname}
             label="First Name"
@@ -42,17 +60,36 @@ export default function EditProfiles() {
             placeholder="Enter your first name here"
           />
           <FormItem
-            inputProps={{ initialValue: "Zepeda" }}
+            initialValue={data.middlename}
             label="Middle Name"
             name="middle_name"
-            placeholder="Enter your first name here"
+            placeholder="Enter your middle name here"
           />
           <FormItem
-            inputProps={{ initialValue: "Juan Paolo" }}
-            label="Middle Name"
-            name="middle_name"
-            placeholder="Enter your first name here"
+            initialValue={data.lastname}
+            label="Last Name"
+            name="last_name"
+            placeholder="Enter your last name here"
           />
+          <FormItem
+            initialValue={data.email}
+            name="email"
+            placeholder="Enter your email here"
+            type="email"
+            label="Email"
+            validateFirst
+          />
+
+          <div className="mb-4 flex justify-end">
+            <Button
+              type="primary"
+              className="rounded"
+              htmlType="submit"
+              size="large"
+            >
+              Save
+            </Button>
+          </div>
         </Form>
       </Page>
     </>
