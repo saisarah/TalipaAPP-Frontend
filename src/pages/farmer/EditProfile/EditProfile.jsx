@@ -1,10 +1,14 @@
+import FormItem from "@/components/FormItem";
 import Page from "@/components/Page";
 import PageHeader from "@/components/PageHeader";
 import UserOutlined from "@/icons/heroicons/UserOutlined";
+import useCurrentUserQuery from "@/query/queries/useCurrentUserQuery";
 import { CameraOutlined } from "@ant-design/icons";
-import { Avatar, Button } from "antd";
+import { Avatar, Button, Form } from "antd";
 
 export default function EditProfiles() {
+  const { data } = useCurrentUserQuery();
+
   return (
     <>
       <Page className="bg-white">
@@ -29,6 +33,27 @@ export default function EditProfiles() {
             size="large"
           />
         </div>
+
+        <Form className="p-4" layout="vertical ">
+          <FormItem
+            initialValue={data.firstname}
+            label="First Name"
+            name="first_name"
+            placeholder="Enter your first name here"
+          />
+          <FormItem
+            inputProps={{ initialValue: "Zepeda" }}
+            label="Middle Name"
+            name="middle_name"
+            placeholder="Enter your first name here"
+          />
+          <FormItem
+            inputProps={{ initialValue: "Juan Paolo" }}
+            label="Middle Name"
+            name="middle_name"
+            placeholder="Enter your first name here"
+          />
+        </Form>
       </Page>
     </>
   );
