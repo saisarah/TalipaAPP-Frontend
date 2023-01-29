@@ -28,10 +28,7 @@ export default function PrivateMessage() {
   );
   return (
     <div className="app-size bg-white">
-      <PageHeader
-        left={<Avatar size="Large" icon={<UserOutlined />} />}
-        title="Commonwealt Market Quezon City."
-      />
+      <PageHeader back="/farmer/chat" title="Commonwealt Market Quezon City." />
 
       <div className="flex p-2">
         <div className="flex grow justify-center bg-white p-2" size="large">
@@ -40,15 +37,17 @@ export default function PrivateMessage() {
       </div>
       <div className="p-4">
         <Card
-          className="p-3 shadow-lg"
+          className="p-3 shadow-sm"
           style={{
             width: 250,
           }}
           cover={<img alt="example" src="/assets/images/garlic.png" />}
           actions={[
-            <ShoppingCartOutlined key="ShoppingCart"/>,
+            <Avatar size="small" style={{ backgroundColor: '#87d068' }} icon={<UserOutlined />} />,
+            <ShoppingCartOutlined key="ShoppingCart" />,
             <DeleteOutlined key="Delete" />,
             <EllipsisOutlined key="ellipsis" />,
+            
           ]}
         >
           <Meta title="Garlic" description="Price: 750.00 Pesos" />
@@ -56,7 +55,7 @@ export default function PrivateMessage() {
       </div>
       <div className="flex justify-end p-4">
         <Card
-          className="shadow-lg"
+          className="shadow-sm"
           style={{
             width: 300,
           }}
@@ -74,7 +73,7 @@ export default function PrivateMessage() {
       </div>
       <div className="justify-s flex p-4">
         <Card
-          className="shadow-lg"
+          className="shadow-sm"
           style={{
             width: 300,
           }}

@@ -30,7 +30,7 @@ export default function Chat() {
       <PageHeader back="/farmer" title="Chat" />
 
       <div className="flex pt-2 mx-2">
-        <div className="flex grow flex-row rounded-md bg-white shadow-md">
+        <div className="flex grow flex-row rounded-md bg-white shadow-sm">
           <div className="flex justify-center p-4">
             <Space size="middle">
               <Badge className="" count={7}>
@@ -54,7 +54,7 @@ export default function Chat() {
       </div>
 
       <div className="flex pt-2 mx-2">
-        <div className="flex grow flex-row rounded-md bg-white shadow-md">
+        <div className="flex grow flex-row rounded-md bg-white shadow-sm">
           <div className="flex justify-center p-4">
             <Space size="middle">
               <Badge className="" count={0}>
@@ -77,7 +77,7 @@ export default function Chat() {
         </div>
       </div>
       <div className="flex pt-2 mx-2">
-        <div className="flex grow flex-row rounded-md bg-white shadow-md">
+        <div className="flex grow flex-row rounded-md bg-white shadow-sm">
           <div className="flex justify-center p-4">
             <Space size="middle">
               <Badge className="" count={1}>
