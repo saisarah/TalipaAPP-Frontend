@@ -1,12 +1,16 @@
-import { Button, Form } from "antd";
+import { Button, Checkbox, Form, Modal } from "antd";
 import { toFormData } from "axios";
+import { useState } from "react";
+import { Link } from "react-router-dom";
 import FormItem from "../../../../components/FormItem";
 import { useRegistrationContext } from "../../../../contexts/RegistrationContext";
+import { rules } from "../rules";
 import {
   useFarmerRegistration,
   useVendorRegistration,
 } from "../useFarmerRegistration";
 import { useOtp } from "../useOtp";
+import TermsAndCondition from "./TermsAndCondition";
 
 export const VerificationForm = () => {
   const { data, setStep, accountType } = useRegistrationContext();
@@ -32,7 +36,7 @@ export const VerificationForm = () => {
       <Form layout="vertical" onFinish={handleSubmit}>
         <div className="mb-4">
           <span className="text-lg font-bold">
-            Your 1 step away from registering
+            You're 1 step away from registering
           </span>
           <div>
             We just need to verify your phone number. Click the Send Code button
@@ -66,6 +70,8 @@ export const VerificationForm = () => {
             ),
           }}
         />
+        {/* import here */}
+        <TermsAndCondition />
 
         <Button
           className="my-4"

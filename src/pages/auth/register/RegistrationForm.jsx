@@ -15,9 +15,9 @@ const vendorSteps = [
   { title: "Verification", form: <VerificationForm /> },
 ];
 const farmerSteps = [
-  { title: "Personal Information", form: <PersonalInformationForm /> },
-  { title: "Address", form: <AddressForm /> },
-  { title: "Farm Information", form: <FarmInformation /> },
+  // { title: "Personal Information", form: <PersonalInformationForm /> },
+  // { title: "Address", form: <AddressForm /> },
+  // { title: "Farm Information", form: <FarmInformation /> },
   { title: "Verification", form: <VerificationForm /> },
 ];
 

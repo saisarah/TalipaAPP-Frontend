@@ -98,5 +98,8 @@ export const rules = {
     ],
     crops: [
         { required: true, message: "Please select your crops" },
-    ]
+    ],
+    terms: [
+        { required: true, message: "Please check the box" },
+    ],
   };
