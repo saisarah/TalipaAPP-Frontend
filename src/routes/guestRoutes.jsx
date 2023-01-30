@@ -1,4 +1,5 @@
 import ForgotPassword from "@/pages/auth/login/FogotPassword";
+import ForgotPasswordCheck from "@/pages/auth/login/ForgotPasswordCheck";
 import ForgotPasswordCode from "@/pages/auth/login/ForgotPasswordCode/ForgotPasswordCode";
 import Login from "../pages/auth/login/Login";
 import Verification from "../pages/auth/login/Verification";
@@ -24,5 +25,9 @@ export default [
   {
     path: "/forgotpassword/code",
     element: <ForgotPasswordCode />,
+  },
+  {
+    path: "/forgotpassword/ForgotPasswordCheck",
+    element: <ForgotPasswordCheck />,
   },
 ];

@@ -116,7 +116,10 @@ export default function ForgotPasswordCode({ reset, phone }) {
     // <PageHeader back={"/login"} title="TalipaAPP" />
     <Spin tip="Verifying your code" spinning={isLoading}>
       <div className="app-size">
-        <PageHeader back={"/forgotpassword"} title="TalipaAPP" />
+        <PageHeader
+          back={"/forgotpassword/forgotpasswordcheck"}
+          title="TalipaAPP"
+        />
         <div className="app-size flex flex-col bg-slate-50 p-7">
           <p className="my-4">Send code</p>
           <span className="block text-xl font-bold">
@@ -148,7 +151,7 @@ export default function ForgotPasswordCode({ reset, phone }) {
               <span>Resend</span>
             </div>
 
-            <div className="mt-4 flex flex-wrap justify-end">
+            <div className="flex flex-wrap justify-end">
               <OTPButton onClick={() => append(1)}>1</OTPButton>
               <OTPButton onClick={() => append(2)}>2</OTPButton>
               <OTPButton onClick={() => append(3)}>3</OTPButton>
