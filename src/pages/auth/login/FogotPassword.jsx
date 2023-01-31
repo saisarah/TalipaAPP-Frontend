@@ -15,7 +15,7 @@ export default function ForgotPassword() {
               <span className="mt-2">
                 Enter your number fot the verification process,
               </span>
-              <p>we will send 4 digits code to your number.</p>
+              <p>we will send 6 digits code to your number.</p>
             </div>
           </div>
         </div>
