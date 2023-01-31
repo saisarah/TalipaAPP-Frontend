@@ -36,8 +36,12 @@ export default function PrivateMessage() {
           <span>10:00</span>
         </div>
       </div>
-      <div className="p-4">
-
+      <div className=" flex items-end gap-2 p-4">
+        <Avatar
+          size="medium"
+          style={{ backgroundColor: "#87d068" }}
+          icon={<UserOutlined />}
+        />
         <Card
           className="p-3 shadow-sm"
           style={{
@@ -48,18 +52,14 @@ export default function PrivateMessage() {
             <ShoppingCartOutlined key="ShoppingCart" />,
             <DeleteOutlined key="Delete" />,
             <EllipsisOutlined key="ellipsis" />,
-            
           ]}
         >
           <Meta title="Garlic" description="Price: 750.00 Pesos" />
         </Card>
-        <div>
-        <Avatar size="small" style={{ backgroundColor: '#87d068' }} icon={<UserOutlined />} />,
-        </div>
       </div>
-      <div className="flex justify-end p-4">
+      <div className="row-end-1 flex justify-end p-4">
         <Card
-          className="shadow-sm"
+          className="row-end-1 shadow-sm"
           style={{
             width: 300,
           }}
@@ -75,7 +75,12 @@ export default function PrivateMessage() {
           </p>
         </Card>
       </div>
-      <div className="justify-s flex p-4">
+      <div className="justify-s flex p-4 items-end gap-2">
+        <Avatar
+          size="medium"
+          style={{ backgroundColor: "#87d068" }}
+          icon={<UserOutlined />}
+        />
         <Card
           className="shadow-sm"
           style={{
