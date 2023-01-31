@@ -8,15 +8,25 @@ import {
 import { Button, Space, Tag } from "antd";
 import { Link } from "react-router-dom";
 import Tags from "./components/Tags";
+import { useRef } from "react";
 
 function CreateDiscussion({ title, tags, image }) {
+  const textAreaRef = useRef(null);
+
+  function autoResize() {
+    textAreaRef.current.style.height = "auto";
+    textAreaRef.current.style.height = textAreaRef.current.scrollHeight + "px";
+  }
+
   return (
     <>
       <div className="w-full ">
         <div className="mb-4 mt-4 w-full border bg-white px-4 py-4">
           <span className="text-lg text-black">
             <textarea
-              className="h-max: w-full outline-none"
+              onInput={autoResize}
+              ref={textAreaRef}
+              className="h-max: w-full resize-none outline-none"
               type="text"
               style={{ height: "auto" }}
               placeholder="Set a title of discussion"
