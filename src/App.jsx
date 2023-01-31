@@ -3,8 +3,6 @@ import { AppContextProvider } from "./contexts/AppContext";
 import ReactQueryProvider from "./query/ReactQueryProvider";
 import Router from "./routes/Router";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
-import { useEffect } from "react";
-import { setAuthorization } from "./helpers/Http";
 
 ConfigProvider.config({
   theme: {

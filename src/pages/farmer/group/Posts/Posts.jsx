@@ -1,22 +1,13 @@
-import {
-  ArrowLeftOutlined,
-  DownOutlined,
-  SmileOutlined,
-} from "@ant-design/icons";
+import { DownOutlined } from "@ant-design/icons";
 import { useQuery } from "@tanstack/react-query";
-import { Dropdown, Input, Spin, Space } from "antd";
-// import type { MenuProps } from "antd";
+import { Dropdown, Space } from "antd";
 import { useState } from "react";
-import { Link, useParams } from "react-router-dom";
-import PageHeader from "../../../../components/PageHeader";
+import { useParams } from "react-router-dom";
 import { About } from "../components/About";
-
 import { items } from "./post-data";
 import MemberPosts from "../components/MembersPosts";
-
-// const onClick: MenuProps["onClick"] = ({ key }) => {
-//   message.info(`Click on item ${key}`);
-// };
+import PageHeader from "@/components/PageHeader";
+import groupIllustrationImg from "../images/group_illustration.png"
 
 export const Posts = () => {
   const [active, setActive] = useState("forum");
@@ -26,15 +17,8 @@ export const Posts = () => {
     getGroup(id)
   );
   return (
-    <div className="mx-auto min-h-screen max-w-md">
-      <PageHeader
-        left={
-          <Link to="/farmer/groups">
-            <ArrowLeftOutlined style={{ fontSize: "16px" }} />
-          </Link>
-        }
-        title="Group"
-      />
+    <div className="app-size">
+      <PageHeader back="/farmer/groups" title="Group" />
 
       {/* {isLoading ? (
         <div className="flex items-center justify-center py-16">
@@ -84,7 +68,7 @@ export const Posts = () => {
           <MemberPosts />
         ) : (
           <div className="flex flex-col items-center gap-4 bg-slate-100 py-16">
-            <img src="/assets/temp/group/group_illustration.png" />
+            <img src={groupIllustrationImg} />
             <span className="text-lg font-bold">Create Group</span>
             <span className="px-2 text-center">
               Farmer groups are group of individual farmers, an association,

@@ -3,7 +3,7 @@ import { Spin } from "antd";
 import { getPosts } from "../Posts/groups";
 import GroupPosts from "./GroupPosts";
 
-export default function SuggestedGroups() {
+export default function MembersPosts() {
   const { data, isLoading } = useQuery(["groups"], getPosts);
 
   if (isLoading)

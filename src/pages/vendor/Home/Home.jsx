@@ -1,23 +1,11 @@
-import {
-  useTitle,
-  VendorLayoutContext,
-} from "@/components/VendorLayout/VendorLayout";
-import ForSale from "@/pages/farmer/Feed/ForSale";
-import { useContext, useEffect } from "react";
-import { Link, useSearchParams } from "react-router-dom";
+import { useTitle } from "@/pages/vendor/components/VendorLayout/VendorLayout";
+import { Link } from "react-router-dom";
+import { useTab } from "@/helpers/hooks";
+import ForSale from "./ForSale";
 
 export const Home = () => {
-  const [params] = useSearchParams();
-  const { title, setTitle } = useContext(VendorLayoutContext);
-  const feed = params.get("feed");
-  const defaultActive = "sale";
 
-  const active = (tab) => {
-    if (tab === feed) return true;
-    if ((tab === defaultActive) & (feed != "demands") && feed != "create")
-      return true;
-    return false;
-  };
+  const { isActive } = useTab(["sale", "demands", "create"], "sale")
 
   useTitle("Home");
 
@@ -25,34 +13,34 @@ export const Home = () => {
     <div>
       <div className="grid h-16 grid-cols-3 bg-white text-lg shadow-md">
         <Link
-          to="?feed=sale"
+          to="?tab=sale"
           className={`flex items-center justify-center ${
-            active("sale") ? "border-b border-primary text-primary" : ""
+            isActive("sale") ? "border-b border-primary text-primary" : ""
           }`}
         >
           For Sale
         </Link>
 
         <Link
-          to="?feed=demands"
+          to="?tab=demands"
           className={`flex items-center justify-center ${
-            active("demands") ? "border-b border-primary text-primary" : ""
+            isActive("demands") ? "border-b border-primary text-primary" : ""
           }`}
         >
           Demands
         </Link>
 
         <Link
-          to="?feed=create"
+          to="?tab=create"
           className={`flex items-center justify-center ${
-            active("create") ? "border-b border-primary text-primary" : ""
+            isActive("create") ? "border-b border-primary text-primary" : ""
           }`}
         >
           Create Post
         </Link>
       </div>
 
-      {active("sale") && <ForSale />}
+      {isActive("sale") && <ForSale />}
     </div>
   );
 };

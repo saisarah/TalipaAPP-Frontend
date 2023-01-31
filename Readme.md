@@ -35,3 +35,8 @@ git clone https://github.com/saisarah/App-con
 - On the github create a Pull Request so that the maintainer can view and check your code.
 - If your code is accepted you can now go back to master branch by running `git checkout master` then `git pull` to sync your master branch with your codes.
 - However if your code still needs revision. Stay in your current branch, then fix the codes and then commit and push your branch.
+
+## Possible Errors if you can't connect to the backend
+1. Backend Server is not running
+2. MySQL Server is not running
+3. The frontend API_URL is not set

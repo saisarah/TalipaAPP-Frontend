@@ -1,45 +1,36 @@
-import {
-  ArrowLeftOutlined,
-  UploadOutlined,
-} from "@ant-design/icons";
-import { Button, Form, Input, Modal, Select, Upload } from "antd";
-import { Link, useNavigate } from "react-router-dom";
-import PageHeader from "../../../components/PageHeader";
-import useCropsQuery from "../../../query/queries/useCropsQuery";
-import FormItem from "../../../components/FormItem";
+import { UploadOutlined } from "@ant-design/icons";
+import { Button, Form, Input, Select, Upload } from "antd";
 import { useState } from "react";
 import { allSizes, PricingForm } from "./components/PricingForm";
 import { useCreatePost } from "./useCreatePost";
 import { required } from "./rules";
-
+import PageHeader from "@/components/PageHeader";
+import useCropsQuery from "@/query/queries/useCropsQuery";
+import FormItem from "@/components/FormItem";
+import Page from "@/components/Page";
 
 export default function CreatePost() {
   const { data: crops, isLoading: fetchingCrops } = useCropsQuery({
     select: (data) => data.map(({ name, id }) => ({ value: id, label: name })),
   });
 
-  const [sizes, setSizes] = useState([{
-    size: allSizes[0],
-    price: null,
-    stock: null
-  }])
+  const [sizes, setSizes] = useState([
+    {
+      size: allSizes[0],
+      price: null,
+      stock: null,
+    },
+  ]);
 
   const [selectedUnit, setSelectedUnit] = useState("kg");
   const [isStraight, setIsStraight] = useState(false);
   const [attachments, setAttachments] = useState([]);
 
-  const { handleSubmit, isLoading } = useCreatePost(attachments, sizes)
+  const { handleSubmit, isLoading } = useCreatePost(attachments, sizes);
 
   return (
-    <div className="mx-auto min-h-screen max-w-md bg-slate-50">
-      <PageHeader
-        left={
-          <Link to="/farmer/home">
-            <ArrowLeftOutlined style={{ fontSize: "16px" }} />
-          </Link>
-        }
-        title="Create Post"
-      />
+    <Page className="bg-slate-50">
+      <PageHeader back="/farmer/home?tab=create" title="Create Post" />
       <div className="p-4">
         <Form layout="vertical" onFinish={handleSubmit}>
           <FormItem rules={required()} label="Commodity" name="crop_id">
@@ -52,7 +43,13 @@ export default function CreatePost() {
             />
           </FormItem>
 
-          <FormItem rules={required()} label="Delivery Options" name="delivery_options">
+          <FormItem rules={required()} label="Title" name="title" />
+
+          <FormItem
+            rules={required()}
+            label="Delivery Options"
+            name="delivery_options"
+          >
             <Select
               required
               placeholder="Select Available Delivery Options"
@@ -64,7 +61,11 @@ export default function CreatePost() {
             />
           </FormItem>
 
-          <FormItem rules={required()} label="Payment Options" name="payment_options">
+          <FormItem
+            rules={required()}
+            label="Payment Options"
+            name="payment_options"
+          >
             <Select
               required
               placeholder="Select Available Payment Options"
@@ -136,7 +137,7 @@ export default function CreatePost() {
             <Upload
               onRemove={(file) => {
                 setAttachments((attachments) => {
-                  return attachments.filter((a) => a !== file)
+                  return attachments.filter((a) => a !== file);
                 });
               }}
               fileList={attachments}
@@ -152,7 +153,13 @@ export default function CreatePost() {
             </Upload>
           </FormItem>
 
-          {!isStraight && <PricingForm unit={selectedUnit} sizes={sizes} setSizes={setSizes} />}
+          {!isStraight && (
+            <PricingForm
+              unit={selectedUnit}
+              sizes={sizes}
+              setSizes={setSizes}
+            />
+          )}
           <Button
             className="mt-4"
             htmlType="submit"
@@ -165,6 +172,6 @@ export default function CreatePost() {
           </Button>
         </Form>
       </div>
-    </div>
+    </Page>
   );
 }
