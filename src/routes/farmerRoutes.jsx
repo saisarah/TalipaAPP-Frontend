@@ -10,6 +10,8 @@ import Profile from "@/pages/farmer/Profile/Profile";
 import { PostDetails as GroupPostDetails } from "@/pages/farmer/group/PostDetails/PostDetails";
 import CreateGroup from "@/pages/farmer/group/CreateGroup/CreateGroup";
 import Orders from "@/pages/farmer/orders/Orders";
+import Commodities from "@/pages/farmer/Home/demand/Commodities";
+import Region from "@/pages/farmer/Home/demand/Region";
 
 /**
  * All of the path is under farmer route
@@ -27,6 +29,15 @@ export default [
     element: <Home />,
   },
   {
+    path: "home/commodities/banana",
+    element: <Commodities />,
+  },
+  {
+    path: "home/commodities/Banana/Region I (Ilocos Region)",
+    element: <Region />,
+  },
+
+  {
     path: "posts/create",
     element: <CreatePost />,
   },
@@ -39,7 +50,7 @@ export default [
     element: <Profile />,
   },
   {
-  path: "orders",
+    path: "orders",
     element: <Orders />,
   },
   {

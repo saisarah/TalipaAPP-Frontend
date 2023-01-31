@@ -1,10 +1,11 @@
 import { Link } from "react-router-dom";
 import ForSale from "./ForSale";
 import CreateInfo from "./CreateInfo";
-import { Demands } from "./Demands";
+
 import { useTab } from "@/helpers/hooks";
 import PageHeader from "@/components/PageHeader";
 import Page from "@/components/Page";
+import { Demands } from "./demand/Demands";
 
 export default function Home() {
   const { isActive } = useTab(["demands", "sale", "create"], "demands");
