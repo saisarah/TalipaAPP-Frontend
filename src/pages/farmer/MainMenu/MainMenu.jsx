@@ -50,6 +50,7 @@ export default function MainMenu() {
           label="Messages"
         />
         <MenuButton
+          to="/farmer/notifications"
           src={notificationsImg}
           label="Notifications"
         />

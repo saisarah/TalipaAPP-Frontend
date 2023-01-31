@@ -9,8 +9,11 @@ import Conversations from "@/pages/farmer/messages/Conversations";
 import Orders from "@/pages/farmer/orders/Orders";
 import PostDetails from "@/pages/farmer/PostDetails/PostDetails";
 import Profile from "@/pages/farmer/Profile/Profile";
-import CreateDiscussion from "@/pages/farmer/group/CreateDiscussion/CreateDiscussion"
+import CreateDiscussion from "@/pages/farmer/group/CreateDiscussion/CreateDiscussion";
 import { PostDetails as GroupPostDetails } from "@/pages/farmer/group/PostDetails/PostDetails";
+import CreateGroup from "@/pages/farmer/group/CreateGroup/CreateGroup";
+import Orders from "@/pages/farmer/orders/Orders";
+import Notifications from "@/pages/farmer/notifications/Notifications";
 
 /**
  * All of the path is under farmer route
@@ -40,7 +43,7 @@ export default [
     element: <Profile />,
   },
   {
-  path: "orders",
+    path: "orders",
     element: <Orders />,
   },
   {
@@ -70,5 +73,9 @@ export default [
   {
     path: "groups/new",
     element: <CreateGroup />,
-  }
+  },
+  {
+    path: "notifications",
+    element: <Notifications />,
+  },
 ];
