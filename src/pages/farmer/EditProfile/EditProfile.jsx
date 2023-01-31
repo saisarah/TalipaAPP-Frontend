@@ -17,7 +17,7 @@ export default function EditProfiles() {
         <div className="relative flex aspect-video items-center justify-center bg-slate-700 bg-cover bg-center">
           <img
             className="z-0 h-full w-full object-cover"
-            // src={data.profile_picture}
+            src={data.header_image}
             alt=""
           />
 
@@ -28,12 +28,14 @@ export default function EditProfiles() {
               shape="circle"
               size="large"
             />
-            <Button
-              className="edit-button z-1 mx-2 h-12 w-12  border-none bg-slate-900 bg-opacity-60 text-white  hover:border-none hover:bg-slate-500 hover:bg-opacity-40 hover:text-white"
-              icon={<CloseOutlined />}
-              shape="circle"
-              size="large"
-            />
+            {data.header_image != null ? (
+              <Button
+                className="edit-button z-1 mx-2 h-12 w-12  border-none bg-slate-900 bg-opacity-60 text-white  hover:border-none hover:bg-slate-500 hover:bg-opacity-40 hover:text-white"
+                icon={<CloseOutlined />}
+                shape="circle"
+                size="large"
+              />
+            ) : null}
           </span>
         </div>
 
