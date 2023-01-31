@@ -73,14 +73,6 @@ export default function EditProfiles() {
             name="last_name"
             placeholder="Enter your last name here"
           />
-          <FormItem
-            initialValue={data.email}
-            name="email"
-            placeholder="Enter your email here"
-            type="email"
-            label="Email"
-            validateFirst
-          />
 
           <div className="mb-4 flex justify-end">
             <Button
