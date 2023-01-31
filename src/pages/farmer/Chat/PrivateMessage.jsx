@@ -26,6 +26,7 @@ export default function PrivateMessage() {
       }}
     />
   );
+  // <Avatar size="small" style={{ backgroundColor: '#87d068' }} icon={<UserOutlined />} />,
   return (
     <div className="app-size bg-white">
       <PageHeader back="/farmer/chat" title="Commonwealt Market Quezon City." />
@@ -36,6 +37,7 @@ export default function PrivateMessage() {
         </div>
       </div>
       <div className="p-4">
+
         <Card
           className="p-3 shadow-sm"
           style={{
@@ -43,7 +45,6 @@ export default function PrivateMessage() {
           }}
           cover={<img alt="example" src="/assets/images/garlic.png" />}
           actions={[
-            <Avatar size="small" style={{ backgroundColor: '#87d068' }} icon={<UserOutlined />} />,
             <ShoppingCartOutlined key="ShoppingCart" />,
             <DeleteOutlined key="Delete" />,
             <EllipsisOutlined key="ellipsis" />,
@@ -52,6 +53,9 @@ export default function PrivateMessage() {
         >
           <Meta title="Garlic" description="Price: 750.00 Pesos" />
         </Card>
+        <div>
+        <Avatar size="small" style={{ backgroundColor: '#87d068' }} icon={<UserOutlined />} />,
+        </div>
       </div>
       <div className="flex justify-end p-4">
         <Card

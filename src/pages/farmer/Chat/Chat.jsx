@@ -29,7 +29,7 @@ export default function Chat() {
     <div className="app-size bg-gray-100">
       <PageHeader back="/farmer" title="Chat" />
 
-      <div className="flex pt-2 mx-2">
+      <div className="flex pt-1 mx-2">
         <div className="flex grow flex-row rounded-md bg-white shadow-sm">
           <div className="flex justify-center p-4">
             <Space size="middle">
@@ -53,7 +53,7 @@ export default function Chat() {
         </div>
       </div>
 
-      <div className="flex pt-2 mx-2">
+      <div className="flex pt-1 mx-2">
         <div className="flex grow flex-row rounded-md bg-white shadow-sm">
           <div className="flex justify-center p-4">
             <Space size="middle">
@@ -76,7 +76,7 @@ export default function Chat() {
           </div>
         </div>
       </div>
-      <div className="flex pt-2 mx-2">
+      <div className="flex pt-1 mx-2">
         <div className="flex grow flex-row rounded-md bg-white shadow-sm">
           <div className="flex justify-center p-4">
             <Space size="middle">
