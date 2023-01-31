@@ -7,9 +7,18 @@ export default function ForgotPassword() {
     <div className="app-size bg-white">
       <PageHeader back="/login" title="TalipaAPP" />
 
-
       <div className="p-5">
-        <p className="font-bold">Enter your number here </p>
+        <div className="py-3">
+          <h2 className="text-xl font-bold ">Forgot Password</h2>
+          <div className="flex">
+            <div className="flex-col">
+              <span className="mt-2">
+                Enter your number fot the verification process,
+              </span>
+              <p>we will send 4 digits code to your number.</p>
+            </div>
+          </div>
+        </div>
         <Input
           className="m"
           mode="multiple"
@@ -20,8 +29,7 @@ export default function ForgotPassword() {
       </div>
 
       <div className="my-20 flex">
-        <Button className="mx-4 flex-grow rounded-md">Back</Button>
-        <Button className="mx-4 flex-grow rounded-md" type="primary">
+        <Button className="mx-7 flex-grow rounded-md" type="primary">
           Continue
         </Button>
       </div>

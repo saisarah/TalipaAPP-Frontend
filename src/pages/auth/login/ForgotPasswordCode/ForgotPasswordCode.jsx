@@ -116,18 +116,18 @@ export default function ForgotPasswordCode({ reset, phone }) {
     // <PageHeader back={"/login"} title="TalipaAPP" />
     <Spin tip="Verifying your code" spinning={isLoading}>
       <div className="app-size">
-        <PageHeader
-          back={"/forgotpassword/forgotpasswordcheck"}
-          title="TalipaAPP"
-        />
+        <PageHeader back={"/forgotpassword"} title="TalipaAPP" />
         <div className="app-size flex flex-col bg-slate-50 p-7">
-          <p className="my-4">Send code</p>
-          <span className="block text-xl font-bold">
-            We sent you an SMS confirmation code
-          </span>
-          <span>On number: +63{phone}</span>
+          <div className="py-7">
+            <span className="block text-2xl font-bold">
+              Enter 6 Digits Code
+            </span>
+            <p className="mt-2">
+              Enter 6 digits code that you received on you number.
+            </p>
+          </div>
 
-          <div className="mt-4 flex flex-grow flex-col justify-end">
+          <div className="mt-9 flex flex-grow flex-col">
             <OTPInput
               inputStyles={{
                 borderRadius: "4px",

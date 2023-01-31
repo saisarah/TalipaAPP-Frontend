@@ -14,7 +14,7 @@ export default function ForgotPasswordCheck() {
         <div className="flex grow bg-gray-100 p-5 px-5 shadow-sm">
           <div className="flex grow flex-col p-2 text-xs">
             <span className="ml-2 font-bold flex grow"> Send code via SMS </span>
-            <span className="ml-2">[+63]</span> 
+
           </div>
         </div>
       </div>
