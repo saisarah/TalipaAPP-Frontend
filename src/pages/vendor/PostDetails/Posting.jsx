@@ -68,6 +68,9 @@ export default function Posting() {
           </div>
         </div>
       </div>
+      <div className="flex justify-center px-4">
+        <Button type="primary">Next</Button>
+      </div>
     </div>
   );
 }
