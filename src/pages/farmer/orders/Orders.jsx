@@ -4,6 +4,9 @@ import PageHeader from "@/components/PageHeader";
 import Page from "@/components/Page";
 import { Pending } from "./Pending";
 import { Confirmed } from "./Confirmed";
+import { Shipped } from "./Shipped";
+import { Cancelled } from "./Cancelled";
+import { Completed } from "./Completed";
 export default function Orders() {
   const { isActive } = useTab(
     ["pending", "confirmed", "shipped", "cancelled", "completed"],
