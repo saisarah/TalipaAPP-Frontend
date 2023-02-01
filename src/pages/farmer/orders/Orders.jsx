@@ -16,7 +16,7 @@ export default function Orders() {
   return (
     <Page className="bg-slate-50">
       <PageHeader back="/farmer" title="Orders" />
-      <div className=" sticky top-0 grid h-16 grid-cols-5 gap-2 bg-white p-2 text-lg shadow-md">
+      <div className="sticky top-0 grid h-16 grid-cols-5 gap-2 bg-white p-2 text-lg shadow-md">
         <TabLink tab="pending" isActive={isActive}>
           Pending
         </TabLink>
