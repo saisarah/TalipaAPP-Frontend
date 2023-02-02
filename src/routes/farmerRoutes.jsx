@@ -14,6 +14,7 @@ import Notifications from "@/pages/farmer/notifications/Notifications";
 import Settings from "@/pages/farmer/settings/Settings";
 import ChangePassword from "@/pages/farmer/settings/form/ChangePassword";
 import ChangeName from "@/pages/farmer/settings/form/ChangeName";
+import ChangeUsername from "@/pages/farmer/settings/form/ChangeUsername";
 
 /**
  * All of the path is under farmer route
@@ -81,6 +82,10 @@ export default [
   {
     path: "settings/change-name",
     element: <ChangeName />,
+  },
+  {
+    path: "settings/change-username",
+    element: <ChangeUsername />,
   },
   {
     path: "settings/change-password",
