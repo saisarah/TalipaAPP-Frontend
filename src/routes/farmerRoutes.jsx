@@ -10,6 +10,8 @@ import Profile from "@/pages/farmer/Profile/Profile";
 import { PostDetails as GroupPostDetails } from "@/pages/farmer/group/PostDetails/PostDetails";
 import CreateGroup from "@/pages/farmer/group/CreateGroup/CreateGroup";
 import Orders from "@/pages/farmer/orders/Orders";
+import Chat from "@/pages/farmer/Chat/Chat";
+import PrivateMessage from "@/pages/farmer/Chat/PrivateMessage";
 import Notifications from "@/pages/farmer/notifications/Notifications";
 
 /**
@@ -66,6 +68,15 @@ export default [
   {
     path: "groups/new",
     element: <CreateGroup />,
+  },
+  {
+<<<<<<< HEAD
+    path: "chat",
+    element: <Chat />,
+  },
+  {
+    path: "chat/privatemessage",
+    element: <PrivateMessage />,
   },
   {
     path: "notifications",
