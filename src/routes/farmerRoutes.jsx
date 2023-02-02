@@ -12,6 +12,7 @@ import CreateGroup from "@/pages/farmer/group/CreateGroup/CreateGroup";
 import Orders from "@/pages/farmer/orders/Orders";
 import Chat from "@/pages/farmer/Chat/Chat";
 import PrivateMessage from "@/pages/farmer/Chat/PrivateMessage";
+import Notifications from "@/pages/farmer/notifications/Notifications";
 
 /**
  * All of the path is under farmer route
@@ -41,7 +42,7 @@ export default [
     element: <Profile />,
   },
   {
-  path: "orders",
+    path: "orders",
     element: <Orders />,
   },
   {
@@ -69,11 +70,16 @@ export default [
     element: <CreateGroup />,
   },
   {
+<<<<<<< HEAD
     path: "chat",
     element: <Chat />,
   },
   {
     path: "chat/privatemessage",
     element: <PrivateMessage />,
+  },
+  {
+    path: "notifications",
+    element: <Notifications />,
   },
 ];
