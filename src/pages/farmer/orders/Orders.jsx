@@ -16,21 +16,21 @@ export default function Orders() {
   return (
     <Page className="bg-slate-50">
       <PageHeader back="/farmer" title="Orders" />
-      <div className="sticky top-0 grid h-16 grid-cols-5 gap-2 bg-white p-2 text-lg shadow-md">
+      <div className="no-scrollbar sticky top-0 flex  flex-nowrap overflow-x-auto bg-white text-lg shadow-md">
         <TabLink tab="pending" isActive={isActive}>
-          Pending
+          <span className="p-4">Pending</span>
         </TabLink>
         <TabLink tab="confirmed" isActive={isActive}>
-          Confirmed
+          <span className="p-4">Confirmed</span>
         </TabLink>
         <TabLink tab="shipped" isActive={isActive}>
-          Shipped
+          <span className="p-4">Shipped</span>
         </TabLink>
         <TabLink tab="cancelled" isActive={isActive}>
-          Cancelled
+          <span className="p-4">Cancelled</span>
         </TabLink>
         <TabLink tab="completed" isActive={isActive}>
-          Completed
+          <span className="p-4">Complete</span>
         </TabLink>
       </div>
 
