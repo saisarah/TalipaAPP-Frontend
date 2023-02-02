@@ -15,5 +15,5 @@ export default [
   {
     path: "/forgot-password",
     element: <ForgotPassword />,
-  },
+  }
 ];

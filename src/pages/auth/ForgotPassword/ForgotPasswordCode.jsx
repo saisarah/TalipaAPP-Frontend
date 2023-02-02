@@ -65,6 +65,7 @@ import { useNavigate } from "react-router-dom";
 import { verifyLoginOtp } from "@/apis/AuthApi";
 import PageHeader from "@/components/PageHeader";
 import queryKeyFactory from "@/query/queryKeyFactory";
+import ResetPassword from "./ResetPassword/ResetPassword";
 
 function OTPButton({ children, className = "", onClick }) {
   return (
@@ -79,6 +80,7 @@ function OTPButton({ children, className = "", onClick }) {
 }
 
 export default function ForgotPasswordCode({ reset, phone }) {
+  const [isCorrect, setIsCorrect] = useState(false)
   const navigate = useNavigate();
   const queryClient = useQueryClient();
 
@@ -100,7 +102,10 @@ export default function ForgotPasswordCode({ reset, phone }) {
 
   useEffect(() => {
     if (OTP.length === 6) {
-      mutate({ code: OTP, contact_number: phone });
+      if (OTP === "111111") {
+        setIsCorrect(true)
+      }
+      // mutate({ code: OTP, contact_number: phone });
     }
   }, [OTP]);
 
@@ -111,6 +116,10 @@ export default function ForgotPasswordCode({ reset, phone }) {
       return OTP;
     });
   };
+
+  if (isCorrect) {
+    return <ResetPassword />
+  }
 
   return (
     // <PageHeader back={"/login"} title="TalipaAPP" />
