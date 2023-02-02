@@ -58,7 +58,7 @@ function Order({
         </div>
 
         <div className="text-lg">
-          <p>{orderQuntity}</p>
+          <p>{orderQuantity}</p>
         </div>
       </div>
 
@@ -95,7 +95,7 @@ export const Cancelled = () => {
         displayphoto="https://images.unsplash.com/photo-1618556782763-ac991d2fdac8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
         date="3 days ago"
         orderName="Manga"
-        orderQuntity="100kg"
+        orderQuantity="100kg"
         location="NCR,Caloocan City"
         status={
           <Space>
@@ -114,7 +114,7 @@ export const Cancelled = () => {
         displayphoto="https://images.unsplash.com/photo-1618556782763-ac991d2fdac8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
         date="3 days ago"
         orderName="Manga"
-        orderQuntity="100kg"
+        orderQuantity="100kg"
         location="NCR,Caloocan City"
         status={
           <Space>
