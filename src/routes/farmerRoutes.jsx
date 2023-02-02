@@ -19,6 +19,7 @@ import ChangeNumber from "@/pages/farmer/settings/form/ChangeNumber";
 import ChangeEmail from "@/pages/farmer/settings/form/ChangeEmail";
 import ChangeEmailVerification from "@/pages/farmer/settings/form/ChangeEmailVerification";
 import ChangeAddress from "@/pages/farmer/settings/form/ChangeAddress";
+import AccountDeletion from "@/pages/farmer/settings/form/AccountDeletion";
 
 
 /**
@@ -107,6 +108,10 @@ export default [
   {
     path: "settings/change-address",
     element: <ChangeAddress />,
+  },
+  {
+    path: "settings/account-deletion",
+    element: <AccountDeletion />,
   },
   {
     path: "settings/change-password",
