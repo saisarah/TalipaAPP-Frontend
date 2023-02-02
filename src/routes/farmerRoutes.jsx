@@ -16,6 +16,9 @@ import ChangePassword from "@/pages/farmer/settings/form/ChangePassword";
 import ChangeName from "@/pages/farmer/settings/form/ChangeName";
 import ChangeUsername from "@/pages/farmer/settings/form/ChangeUsername";
 import ChangeNumber from "@/pages/farmer/settings/form/ChangeNumber";
+import ChangeEmail from "@/pages/farmer/settings/form/ChangeEmail";
+import ChangeEmailVerification from "@/pages/farmer/settings/form/ChangeEmailVerification";
+
 
 /**
  * All of the path is under farmer route
@@ -91,6 +94,14 @@ export default [
   {
     path: "settings/change-number",
     element: <ChangeNumber />,
+  },
+  {
+    path: "settings/change-email",
+    element: <ChangeEmail />,
+  },
+  {
+    path: "settings/change-email/verification",
+    element: <ChangeEmailVerification />,
   },
   {
     path: "settings/change-password",
