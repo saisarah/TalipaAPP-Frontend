@@ -5,7 +5,7 @@ function Order({
   displayphoto,
   date,
   orderName,
-  orderQuntity,
+  orderQuantity,
   location,
   status,
   totalPrice,
