@@ -70,7 +70,6 @@ export default [
     element: <CreateGroup />,
   },
   {
-<<<<<<< HEAD
     path: "chat",
     element: <Chat />,
   },
