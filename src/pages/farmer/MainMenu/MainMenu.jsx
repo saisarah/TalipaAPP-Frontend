@@ -47,7 +47,7 @@ export default function MainMenu() {
           label="Notifications"
         />
         <MenuButton to="/farmer/groups" src={groupImg} label="Group" />
-        <MenuButton src={settingsImg} label="Settings" />
+        <MenuButton to="/farmer/settings" src={settingsImg} label="Settings" />
         <MenuButton to="/farmer/profile" src={farmerImg} label="Profile" />
         <MenuButton to="/farmer/orders" src={ordersImg} label="Orders" />
         <MenuButton src={cropsImg} label="Crops" />

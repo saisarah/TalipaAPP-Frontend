@@ -11,6 +11,7 @@ import { PostDetails as GroupPostDetails } from "@/pages/farmer/group/PostDetail
 import CreateGroup from "@/pages/farmer/group/CreateGroup/CreateGroup";
 import Orders from "@/pages/farmer/orders/Orders";
 import Notifications from "@/pages/farmer/notifications/Notifications";
+import Settings from "@/pages/farmer/settings/Settings";
 
 /**
  * All of the path is under farmer route
@@ -70,5 +71,9 @@ export default [
   {
     path: "notifications",
     element: <Notifications />,
+  },
+  {
+    path: "settings",
+    element: <Settings />,
   },
 ];
