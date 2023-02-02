@@ -8,7 +8,7 @@ export default function ChangeUsername() {
       <PageHeader title="Change Username" back="/farmer/settings" />
 
       <Space direction="vertical flex p-4">
-        <Input value="koykoy027" />
+        <Input defaultValue="koykoy027" />
       </Space>
       <div className="flex justify-end px-4">
         <Button type="primary" className="flex-grow">
