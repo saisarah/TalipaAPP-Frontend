@@ -8,7 +8,15 @@ export default function ChangeNumber() {
       <PageHeader title="Change Number" back="/farmer/settings" />
 
       <Space direction="vertical flex p-4">
-        <Input value="976 140 1847" />
+        <Input
+          placeholder="976 140 1847"
+          prefix="+63 "
+          
+          type="number"
+          validateFirst
+          max={10}
+          
+        />
       </Space>
       <div className="flex justify-end px-4">
         <Button type="primary" className="flex-grow">

@@ -15,6 +15,7 @@ import Settings from "@/pages/farmer/settings/Settings";
 import ChangePassword from "@/pages/farmer/settings/form/ChangePassword";
 import ChangeName from "@/pages/farmer/settings/form/ChangeName";
 import ChangeUsername from "@/pages/farmer/settings/form/ChangeUsername";
+import ChangeNumber from "@/pages/farmer/settings/form/ChangeNumber";
 
 /**
  * All of the path is under farmer route
