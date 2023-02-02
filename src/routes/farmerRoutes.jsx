@@ -10,8 +10,8 @@ import Profile from "@/pages/farmer/Profile/Profile";
 import { PostDetails as GroupPostDetails } from "@/pages/farmer/group/PostDetails/PostDetails";
 import CreateGroup from "@/pages/farmer/group/CreateGroup/CreateGroup";
 import Orders from "@/pages/farmer/orders/Orders";
-import Chat from "@/pages/Farmer/Chat/Chat";
-import PrivateMessage from "@/pages/Farmer/Chat/PrivateMessage";
+import Chat from "@/pages/farmer/Chat/Chat";
+import PrivateMessage from "@/pages/farmer/Chat/PrivateMessage";
 
 /**
  * All of the path is under farmer route
