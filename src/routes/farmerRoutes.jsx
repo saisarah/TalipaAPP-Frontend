@@ -12,6 +12,7 @@ import CreateGroup from "@/pages/farmer/group/CreateGroup/CreateGroup";
 import Orders from "@/pages/farmer/orders/Orders";
 import Notifications from "@/pages/farmer/notifications/Notifications";
 import Settings from "@/pages/farmer/settings/Settings";
+import ChangePassword from "@/pages/farmer/settings/form/ChangePassword";
 
 /**
  * All of the path is under farmer route
@@ -75,5 +76,9 @@ export default [
   {
     path: "settings",
     element: <Settings />,
+  },
+  {
+    path: "settings/change-password",
+    element: <ChangePassword />,
   },
 ];
