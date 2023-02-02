@@ -88,6 +88,10 @@ export default [
     element: <ChangeUsername />,
   },
   {
+    path: "settings/change-number",
+    element: <ChangeNumber />,
+  },
+  {
     path: "settings/change-password",
     element: <ChangePassword />,
   },
