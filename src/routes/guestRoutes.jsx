@@ -1,8 +1,6 @@
-import ForgotPassword from "@/pages/auth/login/FogotPassword";
-import ForgotPasswordCheck from "@/pages/auth/login/ForgotPasswordCheck";
-import ForgotPasswordCode from "@/pages/auth/login/ForgotPasswordCode/ForgotPasswordCode";
+
+import ForgotPassword from "@/pages/auth/ForgotPassword/ForgotPassword";
 import Login from "../pages/auth/login/Login";
-import Verification from "../pages/auth/login/Verification";
 import Register from "../pages/auth/register/Register";
 
 export default [
@@ -11,23 +9,11 @@ export default [
     element: <Login />,
   },
   {
-    path: "/verification",
-    element: <Verification />,
-  },
-  {
     path: "/register",
     element: <Register />,
   },
   {
-    path: "/forgotpassword",
+    path: "/forgot-password",
     element: <ForgotPassword />,
-  },
-  {
-    path: "/forgotpassword/code",
-    element: <ForgotPasswordCode />,
-  },
-  {
-    path: "/forgotpassword/ForgotPasswordCheck",
-    element: <ForgotPasswordCheck />,
   },
 ];
