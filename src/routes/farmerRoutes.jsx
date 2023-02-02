@@ -18,6 +18,7 @@ import ChangeUsername from "@/pages/farmer/settings/form/ChangeUsername";
 import ChangeNumber from "@/pages/farmer/settings/form/ChangeNumber";
 import ChangeEmail from "@/pages/farmer/settings/form/ChangeEmail";
 import ChangeEmailVerification from "@/pages/farmer/settings/form/ChangeEmailVerification";
+import ChangeAddress from "@/pages/farmer/settings/form/ChangeAddress";
 
 
 /**
@@ -102,6 +103,10 @@ export default [
   {
     path: "settings/change-email/verification",
     element: <ChangeEmailVerification />,
+  },
+  {
+    path: "settings/change-address",
+    element: <ChangeAddress />,
   },
   {
     path: "settings/change-password",
