@@ -54,7 +54,7 @@ export default function Login() {
             </FormItem>
 
             <div className="flex justify-end">
-              <Link to="#">Forgot Password?</Link>
+              <Link to="/forgot-password">Forgot Password?</Link>
             </div>
 
             <div className="my-12 mb-6 flex flex-col">
