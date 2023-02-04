@@ -2,11 +2,12 @@ import { Link } from "react-router-dom";
 import { useTab } from "@/helpers/hooks";
 import PageHeader from "@/components/PageHeader";
 import Page from "@/components/Page";
-import { Pending } from "./Pending";
-import { Confirmed } from "./Confirmed";
-import { Shipped } from "./Shipped";
-import { Cancelled } from "./Cancelled";
-import { Completed } from "./Completed";
+import OrderLists from "./components/OrderLists";
+// import { Pending } from "./Pending";
+// import { Confirmed } from "./Confirmed";
+// import { Shipped } from "./Shipped";
+// import { Cancelled } from "./Cancelled";
+// import { Completed } from "./Completed";
 export default function Orders() {
   const { isActive } = useTab(
     ["pending", "confirmed", "shipped", "cancelled", "completed"],
@@ -35,10 +36,10 @@ export default function Orders() {
       </div>
 
       {isActive("pending") && <Pending />}
-      {isActive("confirmed") && <Confirmed />}
-      {isActive("shipped") && <Shipped />}
-      {isActive("completed") && <Completed />}
-      {isActive("cancelled") && <Cancelled />}
+      {isActive("confirmed") && <OrderLists />}
+      {isActive("shipped") && <OrderLists />}
+      {isActive("completed") && <OrderLists />}
+      {isActive("cancelled") && <OrderLists />}
     </Page>
   );
 }

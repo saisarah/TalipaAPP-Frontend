@@ -4,7 +4,6 @@ export default function OrderItem({
   timestamp,
   order_name,
   quantity,
-  price,
   location,
   status,
   total,
