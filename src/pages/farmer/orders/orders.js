@@ -17,6 +17,7 @@ const orders = [
     {
         id: 2,
         name: 'Tony Gojar',
+        displayphoto: "image",
         timestamp: '3 days ago',
         order_name: 'Manga',
         quantity: 100,
@@ -28,6 +29,7 @@ const orders = [
     {
         id: 3,
         name: 'Ben Bacalla',
+        displayphoto: "image",
         timestamp: '3 days ago',
         order_name: 'Manga',
         quantity: 100,
