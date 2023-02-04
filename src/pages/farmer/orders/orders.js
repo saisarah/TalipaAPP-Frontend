@@ -5,6 +5,7 @@ const orders = [
     {
         id: 1,
         name: 'Midel Dela Cruz',
+        displayphoto: "image",
         timestamp: '3 days ago',
         order_name: 'Manga',
         quantity: 100,
