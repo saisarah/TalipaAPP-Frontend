@@ -13,6 +13,7 @@ import Orders from "@/pages/farmer/orders/Orders";
 import Chat from "@/pages/farmer/Chat/Chat";
 import PrivateMessage from "@/pages/farmer/Chat/PrivateMessage";
 import Notifications from "@/pages/farmer/notifications/Notifications";
+import OrderInfo from "@/pages/farmer/orders/OrderInfo/OrderInfo";
 
 /**
  * All of the path is under farmer route
@@ -44,6 +45,10 @@ export default [
   {
     path: "orders",
     element: <Orders />,
+  },
+  {
+    path: "orders/:id",
+    element: <OrderInfo />,
   },
   {
     path: "messages",
