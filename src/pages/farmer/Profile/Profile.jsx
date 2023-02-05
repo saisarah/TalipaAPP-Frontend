@@ -1,7 +1,4 @@
-import {
-  EditOutlined,
-  UserOutlined,
-} from "@ant-design/icons";
+import { EditOutlined, UserOutlined } from "@ant-design/icons";
 import { Avatar, Spin } from "antd";
 import useCurrentUserQuery from "../../../query/queries/useCurrentUserQuery";
 import { Button } from "antd";
@@ -10,6 +7,9 @@ import { fetchUserPosts } from "@/apis/Post";
 import PostCard from "@/components/PostCard";
 import PageHeader from "@/components/PageHeader";
 import Page from "@/components/Page";
+import { useTab } from "@/helpers/hooks";
+import { About } from "../group/components/About";
+import { Link } from "react-router-dom";
 
 const UserPosts = ({ id }) => {
   const { data: posts, isLoading } = useQuery(["users", id, "posts"], () =>
@@ -34,6 +34,7 @@ const UserPosts = ({ id }) => {
 
 export default function Profile() {
   const { data: user } = useCurrentUserQuery();
+  const { isActive } = useTab(["posts", "about"], "posts");
 
   return (
     <Page className="bg-slate-50">
@@ -55,20 +56,22 @@ export default function Profile() {
         </Button>
 
         <div className="grid h-16 w-full grid-cols-2 bg-white text-lg shadow-md">
-          <div className="flex items-center justify-center border-b border-primary text-primary">
+          <Link
+            to="/posts"
+            className="flex items-center justify-center border-b border-primary text-primary"
+          >
             Posts
-          </div>
-
-          <div className="flex items-center justify-center">About</div>
+          </Link>
+         
+          <Link to="/temp" className="flex items-center justify-center">
+            About
+          </Link>
+          
         </div>
       </div>
 
-      <UserPosts id={user.id} />
-      {/* <div className="py-16">
-        <Empty description="You don't have any post yet">
-          <Button type="primary">Create Now</Button>
-        </Empty>
-      </div> */}
+      {isActive("posts") ? <UserPosts id={user.id} /> : null}
+      {isActive("about") ? <About /> : null}
     </Page>
   );
 }
