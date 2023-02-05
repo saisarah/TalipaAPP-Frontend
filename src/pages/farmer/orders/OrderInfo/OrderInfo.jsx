@@ -2,7 +2,7 @@ import PageHeader from "@/components/PageHeader";
 import { useQuery } from "@tanstack/react-query";
 import { Spin } from "antd";
 import { useParams } from "react-router-dom";
-import { getOrder } from "../Orders";
+import { getOrder } from "../ordersData";
 
 export default function OrderInfo() {
   const { id } = useParams();

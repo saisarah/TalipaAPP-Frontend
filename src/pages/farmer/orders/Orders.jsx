@@ -9,7 +9,7 @@ import OrderLists from "./components/OrderLists";
 // import { Cancelled } from "./Cancelled";
 // import { Completed } from "./Completed";
 export default function Orders() {
-  const { isActive } = useTab(
+  const { isActive, selected } = useTab(
     ["pending", "confirmed", "shipped", "cancelled", "completed"],
     "pending"
   );
@@ -35,11 +35,12 @@ export default function Orders() {
         </TabLink>
       </div>
 
-      {isActive("pending") && <Pending />}
-      {isActive("confirmed") && <OrderLists />}
+      <OrderLists selected={selected} />
+      {/* {isActive("pending") && <OrderLists />} */}
+      {/* {isActive("confirmed") && <OrderLists />}
       {isActive("shipped") && <OrderLists />}
       {isActive("completed") && <OrderLists />}
-      {isActive("cancelled") && <OrderLists />}
+      {isActive("cancelled") && <OrderLists />} */}
     </Page>
   );
 }

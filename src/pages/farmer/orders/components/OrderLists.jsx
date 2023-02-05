@@ -1,10 +1,14 @@
+import { useTab } from "@/helpers/hooks";
 import { useQuery } from "@tanstack/react-query";
 import { Spin } from "antd";
-import { getOrders } from "../Orders";
+import { useSearchParams } from "react-router-dom";
+import { getOrders } from "../ordersData";
 import OrderItem from "./OrderItem";
 
-export default function OrderLists() {
-  const { data, isLoading } = useQuery(["orders"], getOrders);
+export default function OrderLists({ selected }) {
+  const { data, isLoading } = useQuery(["orders", selected], () =>
+    getOrders(selected)
+  );
 
   if (isLoading)
     return (

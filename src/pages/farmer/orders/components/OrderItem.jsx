@@ -1,3 +1,6 @@
+import { Avatar } from "antd";
+import { Link } from "react-router-dom";
+
 export default function OrderItem({
   id,
   name,
@@ -13,7 +16,7 @@ export default function OrderItem({
     <div className="w-full border-b border-t bg-white">
       <ul className="">
         <li className="">
-          <a href="#" className="flex w-full items-center gap-2 p-4">
+          <div href="#" className="flex w-full items-center gap-2 p-4">
             <Avatar size={52} src={displayphoto} />
             <div className="flex h-full flex-grow flex-col leading-4">
               <Link to={`/farmer/orders/${id}`}>
@@ -27,17 +30,17 @@ export default function OrderItem({
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
                   fill="currentColor"
-                  class="h-6 w-6"
+                  className="h-6 w-6"
                 >
                   <path
-                    fill-rule="evenodd"
+                    fillRule="evenodd"
                     d="M16.28 11.47a.75.75 0 010 1.06l-7.5 7.5a.75.75 0 01-1.06-1.06L14.69 12 7.72 5.03a.75.75 0 011.06-1.06l7.5 7.5z"
-                    clip-rule="evenodd"
+                    clipRule="evenodd"
                   />
                 </svg>
               </span>
             </div>
-          </a>
+          </div>
         </li>
       </ul>
 

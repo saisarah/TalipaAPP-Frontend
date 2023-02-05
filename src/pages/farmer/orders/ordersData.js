@@ -11,7 +11,7 @@ const orders = [
         quantity: 100,
         price: 50,
         location: 'NCR, CALOOCAN CITY',
-        status: 'Pending',
+        status: 'pending',
         total: 5000
     },
     {
@@ -23,7 +23,7 @@ const orders = [
         quantity: 100,
         price: 50,
         location: 'NCR, CALOOCAN CITY',
-        status: 'Pending',
+        status: 'confirmed',
         total: 5000
     }, 
     {
@@ -35,15 +35,19 @@ const orders = [
         quantity: 100,
         price: 50,
         location: 'NCR, CALOOCAN CITY',
-        status: 'Pending',
+        status: 'shipped',
         total: 5000
     },
     
 ]
 
-export const getOrders = async () => {
+export const getOrders = async (filter = null) => {
     await sleep(500)
-    return orders
+    if (filter === null) {
+        return orders;
+    }
+
+    return orders.filter((item) => item.status === filter)
 }
 
 export const getOrder = async (id) => {
