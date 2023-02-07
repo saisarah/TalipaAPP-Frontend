@@ -116,31 +116,6 @@ export default function OrderInfo() {
             </div>
           </div>
 
-          <div className="mt-2 w-full border-b bg-white">
-            {/* Delivery Method */}
-            <div className="flex justify-between px-4">
-              <div className="text-lg font-bold text-zinc-400">
-                <p>Delivery Method:</p>
-              </div>
-
-              <div className="text-lg capitalize">
-                {/* <p>{order.location}</p> */}
-                Transportify
-              </div>
-            </div>
-
-            {/* Payment Method */}
-            <div className="flex justify-between px-4">
-              <div className="text-lg font-bold text-zinc-400">
-                <p>Payment Method:</p>
-              </div>
-
-              <div className="text-lg capitalize">
-                {/* <p>{order.location}</p> */}
-                Gcash
-              </div>
-            </div>
-          </div>
           <Link>
             <Card className="mx-4 mt-2 rounded-lg bg-white  shadow">
               <div className="flex">
@@ -168,26 +143,66 @@ export default function OrderInfo() {
           )}
 
           {order.status == "shipped" && (
-            <div className=" mt-4 grid h-auto w-full place-content-center">
-              <Steps
-                direction="vertical"
-                current={1}
-                items={[
-                  {
-                    title: "Finished",
-                    description,
-                  },
-                  {
-                    title: "In Progress",
-                    description,
-                  },
-                  {
-                    title: "Waiting",
-                    description,
-                  },
-                ]}
-              />
-            </div>
+            <>
+              <div className="mt-2 w-full border-b bg-white">
+                {/* Delivery Method */}
+                <div className="flex justify-between px-4">
+                  <div className="text-lg font-bold text-zinc-400">
+                    <p>Delivery Method:</p>
+                  </div>
+
+                  <div className="text-lg capitalize">
+                    {/* <p>{order.deliveryMethod}</p> */}
+                    Transportify
+                  </div>
+                </div>
+
+                {/* Payment Method */}
+                <div className="flex justify-between px-4">
+                  <div className="text-lg font-bold text-zinc-400">
+                    <p>Payment Method:</p>
+                  </div>
+
+                  <div className="text-lg capitalize">
+                    {/* <p>{order.paymentMethod}</p> */}
+                    Gcash
+                  </div>
+                </div>
+
+                {/* Tracking */}
+                <div className="flex justify-between px-4">
+                  <div className="text-lg font-bold text-zinc-400">
+                    <p>Tracking #:</p>
+                  </div>
+
+                  <div className="text-lg capitalize">
+                    {/* <p>{order.trackingNum}</p> */}
+                    1Akw1298DCM5398
+                  </div>
+                </div>
+              </div>
+              <div className=" mt-4 grid h-auto w-full place-content-center">
+                <Steps
+                  className=""
+                  direction="vertical"
+                  current={1}
+                  items={[
+                    {
+                      title: "To Ship",
+                      description,
+                    },
+                    {
+                      title: "In Progress",
+                      description,
+                    },
+                    {
+                      title: "Arrived",
+                      description,
+                    },
+                  ]}
+                />
+              </div>
+            </>
           )}
         </>
       )}
