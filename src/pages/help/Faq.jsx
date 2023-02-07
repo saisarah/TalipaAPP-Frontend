@@ -15,7 +15,12 @@ return (
 <Page>
     <PageHeader title="TalipaAPP FaQ" />
     
+              <div className="flex items-center font-bold text-xl bg-white" >
+                    <p className="m-0 mx-2">Frequently Asked Questions</p>
+                </div>
+              
     <Collapse defaultActiveKey={['0']} onChange={onChange}>
+      
       <Panel header="What payment methods do you accept?" key="1">
         <p>TalipaAPP only accepts cash on delivery and GCash</p>
       </Panel>

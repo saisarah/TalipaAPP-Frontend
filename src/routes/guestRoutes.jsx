@@ -3,6 +3,7 @@ import ForgotPassword from "@/pages/auth/ForgotPassword/ForgotPassword";
 import Login from "../pages/auth/login/Login";
 import Register from "../pages/auth/register/Register";
 import Faq from "@/pages/help/Faq";
+import Help from "@/pages/help/Help";
 
 export default [
   {
@@ -20,5 +21,9 @@ export default [
   {
     path: "/faq",
     element: <Faq />,
+  },
+  {
+    path: "/help",
+    element: <Help />,
   }
 ];
