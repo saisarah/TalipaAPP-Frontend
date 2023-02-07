@@ -17,7 +17,7 @@ export default function Orders() {
   return (
     <Page className="bg-slate-50">
       <PageHeader back="/farmer" title="Orders" />
-      <div className="no-scrollbar sticky top-0 flex  flex-nowrap overflow-x-auto bg-white text-lg shadow-md">
+      <div className="no-scrollbar sticky top-0 z-30 flex  flex-nowrap overflow-x-auto bg-white text-lg shadow-md">
         <TabLink tab="pending" isActive={isActive}>
           <span className="p-4">Pending</span>
         </TabLink>
