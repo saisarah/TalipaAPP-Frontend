@@ -1,7 +1,7 @@
 import PageHeader from "@/components/PageHeader";
 import { useQuery } from "@tanstack/react-query";
 import { Avatar, Card, Spin } from "antd";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { getOrder } from "../ordersData";
 
 export default function OrderInfo() {
@@ -120,16 +120,23 @@ export default function OrderInfo() {
               </div>
             </div>
           </div>
+          <Link>
+            <Card className="mx-4 mt-2 rounded-lg bg-white  shadow">
+              <div className="flex">
+                <Avatar
+                  size={100}
+                  className=" rounded-lg"
+                  src={order.displayphoto}
+                ></Avatar>
+                <div className="ml-4">
+                  <h3 className="text-lg font-bold">Title</h3>
+                  <p className="text-gray-600">Description</p>
 
-          <Card className="mt-2 rounded-lg bg-white  shadow">
-            <div className="flex">
-              <Avatar size={100} className=" rounded-lg"></Avatar>
-              <div className="ml-4">
-                <h3 className="text-lg font-bold">Title</h3>
-                <p className="text-gray-600">Description</p>
+                  <p className="text-red-600">*tap to see post</p>
+                </div>
               </div>
-            </div>
-          </Card>
+            </Card>
+          </Link>
 
           <div className="justify-end text-center">
             <button class="align-items-center mt-2 w-10/12 rounded-[4px] bg-[#739559] p-2 font-bold text-white">

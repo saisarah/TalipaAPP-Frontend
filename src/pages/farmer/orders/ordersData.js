@@ -14,9 +14,48 @@ const orders = [
         status: 'pending',
         total: 5000
     },
+
     {
         id: 2,
-        name: 'Tony Gojar',
+        name: 'Midel Dela Cruz',
+        displayphoto: "image",
+        timestamp: '3 days ago',
+        order_name: 'Manga',
+        quantity: 100,
+        price: 50,
+        location: 'NCR, CALOOCAN CITY',
+        status: 'pending',
+        total: 5000
+    },
+
+    {
+        id: 3,
+        name: 'Midel Dela Cruz',
+        displayphoto: "image",
+        timestamp: '3 days ago',
+        order_name: 'Manga',
+        quantity: 100,
+        price: 50,
+        location: 'NCR, CALOOCAN CITY',
+        status: 'pending',
+        total: 5000
+    },
+
+    {
+        id: 4,
+        name: 'Midel Dela Cruz',
+        displayphoto: "image",
+        timestamp: '3 days ago',
+        order_name: 'Manga',
+        quantity: 100,
+        price: 50,
+        location: 'NCR, CALOOCAN CITY',
+        status: 'pending',
+        total: 5000
+    },
+    {
+        id: 5,
+        fu: 'Tony Gojar',
         displayphoto: "image",
         timestamp: '3 days ago',
         order_name: 'Manga',
@@ -27,7 +66,7 @@ const orders = [
         total: 5000
     }, 
     {
-        id: 3,
+        id: 6,
         name: 'Ben Bacalla',
         displayphoto: "image",
         timestamp: '3 days ago',
