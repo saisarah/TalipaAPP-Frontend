@@ -31,7 +31,7 @@ export default function Orders() {
           <span className="p-4">Cancelled</span>
         </TabLink>
         <TabLink tab="completed" isActive={isActive}>
-          <span className="p-4">Complete</span>
+          <span className="p-4">Completed</span>
         </TabLink>
       </div>
 

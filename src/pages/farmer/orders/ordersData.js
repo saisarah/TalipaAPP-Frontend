@@ -40,7 +40,6 @@ const orders = [
         status: 'pending',
         total: 5000
     },
-
     {
         id: 4,
         name: 'Midel Dela Cruz',
@@ -55,7 +54,7 @@ const orders = [
     },
     {
         id: 5,
-        fu: 'Tony Gojar',
+        name: 'Tony Gojar',
         displayphoto: "image",
         timestamp: '3 days ago',
         order_name: 'Manga',
@@ -75,6 +74,30 @@ const orders = [
         price: 50,
         location: 'NCR, CALOOCAN CITY',
         status: 'shipped',
+        total: 5000
+    },
+    {
+        id: 7,
+        name: 'Ben Bacalla',
+        displayphoto: "image",
+        timestamp: '3 days ago',
+        order_name: 'Manga',
+        quantity: 100,
+        price: 50,
+        location: 'NCR, CALOOCAN CITY',
+        status: 'cancelled',
+        total: 5000
+    },
+    {
+        id: 8,
+        name: 'Ben Bacalla',
+        displayphoto: "image",
+        timestamp: '3 days ago',
+        order_name: 'Manga',
+        quantity: 100,
+        price: 50,
+        location: 'NCR, CALOOCAN CITY',
+        status: 'completed',
         total: 5000
     },
     

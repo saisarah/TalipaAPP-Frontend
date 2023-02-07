@@ -1,5 +1,41 @@
-import { Avatar } from "antd";
+import { Avatar, Badge, Space } from "antd";
 import { Link } from "react-router-dom";
+
+const statusMap = {
+  pending: {
+    status: "warning",
+    color: "#ea580c",
+    text: "Pending",
+    className: "text-lg text-[#ea580c]",
+  },
+  confirmed: {
+    status: "confirmed",
+    color: "#FDE047",
+    text: "Confirmed",
+    className: "text-lg text-[#FDE047]",
+  },
+
+  shipped: {
+    status: "shipped",
+    color: "#2563eb",
+    text: "Shipped",
+    className: "text-lg text-[#2563eb]",
+  },
+
+  cancelled: {
+    status: "cancelled",
+    color: "#dc2626",
+    text: "Cancelled",
+    className: "text-lg text-[#dc2626]",
+  },
+
+  completed: {
+    status: "completed",
+    color: "#16a34a",
+    text: "Completed",
+    className: "text-lg text text-[#16a34a]",
+  },
+};
 
 export default function OrderItem({
   id,
@@ -80,7 +116,15 @@ export default function OrderItem({
       {/* Order status */}
       <div className="with-full border-b border-t pt-4">
         <div className="flex justify-between px-4">
-          <div>{status}</div>
+          <Badge
+            status={statusMap[status].status}
+            color={statusMap[status].color}
+            text={
+              <span className={statusMap[status].className}>
+                {statusMap[status].text}
+              </span>
+            }
+          />
 
           <div className="text-lg">
             <p>Total: {total}</p>
