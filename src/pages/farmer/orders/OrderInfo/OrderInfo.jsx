@@ -1,9 +1,30 @@
 import PageHeader from "@/components/PageHeader";
 import { useQuery } from "@tanstack/react-query";
-import { Avatar, Card, Spin } from "antd";
+import { Avatar, Card, Spin, Steps } from "antd";
 import { Link, useParams } from "react-router-dom";
 import { getOrder } from "../ordersData";
 
+const statusMap = {
+  pending: {
+    className: "text-lg text-[#ea580c] capitalize",
+  },
+  confirmed: {
+    className: "text-lg text-[#FDE047] capitalize",
+  },
+
+  shipped: {
+    className: "text-lg text-[#2563eb] capitalize",
+  },
+
+  cancelled: {
+    className: "text-lg text-[#dc2626] capitalize",
+  },
+
+  completed: {
+    className: "text-lg text text-[#16a34a] capitalize",
+  },
+};
+const description = "This is a description.";
 export default function OrderInfo() {
   const { id } = useParams();
 
@@ -41,18 +62,18 @@ export default function OrderInfo() {
 
             {/* Order Status */}
             <div className="flex justify-between px-4">
-              <div className="text-lg font-bold text-zinc-500">
+              <div className="text-lg font-bold text-zinc-400">
                 <p>Order Name:</p>
               </div>
 
-              <div className="text-lg capitalize">
+              <div className={statusMap[order.status].className}>
                 <p>{order.status}</p>
               </div>
             </div>
 
             {/* Order name */}
             <div className="flex justify-between px-4">
-              <div className="text-lg font-bold text-zinc-500">
+              <div className="text-lg font-bold text-zinc-400">
                 <p>Order Name:</p>
               </div>
 
@@ -63,18 +84,18 @@ export default function OrderInfo() {
 
             {/* Unit Price */}
             <div className="flex justify-between px-4">
-              <div className="text-lg font-bold text-zinc-500">
+              <div className="text-lg font-bold text-zinc-400">
                 <p>Unit Price:</p>
               </div>
 
               <div className="text-lg capitalize">
-                <p>{order.price}</p>
+                <p>₱{order.price}</p>
               </div>
             </div>
 
             {/* Quantity */}
             <div className="flex justify-between px-4">
-              <div className="text-lg font-bold text-zinc-500">
+              <div className="text-lg font-bold text-zinc-400">
                 <p>Quantity:</p>
               </div>
 
@@ -85,7 +106,7 @@ export default function OrderInfo() {
 
             {/* Location */}
             <div className="flex justify-between px-4">
-              <div className="text-lg font-bold text-zinc-500">
+              <div className="text-lg font-bold text-zinc-400">
                 <p>Quantity:</p>
               </div>
 
@@ -98,7 +119,7 @@ export default function OrderInfo() {
           <div className="mt-2 w-full border-b bg-white">
             {/* Delivery Method */}
             <div className="flex justify-between px-4">
-              <div className="text-lg font-bold text-zinc-500">
+              <div className="text-lg font-bold text-zinc-400">
                 <p>Delivery Method:</p>
               </div>
 
@@ -110,7 +131,7 @@ export default function OrderInfo() {
 
             {/* Payment Method */}
             <div className="flex justify-between px-4">
-              <div className="text-lg font-bold text-zinc-500">
+              <div className="text-lg font-bold text-zinc-400">
                 <p>Payment Method:</p>
               </div>
 
@@ -138,11 +159,36 @@ export default function OrderInfo() {
             </Card>
           </Link>
 
-          <div className="mt-4 justify-end text-center">
-            <button class="align-items-center mt-2 w-10/12 rounded-[4px] bg-[#739559] p-2 font-bold text-white">
-              Accept
-            </button>
-          </div>
+          {order.status == "pending" && (
+            <div className="mt-4 justify-end text-center">
+              <button class="align-items-center mt-2 w-10/12 rounded-[4px] bg-[#739559] p-2 font-bold text-white">
+                Accept
+              </button>
+            </div>
+          )}
+
+          {order.status == "shipped" && (
+            <div className=" mt-4 grid h-auto w-full place-content-center">
+              <Steps
+                direction="vertical"
+                current={1}
+                items={[
+                  {
+                    title: "Finished",
+                    description,
+                  },
+                  {
+                    title: "In Progress",
+                    description,
+                  },
+                  {
+                    title: "Waiting",
+                    description,
+                  },
+                ]}
+              />
+            </div>
+          )}
         </>
       )}
     </div>
