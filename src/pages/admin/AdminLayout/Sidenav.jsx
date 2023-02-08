@@ -11,7 +11,7 @@
 */
 
 // import { useState } from "react";
-import { VerticalAlignTopOutlined } from "@ant-design/icons";
+import { EyeOutlined, QuestionCircleFilled, QuestionCircleOutlined, VerticalAlignTopOutlined } from "@ant-design/icons";
 import { Menu, Button, Avatar } from "antd";
 import { NavLink, useLocation } from "react-router-dom";
 import logo from "./images/TalipaApp_Icon.png";
@@ -165,8 +165,8 @@ function Sidenav({ color }) {
     <>
       <div className="brand">
         <div className="flex">
-        <img src={logo} alt="TalipaApp Logo" />
-        <span>TalipaApp Dashboard</span>
+          <img src={logo} alt="TalipaApp Logo" />
+          <span>TalipaApp Dashboard</span>
         </div>
       </div>
       <hr />
@@ -197,8 +197,8 @@ function Sidenav({ color }) {
             <span className="label">Payments</span>
           </NavLink>
           <Menu.Item className="menu-item-header" key="3">
-          Management
-        </Menu.Item>
+            Management
+          </Menu.Item>
         </Menu.Item>
         <Menu.Item key="4">
           <NavLink to="/manage-product">
@@ -253,7 +253,7 @@ function Sidenav({ color }) {
                 background: page === "change-password" ? color : "",
               }}
             >
-              {recordsReports}
+              <EyeOutlined height={100} />
             </span>
             <span className="label">Change password</span>
           </NavLink>
@@ -266,7 +266,7 @@ function Sidenav({ color }) {
                 background: page === "FAQs" ? color : "",
               }}
             >
-              {recordsReports}
+              <QuestionCircleFilled />
             </span>
             <span className="label">FAQs</span>
           </NavLink>
@@ -355,9 +355,6 @@ function Sidenav({ color }) {
             <span className="label">Roles</span>
           </NavLink>
         </Menu.Item>
-        
-        
-
       </Menu>
       {/* <div className="aside-footer">
         <div
