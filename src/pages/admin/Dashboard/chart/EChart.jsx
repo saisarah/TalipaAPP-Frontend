@@ -19,20 +19,21 @@ function EChart() {
 
   const items = [
     {
+      Title: "₱.772",
+      user: "Sales",
+    },
+    {
       Title: "3,6K",
       user: "Users",
     },
     {
-      Title: "2m",
-      user: "Clicks",
+      Title: "24k",
+      user: "Demands",
     },
-    {
-      Title: "$772",
-      user: "Sales",
-    },
+
     {
       Title: "82",
-      user: "Items",
+      user: "Commodities",
     },
   ];
 
@@ -48,7 +49,7 @@ function EChart() {
         />
       </div>
       <div className="chart-vistior">
-        <Title level={5}>Active Users</Title>
+        <Title level={5}>Total Revenue</Title>
         <Paragraph className="lastweek">
           than last week <span className="bnb2">+30%</span>
         </Paragraph>
