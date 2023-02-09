@@ -11,7 +11,7 @@
 */
 
 // import { useState } from "react";
-import { VerticalAlignTopOutlined } from "@ant-design/icons";
+import { PaperClipOutlined, VerticalAlignTopOutlined } from "@ant-design/icons";
 import { Menu, Button, Avatar } from "antd";
 import { NavLink, useLocation } from "react-router-dom";
 import logo from "./images/TalipaApp_Icon.png";
@@ -279,7 +279,7 @@ function Sidenav({ color }) {
                 background: page === "Terms" ? color : "",
               }}
             >
-              {recordsReports}
+              <PaperClipOutlined />
             </span>
             <span className="label">Terms & Conditions</span>
           </NavLink>
