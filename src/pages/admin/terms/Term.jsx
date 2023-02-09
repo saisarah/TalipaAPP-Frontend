@@ -62,6 +62,11 @@ export default function Terms() {
           the binding arbitration clause and class action waiver in Part A of
           Section 17. It affects how disputes between us are resolved.
         </li>
+        <li className="py-5">
+          Dispute Resolution. If you reside in the United States, please read
+          the binding arbitration clause and class action waiver in Part A of
+          Section 17. It affects how disputes between us are resolved.
+        </li>
         <div>
           <p className="text-xl font-bold">Attention Farmers And Customer!</p>
           <p>
