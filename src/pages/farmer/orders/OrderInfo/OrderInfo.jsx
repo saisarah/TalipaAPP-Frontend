@@ -24,7 +24,29 @@ const statusMap = {
     className: "text-lg text text-[#16a34a] capitalize",
   },
 };
+
+const steps = [
+  {
+    title: "Step 1",
+    description: "This is Description",
+    timestamp: "3 Days ago",
+  },
+
+  {
+    title: "Step 2",
+    description: "This is Description",
+    timestamp: "3 Days ago",
+  },
+
+  {
+    title: "Step 3",
+    description: "This is Description",
+    timestamp: "3 Days ago",
+  },
+];
 const description = "This is a description.";
+const extra = "this is subdescription";
+const timestamp = "3 days ago";
 export default function OrderInfo() {
   const { id } = useParams();
 
@@ -181,22 +203,58 @@ export default function OrderInfo() {
                   </div>
                 </div>
               </div>
-              <div className=" mt-4 grid h-auto w-full place-content-center">
+              <div>
+                {/* <div className=" flex flex-row">
+                <div className="flex">
+                  {steps.map((item) => (
+                    <div className="px-4 py-2">
+                      <p>{item.timestamp}</p>
+                      <p>{item.description}</p>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="mt-6">
+                  <Steps current={1}>
+                    {steps.map((step) => (
+                      <Steps
+                        key={step.title}
+                        title={step.title}
+                        extra={step.timestamp}
+                      />
+                    ))}
+                  </Steps>
+                </div> */}
                 <Steps
                   className=""
                   direction="vertical"
-                  current={1}
+                  current={2}
                   items={[
                     {
                       title: "To Ship",
                       description,
+                      timestamp,
+                      extra,
                     },
                     {
                       title: "In Progress",
                       description,
+                      timestamp,
+                      extra,
+                      description,
                     },
                     {
                       title: "Arrived",
+                      description,
+                      timestamp,
+                      extra,
+                      description,
+                    },
+                    {
+                      title: "Arrived",
+                      description,
+                      timestamp,
+                      extra,
                       description,
                     },
                   ]}
