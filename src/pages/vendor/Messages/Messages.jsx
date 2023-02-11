@@ -1,58 +1,83 @@
-import { SearchOutlined } from "@ant-design/icons";
-import { useTitle } from "@/pages/vendor/components/VendorLayout/VendorLayout";
+import Page from "@/components/Page";
+import PageHeader from "@/components/PageHeader";
+import { Avatar, Badge, Space } from "antd";
+import { Link } from "react-router-dom";
 
-function MessagesItem({ user, displayphoto }) {
+export default function Messages() {
   return (
-    <div className="">
-      <div className="">
-        <div className="m-2 border-b">
-          <ul className="">
-            <li className="">
-              <a href="#" className="flex w-full items-center gap-2">
-                <span className="">
-                  <img className="rounded-full" src={displayphoto} alt="" />
-                </span>
-                <div className="flex h-full flex-grow flex-col leading-4">
-                  <span className="text-xl font-bold">{user}</span>
-                  <span className="">No unread messages</span>
-                </div>
-              </a>
-            </li>
-          </ul>
+    <Page className="bg-gray-100">
+      <PageHeader back="/farmer" title="Chat" />
+
+      <Link to="/farmer/messages/1" className="mx-2 flex pt-1">
+        <div className="flex grow flex-row rounded-md bg-white shadow-sm">
+          <div className="flex justify-center p-4">
+            <Space size="middle">
+              <Badge className="" count={7}>
+                <Avatar
+                  className="border border-green-500"
+                  shape="rounded"
+                  size="large"
+                />
+              </Badge>
+            </Space>
+            <div className="flex flex-col p-2 text-xs">
+              <span className="ml-2 font-bold">
+                {" "}
+                Bagong Silang Market Caloocan City.
+              </span>
+              <span className="ml-2"> 8:14 am</span>
+              <span className="ml-2">[Order Confirmation]</span>
+            </div>
+          </div>
+        </div>
+      </Link>
+
+      <div className="mx-2 flex pt-1">
+        <div className="flex grow flex-row rounded-md bg-white shadow-sm">
+          <div className="flex justify-center p-4">
+            <Space size="middle">
+              <Badge className="" count={0}>
+                <Avatar
+                  className="border border-green-500"
+                  shape="rounded"
+                  size="large"
+                />
+              </Badge>
+            </Space>
+            <div className="flex flex-col p-2 text-xs">
+              <span className="ml-2 font-bold">
+                {" "}
+                Commonwealt Market Quezon City.
+              </span>
+              <span className="ml-2"> 12 hours</span>
+              <span className="ml-2">[Order Confirmation]</span>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
+      <div className="mx-2 flex pt-1">
+        <div className="flex grow flex-row rounded-md bg-white shadow-sm">
+          <div className="flex justify-center p-4">
+            <Space size="middle">
+              <Badge className="" count={1}>
+                <Avatar
+                  className="border border-green-500"
+                  shape="rounded"
+                  size="large"
+                />
+              </Badge>
+            </Space>
+            <div className="flex flex-col p-2 text-xs">
+              <span className="ml-2 font-bold">
+                {" "}
+                Vetable Farm Maycauyan bulacan.
+              </span>
+              <span className="ml-2"> Yesterday</span>
+              <span className="ml-2">On delivery na sir</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </Page>
   );
 }
-
-export const Messages = () => {
-  useTitle("Messages");
-
-  return (
-    <div className="mx-auto max-w-md bg-slate-50">
-      <div className="py-2 px-4">
-        <div className="flex gap-2 rounded bg-slate-200 p-3">
-          <SearchOutlined style={{ fontSize: 20 }} className="text-slate-500" />
-          <input
-            className="flex-grow bg-transparent focus:outline-none"
-            type="search"
-            placeholder="Search for fruits, vegetables, etc..."
-          />
-        </div>
-      </div>
-
-      <MessagesItem
-        user="Shiella May"
-        displayphoto="https://via.placeholder.com/59x59"
-      />
-      <MessagesItem
-        user="Paolo Ortega"
-        displayphoto="https://via.placeholder.com/59x59"
-      />
-      <MessagesItem
-        user="At Cosco Market"
-        displayphoto="https://via.placeholder.com/59x59"
-      />
-    </div>
-  );
-};
