@@ -109,11 +109,13 @@ export const VendorLayout = () => {
                       <HomeFilled />
                       Home
                     </Link>
-
-                    <div className="flex items-center gap-2 rounded-r-full py-2 pl-8">
+                    <Link
+                      to="/notifications"
+                      className="flex items-center gap-2 rounded-r-full py-2 pl-8"
+                    >
                       <BellFilled />
                       Notifications
-                    </div>
+                    </Link>
 
                     <Link
                       to="/messages"

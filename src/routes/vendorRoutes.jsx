@@ -3,6 +3,7 @@ import { VendorLayout } from "@/pages/vendor/components/VendorLayout/VendorLayou
 import { Home } from "@/pages/vendor/Home/Home";
 import Chat from "@/pages/vendor/Messages/Chat";
 import PrivateMessage from "@/pages/vendor/Messages/PrivateMessage";
+import Notifications from "@/pages/vendor/Notifications/Notifications";
 import { PostDetailsPage } from "@/pages/vendor/PostDetails/PostDetailsPage";
 
 export default [
@@ -20,6 +21,10 @@ export default [
       {
         path: "messages/:id",
         element: <PrivateMessage />,
+      },
+      {
+        path: "notifications",
+        element: <Notifications />,
       },
       {
         path: "/account",
