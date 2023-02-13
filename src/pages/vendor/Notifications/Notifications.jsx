@@ -1,5 +1,4 @@
 import Page from "@/components/Page";
-import PageHeader from "@/components/PageHeader";
 import { Avatar } from "antd";
 import { useTitle } from "../components/VendorLayout/VendorLayout";
 
