@@ -11,6 +11,7 @@ import {
   ShoppingCartOutlined,
 } from "@ant-design/icons";
 import Meta from "antd/lib/card/Meta";
+import { useTitle } from "../components/VendorLayout/VendorLayout";
 
 export default function PrivateMessage() {
   const App = () => <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} />;
@@ -23,14 +24,11 @@ export default function PrivateMessage() {
       }}
     />
   );
+
+  useTitle("Commonwealt Market Quezon City");
   // <Avatar size="small" style={{ backgroundColor: '#87d068' }} icon={<UserOutlined />} />,
   return (
     <div className="app-size bg-white">
-      <PageHeader
-        back="/vendor/messages"
-        title="Commonwealt Market Quezon City."
-      />
-
       <div className="flex p-2">
         <div className="flex grow justify-center bg-white p-2" size="large">
           <span>12:00</span>

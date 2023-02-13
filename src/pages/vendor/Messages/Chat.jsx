@@ -1,13 +1,12 @@
 import Page from "@/components/Page";
-import PageHeader from "@/components/PageHeader";
 import { Avatar, Badge, Space } from "antd";
 import { Link } from "react-router-dom";
+import { useTitle } from "../components/VendorLayout/VendorLayout";
 
 export default function Chat() {
+  useTitle("Chat");
   return (
     <Page className="bg-gray-100">
-      <PageHeader back="/vendor" title="Chat" />
-
       <Link to="/messages/1" className="mx-2 flex pt-1">
         <div className="flex grow flex-row rounded-md bg-white shadow-sm">
           <div className="flex justify-center p-4">
