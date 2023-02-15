@@ -174,10 +174,10 @@ export default function Farmer() {
 
   return (
     <div>
-      <div className="flex grow justify-center rounded bg-primary p-5">
+      {/* <div className="flex grow justify-center rounded bg-primary p-5">
         <img src="/assets/images/manageVendor.png" alt="" />
-      </div>
-      <div className="p-10">
+      </div> */}
+      <div className="">
         <Table columns={columns} dataSource={data} />;
       </div>
     </div>

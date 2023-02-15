@@ -12,7 +12,7 @@ export default [
         element: <Dashboard />,
       },
       {
-        path: "farmer",
+        path: "farmers",
         element: <Farmer />,
       },
     ],
