@@ -12,7 +12,7 @@ export default [
         element: <Dashboard />,
       },
       {
-        path: "faq",
+        path: "FAQs",
         element: <Faq />,
       },
     ],
