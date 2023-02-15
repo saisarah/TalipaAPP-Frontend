@@ -37,11 +37,6 @@ export default function Roles() {
         </>
       ),
     },
-    {
-      title: "Action",
-      dataIndex: "action",
-      key: "action",
-    },
   ];
   const data = [
     {
