@@ -1,4 +1,4 @@
-import User from "@/pages/admin/AccountManagement/user";
+import User from "@/pages/admin/AccountManagement/users";
 import AdminLayout from "@/pages/admin/AdminLayout/AdminLayout";
 import Dashboard from "@/pages/admin/Dashboard/Dashboard";
 import Login from "@/pages/admin/Login/Login";
@@ -12,7 +12,7 @@ export default [
         element: <Dashboard />,
       },
       {
-        path: "user",
+        path: "users",
         element: <User />,
       },
     ],

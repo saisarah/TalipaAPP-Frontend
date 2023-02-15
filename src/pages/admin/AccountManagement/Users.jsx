@@ -3,7 +3,7 @@ import { Button, Input, Table } from "antd";
 import Search from "antd/lib/transfer/search";
 import { Space, Tag } from "antd";
 
-export default function User() {
+export default function Users() {
   const onSearch = (value) => console.log(value);
   const columns = [
     {
