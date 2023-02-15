@@ -12,7 +12,7 @@ export default [
         element: <Dashboard />,
       },
       {
-        path: "vendor",
+        path: "vendors",
         element: <ManagementVendor />,
       },
     ],
