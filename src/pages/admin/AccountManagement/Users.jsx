@@ -62,12 +62,12 @@ export default function Users() {
   return (
     <div>
       <div className="flex">
-        <div className="container flex grow flex-row">
+        <div className="container flex grow flex-row justify-end">
           <Search placeholder="Search account" onSearch={onSearch} />
         </div>
       </div>
       <div className="pt-5 pb-3">
-        <div className="flex flex-row ">
+        <div className="flex flex-row">
           <Button type="primary" size="large">
             <PlusOutlined />
           </Button>
