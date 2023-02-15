@@ -12,7 +12,7 @@ export default [
         element: <Dashboard />,
       },
       {
-        path: "farmergroup",
+        path: "farmers-groups",
         element: <FarmerGroup />,
       },
     ],
