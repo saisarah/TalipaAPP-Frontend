@@ -1,4 +1,4 @@
-import Role from "@/pages/admin/AccountManagement/role";
+import Role from "@/pages/admin/AccountManagement/Roles";
 import AdminLayout from "@/pages/admin/AdminLayout/AdminLayout";
 import Dashboard from "@/pages/admin/Dashboard/Dashboard";
 import Login from "@/pages/admin/Login/Login";
@@ -12,7 +12,7 @@ export default [
         element: <Dashboard />,
       },
       {
-        path: "role",
+        path: "roles",
         element: <Role />,
       },
     ],

@@ -9,39 +9,27 @@ import { useState } from "react";
 import { Space, Tag } from "antd";
 import UserOutlined from "@/icons/heroicons/UserOutlined";
 
-export default function Role() {
+export default function Roles() {
   const [show, setShow] = useState(true);
   const columns = [
     {
-      title: "Name",
-      dataIndex: "name",
-      key: "name",
-      render: (text) => <a>{text}</a>,
-    },
-    {
-      title: "email",
-      dataIndex: "email",
-      key: "email",
-      icon: <Avatar shape="square" size="small" icon={<UserOutlined />} />,
-    },
-    {
-      title: "Address",
-      dataIndex: "address",
-      key: "address",
-    },
-    {
       title: "Roles",
-      key: "tags",
-      dataIndex: "tags",
-      render: (_, { tags }) => (
+      key: "roles",
+      dataIndex: "roles",
+    },
+    {
+      title: "Permissions",
+      dataIndex: "permissions",
+      key: "permissions",
+      render: (_, { permissions }) => (
         <>
-          {tags.map((tag) => {
-            let color = tag.length > 6 ? "geekblue" : "green";
-            if (tag === "loser") {
+          {permissions.map((tag) => {
+            let color = tag.length > 10 ? "geekblue" : "green";
+            if (permissions === "moderator") {
               color = "volcano";
             }
             return (
-              <Tag color={color} key={tag}>
+              <Tag color={color} key={permissions}>
                 {tag.toUpperCase()}
               </Tag>
             );
@@ -50,51 +38,43 @@ export default function Role() {
       ),
     },
     {
-      title: "Status",
-      dataIndex: "status",
-      key: "status",
+      title: "Action",
+      dataIndex: "action",
+      key: "action",
     },
   ];
   const data = [
     {
       key: "1",
-      name: "John Brown",
-      email: "example@gmail.com",
-      address: "New York No. 1 Lake Park",
-      tags: ["chat support"],
-      status: "Inactive",
+      roles: "Super Admin",
+      permissions: ["chat support", "moderator", "Account Manager"],
+      action: "",
     },
     {
       key: "2",
-      name: "Jim Green",
-      email: "example@gmail.com",
-      address: "London No. 1 Lake Park",
-      tags: ["moderator"],
-      status: "Active",
+      roles: "Chat Support",
+      permissions: ["chat support"],
+      action: "",
     },
     {
       key: "3",
-      name: "Joe Black",
-      email: "example@gmail.com",
-      address: "Sydney No. 1 Lake Park",
-      tags: ["super admin"],
-      status: "Active",
+      roles: "Moderator",
+      permissions: ["moderator"],
+      action: "",
     },
     {
       key: "4",
-      name: "Ruel Almonia",
-      email: "example@gmail.com",
-      address: "Sydney No. 1 Lake Park",
-      tags: ["account manager"],
-      status: "Active",
+      roles: "Account Manager",
+      permissions: ["Account Manager"],
+      action: "",
     },
   ];
 
   return (
     <div>
       <div className="flex pt-7">
-        <div className="flex grow justify-center">
-          <Segmented
+        <div className="flex grow justify-end">
+          {/* <Segmented
             options={[
               {
                 label: "Active User License",
@@ -117,7 +97,8 @@ export default function Role() {
                 icon: <CoffeeOutlined />,
               },
             ]}
-          />
+          /> */}
+          <Button type="primary">Add new roles</Button>
         </div>
       </div>
       <div className="p-5">
