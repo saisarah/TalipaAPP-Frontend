@@ -1,215 +1,60 @@
-import { Avatar, Badge, Space } from "antd";
+import { Link } from "react-router-dom";
+import { useTab } from "@/helpers/hooks";
 import PageHeader from "@/components/PageHeader";
 import Page from "@/components/Page";
+import OrderLists from "./components/OrderLists";
+// import { Pending } from "./Pending";
+// import { Confirmed } from "./Confirmed";
+// import { Shipped } from "./Shipped";
+// import { Cancelled } from "./Cancelled";
+// import { Completed } from "./Completed";
+export default function Orders() {
+  const { isActive, selected } = useTab(
+    ["pending", "confirmed", "shipped", "cancelled", "completed"],
+    "pending"
+  );
 
-function Order({
-  vendor,
-  displayphoto,
-  date,
-  orderName,
-  orderQuntity,
-  location,
-  status,
-  totalPrice,
-}) {
   return (
-    <div className=" mb-4 w-full border-b border-t bg-white">
-      <ul className="">
-        <li className="">
-          <a href="#" className="flex w-full items-center gap-2 p-4">
-            <Avatar size={64} src={displayphoto} />
-            <div className="flex h-full flex-grow flex-col leading-4">
-              <span className="text-xl font-bold">{vendor}</span>
-              <span className="">{date}</span>
-            </div>
-            <div className="">
-              <span>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                  class="h-6 w-6"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    d="M16.28 11.47a.75.75 0 010 1.06l-7.5 7.5a.75.75 0 01-1.06-1.06L14.69 12 7.72 5.03a.75.75 0 011.06-1.06l7.5 7.5z"
-                    clip-rule="evenodd"
-                  />
-                </svg>
-              </span>
-            </div>
-          </a>
-        </li>
-      </ul>
-
-      {/* Order name */}
-      <div className="flex justify-between px-4">
-        <div className="text-lg font-bold text-zinc-500">
-          <p>Order Name:</p>
-        </div>
-
-        <div className="text-lg">
-          <p>{orderName}</p>
-        </div>
+    <Page className="bg-slate-50">
+      <PageHeader back="/farmer" title="Orders" />
+      <div className="no-scrollbar sticky top-0 z-30 flex  flex-nowrap overflow-x-auto bg-white text-lg shadow-md">
+        <TabLink tab="pending" isActive={isActive}>
+          <span className="p-4">Pending</span>
+        </TabLink>
+        <TabLink tab="confirmed" isActive={isActive}>
+          <span className="p-4">Confirmed</span>
+        </TabLink>
+        <TabLink tab="shipped" isActive={isActive}>
+          <span className="p-4">Shipped</span>
+        </TabLink>
+        <TabLink tab="cancelled" isActive={isActive}>
+          <span className="p-4">Cancelled</span>
+        </TabLink>
+        <TabLink tab="completed" isActive={isActive}>
+          <span className="p-4">Completed</span>
+        </TabLink>
       </div>
 
-      {/* Order quantity */}
-      <div className="flex justify-between px-4">
-        <div className="text-lg font-bold text-zinc-500">
-          <p>Quantity:</p>
-        </div>
-
-        <div className="text-lg">
-          <p>{orderQuntity}</p>
-        </div>
-      </div>
-
-      {/* Order location */}
-      <div className="flex justify-between px-4">
-        <div className="text-lg font-bold text-zinc-500">
-          <p>Location:</p>
-        </div>
-
-        <div className="text-lg">
-          <p>{location}</p>
-        </div>
-      </div>
-
-      {/* Order status */}
-      <div className="with-full border-b border-t pt-4">
-        <div className="flex justify-between px-4">
-          <div>{status}</div>
-
-          <div className="text-lg">
-            <p>Total: {totalPrice}</p>
-          </div>
-        </div>
-      </div>
-    </div>
+      <OrderLists selected={selected} />
+      {/* {isActive("pending") && <OrderLists />} */}
+      {/* {isActive("confirmed") && <OrderLists />}
+      {isActive("shipped") && <OrderLists />}
+      {isActive("completed") && <OrderLists />}
+      {isActive("cancelled") && <OrderLists />} */}
+    </Page>
   );
 }
 
-export default function Orders() {
-  return (
-    <Page className="bg-white">
-      <PageHeader back="/farmer" title="Orders" />
-      <div class="no-scrollbar flex flex-nowrap overflow-x-auto p-4">
-        <button>
-          <div className="mx-2 rounded-xl bg-[#BBF7D0] py-1 px-4">All</div>
-        </button>
-        <button>
-          <div className="mx-2 rounded-xl bg-slate-200 py-1 px-4">Pending</div>
-        </button>
-        <button>
-          <div className="mx-2 rounded-xl bg-slate-200 py-1 px-4">
-            Completed
-          </div>
-        </button>
-        <button>
-          <div className="mx-2 rounded-xl bg-slate-200 py-1 px-4">Shipped</div>
-        </button>
-        <button>
-          <div className="mx-2 rounded-xl bg-slate-200 py-1 px-4">Canceled</div>
-        </button>
-      </div>
-
-      <Order
-        vendor="ATCOST"
-        displayphoto="https://images.unsplash.com/photo-1618556782763-ac991d2fdac8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
-        date="3 days ago"
-        orderName="Manga"
-        orderQuntity="100kg"
-        location="NCR,Caloocan City"
-        status={
-          <Space>
-            <Badge
-              className="text-lg"
-              status="success"
-              color="#16a34a"
-              text={<span className="text-lg text-[#16a34a]">Completed</span>}
-            />
-          </Space>
-        }
-        totalPrice="1000.00"
-      />
-
-      <Order
-        vendor="ATCOST"
-        displayphoto="https://images.unsplash.com/photo-1618556782763-ac991d2fdac8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
-        date="3 days ago"
-        orderName="Manga"
-        orderQuntity="100kg"
-        location="NCR,Caloocan City"
-        status={
-          <Space>
-            <Badge
-              className="text-lg"
-              status="error"
-              color="#dc2626"
-              text={<span className="text-lg text-[#dc2626]">Canceled</span>}
-            />
-          </Space>
-        }
-        totalPrice="1000.00"
-      />
-
-      <Order
-        vendor="ATCOST"
-        displayphoto="https://images.unsplash.com/photo-1618556782763-ac991d2fdac8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
-        date="3 days ago"
-        orderName="Manga"
-        orderQuntity="100kg"
-        location="NCR,Caloocan City"
-        status={
-          <Space>
-            <Badge
-              className="text-lg"
-              color="#2563eb"
-              status="processing"
-              text={<span className="text-lg text-[#2563eb]">Shipped</span>}
-            />
-          </Space>
-        }
-        totalPrice="1000.00"
-      />
-
-      <Order
-        vendor="ATCOST"
-        displayphoto="https://images.unsplash.com/photo-1618556782763-ac991d2fdac8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
-        date="3 days ago"
-        orderName="Manga"
-        orderQuntity="100kg"
-        location="NCR,Caloocan City"
-        status={
-          <Space>
-            <Badge
-              status="warning"
-              color="#ca8a04"
-              text={<span className="text-lg text-[#ca8a04]">Confirmed </span>}
-            />
-          </Space>
-        }
-        totalPrice="1000.00"
-      />
-
-      <Order
-        vendor="ATCOST"
-        displayphoto="https://images.unsplash.com/photo-1618556782763-ac991d2fdac8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
-        date="3 days ago"
-        orderName="Manga"
-        orderQuntity="100kg"
-        location="NCR,Caloocan City"
-        status={
-          <Space>
-            <Badge
-              status="warning"
-              color="#ea580c"
-              text={<span className="text-lg text-[#ea580c]">Pending</span>}
-            />
-          </Space>
-        }
-        totalPrice="1000.00"
-      />
-    </Page>
+function TabLink({ children, tab, isActive }) {
+  return (  
+    <Link
+      to={`?tab=${tab}`}
+      className={`flex items-center justify-center ${
+        isActive(tab) ? "border-b border-primary text-primary" : ""
+      }`}
+      replace
+    >
+      {children}
+    </Link>
   );
 }

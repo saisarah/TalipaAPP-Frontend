@@ -10,6 +10,8 @@ import Profile from "@/pages/farmer/Profile/Profile";
 import { PostDetails as GroupPostDetails } from "@/pages/farmer/group/PostDetails/PostDetails";
 import CreateGroup from "@/pages/farmer/group/CreateGroup/CreateGroup";
 import Orders from "@/pages/farmer/orders/Orders";
+import Chat from "@/pages/farmer/Chat/Chat";
+import PrivateMessage from "@/pages/farmer/Chat/PrivateMessage";
 import Notifications from "@/pages/farmer/notifications/Notifications";
 import Settings from "@/pages/farmer/settings/Settings";
 import ChangePassword from "@/pages/farmer/settings/form/ChangePassword";
@@ -20,7 +22,7 @@ import ChangeEmail from "@/pages/farmer/settings/form/ChangeEmail";
 import ChangeEmailVerification from "@/pages/farmer/settings/form/ChangeEmailVerification";
 import ChangeAddress from "@/pages/farmer/settings/form/ChangeAddress";
 import AccountDeletion from "@/pages/farmer/settings/form/AccountDeletion";
-
+import OrderInfo from "@/pages/farmer/orders/OrderInfo/OrderInfo";
 
 /**
  * All of the path is under farmer route
@@ -54,8 +56,16 @@ export default [
     element: <Orders />,
   },
   {
+    path: "orders/:id",
+    element: <OrderInfo />,
+  },
+  {
     path: "messages",
-    element: <Conversations />,
+    element: <Chat />,
+  },
+  {
+    path: "messages/:id",
+    element: <PrivateMessage />,
   },
   {
     path: "groups",
