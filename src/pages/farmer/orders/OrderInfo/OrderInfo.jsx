@@ -216,30 +216,6 @@ export default function OrderInfo() {
                 }}
               ></div>
               <div className="grid w-full justify-center">
-                {/* <Steps
-                  className=""
-                  direction="vertical"
-                  current={2}
-                  items={[
-                    {
-                      title: "To Ship",
-                      description: "This is a Description",
-                    },
-                    {
-                      title: "To Ship",
-                      description: "This is a Description",
-                    },
-                    {
-                      title: "To Ship",
-                      description: "This is a Description",
-                    },
-                    {
-                      title: "To Ship",
-                      description: "This is a Description",
-                    },
-                  ]}
-                /> */}
-
                 <Steps direction="vertical" current={2} className="w-full ">
                   {items.map((item, index) => (
                     <Step
