@@ -1,6 +1,7 @@
 import PageHeader from "@/components/PageHeader";
 import { MinusOutlined, PlusOutlined } from "@ant-design/icons";
 import { Button, Input, InputNumber, Select } from "antd";
+import TextArea from "antd/lib/input/TextArea";
 import { useState } from "react";
 
 export default function Posting() {
@@ -23,13 +24,13 @@ export default function Posting() {
   };
   const [quantity, setQuantity] = useState(0);
   return (
-    <div className="app-size">
+    <div className="app-size bg-white">
       <PageHeader back="/farmer" title="Create Post" />
 
       <div className="flex p-2">
-        <div className="flex grow flex-col gap-2 p-4">
+        <div className="flex grow flex-col gap-2 p-4 font-semibold">
           <p>Description</p>
-          <Input />
+          <TextArea rows={4} />
           <p>Commodity</p>
           <Select
             value={secondCity}
@@ -41,17 +42,22 @@ export default function Posting() {
           />
 
           <p>Budget</p>
-          <InputNumber
-            defaultValue={1000}
-            formatter={(value) =>
-              `₱ ${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-            }
-            parser={(value) => value.replace(/\$\s?|(,*)/g, "")}
-            onChange={onChange}
-          />
+          <div className="flex">
+            <div className="flex grow">
+              <InputNumber
+                style={{ width: "100%" }}
+                defaultValue={1000}
+                formatter={(value) =>
+                  `₱ ${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+                }
+                parser={(value) => value.replace(/\$\s?|(,*)/g, "")}
+                onChange={onChange}
+              />
+            </div>
+          </div>
           <div className="p-5 text-center">
-            <div className="text-center">
-              <p>Quantity: {quantity}</p>
+            <div className="text-center font-semibold">
+              <p>Quantity: {quantity} kg</p>
             </div>
             <div className="">
               <button onClick={() => setQuantity(quantity + 1)}>
@@ -68,8 +74,10 @@ export default function Posting() {
           </div>
         </div>
       </div>
-      <div className="flex justify-center px-4">
-        <Button type="primary">Next</Button>
+      <div className="flex justify-center">
+        <Button type="primary" style={{ width: "90%" }}>
+          Next
+        </Button>
       </div>
     </div>
   );
