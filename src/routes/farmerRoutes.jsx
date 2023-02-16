@@ -47,7 +47,11 @@ export default [
   },
   {
     path: "messages",
-    element: <Conversations />,
+    element: <Chat />,
+  },
+  {
+    path: "messages/:id",
+    element: <PrivateMessage />,
   },
   {
     path: "groups",
@@ -68,14 +72,6 @@ export default [
   {
     path: "groups/new",
     element: <CreateGroup />,
-  },
-  {
-    path: "chat",
-    element: <Chat />,
-  },
-  {
-    path: "chat/privatemessage",
-    element: <PrivateMessage />,
   },
   {
     path: "notifications",
