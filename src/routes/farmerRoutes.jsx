@@ -25,6 +25,7 @@ import ChangeEmailVerification from "@/pages/farmer/settings/form/ChangeEmailVer
 import ChangeAddress from "@/pages/farmer/settings/form/ChangeAddress";
 import AccountDeletion from "@/pages/farmer/settings/form/AccountDeletion";
 import OrderInfo from "@/pages/farmer/orders/OrderInfo/OrderInfo";
+import Reviews from "@/pages/farmer/Profile/components/Reviews";
 
 /**
  * All of the path is under farmer route
@@ -61,6 +62,10 @@ export default [
   {
     path: "profile",
     element: <Profile />,
+  },
+  {
+    path: "profile/reviews",
+    element: <Reviews />,
   },
   {
     path: "orders",
