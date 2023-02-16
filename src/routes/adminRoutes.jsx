@@ -1,4 +1,4 @@
-import User from "@/pages/admin/AccountManagement/users";
+import User from "@/pages/admin/AccountManagement/Users";
 import AdminLayout from "@/pages/admin/AdminLayout/AdminLayout";
 import Dashboard from "@/pages/admin/Dashboard/Dashboard";
 import Login from "@/pages/admin/Login/Login";
