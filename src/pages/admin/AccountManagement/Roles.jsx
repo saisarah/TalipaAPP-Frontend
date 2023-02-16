@@ -1,16 +1,12 @@
-import {
-  CoffeeOutlined,
-  ExclamationOutlined,
-  HeartOutlined,
-  LikeOutlined,
-} from "@ant-design/icons";
-import { Avatar, Button, Segmented, Table } from "antd";
-import { useState } from "react";
-import { Space, Tag } from "antd";
-import UserOutlined from "@/icons/heroicons/UserOutlined";
+import {Button, Form, Input, Modal, Select, Table, Tag } from "antd";
+import { useState } from "react"; 
 
 export default function Roles() {
+  const [modal1Open, setModal1Open] = useState(false);
   const [show, setShow] = useState(true);
+  const handleChange = (value) => {
+    console.log(`selected ${value}`);
+  };
   const columns = [
     {
       title: "Roles",
@@ -69,31 +65,50 @@ export default function Roles() {
     <div>
       <div className="flex pt-7">
         <div className="flex grow justify-end">
-          {/* <Segmented
-            options={[
-              {
-                label: "Active User License",
-                value: "Active User License",
-                icon: <LikeOutlined />,
-              },
-              {
-                label: "Invited Users",
-                value: "Invited Users",
-                icon: <HeartOutlined />,
-              },
-              {
-                label: "Disabled Users",
-                value: "Disabled Users",
-                icon: <ExclamationOutlined />,
-              },
-              {
-                label: "User Waiting Approval",
-                value: "User Waiting Approval",
-                icon: <CoffeeOutlined />,
-              },
-            ]}
-          /> */}
-          <Button type="primary">Add new roles</Button>
+          <div className="flex flex-row justify-end">
+            <Button type="primary" onClick={() => setModal1Open(true)}>
+              Display a modal dialog at 20px to Top
+            </Button>
+            <Modal
+              title="20px to Top"
+              style={{
+                top: 20,
+              }}
+              open={modal1Open}
+              onOk={() => setModal1Open(false)}
+              onCancel={() => setModal1Open(false)}
+            >
+              <Form className="space-y-4">
+                <Input placeholder="E-mail" />
+                <Input placeholder="Fullname" />
+                <Input placeholder="Contact" />
+                <Input placeholder="Age" />
+                <Input placeholder="Address" />
+                <Select
+                  defaultValue="Select status"
+                  style={{
+                    width: 120,
+                  }}
+                  onChange={handleChange}
+                  options={[
+                    {
+                      value: "Select status",
+                      label: "Select status",
+                      disabled: true,
+                    },
+                    {
+                      value: "Active",
+                      label: "Active",
+                    },
+                    {
+                      value: "Inactive",
+                      label: "Inactive",
+                    },
+                  ]}
+                />
+              </Form>
+            </Modal>
+          </div>
         </div>
       </div>
       <div className="p-5">
