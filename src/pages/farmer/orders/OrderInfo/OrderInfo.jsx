@@ -166,7 +166,7 @@ export default function OrderInfo() {
 
           {order.status == "shipped" && (
             <>
-              <div className="mt-2 w-full border-b bg-white">
+              <div className="mt-2 w-full bg-white">
                 {/* Delivery Method */}
                 <div className="flex justify-between px-4">
                   <div className="text-lg font-bold text-zinc-400">
@@ -203,6 +203,14 @@ export default function OrderInfo() {
                   </div>
                 </div>
               </div>
+
+              <div
+                className="mb-4 h-1"
+                style={{
+                  backgroundImage:
+                    "repeating-linear-gradient(45deg, #6fa6d6, #6fa6d6 33px, transparent 0, transparent 41px, #f18d9b 0, #f18d9b 74px, transparent 0, transparent 82px)",
+                }}
+              ></div>
               <div>
                 {/* <div className=" flex flex-row">
                 <div className="flex">
