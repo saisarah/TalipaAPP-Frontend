@@ -3,11 +3,6 @@ import { useTab } from "@/helpers/hooks";
 import PageHeader from "@/components/PageHeader";
 import Page from "@/components/Page";
 import OrderLists from "./components/OrderLists";
-// import { Pending } from "./Pending";
-// import { Confirmed } from "./Confirmed";
-// import { Shipped } from "./Shipped";
-// import { Cancelled } from "./Cancelled";
-// import { Completed } from "./Completed";
 export default function Orders() {
   const { isActive, selected } = useTab(
     ["pending", "confirmed", "shipped", "cancelled", "completed"],
@@ -36,11 +31,6 @@ export default function Orders() {
       </div>
 
       <OrderLists selected={selected} />
-      {/* {isActive("pending") && <OrderLists />} */}
-      {/* {isActive("confirmed") && <OrderLists />}
-      {isActive("shipped") && <OrderLists />}
-      {isActive("completed") && <OrderLists />}
-      {isActive("cancelled") && <OrderLists />} */}
     </Page>
   );
 }
