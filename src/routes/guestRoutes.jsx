@@ -1,6 +1,9 @@
+
+import ForgotPassword from "@/pages/auth/ForgotPassword/ForgotPassword";
 import Login from "../pages/auth/login/Login";
-import Verification from "../pages/auth/login/Verification";
 import Register from "../pages/auth/register/Register";
+import Faq from "@/pages/help/Faq";
+import Help from "@/pages/help/Help";
 
 export default [
   {
@@ -8,11 +11,19 @@ export default [
     element: <Login />,
   },
   {
-    path: "/verification",
-    element: <Verification />,
-  },
-  {
     path: "/register",
     element: <Register />,
   },
+  {
+    path: "/forgot-password",
+    element: <ForgotPassword />,
+  },
+  {
+    path: "/faq",
+    element: <Faq />,
+  },
+  {
+    path: "/help",
+    element: <Help />,
+  }
 ];
