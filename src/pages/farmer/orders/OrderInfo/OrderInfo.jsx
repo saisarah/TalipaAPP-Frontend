@@ -25,34 +25,38 @@ const statusMap = {
   },
 };
 
-const steps = [
-  {
-    title: "Step 1",
-    description: "This is Description",
-    timestamp: "3 Days ago",
-  },
+const { Step } = Steps;
 
-  {
-    title: "Step 2",
-    description: "This is Description",
-    timestamp: "3 Days ago",
-  },
-
-  {
-    title: "Step 3",
-    description: "This is Description",
-    timestamp: "3 Days ago",
-  },
-];
-const description = "This is a description.";
-const extra = "this is subdescription";
-const timestamp = "3 days ago";
 export default function OrderInfo() {
   const { id } = useParams();
 
   const { data: order, isLoading } = useQuery(["orders", id], () =>
     getOrder(id)
   );
+
+  const items = [
+    {
+      title: "Shipped",
+      description: "This is a Description",
+      timestamp: "2023-02-16 10:30 AM",
+      icon: {},
+    },
+    {
+      title: "In Transit",
+      description: "This is a Description",
+      timestamp: "2023-02-17 2:00 PM",
+    },
+    {
+      title: "Preparing your commodities",
+      description: "This is a Description",
+      timestamp: "2023-02-18 4:45 PM",
+    },
+    {
+      title: "Order Placed",
+      description: "This is a Description",
+      timestamp: "2023-02-19 9:15 AM",
+    },
+  ];
 
   return (
     <div className="app-size bg-white ">
@@ -211,62 +215,55 @@ export default function OrderInfo() {
                     "repeating-linear-gradient(45deg, #6fa6d6, #6fa6d6 33px, transparent 0, transparent 41px, #f18d9b 0, #f18d9b 74px, transparent 0, transparent 82px)",
                 }}
               ></div>
-              <div>
-                {/* <div className=" flex flex-row">
-                <div className="flex">
-                  {steps.map((item) => (
-                    <div className="px-4 py-2">
-                      <p>{item.timestamp}</p>
-                      <p>{item.description}</p>
-                    </div>
-                  ))}
-                </div>
-
-                <div className="mt-6">
-                  <Steps current={1}>
-                    {steps.map((step) => (
-                      <Steps
-                        key={step.title}
-                        title={step.title}
-                        extra={step.timestamp}
-                      />
-                    ))}
-                  </Steps>
-                </div> */}
-                <Steps
+              <div className="grid w-full justify-center">
+                {/* <Steps
                   className=""
                   direction="vertical"
                   current={2}
                   items={[
                     {
                       title: "To Ship",
-                      description,
-                      timestamp,
-                      extra,
+                      description: "This is a Description",
                     },
                     {
-                      title: "In Progress",
-                      description,
-                      timestamp,
-                      extra,
-                      description,
+                      title: "To Ship",
+                      description: "This is a Description",
                     },
                     {
-                      title: "Arrived",
-                      description,
-                      timestamp,
-                      extra,
-                      description,
+                      title: "To Ship",
+                      description: "This is a Description",
                     },
                     {
-                      title: "Arrived",
-                      description,
-                      timestamp,
-                      extra,
-                      description,
+                      title: "To Ship",
+                      description: "This is a Description",
                     },
                   ]}
-                />
+                /> */}
+
+                <Steps direction="vertical" current={2} className="w-full ">
+                  {items.map((item, index) => (
+                    <Step
+                      className=""
+                      key={index}
+                      title={
+                        <div>{item.title}</div>
+                        // <div className="flex items-center justify-between">
+
+                        // </div>
+                      }
+                      description={
+                        <div className="grid grid-cols-2 gap-2">
+                          <div>
+                            <p>{item.description}</p>
+                          </div>
+                          <div className="text-right text-sm">
+                            {item.timestamp}
+                          </div>
+                        </div>
+                      }
+                    />
+                  ))}
+                </Steps>
               </div>
             </>
           )}
