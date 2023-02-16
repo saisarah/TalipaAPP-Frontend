@@ -1,3 +1,4 @@
+import Page from "@/components/Page";
 import PageHeader from "@/components/PageHeader";
 import { StarFilled, StarOutlined } from "@ant-design/icons";
 import { Avatar, Card } from "antd";
@@ -26,8 +27,7 @@ function Review({ user, ratings, comment, review }) {
 
 export default function Reviews() {
   return (
-    <div>
-      <div className="mx-auto min-h-screen max-w-md bg-white">
+      <Page className="bg-white">
         <PageHeader back="/#" title="Reviews" />
 
         <div>
@@ -90,7 +90,6 @@ export default function Reviews() {
             }
           />
         </div>
-      </div>
-    </div>
+      </Page>
   );
 }

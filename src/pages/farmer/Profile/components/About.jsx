@@ -1,4 +1,4 @@
-import PageHeader from "@/components/PageHeader";
+
 import { StarFilled, StarOutlined } from "@ant-design/icons";
 import { Avatar, Button, Card, Tag } from "antd";
 import { Link } from "react-router-dom";
@@ -72,7 +72,7 @@ export default function About() {
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua.
           </span>
-          <div className="flex items-center">
+          <div className="flex py-2 items-center">
             <h1 className="mb-2 mr-2 text-6xl">4.0</h1>
             <div className="flex flex-col text-base text-[#739559]">
               <div className="flex">
