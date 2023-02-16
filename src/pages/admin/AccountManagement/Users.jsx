@@ -134,7 +134,7 @@ export default function Users() {
             Add new user
           </Button>
           <Modal
-            title="20px to Top"
+            title="Add user"
             style={{
               top: 20,
             }}
