@@ -1,102 +1,101 @@
 import Page from "@/components/Page";
 import PageHeader from "@/components/PageHeader";
-import { SearchOutlined } from "@ant-design/icons";
-import { Avatar, Input } from "antd";
+import { UserDeleteOutlined } from "@ant-design/icons";
 
 export default function Help() {
   return (
     <Page>
       <PageHeader title="TalipaAPP Help Center" back="/"/>
       <div className="my-2 bg-white">
-        <div className="mx-4 flex grow pt-2">
+        {/* <div className="mx-4 flex grow pt-2">
           <Input
             type="text"
             className="rounded-lg "
             placeholder="Search for topics, questions..."
             suffix={<SearchOutlined />}
           />
-        </div>
+        </div> */}
 
         <div className="mx-4 flex grow flex-col p-2">
-          <div className=" text-xl font-bold">
+          <div className="text-xl font-bold">
             <p>Self-Service</p>
           </div>
 
           <div className="flex-cols-2 mx-4 flex items-center gap-4 pb-4 font-bold">
-            <img src="/assets/images/track.png" className="h-20 w-20 " />
+            <img src="/assets/images/track.png" className="h-18 w-18 " />
             <span>Track Order</span>
-            <img src="/assets/images/changepass.png" className="h-20 w-20 " />
-            <span>Track Order</span>
+            <img src="/assets/images/changepass.png" className="h-18 w-18 pl-14" />
+            <span>Change Password</span>
           </div>
           <div className="flex-cols-2 mx-4 flex items-center gap-4 font-bold">
-            <img src="/assets/images/changenumber.png" className="h-20 w-20 " />
-            <span>Track Order</span>
-            <img src="/assets/images/delete.png" className="h-20 w-20 " />
-            <span>Track Order</span>
+            <img src="/assets/images/changenumber.png" className="h-18 w-18" />
+            <span>Change Phone Number</span>
+            <UserDeleteOutlined className="pr-4 text-4xl" />
+            <span>Delete Account</span>
           </div>
         </div>
       </div>
 
       <div className=" bg-white">
-        <div className="flex grow p-2 text-xl font-bold">
-          <p>Hot Questions</p>
+        <div className="flex grow pt-2 pr-2 pb-1 pl-3.5 text-xl font-bold">
+          <div>Hot Questions</div>
         </div>
+
         <div className="mx-4 pb-2">
-          <div className="">
+
+          <div className="pt-2">
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              Welcome To TalipaAPP: A new guide for buyers.
             </p>
           </div>
 
           <div className="">
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              How do i track my order?
             </p>
           </div>
 
           <div className="">
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              Why can't i return my order?
             </p>
           </div>
 
           <div className="">
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              What is the order received button?
             </p>
           </div>
 
           <div className="">
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              Why can't i change my mobile number?
             </p>
           </div>
 
           <div className="">
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              TalipaAPP Money Back Guarantee
+            </p>
+          </div>
+
+          <div className="">
+            <p>
+              I need help with my order
             </p>
           </div>
         </div>
       </div>
 
       <div className="my-2 bg-white">
-        <div className="flex grow p-2 text-xl font-bold">
-          <p>Do You Have Any Other Question?</p>
+        <div className="flex grow pt-2 pr-2 pb-1 pl-3.5 text-xl font-bold">
+          <div>Do You Have Any Other Question?</div>
         </div>
-      </div>
-
-      <div className="my-2 bg-white">
-        <div className="my-4 flex">
-          <div className="flex items-center">
-            <Avatar className="m-2 " />
-            <p className="text-lg"> Chat</p>
+        
+        <div className="flex">
+          <div className="flex items-center justify-center rounded-full overflow-hidden">
+          <img src="/assets/images/chat.png" className="h-12 w-13 p-3.5"/>
+            <div>Chat</div>
           </div>
         </div>
       </div>
