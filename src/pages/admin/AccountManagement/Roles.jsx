@@ -1,9 +1,30 @@
-import {Button, Form, Input, Modal, Select, Table, Tag } from "antd";
-import { useState } from "react"; 
+import { DownOutlined } from "@ant-design/icons";
+import {
+  Button,
+  Dropdown,
+  Form,
+  Input,
+  Modal,
+  Select,
+  Space,
+  Table,
+  Tag,
+} from "antd";
+import { useState } from "react";
 
 export default function Roles() {
   const [modal1Open, setModal1Open] = useState(false);
   const [show, setShow] = useState(true);
+  const items = [
+    {
+      key: "1",
+      label: "Update",
+    },
+    {
+      key: "2",
+      label: "Delete",
+    },
+  ];
   const handleChange = (value) => {
     console.log(`selected ${value}`);
   };
@@ -33,6 +54,43 @@ export default function Roles() {
         </>
       ),
     },
+    {
+      title: "Actions",
+      key: "tags",
+      dataIndex: "tags",
+      render: (_, { tags }) => (
+        <>
+          {tags.map((tag) => {
+            let color = tag.length > 5 ? "green" : "geekblue";
+            if (tag === "Inactive") {
+              color = "volcano";
+            }
+            return (
+              <Tag color={color} key={tag}>
+                {tag.toUpperCase()}
+              </Tag>
+            );
+          })}
+        </>
+      ),
+    },
+    {
+      dataIndex: "operation",
+      key: "operation",
+      render: () => (
+        <Space size="middle">
+          <Dropdown
+            menu={{
+              items,
+            }}
+          >
+            <a>
+              More <DownOutlined />
+            </a>
+          </Dropdown>
+        </Space>
+      ),
+    },
   ];
   const data = [
     {
@@ -40,24 +98,28 @@ export default function Roles() {
       roles: "Super Admin",
       permissions: ["chat support", "moderator", "Account Manager"],
       action: "",
+      tags: ["Active"],
     },
     {
       key: "2",
       roles: "Chat Support",
       permissions: ["chat support"],
       action: "",
+      tags: ["Active"],
     },
     {
       key: "3",
       roles: "Moderator",
       permissions: ["moderator"],
       action: "",
+      tags: ["Inactive"],
     },
     {
       key: "4",
       roles: "Account Manager",
       permissions: ["Account Manager"],
       action: "",
+      tags: ["Active"],
     },
   ];
 
@@ -67,10 +129,10 @@ export default function Roles() {
         <div className="flex grow justify-end">
           <div className="flex flex-row justify-end">
             <Button type="primary" onClick={() => setModal1Open(true)}>
-              Display a modal dialog at 20px to Top
+              Add New User
             </Button>
             <Modal
-              title="20px to Top"
+              title="Add new user"
               style={{
                 top: 20,
               }}
@@ -79,7 +141,6 @@ export default function Roles() {
               onCancel={() => setModal1Open(false)}
             >
               <Form className="space-y-4">
-                <Input placeholder="E-mail" />
                 <Input placeholder="Fullname" />
                 <Input placeholder="Contact" />
                 <Input placeholder="Age" />
