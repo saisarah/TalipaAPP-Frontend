@@ -34,7 +34,7 @@ export default function MainMenu() {
   return (
     <div className="app-size bg-white">
       <PageHeader
-        left={<img src="/assets/images/logo.png" className="h-16" />}
+        left={<img src="/assets/talipaapp.svg" className="h-16" />}
         title="TalipaAPP"
       />
 
@@ -47,7 +47,11 @@ export default function MainMenu() {
           label="Notifications"
         />
         <MenuButton to="/farmer/groups" src={groupImg} label="Group" />
+
+       
+
         <MenuButton to="/farmer/settings" src={settingsImg} label="Settings" />
+
         <MenuButton to="/farmer/profile" src={farmerImg} label="Profile" />
         <MenuButton to="/farmer/orders" src={ordersImg} label="Orders" />
         <MenuButton src={cropsImg} label="Crops" />
