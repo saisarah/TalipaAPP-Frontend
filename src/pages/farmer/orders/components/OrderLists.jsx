@@ -1,7 +1,6 @@
 import { useTab } from "@/helpers/hooks";
 import { useQuery } from "@tanstack/react-query";
 import { Spin } from "antd";
-import { useSearchParams } from "react-router-dom";
 import { getOrders } from "../ordersData";
 import OrderItem from "./OrderItem";
 
