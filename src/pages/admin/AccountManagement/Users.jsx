@@ -14,9 +14,9 @@ export default function Users() {
     },
 
     {
-      title: "Contact Number",
-      dataIndex: "contact",
-      key: "contact",
+      title: "E-mail",
+      dataIndex: "email",
+      key: "email",
     },
     {
       title: "Status",
@@ -43,29 +43,29 @@ export default function Users() {
     {
       key: "1",
       name: "John Brown",
-      contact: "0912345667",
+      email: "email@gmail.com",
       tags: ["active"],
     },
     {
       key: "2",
       name: "Jim Green",
-      contact: "0912345667",
+      email: "email@gmail.com",
       tags: ["Inactive"],
     },
     {
       key: "3",
       name: "Joe Black",
-      contact: "0912345667",
+      email: "email@gmail.com",
       tags: ["active"],
     },
   ];
   return (
     <div>
-      <div className="flex">
+      {/* <div className="flex">
         <div className="container flex grow ">
           <Search placeholder="Search account" onSearch={onSearch} />
         </div>
-      </div>
+      </div> */}
       <div className="pt-5 pb-3">
         <div className="flex flex-row justify-end px-20">
           <Button type="primary" size="large">
