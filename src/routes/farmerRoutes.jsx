@@ -10,6 +10,7 @@ import Profile from "@/pages/farmer/Profile/Profile";
 import { PostDetails as GroupPostDetails } from "@/pages/farmer/group/PostDetails/PostDetails";
 import CreateGroup from "@/pages/farmer/group/CreateGroup/CreateGroup";
 import Orders from "@/pages/farmer/orders/Orders";
+import Reviews from "@/pages/farmer/Profile/components/Reviews";
 
 /**
  * All of the path is under farmer route
@@ -39,6 +40,10 @@ export default [
     element: <Profile />,
   },
   {
+    path: "profile/reviews",
+    element: <Reviews />,
+  },
+  {
   path: "orders",
     element: <Orders />,
   },
@@ -66,4 +71,5 @@ export default [
     path: "groups/new",
     element: <CreateGroup />,
   },
+  
 ];

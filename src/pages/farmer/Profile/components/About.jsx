@@ -37,7 +37,7 @@ function Reviews({ user, ratings, comment, review }) {
             </div>
           </div>
           <div className="">
-            <span className="mb-2 flex text-base">{comment}</span>
+            <span className="mb-2 flex">{comment}</span>
           </div>
         </Card>
       </div>
@@ -49,7 +49,7 @@ export default function About() {
   return (
     <div>
       <div className="mx-auto min-h-screen max-w-md bg-white">
-        <PageHeader back="/#" title="About" />
+       
         <div>
           <AboutInfo title={"Place lived"} descriptions={["Caloocan City"]} />
         </div>
@@ -164,7 +164,7 @@ export default function About() {
             }
           />
         </div>
-        <Link to="/login">
+        <Link to="reviews">
           <Button className="border-none text-[#739559]" size="large">
             See all reviews
           </Button>

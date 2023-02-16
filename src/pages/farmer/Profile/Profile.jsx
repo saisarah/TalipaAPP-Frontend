@@ -8,8 +8,8 @@ import PostCard from "@/components/PostCard";
 import PageHeader from "@/components/PageHeader";
 import Page from "@/components/Page";
 import { useTab } from "@/helpers/hooks";
-import { About } from "../group/components/About";
 import { Link } from "react-router-dom";
+import About from "./components/About";
 
 const UserPosts = ({ id }) => {
   const { data: posts, isLoading } = useQuery(["users", id, "posts"], () =>
@@ -34,12 +34,12 @@ const UserPosts = ({ id }) => {
 
 export default function Profile() {
   const { data: user } = useCurrentUserQuery();
-  const { isActive } = useTab(["posts", "about"], "posts");
+  const { isActive, selected } = useTab(["posts", "about"], "posts");
 
   return (
     <Page className="bg-slate-50">
       <PageHeader back="/farmer" title="Profile" />
-      <div className="flex aspect-video flex-col items-center justify-end bg-slate-300">
+      <div className="flex aspect-video flex-col items-center justify-end gap-2 bg-slate-300">
         <Avatar
           icon={<UserOutlined />}
           src={user.profile_picture}
@@ -47,31 +47,39 @@ export default function Profile() {
           className="relative -bottom-[60px]"
         />
       </div>
-      <div className="flex flex-col items-center gap-2  bg-white pt-[60px]">
+      <div className="flex flex-col items-center gap-2 bg-white pt-[60px]">
         <span className="mt-2 font-bold">
           {user.firstname} {user.lastname}
         </span>
+
         <Button shape="round" icon={<EditOutlined />}>
           Edit Profile
         </Button>
-
-        <div className="grid h-16 w-full grid-cols-2 bg-white text-lg shadow-md">
-          <Link
-            to="/posts"
-            className="flex items-center justify-center border-b border-primary text-primary"
-          >
-            Posts
-          </Link>
-         
-          <Link to="/temp" className="flex items-center justify-center">
-            About
-          </Link>
-          
-        </div>
+      </div>
+      <div className="no-scrollbar sticky top-0 z-30 grid grid-cols-2 items-center justify-center overflow-x-auto bg-white text-lg shadow-md ">
+        <TabLink tab="posts" isActive={isActive}>
+          <span className="p-4">Post</span>
+        </TabLink>
+        <TabLink tab="about" isActive={isActive}>
+          <span className="flex items-center justify-center p-4">About</span>
+        </TabLink>
       </div>
 
-      {isActive("posts") ? <UserPosts id={user.id} /> : null}
-      {isActive("about") ? <About /> : null}
+      {isActive("about") ? <About /> : <UserPosts id={user.id} />}
     </Page>
+  );
+}
+
+function TabLink({ children, tab, isActive }) {
+  return (
+    <Link
+      to={`?tab=${tab}`}
+      className={`flex items-center justify-center  ${
+        isActive(tab) ? "border-b border-primary text-primary" : ""
+      }`}
+      replace
+    >
+      {children}
+    </Link>
   );
 }
