@@ -6,10 +6,8 @@ import { Empty } from "antd";
 import {
   AudioOutlined,
   DeleteOutlined,
-  EditOutlined,
   EllipsisOutlined,
   SendOutlined,
-  SettingOutlined,
   ShoppingCartOutlined,
 } from "@ant-design/icons";
 import Meta from "antd/lib/card/Meta";
