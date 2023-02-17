@@ -1,5 +1,15 @@
 import { DownOutlined, PlusOutlined, SearchOutlined } from "@ant-design/icons";
-import { Button, Dropdown, Form, Input, Modal, Table, Space, Tag, Select } from "antd";
+import {
+  Button,
+  Dropdown,
+  Form,
+  Input,
+  Modal,
+  Table,
+  Space,
+  Tag,
+  Select,
+} from "antd";
 import Search from "antd/lib/transfer/search";
 
 import { useState } from "react";
@@ -66,17 +76,17 @@ export default function Users() {
       render: () => (
         <div className="flex">
           <div className="flex grow">
-          <Space size="middle">
-          <Dropdown
-            menu={{
-              items,
-            }}
-          >
-            <a>
-              Settings <DownOutlined />
-            </a>
-          </Dropdown>
-        </Space>
+            <Space size="middle">
+              <Dropdown
+                menu={{
+                  items,
+                }}
+              >
+                <a>
+                  Settings <DownOutlined />
+                </a>
+              </Dropdown>
+            </Space>
           </div>
         </div>
       ),
@@ -118,13 +128,9 @@ export default function Users() {
 
   return (
     <div>
-      {/* <div className="flex">
-        <div className="container flex grow ">
-          <Search placeholder="Search account" onSearch={onSearch} />
-        </div>
-      </div> */}
       <div className="pt-5 pb-3">
-        <div className="flex flex-row justify-end">
+        <div className="flex justify-between">
+          <h1>User management</h1>
           <Button
             size="small"
             type="primary"
@@ -149,31 +155,31 @@ export default function Users() {
               <Input placeholder="Age" />
               <Input placeholder="Address" />
               <Select
-      defaultValue="Select status"
-      style={{
-        width: 120,
-      }}
-      onChange={handleChange}
-      options={[
-        {
-          value: 'Select status',
-          label: 'Select status',
-          disabled: true,
-        },
-        {
-          value: 'Active',
-          label: 'Active',
-        },
-        {
-          value: 'Inactive',
-          label: 'Inactive',
-        },
-      ]}
-    />
+                defaultValue="Select status"
+                style={{
+                  width: 120,
+                }}
+                onChange={handleChange}
+                options={[
+                  {
+                    value: "Select status",
+                    label: "Select status",
+                    disabled: true,
+                  },
+                  {
+                    value: "Active",
+                    label: "Active",
+                  },
+                  {
+                    value: "Inactive",
+                    label: "Inactive",
+                  },
+                ]}
+              />
             </Form>
           </Modal>
         </div>
-        <div className="container pt-2">
+        <div className="pt-2">
           <Table className="rounded" columns={columns} dataSource={data} />
         </div>
       </div>
