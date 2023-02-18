@@ -13,6 +13,7 @@
     "@ant-design/icons": "^4.7.0",
     "@tanstack/react-query": "^4.19.0",
     "@tanstack/react-query-devtools": "^4.19.0",
+    "aicommits": "^1.1.0",
     "antd": "^4.24.1",
     "axios": "^1.2.0",
     "framer-motion": "^7.6.6",
