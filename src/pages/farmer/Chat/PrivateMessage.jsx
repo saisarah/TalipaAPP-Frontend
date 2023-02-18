@@ -11,8 +11,8 @@ import {
   ShoppingCartOutlined,
 } from "@ant-design/icons";
 import Meta from "antd/lib/card/Meta";
-import Search from "antd/lib/transfer/search";
 
+// test AICommits
 export default function PrivateMessage() {
   const App = () => <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} />;
   const onSearch = (value) => console.log(value);
@@ -73,7 +73,7 @@ export default function PrivateMessage() {
           </p>
         </Card>
       </div>
-      <div className="justify-s flex p-4 items-end gap-2">
+      <div className="justify-s flex items-end gap-2 p-4">
         <Avatar
           size="medium"
           style={{ backgroundColor: "#87d068" }}
