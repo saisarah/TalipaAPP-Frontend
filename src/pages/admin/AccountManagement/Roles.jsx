@@ -1,4 +1,4 @@
-import { DownOutlined } from "@ant-design/icons";
+import { DownOutlined, PlusOutlined } from "@ant-design/icons";
 import {
   Button,
   Dropdown,
@@ -95,7 +95,7 @@ export default function Roles() {
   const data = [
     {
       key: "1",
-      roles: "Super Admin",
+      roles: "Admin",
       permissions: ["chat support", "moderator", "Account Manager"],
       action: "",
       tags: ["Active"],
@@ -128,11 +128,16 @@ export default function Roles() {
       <div className="flex pt-7">
         <div className="flex grow justify-end">
           <div className="flex flex-row justify-end">
-            <Button type="primary" onClick={() => setModal1Open(true)}>
-              Add New User
+            <Button
+              type="primary"
+              size="small"
+              onClick={() => setModal1Open(true)}
+            >
+              <PlusOutlined />
+              Add new role
             </Button>
             <Modal
-              title="Add new user"
+              title="Add new role"
               style={{
                 top: 20,
               }}
@@ -141,10 +146,30 @@ export default function Roles() {
               onCancel={() => setModal1Open(false)}
             >
               <Form className="space-y-4">
-                <Input placeholder="Fullname" />
-                <Input placeholder="Contact" />
-                <Input placeholder="Age" />
-                <Input placeholder="Address" />
+                <Input placeholder="Name of roles" />
+                <Select
+                  mode="multiple"
+                  style={{
+                    width: "100%",
+                  }}
+                  placeholder="Select Permission"
+                  onChange={handleChange}
+                  optionLabelProp="label"
+                >
+                  <Option value="Admin" label="Admin">
+                    Admin
+                  </Option>
+                  <Option value="Chat Support" label="Chat Support">
+                    Chat Support
+                  </Option>
+                  <Option value="Moderator" label="Moderator">
+                    Moderator
+                  </Option>
+                  <Option value="Account Manager" label="Account Manager">
+                    Account Manager
+                  </Option>
+                </Select>
+
                 <Select
                   defaultValue="Select status"
                   style={{
