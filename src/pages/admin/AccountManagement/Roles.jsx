@@ -85,7 +85,7 @@ export default function Roles() {
             }}
           >
             <a>
-              More <DownOutlined />
+              Settings <DownOutlined />
             </a>
           </Dropdown>
         </Space>
