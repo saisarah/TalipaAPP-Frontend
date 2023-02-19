@@ -3,6 +3,7 @@ import Role from "@/pages/admin/AccountManagement/Roles";
 import AdminLayout from "@/pages/admin/AdminLayout/AdminLayout";
 import Commodities from "@/pages/admin/Commodities/Commodities";
 import Dashboard from "@/pages/admin/Dashboard/Dashboard";
+import Faq from "@/pages/admin/FAQ/Faq";
 import Login from "@/pages/admin/Login/Login";
 import FarmerGroup from "@/pages/admin/UserManagement/FarmerGroup";
 import Farmer from "@/pages/admin/UserManagement/Farmer";
@@ -44,6 +45,10 @@ export default [
       {
         path: "change-password",
         element: <ChangePassword />,
+      },
+      {
+        path: "FAQs",
+        element: <Faq />,
       },
     ],
   },

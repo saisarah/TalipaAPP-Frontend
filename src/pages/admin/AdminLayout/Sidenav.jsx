@@ -11,7 +11,7 @@
 */
 
 // import { useState } from "react";
-import { VerticalAlignTopOutlined } from "@ant-design/icons";
+import { EyeOutlined, QuestionCircleFilled, QuestionCircleOutlined, VerticalAlignTopOutlined } from "@ant-design/icons";
 import { Menu, Button, Avatar } from "antd";
 import { NavLink, useLocation } from "react-router-dom";
 import logo from "./images/TalipaApp_Icon.png";
@@ -253,7 +253,7 @@ function Sidenav({ color }) {
                 background: page === "change-password" ? color : "",
               }}
             >
-              {recordsReports}
+              <EyeOutlined height={100} />
             </span>
             <span className="label">Change password</span>
           </NavLink>
@@ -266,7 +266,7 @@ function Sidenav({ color }) {
                 background: page === "FAQs" ? color : "",
               }}
             >
-              {recordsReports}
+              <QuestionCircleFilled />
             </span>
             <span className="label">FAQs</span>
           </NavLink>
