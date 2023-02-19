@@ -281,18 +281,18 @@ function Header({
               <Link to="/admin">Dashboard</Link>
             </Breadcrumb.Item>
             <Breadcrumb.Item style={{ textTransform: "capitalize" }}>
-              {name.replace("/", "")}
+              {name.replace("/", "/")}
             </Breadcrumb.Item>
           </Breadcrumb>
 
-          <div className="ant-page-header-heading">
+          {/* <div className="ant-page-header-heading">
             <span
               className="ant-page-header-heading-title"
               style={{ textTransform: "capitalize" }}
             >
-              {subName.replace("/", "")}
+              {subName.replace("/", "/")}
             </span>
-          </div>
+          </div> */}
         </Col>
         <Col span={24} md={18} className="header-control">
           {/* NOTIFICATIONS */}
