@@ -1,10 +1,22 @@
+import Http from "@/helpers/Http";
 import { useQuery } from "@tanstack/react-query";
 import { Spin } from "antd";
 import { getGroups } from "../groups";
+import { items } from "../Posts/post-data";
 import GroupItem from "./GroupItem";
 
+const fetchFarmerGroups = async function () {
+  const result = await Http.get("farmer-groups");
+  return result.data;
+};
+
 export default function SuggestedGroups() {
-  const { data, isLoading } = useQuery(["groups"], getGroups);
+  const { data, isLoading, error, isError } = useQuery(
+    ["farmer-groups"],
+    fetchFarmerGroups
+  );
+
+  // const { data, isLoading } = useQuery(["groups"], getGroups);
 
   if (isLoading)
     return (
@@ -15,8 +27,8 @@ export default function SuggestedGroups() {
 
   return (
     <div className="divide-y divide-slate-200">
-      {data.map((group) => (
-        <GroupItem key={group.id} {...group} />
+      {data.map((item) => (
+        <GroupItem key={item.id} {...item} />
       ))}
     </div>
   );
