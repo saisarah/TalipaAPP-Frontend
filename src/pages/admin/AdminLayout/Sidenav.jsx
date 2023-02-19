@@ -201,7 +201,7 @@ function Sidenav({ color }) {
           </Menu.Item>
         </Menu.Item>
         <Menu.Item key="4">
-          <NavLink to="/manage-product">
+          <NavLink to="/admin/commodities">
             <span
               className="icon"
               style={{
@@ -214,7 +214,7 @@ function Sidenav({ color }) {
           </NavLink>
         </Menu.Item>
         <Menu.Item key="5">
-          <NavLink to="admin/chat-support">
+          <NavLink to="admin/commodities">
             <span
               className="icon"
               style={{
@@ -314,11 +314,11 @@ function Sidenav({ color }) {
           </NavLink>
         </Menu.Item>
         <Menu.Item key="15">
-          <NavLink to="/admin/farmers-groups">
+          <NavLink to="/admin/farmer-groups">
             <span
               className="icon"
               style={{
-                background: page === "farmers-groups" ? color : "",
+                background: page === "farmer-groups" ? color : "",
               }}
             >
               {recordsReports}

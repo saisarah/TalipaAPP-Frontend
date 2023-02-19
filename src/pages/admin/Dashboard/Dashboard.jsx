@@ -130,30 +130,30 @@ export default function Dashboard() {
   ];
   const count = [
     {
-      today: "Today’s Sales",
-      title: "$53,000",
+      today: "Total Vendor",
+      title: "134",
       persent: "+30%",
       icon: dollor,
       bnb: "bnb2",
     },
     {
-      today: "Today’s Users",
-      title: "3,200",
+      today: "Total Farmer",
+      title: "39",
       persent: "+20%",
       icon: profile,
       bnb: "bnb2",
     },
     {
-      today: "New Clients",
-      title: "+1,200",
+      today: "Total Groups",
+      title: "37",
       persent: "-20%",
       icon: heart,
       bnb: "redtext",
     },
     {
-      today: "New Orders",
-      title: "$13,200",
-      persent: "10%",
+      today: "Total Transactions",
+      title: "13,200",
+      persent: "35%",
       icon: cart,
       bnb: "bnb2",
     },
@@ -161,151 +161,84 @@ export default function Dashboard() {
 
   const list = [
     {
-      img: ava1,
-      Title: "Soft UI Shopify Version",
-      bud: "$14,000",
+      Title: "Pineapple",
+      bud: "₱14,000",
       progress: <Progress percent={60} size="small" />,
-      member: (
-        <div className="avatar-group mt-2">
-          <Tooltip placement="bottom" title="Ryan Tompson">
-            <img className="tootip-img" src={team1} alt="" />
-          </Tooltip>
-          <Tooltip placement="bottom" title="Romina Hadid">
-            <img className="tootip-img" src={team2} alt="" />
-          </Tooltip>
-          <Tooltip placement="bottom" title="Alexander Smith">
-            <img className="tootip-img" src={team3} alt="" />
-          </Tooltip>
-          <Tooltip placement="bottom" title="Jessica Doe">
-            <img className="tootip-img" src={team4} alt="" />
-          </Tooltip>
-        </div>
-      ),
     },
     {
-      img: ava2,
-      Title: "Progress Track",
-      bud: "$3,000",
+      Title: "Mango",
+      bud: "₱3,000",
       progress: <Progress percent={10} size="small" />,
-      member: (
-        <div className="avatar-group mt-2">
-          <Tooltip placement="bottom" title="Ryan Tompson">
-            <img className="tootip-img" src={team1} alt="" />
-          </Tooltip>
-          <Tooltip placement="bottom" title="Romina Hadid">
-            <img className="tootip-img" src={team2} alt="" />
-          </Tooltip>
-        </div>
-      ),
     },
     {
-      img: ava3,
-      Title: "Fix Platform Errors",
-      bud: "Not Set",
+      Title: "Banana",
+      bud: "₱20,600",
       progress: <Progress percent={100} size="small" status="active" />,
-      member: (
-        <div className="avatar-group mt-2">
-          <Tooltip placement="bottom" title="Ryan Tompson">
-            <img className="tootip-img" src={team1} alt="" />
-          </Tooltip>
-          <Tooltip placement="bottom" title="Romina Hadid">
-            <img className="tootip-img" src={team1} alt="" />
-          </Tooltip>
-          <Tooltip placement="bottom" title="Alexander Smith">
-            <img className="tootip-img" src={team3} alt="" />
-          </Tooltip>
-        </div>
-      ),
     },
     {
-      img: ava4,
-      Title: "Launch new Mobile App",
-      bud: "$20,600",
+      Title: "Garlic",
+      bud: "₱20,600",
       progress: <Progress percent={100} size="small" status="active" />,
-      member: (
-        <div className="avatar-group mt-2">
-          <Tooltip placement="bottom" title="Ryan Tompson">
-            <img className="tootip-img" src={team1} alt="" />
-          </Tooltip>
-          <Tooltip placement="bottom" title="Romina Hadid">
-            <img className="tootip-img" src={team2} alt="" />
-          </Tooltip>
-        </div>
-      ),
     },
     {
-      img: ava5,
-      Title: "Add the New Landing Page",
-      bud: "$4,000",
+      Title: "Onion",
+      bud: "₱4,000",
       progress: <Progress percent={80} size="small" />,
-      member: (
-        <div className="avatar-group mt-2">
-          <Tooltip placement="bottom" title="Ryan Tompson">
-            <img className="tootip-img" src={team1} alt="" />
-          </Tooltip>
-          <Tooltip placement="bottom" title="Romina Hadid">
-            <img className="tootip-img" src={team2} alt="" />
-          </Tooltip>
-          <Tooltip placement="bottom" title="Alexander Smith">
-            <img className="tootip-img" src={team3} alt="" />
-          </Tooltip>
-          <Tooltip placement="bottom" title="Jessica Doe">
-            <img className="tootip-img" src={team4} alt="" />
-          </Tooltip>
-        </div>
-      ),
     },
 
     {
-      img: ava6,
-      Title: "Redesign Online Store",
-      bud: "$2,000",
+      Title: "Cabbage",
+      bud: "₱2,000",
       progress: (
         <Progress
           percent={100}
           size="small"
-          status="exception"
-          format={() => "Cancel"}
+          status="active"
+          // status="exception"
+          // format={() => "Cancel"}
         />
       ),
-      member: (
-        <div className="avatar-group mt-2">
-          <Tooltip placement="bottom" title="Ryan Tompson">
-            <img className="tootip-img" src={team1} alt="" />
-          </Tooltip>
-          <Tooltip placement="bottom" title="Romina Hadid">
-            <img className="tootip-img" src={team2} alt="" />
-          </Tooltip>
-        </div>
+    },
+    {
+      Title: "EggPlant",
+      bud: "₱2,000",
+      progress: (
+        <Progress
+          percent={100}
+          size="small"
+          status="active"
+          // status="exception"
+          // format={() => "Cancel"}
+        />
       ),
     },
   ];
 
-  const timelineList = [
+  const notifications = [
     {
-      title: "$2,400 - Redesign store",
+      title: "Joshua Villanueva has login",
       time: "09 JUN 7:20 PM",
       color: "green",
     },
     {
-      title: "New order #3654323",
+      title: "Joshua Villanueva registered new account Jhunriz Lalata",
       time: "08 JUN 12:20 PM",
       color: "green",
     },
     {
-      title: "Company server payments",
+      title: "New commodities Eggplant added by Ruel Almonia",
       time: "04 JUN 3:10 PM",
     },
     {
-      title: "New card added for order #4826321",
+      title: "Lenard Mangay-Ayam registered new account Sarah Grace Oben",
       time: "02 JUN 2:45 PM",
     },
     {
-      title: "Unlock folders for development",
+      title: "Lenard Mangay-Ayam, approved new roles Super Admin",
       time: "18 MAY 1:30 PM",
     },
     {
-      title: "New order #46282344",
+      title: "Joshua Villanueva, add new roles Super Admin",
       time: "14 MAY 3:30 PM",
       color: "gray",
     },
@@ -380,12 +313,12 @@ export default function Dashboard() {
             <Card bordered={false} className="criclebox cardbody h-full">
               <div className="project-ant">
                 <div>
-                  <Title level={5}>Projects</Title>
+                  <Title level={5}>Commodities per Region</Title>
                   <Paragraph className="lastweek">
-                    done this month<span className="blue">40%</span>
+                    REALTIME<span className="blue"> UPDATE</span>
                   </Paragraph>
                 </div>
-                <div className="ant-filtertabs">
+                {/* <div className="ant-filtertabs">
                   <div className="antd-pro-pages-dashboard-analysis-style-salesExtra">
                     <Radio.Group onChange={onChange} defaultValue="a">
                       <Radio.Button value="a">ALL</Radio.Button>
@@ -393,34 +326,27 @@ export default function Dashboard() {
                       <Radio.Button value="c">STORES</Radio.Button>
                     </Radio.Group>
                   </div>
-                </div>
+                </div> */}
               </div>
               <div className="ant-list-box table-responsive">
                 <table className="width-100">
                   <thead>
                     <tr>
-                      <th>COMPANIES</th>
-                      <th>MEMBERS</th>
+                      <th>COMMODITY</th>
+
                       <th>BUDGET</th>
-                      <th>COMPLETION</th>
+                      <th>PERCENTAGE</th>
                     </tr>
                   </thead>
                   <tbody>
                     {list.map((d, index) => (
                       <tr key={index}>
                         <td>
-                          <h6>
-                            <img
-                              src={d.img}
-                              alt=""
-                              className="avatar-sm mr-10"
-                            />{" "}
-                            {d.Title}
-                          </h6>
+                          <h6>{d.Title}</h6>
                         </td>
-                        <td>{d.member}</td>
+
                         <td>
-                          <span className="text-xs font-weight-bold">
+                          <span className="font-weight-bold text-xs">
                             {d.bud}{" "}
                           </span>
                         </td>
@@ -432,7 +358,7 @@ export default function Dashboard() {
                   </tbody>
                 </table>
               </div>
-              <div className="uploadfile shadow-none">
+              {/* <div className="uploadfile shadow-none">
                 <Upload {...uploadProps}>
                   <Button
                     type="dashed"
@@ -442,23 +368,23 @@ export default function Dashboard() {
                     <span className="click">Click to Upload</span>
                   </Button>
                 </Upload>
-              </div>
+              </div> */}
             </Card>
           </Col>
           <Col xs={24} sm={24} md={12} lg={12} xl={8} className="mb-24">
             <Card bordered={false} className="criclebox h-full">
               <div className="timeline-box">
-                <Title level={5}>Orders History</Title>
-                <Paragraph className="lastweek" style={{ marginBottom: 24 }}>
+                <Title level={5}>Notifications</Title>
+                {/* <Paragraph className="lastweek" style={{ marginBottom: 24 }}>
                   this month <span className="bnb2">20%</span>
-                </Paragraph>
+                </Paragraph> */}
 
                 <Timeline
-                  pending="Recording..."
-                  className="timelinelist"
-                  reverse={reverse}
+                // pending="Recording..."
+                // className="timelinelist"
+                // reverse={reverse}
                 >
-                  {timelineList.map((t, index) => (
+                  {notifications.map((t, index) => (
                     <Timeline.Item color={t.color} key={index}>
                       <Title level={5}>{t.title}</Title>
                       <Text>{t.time}</Text>
@@ -470,14 +396,14 @@ export default function Dashboard() {
                   className="width-100"
                   onClick={() => setReverse(!reverse)}
                 >
-                  {<MenuUnfoldOutlined />} REVERSE
+                  VIEW ALL NOTIFICATIONS
                 </Button>
               </div>
             </Card>
           </Col>
         </Row>
 
-        <Row gutter={[24, 0]}>
+        {/* <Row gutter={[24, 0]}>
           <Col xs={24} md={12} sm={24} lg={12} xl={14} className="mb-24">
             <Card bordered={false} className="criclebox h-full">
               <Row gutter>
@@ -489,7 +415,7 @@ export default function Dashboard() {
                   xl={14}
                   className="mobile-24"
                 >
-                  <div className="h-full col-content p-20">
+                  <div className="col-content h-full p-20">
                     <div className="ant-muse">
                       <Text>Built by developers</Text>
                       <Title level={5}>Muse Dashboard for Ant Design</Title>
@@ -524,7 +450,7 @@ export default function Dashboard() {
 
           <Col xs={24} md={12} sm={24} lg={12} xl={10} className="mb-24">
             <Card bordered={false} className="criclebox card-info-2 h-full">
-              <div className="gradent h-full col-content">
+              <div className="gradent col-content h-full">
                 <div className="card-content">
                   <Title level={5}>Work with the best</Title>
                   <p>
@@ -541,7 +467,7 @@ export default function Dashboard() {
               </div>
             </Card>
           </Col>
-        </Row>
+        </Row> */}
       </div>
     </>
   );
