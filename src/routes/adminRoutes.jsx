@@ -4,6 +4,7 @@ import AdminLayout from "@/pages/admin/AdminLayout/AdminLayout";
 import Commodities from "@/pages/admin/Commodities/Commodities";
 import Dashboard from "@/pages/admin/Dashboard/Dashboard";
 import Login from "@/pages/admin/Login/Login";
+import FarmerGroup from "@/pages/admin/UserManagement/FarmerGroup";
 
 export default [
   {
@@ -24,6 +25,10 @@ export default [
       {
         path: "commodities",
         element: <Commodities />,
+      },
+      {
+        path: "farmer-groups",
+        element: <FarmerGroup />,
       },
     ],
   },
