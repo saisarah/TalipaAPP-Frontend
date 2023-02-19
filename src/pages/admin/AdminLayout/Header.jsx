@@ -281,21 +281,22 @@ function Header({
               <Link to="/admin">Dashboard</Link>
             </Breadcrumb.Item>
             <Breadcrumb.Item style={{ textTransform: "capitalize" }}>
-              {name.replace("/", "")}
+              {name.replace("/", "/")}
             </Breadcrumb.Item>
           </Breadcrumb>
 
-          <div className="ant-page-header-heading">
+          {/* <div className="ant-page-header-heading">
             <span
               className="ant-page-header-heading-title"
               style={{ textTransform: "capitalize" }}
             >
-              {subName.replace("/", "")}
+              {subName.replace("/", "/")}
             </span>
-          </div>
+          </div> */}
         </Col>
         <Col span={24} md={18} className="header-control">
-          <Badge size="small" count={4}>
+          {/* NOTIFICATIONS */}
+          {/* <Badge size="small" count={4}>
             <Dropdown menu={menu} trigger={["click"]}>
               <a
                 href="#pablo"
@@ -305,10 +306,11 @@ function Header({
                 {bell}
               </a>
             </Dropdown>
-          </Badge>
-          <Button type="link" onClick={showDrawer}>
+          </Badge> */}
+          {/* SETTINGS */}
+          {/* <Button type="link" onClick={showDrawer}>
             {logsetting}
-          </Button>
+          </Button> */}
           <Button
             type="link"
             className="sidebar-toggler"
@@ -322,7 +324,7 @@ function Header({
             width={360}
             onClose={hideDrawer}
             placement={placement}
-            visible={visible}
+            open={visible}
           >
             <div layout="vertical">
               <div className="header-top">
@@ -423,9 +425,8 @@ function Header({
               </div>
             </div>
           </Drawer>
-          <Link to="/sign-in" className="btn-sign-in">
+          <Link to="admin/profile" className="btn-sign-in">
             {profile}
-            
           </Link>
           <Input
             className="header-search"
