@@ -6,6 +6,7 @@ import Dashboard from "@/pages/admin/Dashboard/Dashboard";
 import Login from "@/pages/admin/Login/Login";
 import FarmerGroup from "@/pages/admin/UserManagement/FarmerGroup";
 import Farmer from "@/pages/admin/UserManagement/Farmer";
+import Vendor from "@/pages/admin/UserManagement/Vendor";
 
 export default [
   {
@@ -34,6 +35,10 @@ export default [
       {
         path: "farmers",
         element: <Farmer />,
+      },
+      {
+        path: "vendors",
+        element: <Vendor />,
       },
     ],
   },
