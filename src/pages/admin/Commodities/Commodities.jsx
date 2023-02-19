@@ -56,11 +56,6 @@ const columns = [
     key: "status",
     dataIndex: "status",
   },
-  {
-    title: "DATE HARVESTED",
-    key: "employed",
-    dataIndex: "employed",
-  },
 ];
 
 const data = [
@@ -98,14 +93,6 @@ const data = [
         </Button>
       </>
     ),
-    employed: (
-      <>
-        <div className="ant-employed">
-          <span>23/04/23</span>
-          <a href="#">Edit</a>
-        </div>
-      </>
-    ),
   },
 
   {
@@ -138,14 +125,6 @@ const data = [
     status: (
       <>
         <Button className="tag-badge">AVAILABLE</Button>
-      </>
-    ),
-    employed: (
-      <>
-        <div className="ant-employed">
-          <span>23/12/23</span>
-          <a href="#">Edit</a>
-        </div>
       </>
     ),
   },
@@ -184,14 +163,6 @@ const data = [
         </Button>
       </>
     ),
-    employed: (
-      <>
-        <div className="ant-employed">
-          <span>03/04/23</span>
-          <a href="#">Edit</a>
-        </div>
-      </>
-    ),
   },
   {
     key: "4",
@@ -227,14 +198,6 @@ const data = [
         </Button>
       </>
     ),
-    employed: (
-      <>
-        <div className="ant-employed">
-          <span>03/04/23</span>
-          <a href="#">Edit</a>
-        </div>
-      </>
-    ),
   },
   {
     key: "5",
@@ -266,14 +229,6 @@ const data = [
     status: (
       <>
         <Button className="tag-badge">AVAILABLE</Button>
-      </>
-    ),
-    employed: (
-      <>
-        <div className="ant-employed">
-          <span>23/03/23</span>
-          <a href="#">Edit</a>
-        </div>
       </>
     ),
   },
@@ -310,14 +265,6 @@ const data = [
         <Button className="tag-badge">AVAIABLE</Button>
       </>
     ),
-    employed: (
-      <>
-        <div className="ant-employed">
-          <span>14/04/23</span>
-          <a href="#">Edit</a>
-        </div>
-      </>
-    ),
   },
 ];
 
@@ -349,7 +296,7 @@ export default function Commodities() {
       <div className="text-center text-4xl">
         <h1>Our Commodities</h1>
       </div>
-      <div className="mx-52 mt-10 grid grid-cols-4 items-center gap-4 my-16">
+      <div className="mx-52 my-16 mt-10 grid grid-cols-4 items-center gap-4">
         <div>
           <Card className="flex h-80 w-64 justify-center bg-slate-50 text-lg">
             <Product
