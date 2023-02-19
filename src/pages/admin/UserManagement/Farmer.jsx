@@ -195,7 +195,8 @@ export default function Farmer() {
       {/* <div className="flex grow justify-center rounded bg-primary p-5">
         <img src="/assets/images/manageVendor.png" alt="" />
       </div> */}
-      <div className="">
+      <h1>FARMERS MANAGEMENT</h1>
+      <div className="pt-2">
         <Table columns={columns} dataSource={data} />;
       </div>
     </div>

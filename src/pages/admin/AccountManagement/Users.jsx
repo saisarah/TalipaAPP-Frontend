@@ -128,9 +128,9 @@ export default function Users() {
 
   return (
     <div>
-      <div className="pt-5 pb-3">
+      <div className="">
         <div className="flex justify-between">
-          <h1>User management</h1>
+          <h1>USERS MANAGEMENT</h1>
           <Button
             size="small"
             type="primary"

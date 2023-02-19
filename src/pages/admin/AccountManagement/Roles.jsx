@@ -55,7 +55,7 @@ export default function Roles() {
       ),
     },
     {
-      title: "Actions",
+      title: "Status",
       key: "tags",
       dataIndex: "tags",
       render: (_, { tags }) => (
@@ -125,79 +125,79 @@ export default function Roles() {
 
   return (
     <div>
-      <div className="flex pt-7">
-        <div className="flex grow justify-end">
-          <div className="flex flex-row justify-end">
-            <Button
-              type="primary"
-              size="small"
-              onClick={() => setModal1Open(true)}
-            >
-              <PlusOutlined />
-              Add new role
-            </Button>
-            <Modal
-              title="Add new role"
-              style={{
-                top: 20,
-              }}
-              open={modal1Open}
-              onOk={() => setModal1Open(false)}
-              onCancel={() => setModal1Open(false)}
-            >
-              <Form className="space-y-4">
-                <Input placeholder="Name of roles" />
-                <Select
-                  mode="multiple"
-                  style={{
-                    width: "100%",
-                  }}
-                  placeholder="Select Permission"
-                  onChange={handleChange}
-                  optionLabelProp="label"
-                >
-                  <Option value="Admin" label="Admin">
-                    Admin
-                  </Option>
-                  <Option value="Chat Support" label="Chat Support">
-                    Chat Support
-                  </Option>
-                  <Option value="Moderator" label="Moderator">
-                    Moderator
-                  </Option>
-                  <Option value="Account Manager" label="Account Manager">
-                    Account Manager
-                  </Option>
-                </Select>
+      <div className="">
+        <div className="flex justify-between">
+          <h1>ROLES MANAGEMENT</h1>
 
-                <Select
-                  defaultValue="Select status"
-                  style={{
-                    width: 120,
-                  }}
-                  onChange={handleChange}
-                  options={[
-                    {
-                      value: "Select status",
-                      label: "Select status",
-                      disabled: true,
-                    },
-                    {
-                      value: "Active",
-                      label: "Active",
-                    },
-                    {
-                      value: "Inactive",
-                      label: "Inactive",
-                    },
-                  ]}
-                />
-              </Form>
-            </Modal>
-          </div>
+          <Button
+            type="primary"
+            size="small"
+            onClick={() => setModal1Open(true)}
+          >
+            <PlusOutlined />
+            Add new role
+          </Button>
+          <Modal
+            title="Add new role"
+            style={{
+              top: 20,
+            }}
+            open={modal1Open}
+            onOk={() => setModal1Open(false)}
+            onCancel={() => setModal1Open(false)}
+          >
+            <Form className="space-y-4">
+              <Input placeholder="Name of roles" />
+              <Select
+                mode="multiple"
+                style={{
+                  width: "100%",
+                }}
+                placeholder="Select Permission"
+                onChange={handleChange}
+                optionLabelProp="label"
+              >
+                <Option value="Admin" label="Admin">
+                  Admin
+                </Option>
+                <Option value="Chat Support" label="Chat Support">
+                  Chat Support
+                </Option>
+                <Option value="Moderator" label="Moderator">
+                  Moderator
+                </Option>
+                <Option value="Account Manager" label="Account Manager">
+                  Account Manager
+                </Option>
+              </Select>
+
+              <Select
+                defaultValue="Select status"
+                style={{
+                  width: 120,
+                }}
+                onChange={handleChange}
+                options={[
+                  {
+                    value: "Select status",
+                    label: "Select status",
+                    disabled: true,
+                  },
+                  {
+                    value: "Active",
+                    label: "Active",
+                  },
+                  {
+                    value: "Inactive",
+                    label: "Inactive",
+                  },
+                ]}
+              />
+            </Form>
+          </Modal>
         </div>
       </div>
-      <div className="p-5">
+      <div className="pt-2">
         <Table columns={columns} dataSource={data} />;
       </div>
     </div>
