@@ -27,7 +27,7 @@ export default [
         element: <Commodities />,
       },
       {
-        path: "farmers-groups",
+        path: "farmer-groups",
         element: <FarmerGroup />,
       },
     ],
