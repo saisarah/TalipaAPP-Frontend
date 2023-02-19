@@ -1,7 +1,7 @@
 import { EyeInvisibleOutlined, EyeTwoTone } from "@ant-design/icons";
 import { Button, Input, Space } from "antd";
 
-export default function UserSettings() {
+export default function ChangePassword() {
   const onChange = (e) => {
     console.log(e);
   };
@@ -18,9 +18,6 @@ export default function UserSettings() {
           </p>
         </div>
         <div className="flex-1 gap-5 p-40">
-          <div className="pt-2">
-            <Input placeholder="USERNAME" allowClear onChange={onChange} />
-          </div>
           <br />
           <div className="pt-2">
             <Input.Password

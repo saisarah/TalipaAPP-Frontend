@@ -7,7 +7,7 @@ import Login from "@/pages/admin/Login/Login";
 import FarmerGroup from "@/pages/admin/UserManagement/FarmerGroup";
 import Farmer from "@/pages/admin/UserManagement/Farmer";
 import Vendor from "@/pages/admin/UserManagement/Vendor";
-import UserSettings from "@/pages/admin/Settings/Usersettings";
+import ChangePassword from "@/pages/admin/Settings/ChangePassword";
 
 export default [
   {
@@ -42,8 +42,8 @@ export default [
         element: <Vendor />,
       },
       {
-        path: "usersettings",
-        element: <UserSettings />,
+        path: "change-password",
+        element: <ChangePassword />,
       },
     ],
   },
