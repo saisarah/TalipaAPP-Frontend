@@ -1,6 +1,7 @@
 import { SearchOutlined } from "@ant-design/icons";
-import { Button, Input, Space, Table } from "antd";
+import { Button, Input, Space, Table, Tag } from "antd";
 import { useRef, useState } from "react";
+
 // import Highlighter from "react-highlight-words";
 
 export default function Farmer() {
@@ -8,24 +9,28 @@ export default function Farmer() {
     {
       key: "1",
       name: "John Brown",
-      product: "Apple",
+      isGroup: "Not in Group",
+      product: "Apple , Banana",
       address: "New York No. 1 Lake Park",
     },
     {
       key: "2",
       name: "Joe Black",
-      product: "Banana",
+      isGroup: "Not in Group",
+      product: "Apple, Banana",
       address: "London No. 1 Lake Park",
     },
     {
       key: "3",
       name: "Jim Green",
-      product: "Onion",
+      isGroup: "In Group",
+      product: "Apple, Banana, Onion",
       address: "Sydney No. 1 Lake Park",
     },
     {
       key: "4",
       name: "Jim Red",
+      isGroup: "In Group",
       product: "Garlic",
       address: "London No. 2 Lake Park",
     },
@@ -152,21 +157,34 @@ export default function Farmer() {
       title: "Farmer",
       dataIndex: "name",
       key: "name",
-      width: "30%",
-      ...getColumnSearchProps("name"),
+      // width: "30%",
+      // ...getColumnSearchProps("name"),
+      sorter: (a, b) => a.name.length - b.name.length,
+      sortDirections: ["descend", "ascend"],
+    },
+    {
+      title: "isGroup",
+      dataIndex: "isGroup",
+      key: "isGroup",
+      // width: "30%",
+      // ...getColumnSearchProps("isGroup"),
+      sorter: (a, b) => a.isGroup.length - b.isGroup.length,
+      sortDirections: ["descend", "ascend"],
     },
     {
       title: "Product",
       dataIndex: "product",
       key: "product",
-      width: "20%",
-      ...getColumnSearchProps("product"),
+      // width: "20%",
+      // ...getColumnSearchProps("product"),
+      sorter: (a, b) => a.product.length - b.product.length,
+      sortDirections: ["descend", "ascend"],
     },
     {
-      title: "Farm Location",
+      title: "Address",
       dataIndex: "address",
       key: "address",
-      ...getColumnSearchProps("address"),
+      // ...getColumnSearchProps("address"),
       sorter: (a, b) => a.address.length - b.address.length,
       sortDirections: ["descend", "ascend"],
     },
