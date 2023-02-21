@@ -9,6 +9,7 @@ import FarmerGroup from "@/pages/admin/UserManagement/FarmerGroup";
 import Farmer from "@/pages/admin/UserManagement/Farmer";
 import Vendor from "@/pages/admin/UserManagement/Vendor";
 import ChangePassword from "@/pages/admin/Settings/ChangePassword";
+import Profile from "@/pages/admin/UserManagement/Profile";
 
 export default [
   {
@@ -33,6 +34,10 @@ export default [
       {
         path: "farmer-groups",
         element: <FarmerGroup />,
+      },
+      {
+        path: "farmer-groups/profile",
+        element: <Profile />,
       },
       {
         path: "farmers",
