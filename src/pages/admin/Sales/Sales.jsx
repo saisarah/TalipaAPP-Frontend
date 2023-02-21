@@ -1,6 +1,7 @@
 import { useState } from "react";
 
 import {
+  Button,
   Card,
   Col,
   Row,
@@ -307,6 +308,7 @@ export default function Sales() {
 
   return (
     <>
+     
       <div className="layout-content">
         <Row className="rowgap-vbox" gutter={[24, 0]}>
           {count.map((c, index) => (
@@ -337,7 +339,11 @@ export default function Sales() {
             </Col>
           ))}
         </Row>
-
+        <div className="my-2">
+         <Button className="mr-2">Print</Button>
+         <Button className="mr-2">Import</Button>
+         <Button className="mr-2">Export</Button>
+        </div>
         <Row gutter={[24, 0]}>
           <Col xs={24} sm={24} md={12} lg={12} xl={10} className="mb-24">
             <Card bordered={false} className="criclebox h-full">
@@ -350,6 +356,7 @@ export default function Sales() {
             </Card>
           </Col>
         </Row>
+        
 
         {/* <Row gutter={[24, 0]}>
           <Col xs={24} sm={24} md={12} lg={12} xl={16} className="mb-24">
