@@ -4,35 +4,33 @@ import Search from "antd/lib/transfer/search";
 import { Link } from "react-router-dom";
 
 import queryKeyFactory from "@/query/queryKeyFactory";
-import { ArrowRightOutlined, QuestionCircleTwoTone, RightOutlined } from "@ant-design/icons";
+import {
+  ArrowRightOutlined,
+  QuestionCircleTwoTone,
+  RightOutlined,
+} from "@ant-design/icons";
 import { useQueryClient } from "@tanstack/react-query";
 import { Modal } from "antd";
 import { setAuthorization } from "@/helpers/Http";
 
-
-
 export default function Settings() {
-    const queryClient = useQueryClient();
+  const queryClient = useQueryClient();
 
-    const confirmLogout = () => {
-      Modal.confirm({
-        icon: <QuestionCircleTwoTone />,
-        onOk() {
-          localStorage.clear();
-          setAuthorization(undefined);
-          queryClient.setQueryData(queryKeyFactory.currentUser, null);
-        },
-        content: "Are you sure you want to log out?",
-      });
-    };
+  const confirmLogout = () => {
+    Modal.confirm({
+      icon: <QuestionCircleTwoTone />,
+      onOk() {
+        localStorage.clear();
+        setAuthorization(undefined);
+        queryClient.setQueryData(queryKeyFactory.currentUser, null);
+      },
+      content: "Are you sure you want to log out?",
+    });
+  };
   return (
     <Page className="bg-white">
       <PageHeader title="Settings" back="/" />
       <div className="p-4">
-        <div className="mb-2">
-          <Search placeholder="Search Settings" />
-        </div>
-
         <div className="mb-2 flex flex-col gap-2">
           <span className="font-bold">Personal Information</span>
 
