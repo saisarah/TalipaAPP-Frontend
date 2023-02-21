@@ -1,6 +1,7 @@
 import { SearchOutlined } from "@ant-design/icons";
 import { Button, Input, Space, Table, Tag } from "antd";
 import { useRef, useState } from "react";
+import { Link } from "react-router-dom";
 
 // import Highlighter from "react-highlight-words";
 
@@ -158,9 +159,12 @@ export default function Farmer() {
       dataIndex: "name",
       key: "name",
       // width: "30%",
-      // ...getColumnSearchProps("name"),
+      ...getColumnSearchProps("name"),
       sorter: (a, b) => a.name.length - b.name.length,
       sortDirections: ["descend", "ascend"],
+      render: (_, record) => (
+        <Link to="/admin/farmers/profile">{record.name}</Link>
+      ),
     },
     {
       title: "isGroup",
