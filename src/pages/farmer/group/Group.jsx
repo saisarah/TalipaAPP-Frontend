@@ -4,7 +4,7 @@ import SuggestedGroups from "./components/SuggestedGroups";
 import GroupInvitation from "./GroupInvitation";
 import PageHeader from "@/components/PageHeader";
 import { Link } from "react-router-dom";
-import groupIllustrationImg from "./images/group_illustration.png"
+import groupIllustrationImg from "./images/group_illustration.png";
 import Page from "@/components/Page";
 
 const HAS_INVITATION = false;
@@ -39,7 +39,7 @@ export default function Group() {
       {active === "join" ? (
         <SuggestedGroups />
       ) : (
-        <div className="flex flex-col items-center gap-4 bg-slate-100 py-16">
+        <div className="flex flex-col items-center gap-4 bg-slate-50 py-16">
           <img src={groupIllustrationImg} />
           <span className="text-lg font-bold">Create Group</span>
           <span className="px-2 text-center">
