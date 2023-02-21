@@ -9,6 +9,8 @@ import FarmerGroup from "@/pages/admin/UserManagement/FarmerGroup";
 import Farmer from "@/pages/admin/UserManagement/Farmer";
 import Vendor from "@/pages/admin/UserManagement/Vendor";
 import ChangePassword from "@/pages/admin/Settings/ChangePassword";
+import ChatSupport from "@/pages/admin/ChatSupport/ChatSupport";
+import Sales from "@/pages/admin/Sales/Sales";
 
 export default [
   {
@@ -29,6 +31,14 @@ export default [
       {
         path: "commodities",
         element: <Commodities />,
+      },
+      {
+        path: "chatSupport",
+        element: <ChatSupport />,
+      },
+      {
+        path: "sales",
+        element: <Sales />,
       },
       {
         path: "farmer-groups",
