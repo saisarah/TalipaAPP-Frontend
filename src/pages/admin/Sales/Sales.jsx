@@ -5,7 +5,6 @@ import {
   Col,
   Row,
   Typography,
-  message,
 } from "antd";
 
 import Echart from "../Dashboard/chart/EChart";
