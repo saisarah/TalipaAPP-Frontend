@@ -13,14 +13,14 @@ export const useEffectSkipFirst = (callback, dependencies) => {
   }, dependencies);
 };
 
-export const useTab = (tabs, defaultActive) => {
+export const useTab = (tabs = [], defaultActive) => {
   const [params] = useSearchParams();
   const selected = tabs.includes(params.get("tab"))
     ? params.get("tab")
     : defaultActive;
   const isActive = (tab) => tab == selected;
 
-  return { isActive };
+  return { isActive, selected };
 };
 
 export const useHistoryStack = () => {
