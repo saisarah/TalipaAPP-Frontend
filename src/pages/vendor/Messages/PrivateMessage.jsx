@@ -11,6 +11,7 @@ import Meta from "antd/lib/card/Meta";
 import Http from "@/helpers/Http";
 import { useParams } from "react-router";
 import { useQuery } from "@tanstack/react-query";
+import PageHeader from "@/components/PageHeader";
 
 const fetchMessages = async (id) => {
   const result = await Http.get(`/messages/${id}`);
@@ -46,7 +47,7 @@ export default function PrivateMessage() {
   // <Avatar size="small" style={{ backgroundColor: '#87d068' }} icon={<UserOutlined />} />,
   return (
     <div className="app-size flex flex-col bg-white">
-      {/* <PageHeader back="/farmer/chat" title="{user.fullname}" /> */}
+      <PageHeader back="/messages" title="{user.fullname}" />
       <div className="flex p-2">
         <div className="flex grow justify-center bg-white p-2" size="large">
           <span>10:00</span>
@@ -58,7 +59,7 @@ export default function PrivateMessage() {
           {data.map((item) =>
             params.id == item.receiver_id ? (
               <div key={item.id} className="row-end-1 flex justify-end p-4">
-                <div className="row-end-1 w-[300px] rounded border border-[#e5e7eb] p-2 shadow-sm">
+                <div className="row-end-1 max-w-[300px] rounded border border-[#e5e7eb] p-2 shadow-sm">
                   <span>{item.content}</span>
                 </div>
               </div>
@@ -73,7 +74,7 @@ export default function PrivateMessage() {
                   icon={<UserOutlined />}
                 />
 
-                <div className="row-end-1 w-[300px] rounded border border-[#e5e7eb] p-2 shadow-sm">
+                <div className="row-end-1 max-w-[300px] rounded border border-[#e5e7eb] p-2 shadow-sm">
                   <span>{item.content}</span>
                 </div>
               </div>

@@ -18,10 +18,7 @@ export default [
         path: "messages",
         element: <Chat />,
       },
-      {
-        path: "vendor/messages/:id",
-        element: <PrivateMessage />,
-      },
+
       {
         path: "notifications",
         element: <Notifications />,
@@ -35,5 +32,9 @@ export default [
   {
     path: "/posts/:id",
     element: <PostDetailsPage />,
+  },
+  {
+    path: "vendor/messages/:id",
+    element: <PrivateMessage />,
   },
 ];
