@@ -19,7 +19,7 @@ export default [
         element: <Chat />,
       },
       {
-        path: "messages/:id",
+        path: "vendor/messages/:id",
         element: <PrivateMessage />,
       },
       {
