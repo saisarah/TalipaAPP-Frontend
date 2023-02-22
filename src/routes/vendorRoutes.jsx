@@ -34,7 +34,7 @@ export default [
     element: <PostDetailsPage />,
   },
   {
-    path: "vendor/messages/:id",
+    path: "/messages/:id",
     element: <PrivateMessage />,
   },
 ];
