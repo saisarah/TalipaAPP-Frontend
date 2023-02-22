@@ -31,8 +31,14 @@ export default function Login() {
     <div className="app-size bg-white">
       <PageHeader title="Login" />
 
-      <div className="flex flex-col  p-4 px-8 text-center">
-        <img className="mr-auto" src="/assets/images/logo.svg" alt="" />
+      <div className="flex flex-col p-4 px-8 text-center">
+        <img
+          className="mx-auto"
+          src="/assets/TalipaApp LogIn.svg"
+          height="100"
+          width="300"
+          alt=""
+        />
 
         <p className="">Welcome to TalipaAPP</p>
         <div className="flex-grow">

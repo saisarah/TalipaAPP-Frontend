@@ -1,35 +1,14 @@
+import Page from "@/components/Page";
 import PageHeader from "@/components/PageHeader";
-import { ClockCircleOutlined } from "@ant-design/icons";
 import { Avatar, Badge, Space } from "antd";
+import { Link } from "react-router-dom";
 
 export default function Chat() {
-  const App = () => (
-    <Space size="middle">
-      <Badge count={5}>
-        <Avatar shape="square" size="large" />
-      </Badge>
-      <Badge count={0} showZero>
-        <Avatar shape="square" size="large" />
-      </Badge>
-      <Badge
-        count={
-          <ClockCircleOutlined
-            style={{
-              backgroundColor: "#52c41a",
-            }}
-          />
-        }
-      >
-        <Avatar shape="square" size="large" />
-      </Badge>
-    </Space>
-  );
-
   return (
-    <div className="app-size bg-gray-100">
+    <Page className="bg-gray-100">
       <PageHeader back="/farmer" title="Chat" />
 
-      <div className="flex pt-1 mx-2">
+      <Link to="/farmer/messages/1" className="mx-2 flex pt-1">
         <div className="flex grow flex-row rounded-md bg-white shadow-sm">
           <div className="flex justify-center p-4">
             <Space size="middle">
@@ -51,9 +30,9 @@ export default function Chat() {
             </div>
           </div>
         </div>
-      </div>
+      </Link>
 
-      <div className="flex pt-1 mx-2">
+      <div className="mx-2 flex pt-1">
         <div className="flex grow flex-row rounded-md bg-white shadow-sm">
           <div className="flex justify-center p-4">
             <Space size="middle">
@@ -76,7 +55,7 @@ export default function Chat() {
           </div>
         </div>
       </div>
-      <div className="flex pt-1 mx-2">
+      <div className="mx-2 flex pt-1">
         <div className="flex grow flex-row rounded-md bg-white shadow-sm">
           <div className="flex justify-center p-4">
             <Space size="middle">
@@ -99,6 +78,6 @@ export default function Chat() {
           </div>
         </div>
       </div>
-    </div>
+    </Page>
   );
 }
