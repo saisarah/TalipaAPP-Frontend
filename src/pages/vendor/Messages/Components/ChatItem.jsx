@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 export default function ChatItem({ fullname, id }) {
   return (
-    <Link to={`/farmer/messages/${id}`} className="mx-2 flex pt-1">
+    <Link to={`/messages/${id}`} className="mx-2 flex pt-1">
       <div className="flex grow flex-row rounded-md bg-white shadow-sm">
         <div className="flex justify-center p-4">
           <Space size="middle">
