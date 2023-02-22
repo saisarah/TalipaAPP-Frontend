@@ -8,7 +8,7 @@ import PageHeader from "@/components/PageHeader";
     </div>
 
     <div className="">
-      <h3>Welcome to TalipaAPP!</h3>
+      <h3 className="font-bold">Welcome to TalipaAPP!</h3>
       <p>This is the start of your shopping journey in Lazada.</p>
       <p>
         We want to give you the best possible online shopping experience so
@@ -17,7 +17,7 @@ import PageHeader from "@/components/PageHeader";
     </div>
 
     <div className="">
-      <h3>2 Reasons to Checkout from TalipaAPP</h3>
+      <h3 className="font-bold">2 Reasons to Checkout from TalipaAPP</h3>
       <p>
         Aside from the guaranteed safe and enjoyable online shopping, below are
         the more reasons to trust TalipaAPP.
@@ -37,7 +37,7 @@ import PageHeader from "@/components/PageHeader";
     </div>
 
     <div className="">
-      <h3>Shop and Save</h3>
+      <h3 className="font-bold">Shop and Save</h3>
       <p>
         Shop and save, at the same time, through TalipaAPP's valuable items
         posted directly through the farmer.
@@ -45,7 +45,7 @@ import PageHeader from "@/components/PageHeader";
     </div>
 
     <div className="">
-      <h3>Your online shopping is safe with us.</h3>
+      <h3 className="font-bold">Your online shopping is safe with us.</h3>
       <p>
         Here are articles that will help you learn about safe shopping in
         TalipaAPP.
@@ -53,14 +53,14 @@ import PageHeader from "@/components/PageHeader";
     </div>
 
     <div className="">
-      <h3>Be constantly updated.</h3>
+      <h3 className="font-bold">Be constantly updated.</h3>
       <p>
         Know where your orders are and when you'll get them with our real-time
         order tracking feature.
       </p>
     </div>
 
-    <div className="">
+    <div className="font-bold">
       <h4>Have other concerns?</h4>
     </div>
 
