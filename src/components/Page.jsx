@@ -4,8 +4,6 @@ import { useNavigationType } from "react-router-dom";
 export default function Page({ children, className = "", ...props }) {
   const type = useNavigationType();
 
-  console.log({ type });
-
   return (
     <motion.div
       transition={{ bounce: 0, duration: 0.15}}
