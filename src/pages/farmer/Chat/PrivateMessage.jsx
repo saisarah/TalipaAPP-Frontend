@@ -18,21 +18,21 @@ const fetchMessages = async (id) => {
   return result.data;
 };
 
-// const fethUser = async (id) => {
-//   const result = await Http.get(`/users/${id}`);
-//   return result.data;
-// };
+const fethUser = async (id) => {
+  const result = await Http.get(`/users/${id}`);
+  return result.data;
+};
 
 export default function PrivateMessage() {
   const params = useParams();
   const { data, isLoading } = useQuery(["messages", params.id], () =>
     fetchMessages(params.id)
   );
-  // const { data: user, isLoading: isUserLoading } = useQuery(
-  //   ["users", params.id],
-  //   () => fethUser(params.id)
-  // );
-  if (isLoading) return "Loading...";
+  const { data: user, isLoading: isUserLoading } = useQuery(
+    ["users", params.id],
+    () => fethUser(params.id)
+  );
+  if (isLoading || isUserLoading) return "Loading...";
 
   const App = () => <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} />;
   const onSearch = (value) => console.log(value);
@@ -44,10 +44,10 @@ export default function PrivateMessage() {
       }}
     />
   );
-  // <Avatar size="small" style={{ backgroundColor: '#87d068' }} icon={<UserOutlined />} />,
+
   return (
     <div className="app-size flex flex-col bg-white">
-      <PageHeader back="/farmer/chat" title="{user.fullname}" />
+      <PageHeader back="/farmer/chat" title={user.fullname} />
       <div className="flex p-2">
         <div className="flex grow justify-center bg-white p-2" size="large">
           <span>10:00</span>
