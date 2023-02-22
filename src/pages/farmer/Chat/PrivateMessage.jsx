@@ -1,6 +1,6 @@
 import PageHeader from "@/components/PageHeader";
 import UserOutlined from "@/icons/heroicons/UserOutlined";
-import { Avatar, Button, Card, Input } from "antd";
+import { Avatar, Button, Input, Spin } from "antd";
 import React from "react";
 import { Empty } from "antd";
 import {
@@ -32,7 +32,13 @@ export default function PrivateMessage() {
     ["users", params.id],
     () => fethUser(params.id)
   );
-  if (isLoading || isUserLoading) return "Loading...";
+
+  if (isLoading || isUserLoading)
+    return (
+      <div className="flex flex-col items-center py-16">
+        <Spin />
+      </div>
+    );
 
   const App = () => <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} />;
   const onSearch = (value) => console.log(value);
