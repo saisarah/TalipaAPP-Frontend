@@ -5,8 +5,6 @@ import React from "react";
 import { Empty } from "antd";
 import {
   AudioOutlined,
-  DeleteOutlined,
-  EllipsisOutlined,
   SendOutlined,
   ShoppingCartOutlined,
 } from "@ant-design/icons";
@@ -16,17 +14,25 @@ import { useParams } from "react-router";
 import { useQuery } from "@tanstack/react-query";
 
 const fetchMessages = async (id) => {
-  const result = await Http.get(`/messages/${id}`);
+  const result = await Http.get(`/messages/${id}`, `/users/${id}`);
   return result.data;
 };
 
-// test AICommits
+const fethUser = async (id) => {
+  const result = await Http.get(`/users/${id}`);
+  return result.data;
+};
+
 export default function PrivateMessage() {
   const params = useParams();
   const { data, isLoading } = useQuery(["messages", params.id], () =>
     fetchMessages(params.id)
   );
-  if (isLoading) return "Loading...";
+  const { data: user, isLoading: isUserLoading } = useQuery(
+    ["users", params.id],
+    () => fethUser(params.id)
+  );
+  if (isLoading || isUserLoading) return "Loading...";
 
   const App = () => <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} />;
   const onSearch = (value) => console.log(value);
@@ -41,12 +47,13 @@ export default function PrivateMessage() {
   // <Avatar size="small" style={{ backgroundColor: '#87d068' }} icon={<UserOutlined />} />,
   return (
     <div className="app-size flex flex-col bg-white">
-      <PageHeader back="/farmer/chat" title="Commonwealt Market Quezon City." />
+      <PageHeader back="/farmer/chat" title="{user.fullname}" />
       <div className="flex p-2">
         <div className="flex grow justify-center bg-white p-2" size="large">
           <span>10:00</span>
         </div>
       </div>
+
       <div className="flex flex-1 flex-col-reverse">
         <div className="mb-4">
           {data.map((item) =>
