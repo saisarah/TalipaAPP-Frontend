@@ -5,6 +5,8 @@ import FarmerGate from "./gates/FarmerGate";
 // import GuestGate from "../components/GuestGate";
 import VendorGate from "./gates/VendorGate";
 import GuestGate from "./gates/GuestGate";
+import adminRoutes from "./adminRoutes";
+import { Outlet } from "react-router-dom";
 
 export default [
   {
@@ -19,5 +21,10 @@ export default [
   {
     element: <GuestGate />,
     children: guestRoutes
+  },
+  {
+    path: "/admin",
+    children: adminRoutes,
+    element: <Outlet />
   }
 ];
