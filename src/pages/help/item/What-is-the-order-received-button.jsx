@@ -52,12 +52,33 @@ import PageHeader from "@/components/PageHeader";
       <p>II. I have a problem with the item I received. What do I do?</p>
     </div>
 
-    <div className="">
+    <div className="font-bold">
       <p>Please take note of the following valid reasons for return/refund requests:</p>
     </div>
 
     <div className="">
-      <p>Please take note of the following valid reasons for return/refund requests:</p>
+      <p className="font-bold">Return Request</p>
+      <p><b>Counterfeit:</b> Item delivered appears to be fake or unauthentic.</p>
+      <p><b>Not As Advertised:</b> Item received does not match what was shown in the online product listing.</p>
+    </div>
+
+    <div className="">
+      <p className="font-bold">Refund Request</p>
+      <p><b>Missing Item:</b> If you received an empty package or filler items.</p>
+      <p><b>Incomplete Delivery:</b> Package delivered is incomplete or missing essential items.</p>
+      <p><b>Package Not Received:</b> If your order is tagged as delivered but you didn't receive a package.</p>
+    </div>
+
+    <div className="">
+      <p>When selecting a return reason, it's important to select the correct return reason and add additional details in the Online Return Form for a faster and more accurate evaluation of the request.</p>
+    <p>Returns may be rejected when the request is non-compliant with the policy. Please take note that the following are invalid refund/return reasons.</p>
+    </div>
+
+    <div className="">
+      <p>Change of Mind</p>
+      <p>The buyer suddenly decide they don't want/need the item received.</p>
+      <p>Disappointment with the item</p>
+      <p>The buyer failed to read the product page and is disappointed with the item received.</p>
     </div>
 
     <div className="">
