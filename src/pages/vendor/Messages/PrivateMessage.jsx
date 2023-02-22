@@ -58,14 +58,9 @@ export default function PrivateMessage() {
           {data.map((item) =>
             params.id == item.receiver_id ? (
               <div key={item.id} className="row-end-1 flex justify-end p-4">
-                <Card
-                  className="row-end-1 shadow-sm"
-                  style={{
-                    width: 300,
-                  }}
-                >
-                  <p>{item.content}</p>
-                </Card>
+                <div className="row-end-1 w-[300px] rounded border border-[#e5e7eb] p-2 shadow-sm">
+                  <span>{item.content}</span>
+                </div>
               </div>
             ) : (
               <div
@@ -77,14 +72,10 @@ export default function PrivateMessage() {
                   style={{ backgroundColor: "#87d068" }}
                   icon={<UserOutlined />}
                 />
-                <Card
-                  className="shadow-sm"
-                  style={{
-                    width: 300,
-                  }}
-                >
-                  <p>{item.content}</p>
-                </Card>
+
+                <div className="row-end-1 w-[300px] rounded border border-[#e5e7eb] p-2 shadow-sm">
+                  <span>{item.content}</span>
+                </div>
               </div>
             )
           )}
