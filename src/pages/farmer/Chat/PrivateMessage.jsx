@@ -14,25 +14,25 @@ import { useParams } from "react-router";
 import { useQuery } from "@tanstack/react-query";
 
 const fetchMessages = async (id) => {
-  const result = await Http.get(`/messages/${id}`, `/users/${id}`);
+  const result = await Http.get(`/messages/${id}`);
   return result.data;
 };
 
-const fethUser = async (id) => {
-  const result = await Http.get(`/users/${id}`);
-  return result.data;
-};
+// const fethUser = async (id) => {
+//   const result = await Http.get(`/users/${id}`);
+//   return result.data;
+// };
 
 export default function PrivateMessage() {
   const params = useParams();
   const { data, isLoading } = useQuery(["messages", params.id], () =>
     fetchMessages(params.id)
   );
-  const { data: user, isLoading: isUserLoading } = useQuery(
-    ["users", params.id],
-    () => fethUser(params.id)
-  );
-  if (isLoading || isUserLoading) return "Loading...";
+  // const { data: user, isLoading: isUserLoading } = useQuery(
+  //   ["users", params.id],
+  //   () => fethUser(params.id)
+  // );
+  if (isLoading) return "Loading...";
 
   const App = () => <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} />;
   const onSearch = (value) => console.log(value);
@@ -59,14 +59,9 @@ export default function PrivateMessage() {
           {data.map((item) =>
             params.id == item.receiver_id ? (
               <div key={item.id} className="row-end-1 flex justify-end p-4">
-                <Card
-                  className="row-end-1 shadow-sm"
-                  style={{
-                    width: 300,
-                  }}
-                >
-                  <p>{item.content}</p>
-                </Card>
+                <div className="row-end-1 max-w-[300px] rounded border border-[#e5e7eb] p-2 shadow-sm">
+                  <span>{item.content}</span>
+                </div>
               </div>
             ) : (
               <div
@@ -78,14 +73,9 @@ export default function PrivateMessage() {
                   style={{ backgroundColor: "#87d068" }}
                   icon={<UserOutlined />}
                 />
-                <Card
-                  className="shadow-sm"
-                  style={{
-                    width: 300,
-                  }}
-                >
-                  <p>{item.content}</p>
-                </Card>
+                <div className="row-end-1 max-w-[300px] rounded border border-[#e5e7eb] p-2 shadow-sm">
+                  <span>{item.content}</span>
+                </div>
               </div>
             )
           )}
