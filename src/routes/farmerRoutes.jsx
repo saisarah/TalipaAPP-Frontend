@@ -143,4 +143,8 @@ export default [
     path: "settings/change-password",
     element: <ChangePassword />,
   },
+  {
+    path: "/wallet",
+    element: <Wallet />,
+  },
 ];
