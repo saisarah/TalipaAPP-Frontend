@@ -4,6 +4,7 @@ import { usePost } from "@/query/queries/usePostsQuery";
 import { Avatar, Button, Rate } from "antd";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
+import CreateOrder from "../CreateOrder/CreateOrder";
 import { PostDescription } from "./components/PostDescription";
 import { PostDetailsLayout } from "./components/PostDetailsLayout";
 import { SetQuantityStraight } from "./components/SetQuantityStraight";
@@ -12,6 +13,7 @@ export const PostDetails = () => {
   const { id } = useParams();
   const { data: post, isLoading } = usePost(id);
   const [isOpen, setIsOpen] = useState(false);
+  const [orderQuantities, setOrderQuantities] = useState([]);
 
   if (isLoading) {
     return (
@@ -23,6 +25,16 @@ export const PostDetails = () => {
 
   const { attachments, author } = post;
   const isStraight = post.pricing_type === "straight";
+
+  if (orderQuantities.length > 0) {
+    return (
+      <CreateOrder
+        id={id}
+        quantities={orderQuantities}
+        setQuantities={setOrderQuantities}
+      />
+    );
+  }
 
   return (
     <PostDetailsLayout>
@@ -77,6 +89,7 @@ export const PostDetails = () => {
           price={post.prices[0]}
           isOpen={isOpen}
           setIsOpen={setIsOpen}
+          setOrderQuantities={setOrderQuantities}
         />
       )}
     </PostDetailsLayout>
