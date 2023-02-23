@@ -14,6 +14,7 @@ import { useParams } from "react-router";
 import { useQuery } from "@tanstack/react-query";
 import Page from "@/components/Page";
 import SendMessage from "./components/SendMessage";
+import { sleep } from "@/helpers/utils";
 
 const fetchMessages = async (id) => {
   const result = await Http.get(`/messages/${id}`);
@@ -27,8 +28,13 @@ const fethUser = async (id) => {
 
 export default function PrivateMessage() {
   const params = useParams();
-  const { data, isLoading } = useQuery(["messages", params.id], () =>
-    fetchMessages(params.id)
+  const { data, isLoading, refetch } = useQuery(["messages", params.id], () =>
+    fetchMessages(params.id), {
+      async onSettled() {
+        await sleep(1000)
+        refetch()
+      }
+    }
   );
   const { data: user, isLoading: isUserLoading } = useQuery(
     ["users", params.id],
