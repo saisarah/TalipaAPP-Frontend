@@ -7,6 +7,7 @@ import {
   useRoutes,
   useLocation,
   BrowserRouter,
+  HashRouter,
 } from "react-router-dom";
 import routes from "./routes";
 
@@ -31,5 +32,9 @@ const Temp = () => {
 };
 
 export default function Router() {
+  if (platform === "android") {
+    return <HashRouter><Temp /></HashRouter>
+  }
+  
   return <BrowserRouter><Temp /></BrowserRouter>
 }
