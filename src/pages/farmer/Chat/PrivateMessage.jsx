@@ -1,21 +1,45 @@
 import PageHeader from "@/components/PageHeader";
 import UserOutlined from "@/icons/heroicons/UserOutlined";
-import { Avatar, Button, Card, Input } from "antd";
+import { Avatar, Button, Input, Spin } from "antd";
 import React from "react";
 import { Empty } from "antd";
 import {
   AudioOutlined,
-  DeleteOutlined,
-  EditOutlined,
-  EllipsisOutlined,
   SendOutlined,
-  SettingOutlined,
   ShoppingCartOutlined,
 } from "@ant-design/icons";
 import Meta from "antd/lib/card/Meta";
-import Search from "antd/lib/transfer/search";
+import Http from "@/helpers/Http";
+import { useParams } from "react-router";
+import { useQuery } from "@tanstack/react-query";
+
+const fetchMessages = async (id) => {
+  const result = await Http.get(`/messages/${id}`);
+  return result.data;
+};
+
+const fethUser = async (id) => {
+  const result = await Http.get(`/users/${id}`);
+  return result.data;
+};
 
 export default function PrivateMessage() {
+  const params = useParams();
+  const { data, isLoading } = useQuery(["messages", params.id], () =>
+    fetchMessages(params.id)
+  );
+  const { data: user, isLoading: isUserLoading } = useQuery(
+    ["users", params.id],
+    () => fethUser(params.id)
+  );
+
+  if (isLoading || isUserLoading)
+    return (
+      <div className="flex flex-col items-center py-16">
+        <Spin />
+      </div>
+    );
+
   const App = () => <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} />;
   const onSearch = (value) => console.log(value);
   const suffix = (
@@ -26,11 +50,10 @@ export default function PrivateMessage() {
       }}
     />
   );
-  // <Avatar size="small" style={{ backgroundColor: '#87d068' }} icon={<UserOutlined />} />,
-  return (
-    <div className="app-size bg-white">
-      <PageHeader back="/farmer/chat" title="Commonwealt Market Quezon City." />
 
+  return (
+    <div className="app-size flex flex-col bg-white">
+      <PageHeader back="/farmer/chat" title={user.fullname} />
       <div className="flex p-2">
         <div className="flex grow justify-center bg-white p-2" size="large">
           <span>10:00</span>
@@ -98,7 +121,7 @@ export default function PrivateMessage() {
           </p>
         </Card>
       </div>
-      <div className="sticky bottom-2 bg-white pl-2">
+      <div className="sticky bottom-2 left-0 right-0 bg-white pl-2">
         <div className="">
           <Input.Group className="">
             <Input

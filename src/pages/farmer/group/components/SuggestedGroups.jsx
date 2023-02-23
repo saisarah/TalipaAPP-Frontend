@@ -16,8 +16,6 @@ export default function SuggestedGroups() {
     fetchFarmerGroups
   );
 
-  // const { data, isLoading } = useQuery(["groups"], getGroups);
-
   if (isLoading)
     return (
       <div className="flex flex-col items-center py-16">
