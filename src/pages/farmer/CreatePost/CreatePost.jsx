@@ -33,7 +33,7 @@ export default function CreatePost() {
       <PageHeader back="/farmer/home?tab=create" title="Create Post" />
       <div className="p-4">
         <Form layout="vertical" onFinish={handleSubmit}>
-          <FormItem rules={required()} label="Commodity" name="crop_id">
+          <FormItem rules={required()} label="Commodity">
             <Select
               placeholder="Select Commodity"
               options={crops}
@@ -43,7 +43,9 @@ export default function CreatePost() {
             />
           </FormItem>
 
-          <FormItem rules={required()} label="Title" name="title" />
+          <FormItem rules={required()} label="Title" name="title" >
+            <Input size="small"/>
+            </FormItem>
 
           <FormItem
             rules={required()}
@@ -110,16 +112,19 @@ export default function CreatePost() {
               <FormItem
                 className="hidden"
                 name="sizes"
+                size="large"
                 inputProps={{ value: "__default" }}
               />
               {/* <input type="hidden" name="sizes[0]" value="__default" /> */}
               <FormItem
                 label="Total Stocks"
                 name="stock"
+                size="large"
                 inputProps={{ addonAfter: selectedUnit }}
               />
               <FormItem
                 label="Price"
+                size="large"
                 name="price"
                 inputProps={{ addonAfter: `/${selectedUnit}` }}
               />
