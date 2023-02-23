@@ -25,6 +25,7 @@ import ChangeAddress from "@/pages/farmer/settings/form/ChangeAddress";
 import AccountDeletion from "@/pages/farmer/settings/form/AccountDeletion";
 import OrderInfo from "@/pages/farmer/orders/OrderInfo/OrderInfo";
 import Reviews from "@/pages/farmer/Profile/components/Reviews";
+import Wallet from "@/pages/farmer/Wallet/wallet";
 
 /**
  * All of the path is under farmer route
@@ -143,7 +144,7 @@ export default [
     element: <ChangePassword />,
   },
   {
-    path: "/wallet",
+    path: "wallet",
     element: <Wallet />,
   },
 ];
