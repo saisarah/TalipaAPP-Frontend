@@ -12,6 +12,7 @@ import Http from "@/helpers/Http";
 import { useParams } from "react-router";
 import { useQuery } from "@tanstack/react-query";
 import PageHeader from "@/components/PageHeader";
+import Page from "@/components/Page";
 
 const fetchMessages = async (id) => {
   const result = await Http.get(`/messages/${id}`);
@@ -34,9 +35,12 @@ export default function PrivateMessage() {
   );
   if (isLoading || isUserLoading)
     return (
-      <div className="flex flex-col items-center py-16">
-        <Spin />
-      </div>
+      <Page>
+        <PageHeader back="/messages" title="Loading" />
+        <div className="flex flex-col items-center py-16">
+          <Spin />
+        </div>
+      </Page>
     );
 
   const App = () => <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} />;
