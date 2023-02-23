@@ -425,14 +425,14 @@ function Header({
               </div>
             </div>
           </Drawer>
-          <Link to="admin/profile" className="btn-sign-in">
+          {/* <Link to="admin/profile" className="btn-sign-in">
             {profile}
-          </Link>
-          <Input
+          </Link> */}
+          {/* <Input
             className="header-search"
             placeholder="Type here..."
             prefix={<SearchOutlined />}
-          />
+          /> */}
         </Col>
       </Row>
     </>

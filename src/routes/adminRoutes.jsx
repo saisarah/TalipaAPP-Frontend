@@ -60,6 +60,7 @@ export default [
         path: "FAQs",
         element: <Faq />,
       },
+
     ],
   },
 
