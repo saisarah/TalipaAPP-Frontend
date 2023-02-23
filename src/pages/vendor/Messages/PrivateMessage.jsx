@@ -1,4 +1,3 @@
-import PageHeader from "@/components/PageHeader";
 import UserOutlined from "@/icons/heroicons/UserOutlined";
 import { Avatar, Button, Input, Spin } from "antd";
 import React from "react";
@@ -12,8 +11,8 @@ import Meta from "antd/lib/card/Meta";
 import Http from "@/helpers/Http";
 import { useParams } from "react-router";
 import { useQuery } from "@tanstack/react-query";
+import PageHeader from "@/components/PageHeader";
 import Page from "@/components/Page";
-import SendMessage from "./components/SendMessage";
 
 const fetchMessages = async (id) => {
   const result = await Http.get(`/messages/${id}`);
@@ -34,11 +33,10 @@ export default function PrivateMessage() {
     ["users", params.id],
     () => fethUser(params.id)
   );
-
   if (isLoading || isUserLoading)
     return (
       <Page>
-        <PageHeader back="/farmer/chat" title="Loading" />
+        <PageHeader back="/messages" title="Loading" />
         <div className="flex flex-col items-center py-16">
           <Spin />
         </div>
@@ -58,10 +56,10 @@ export default function PrivateMessage() {
 
   return (
     <div className="app-size flex flex-col bg-white">
-      <PageHeader back="/farmer/messages" title={user.fullname} />
+      <PageHeader back="/messages" title={user.fullname} />
       <div className="flex p-2">
         <div className="flex grow justify-center bg-white p-2" size="large">
-          <span>10:00</span>
+          <span className="text-slate-400">10:00</span>
         </div>
       </div>
 
@@ -84,6 +82,7 @@ export default function PrivateMessage() {
                   style={{ backgroundColor: "#87d068" }}
                   icon={<UserOutlined />}
                 />
+
                 <div className="row-end-1 max-w-[300px] rounded border border-[#e5e7eb] p-2 shadow-sm">
                   <span>{item.content}</span>
                 </div>
@@ -92,7 +91,23 @@ export default function PrivateMessage() {
           )}
         </div>
       </div>
-      <SendMessage id={params.id} />
+      <div className="sticky bottom-2 left-0 right-0 bg-white pl-2">
+        <div className="">
+          <Input.Group className="">
+            <Input
+              className=""
+              size="large"
+              style={{
+                width: "calc(98% - 50px)",
+              }}
+              placeholder="Type a message..."
+            />
+            <Button className="border-none text-xl">
+              <SendOutlined />
+            </Button>
+          </Input.Group>
+        </div>
+      </div>
     </div>
   );
 }
