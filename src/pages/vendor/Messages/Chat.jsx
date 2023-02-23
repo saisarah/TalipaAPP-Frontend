@@ -1,5 +1,4 @@
 import Page from "@/components/Page";
-import PageHeader from "@/components/PageHeader";
 import Http from "@/helpers/Http";
 import { useQuery } from "@tanstack/react-query";
 import { Spin } from "antd";
@@ -17,12 +16,9 @@ export default function Chat() {
 
   if (isLoading)
     return (
-      <Page>
-        <PageHeader back="/messages" title="Loading" />
-        <div className="flex flex-col items-center py-16">
-          <Spin />
-        </div>
-      </Page>
+      <div className="flex flex-col items-center py-16">
+        <Spin />
+      </div>
     );
 
   return (

@@ -59,7 +59,7 @@ export default function PrivateMessage() {
       <PageHeader back="/messages" title={user.fullname} />
       <div className="flex p-2">
         <div className="flex grow justify-center bg-white p-2" size="large">
-          <span>10:00</span>
+          <span className="text-slate-400">10:00</span>
         </div>
       </div>
 
@@ -98,11 +98,11 @@ export default function PrivateMessage() {
               className=""
               size="large"
               style={{
-                width: "calc(100% - 50px)",
+                width: "calc(98% - 50px)",
               }}
               placeholder="Type a message..."
             />
-            <Button className="border-none" size="large">
+            <Button className="border-none text-xl">
               <SendOutlined />
             </Button>
           </Input.Group>
