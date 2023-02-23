@@ -60,7 +60,7 @@ export default function PrivateMessage() {
       <PageHeader back="/farmer/chat" title={user.fullname} />
       <div className="flex p-2">
         <div className="flex grow justify-center bg-white p-2" size="large">
-          <span>10:00</span>
+          <span className="text-slate-400">10:00</span>
         </div>
       </div>
 
