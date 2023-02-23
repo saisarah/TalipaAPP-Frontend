@@ -98,11 +98,11 @@ export default function PrivateMessage() {
               className=""
               size="large"
               style={{
-                width: "calc(100% - 50px)",
+                width: "calc(98% - 50px) ",
               }}
               placeholder="Type a message..."
             />
-            <Button className="border-none" size="large">
+            <Button className="border-none text-xl">
               <SendOutlined />
             </Button>
           </Input.Group>
