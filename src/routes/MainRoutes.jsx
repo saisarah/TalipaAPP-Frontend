@@ -3,14 +3,16 @@ import FarmerGate from "./gates/FarmerGate";
 import VendorGate from "./gates/VendorGate";
 import GuestGate from "./gates/GuestGate";
 
-import { lazy, Suspense } from "react";
+import { cloneElement, lazy, Suspense } from "react";
+import { useLocation, useRoutes } from "react-router-dom";
+import { AnimatePresence } from "framer-motion";
 
 const FarmerRoutes = () => import("./FarmerRoutes");
 const AdminRoutes = () => import("./AdminRoutes");
 const VendorRoutes = () => import("./VendorRoutes");
 
 const lazyLoadRoutes = (routes) => {
-  const LazyElement = lazy(routes);
+  const LazyElement = lazy(() => import(routes));
   return (
     <Suspense fallback={"Lazy loading"}>
       <LazyElement />
@@ -18,7 +20,7 @@ const lazyLoadRoutes = (routes) => {
   );
 };
 
-export default [
+const routes = [
   {
     path: "/*",
     element: <VendorGate>{lazyLoadRoutes(VendorRoutes)}</VendorGate>,
@@ -36,3 +38,16 @@ export default [
     element: lazyLoadRoutes(AdminRoutes),
   },
 ];
+
+export default function MainRoutes() {
+  const Routes = useRoutes(routes);
+  const location = useLocation();
+
+  if (!Routes) return null;
+
+  return (
+    <AnimatePresence mode="wait">
+      {cloneElement(element, { key: location.pathname })}
+    </AnimatePresence>
+  );
+}
