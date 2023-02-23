@@ -1,30 +1,38 @@
-import vendorRoutes from "./vendorRoutes";
-import farmerRoutes from "./farmerRoutes";
 import guestRoutes from "./guestRoutes";
 import FarmerGate from "./gates/FarmerGate";
-// import GuestGate from "../components/GuestGate";
 import VendorGate from "./gates/VendorGate";
 import GuestGate from "./gates/GuestGate";
-import adminRoutes from "./adminRoutes";
-import { Outlet } from "react-router-dom";
+
+import { lazy, Suspense } from "react";
+
+const FarmerRoutes = () => import("./FarmerRoutes");
+const AdminRoutes = () => import("./AdminRoutes");
+const VendorRoutes = () => import("./VendorRoutes");
+
+const lazyLoadRoutes = (routes) => {
+  const LazyElement = lazy(routes);
+  return (
+    <Suspense fallback={"Lazy loading"}>
+      <LazyElement />
+    </Suspense>
+  );
+};
 
 export default [
   {
-    element: <VendorGate />,
-    children: vendorRoutes,
+    path: "/*",
+    element: <VendorGate>{lazyLoadRoutes(VendorRoutes)}</VendorGate>,
   },
   {
-    path: "/farmer",
-    element: <FarmerGate />,
-    children: farmerRoutes,
+    path: "/farmer/*",
+    element: <FarmerGate>{lazyLoadRoutes(FarmerRoutes)}</FarmerGate>,
   },
   {
     element: <GuestGate />,
-    children: guestRoutes
+    children: guestRoutes,
   },
   {
-    path: "/admin",
-    children: adminRoutes,
-    element: <Outlet />
-  }
+    path: "/admin/*",
+    element: lazyLoadRoutes(AdminRoutes),
+  },
 ];

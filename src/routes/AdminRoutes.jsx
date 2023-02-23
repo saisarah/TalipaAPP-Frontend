@@ -11,8 +11,9 @@ import Vendor from "@/pages/admin/UserManagement/Vendor/Vendor";
 import ChangePassword from "@/pages/admin/Settings/ChangePassword";
 import FarmerGroupsProfile from "@/pages/admin/UserManagement/FarmerGroups/Profile";
 import FarmerProfile from "@/pages/admin/UserManagement/Farmer/Profile";
+import { useRoutes } from "react-router-dom";
 
-export default [
+const routes = [
   {
     element: <AdminLayout />,
     children: [
@@ -68,3 +69,7 @@ export default [
     element: <Login />,
   },
 ];
+
+export default function AdminRoutes() {
+  return useRoutes(routes);
+}

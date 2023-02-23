@@ -5,8 +5,9 @@ import Chat from "@/pages/vendor/Messages/Chat";
 import PrivateMessage from "@/pages/vendor/Messages/PrivateMessage";
 import Notifications from "@/pages/vendor/Notifications/Notifications";
 import { PostDetails } from "@/pages/vendor/PostDetails/PostDetails";
+import { useRoutes } from "react-router-dom";
 
-export default [
+const routes = [
   {
     element: <VendorLayout />,
     children: [
@@ -38,3 +39,7 @@ export default [
     element: <PrivateMessage />,
   },
 ];
+
+export default function VendorRoutes() {
+  return useRoutes(routes);
+}

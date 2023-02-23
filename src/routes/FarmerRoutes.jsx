@@ -25,6 +25,7 @@ import ChangeAddress from "@/pages/farmer/settings/form/ChangeAddress";
 import AccountDeletion from "@/pages/farmer/settings/form/AccountDeletion";
 import OrderInfo from "@/pages/farmer/orders/OrderInfo/OrderInfo";
 import Reviews from "@/pages/farmer/Profile/components/Reviews";
+import { useRoutes } from "react-router-dom";
 
 /**
  * All of the path is under farmer route
@@ -32,7 +33,7 @@ import Reviews from "@/pages/farmer/Profile/components/Reviews";
  * home => /farmer/home
  * post/create => /farmer/post/create
  */
-export default [
+const routes = [
   {
     path: "",
     element: <MainMenu />,
@@ -143,3 +144,7 @@ export default [
     element: <ChangePassword />,
   },
 ];
+
+export default function FarmerRoutes() {
+  return useRoutes(routes);
+}
