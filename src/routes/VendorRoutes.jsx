@@ -1,4 +1,3 @@
-import Account from "@/pages/customer/account/Account";
 import { VendorLayout } from "@/pages/vendor/components/VendorLayout/VendorLayout";
 import { Home } from "@/pages/vendor/Home/Home";
 import Chat from "@/pages/vendor/Messages/Chat";
@@ -9,24 +8,20 @@ import { useRoutes } from "react-router-dom";
 
 const routes = [
   {
+    path: "",
     element: <VendorLayout />,
     children: [
       {
-        path: "/",
+        path: "",
         element: <Home />,
       },
       {
         path: "messages",
         element: <Chat />,
       },
-
       {
         path: "notifications",
         element: <Notifications />,
-      },
-      {
-        path: "/account",
-        element: <Account />,
       },
     ],
   },
