@@ -1,7 +1,7 @@
 import PageHeader from "@/components/PageHeader";
 import UserOutlined from "@/icons/heroicons/UserOutlined";
 import { Avatar, Button, Input, Spin } from "antd";
-import React from "react";
+import React, { useRef } from "react";
 import { Empty } from "antd";
 import {
   AudioOutlined,
@@ -28,10 +28,24 @@ const fethUser = async (id) => {
 
 export default function PrivateMessage() {
   const params = useParams();
+  const scrollable = useRef();
+  const messagesCount = useRef(0)
   const { data, isLoading, refetch } = useQuery(["messages", params.id], () =>
     fetchMessages(params.id), {
+
+      onSuccess(data) {
+        // console.log(messagesCount)
+        if (data.length > messagesCount.current) {
+          messagesCount.current = data.length
+          // scrollable.value.scrollTop = scrollable.scroll
+          console.log(scrollable)
+          if(scrollable.current) scrollable.current.scrollTop = scrollable.current.scrollHeight
+
+        }
+      },
+
       async onSettled() {
-        await sleep(1000)
+        await sleep(5000)
         refetch()
       }
     }
@@ -71,7 +85,7 @@ export default function PrivateMessage() {
         </div>
       </div>
 
-      <div className="flex flex-1 flex-col-reverse">
+      <div className="flex flex-1 flex-col-reverse overflow-y-auto" ref={scrollable}>
         <div className="mb-4">
           {data.map((item) =>
             params.id == item.receiver_id ? (
