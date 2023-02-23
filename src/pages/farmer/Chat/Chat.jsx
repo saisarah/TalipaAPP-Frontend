@@ -16,7 +16,7 @@ export default function Chat() {
   if (isLoading)
     return (
       <Page>
-        <PageHeader back="/farmer/chat" title="Loading" />
+        <PageHeader back="/farmer" title="Loading" />
         <div className="flex flex-col items-center py-16">
           <Spin />
         </div>
