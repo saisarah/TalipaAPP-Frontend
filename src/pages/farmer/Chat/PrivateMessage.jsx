@@ -35,6 +35,7 @@ export default function PrivateMessage() {
 
   if (isLoading || isUserLoading)
     return (
+      
       <div className="flex flex-col items-center py-16">
         <Spin />
       </div>
