@@ -37,7 +37,7 @@ export default function Settings() {
           <span className="font-bold">Personal Information</span>
 
           <Link
-            className="mx-4 flex justify-between border-b-2 pb-2"
+            className="mx-4 flex justify-between border-b-2 pb-2 mb-3"
             to="/farmer/settings/change-name"
           >
             <div className="flex flex-col">
@@ -49,7 +49,7 @@ export default function Settings() {
           </Link>
 
           <Link
-            className="mx-4 flex justify-between border-b-2 pb-2"
+            className="mx-4 flex justify-between border-b-2 pb-2 mb-3"
             to="/farmer/settings/change-username"
           >
             <div className="flex flex-col">
@@ -59,7 +59,7 @@ export default function Settings() {
             <RightOutlined />
           </Link>
           <Link
-            className="mx-4 flex justify-between border-b-2 pb-2"
+            className="mx-4 flex justify-between border-b-2 pb-2 mb-3"
             to="/farmer/settings/change-number"
           >
             <div className="flex flex-col">
@@ -69,7 +69,7 @@ export default function Settings() {
             <RightOutlined />
           </Link>
           <Link
-            className="mx-4 flex justify-between border-b-2 pb-2"
+            className="mx-4 flex justify-between border-b-2 pb-2 mb-3"
             to="/farmer/settings/change-email"
           >
             <div className="flex flex-col">
@@ -85,7 +85,7 @@ export default function Settings() {
           <span className="font-bold">Account settings</span>
 
           <Link
-            className="mx-4 flex justify-between border-b-2 pb-2"
+            className="mx-4 flex justify-between border-b-2 pb-2 mb-3"
             to="/farmer/settings/change-address"
           >
             <div className="flex flex-col">
@@ -97,7 +97,7 @@ export default function Settings() {
             <RightOutlined />
           </Link>
           <Link
-            className="mx-4 flex justify-between border-b-2 pb-2"
+            className="mx-4 flex justify-between border-b-2 pb-2 mb-3"
             to="/farmer/settings/account-deletion"
           >
             <div className="flex flex-col">
@@ -109,7 +109,7 @@ export default function Settings() {
             <RightOutlined />
           </Link>
           <Link
-            className="mx-4 flex justify-between border-b-2 pb-2"
+            className="mx-4 flex justify-between border-b-2 pb-2 mb-3"
             to="/farmer/settings/change-password"
           >
             <div className="flex flex-col">
