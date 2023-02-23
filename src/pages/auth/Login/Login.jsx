@@ -6,6 +6,7 @@ import queryKeyFactory from "@/query/queryKeyFactory";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { Button, Form, Input, notification } from "antd";
 import { Link } from "react-router-dom";
+import logo from "./images/logo.svg";
 
 export default function Login() {
   const queryClient = useQueryClient();
@@ -32,13 +33,7 @@ export default function Login() {
       <PageHeader title="Login" />
 
       <div className="flex flex-col p-4 px-8 text-center">
-        <img
-          className="mx-auto"
-          src="/assets/TalipaApp LogIn.svg"
-          height="100"
-          width="300"
-          alt=""
-        />
+        <img className="mx-auto" src={logo} height="100" width="300" alt="" />
 
         <p className="">Welcome to TalipaAPP</p>
         <div className="flex-grow">

@@ -1,4 +1,4 @@
-import SplashScreen from "@/components/SplashScreen";
+import SplashScreen from "@/components/SplashScreen/SplashScreen";
 import useCurrentUserQuery from "@/query/queries/useCurrentUserQuery";
 import { Navigate, Outlet } from "react-router-dom";
 
