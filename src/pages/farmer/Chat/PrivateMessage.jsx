@@ -12,6 +12,7 @@ import Meta from "antd/lib/card/Meta";
 import Http from "@/helpers/Http";
 import { useParams } from "react-router";
 import { useQuery } from "@tanstack/react-query";
+import SendMessage from "./components/SendMessage";
 
 const fetchMessages = async (id) => {
   const result = await Http.get(`/messages/${id}`);
@@ -53,7 +54,7 @@ export default function PrivateMessage() {
 
   return (
     <div className="app-size flex flex-col bg-white">
-      <PageHeader back="/farmer/chat" title={user.fullname} />
+      <PageHeader back="/farmer/messages" title={user.fullname} />
       <div className="flex p-2">
         <div className="flex grow justify-center bg-white p-2" size="large">
           <span>10:00</span>
@@ -87,23 +88,7 @@ export default function PrivateMessage() {
           )}
         </div>
       </div>
-      <div className="sticky bottom-2 left-0 right-0 bg-white pl-2">
-        <div className="">
-          <Input.Group className="">
-            <Input
-              className=""
-              size="large"
-              style={{
-                width: "calc(100% - 50px)",
-              }}
-              placeholder="Type a message..."
-            />
-            <Button className="border-none" size="large">
-              <SendOutlined />
-            </Button>
-          </Input.Group>
-        </div>
-      </div>
+      <SendMessage id={params.id} />
     </div>
   );
 }
