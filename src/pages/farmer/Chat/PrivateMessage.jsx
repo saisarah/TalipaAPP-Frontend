@@ -12,6 +12,7 @@ import Meta from "antd/lib/card/Meta";
 import Http from "@/helpers/Http";
 import { useParams } from "react-router";
 import { useQuery } from "@tanstack/react-query";
+import Page from "@/components/Page";
 
 const fetchMessages = async (id) => {
   const result = await Http.get(`/messages/${id}`);
@@ -35,9 +36,12 @@ export default function PrivateMessage() {
 
   if (isLoading || isUserLoading)
     return (
-      <div className="flex flex-col items-center py-16">
-        <Spin />
-      </div>
+      <Page>
+        <PageHeader back="/farmer/chat" title="Loading" />
+        <div className="flex flex-col items-center py-16">
+          <Spin />
+        </div>
+      </Page>
     );
 
   const App = () => <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} />;
@@ -56,7 +60,7 @@ export default function PrivateMessage() {
       <PageHeader back="/farmer/chat" title={user.fullname} />
       <div className="flex p-2">
         <div className="flex grow justify-center bg-white p-2" size="large">
-          <span>10:00</span>
+          <span className="text-slate-400">10:00</span>
         </div>
       </div>
 
@@ -94,11 +98,11 @@ export default function PrivateMessage() {
               className=""
               size="large"
               style={{
-                width: "calc(100% - 50px)",
+                width: "calc(98% - 50px) ",
               }}
               placeholder="Type a message..."
             />
-            <Button className="border-none" size="large">
+            <Button className="border-none text-xl">
               <SendOutlined />
             </Button>
           </Input.Group>
