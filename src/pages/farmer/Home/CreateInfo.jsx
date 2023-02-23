@@ -1,11 +1,12 @@
 import { Button } from "antd";
 import { Link } from "react-router-dom";
+import blogPostImg from "./images/blog-post.png";
 
 export default function CreateInfo() {
   return (
     <div className="my-16">
       <div className="mb-14 flex justify-center">
-        <img src="/assets/images/blog-post.png" />
+        <img src={blogPostImg} />
       </div>
       <div className="text-center">
         <h1 className="text-xl font-bold">Create Post</h1>
