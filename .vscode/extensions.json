@@ -1,7 +1,0 @@
-{
-    "recommendations": [
-        "esbenp.prettier-vscode",
-        "eamodio.gitlens",
-        "bradlc.vscode-tailwindcss"
-    ]
-}

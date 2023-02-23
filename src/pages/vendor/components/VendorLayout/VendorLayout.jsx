@@ -15,7 +15,7 @@ import {
 import { useQueryClient } from "@tanstack/react-query";
 import { Avatar, Button, Divider, Modal } from "antd";
 import { createContext, useContext, useEffect, useState } from "react";
-import { Link, Outlet } from "react-router-dom";
+import { Link, Outlet, useLocation } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 
 export const VendorLayoutContext = createContext();
@@ -39,9 +39,12 @@ export const useTitle = (newTitle) => {
 export const VendorLayout = () => {
   const [sideNavOpen, setSideNavOpen] = useState(false);
   const { data: user } = useCurrentUserQuery();
-  const [title, setTitle] = useState({ current: "TalipaAPP", previous: null });
-  const queryClient = useQueryClient();
+  const [title, setTitle] = useState({
+    current: "TalipaAPP",
+    previous: null,
+  });
 
+  const queryClient = useQueryClient();
   const confirmLogout = () => {
     Modal.confirm({
       icon: <QuestionCircleTwoTone />,
@@ -74,9 +77,9 @@ export const VendorLayout = () => {
             {sideNavOpen && (
               <>
                 <motion.div
-                  initial={{opacity: 0}}
-                  animate={{opacity: 1}}
-                  exit={{opacity: 0}}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
                   onClick={() => setSideNavOpen(false)}
                   className="absolute inset-0 z-20 bg-black/50"
                 />
@@ -106,11 +109,13 @@ export const VendorLayout = () => {
                       <HomeFilled />
                       Home
                     </Link>
-
-                    <div className="flex items-center gap-2 rounded-r-full py-2 pl-8">
+                    <Link
+                      to="/notifications"
+                      className="flex items-center gap-2 rounded-r-full py-2 pl-8"
+                    >
                       <BellFilled />
                       Notifications
-                    </div>
+                    </Link>
 
                     <Link
                       to="/messages"
