@@ -13,6 +13,7 @@ import Http from "@/helpers/Http";
 import { useParams } from "react-router";
 import { useQuery } from "@tanstack/react-query";
 import Page from "@/components/Page";
+import SendMessage from "./components/SendMessage";
 
 const fetchMessages = async (id) => {
   const result = await Http.get(`/messages/${id}`);
@@ -57,91 +58,41 @@ export default function PrivateMessage() {
 
   return (
     <div className="app-size flex flex-col bg-white">
-      <PageHeader back="/farmer/chat" title={user.fullname} />
+      <PageHeader back="/farmer/messages" title={user.fullname} />
       <div className="flex p-2">
         <div className="flex grow justify-center bg-white p-2" size="large">
-          <span className="text-slate-400">10:00</span>
+          <span>10:00</span>
         </div>
       </div>
-      <div className=" flex items-end gap-2 p-4">
-        <Avatar
-          size="medium"
-          style={{ backgroundColor: "#87d068" }}
-          icon={<UserOutlined />}
-        />
-        <Card
-          className="p-3 shadow-sm"
-          style={{
-            width: 250,
-          }}
-          cover={<img alt="example" src="/assets/images/garlic.png" />}
-          actions={[
-            <ShoppingCartOutlined key="ShoppingCart" />,
-            <DeleteOutlined key="Delete" />,
-            <EllipsisOutlined key="ellipsis" />,
-          ]}
-        >
-          <Meta title="Garlic" description="Price: 750.00 Pesos" />
-        </Card>
-      </div>
-      <div className="row-end-1 flex justify-end p-4">
-        <Card
-          className="row-end-1 shadow-sm"
-          style={{
-            width: 300,
-          }}
-        >
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
-            porta massa sapien. Suspendisse iaculis tellus lacus, ac facilisis
-            massa maximus vitae. Proin posuere nec nisl eu eleifend. Mauris
-            imperdiet egestas posuere. Aenean at iaculis nunc. Suspendisse
-            luctus dolor sed nulla elementum ultrices. Orci varius natoque
-            penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-            Morbi sit amet tortor vel orci rutrum condimentum iaculis eget est.
-          </p>
-        </Card>
-      </div>
-      <div className="justify-s flex items-end gap-2 p-4">
-        <Avatar
-          size="medium"
-          style={{ backgroundColor: "#87d068" }}
-          icon={<UserOutlined />}
-        />
-        <Card
-          className="shadow-sm"
-          style={{
-            width: 300,
-          }}
-        >
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
-            porta massa sapien. Suspendisse iaculis tellus lacus, ac facilisis
-            massa maximus vitae. Proin posuere nec nisl eu eleifend. Mauris
-            imperdiet egestas posuere. Aenean at iaculis nunc. Suspendisse
-            luctus dolor sed nulla elementum ultrices. Orci varius natoque
-            penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-            Morbi sit amet tortor vel orci rutrum condimentum iaculis eget est.
-          </p>
-        </Card>
-      </div>
-      <div className="sticky bottom-2 left-0 right-0 bg-white pl-2">
-        <div className="">
-          <Input.Group className="">
-            <Input
-              className=""
-              size="large"
-              style={{
-                width: "calc(98% - 50px) ",
-              }}
-              placeholder="Type a message..."
-            />
-            <Button className="border-none text-xl">
-              <SendOutlined />
-            </Button>
-          </Input.Group>
+
+      <div className="flex flex-1 flex-col-reverse">
+        <div className="mb-4">
+          {data.map((item) =>
+            params.id == item.receiver_id ? (
+              <div key={item.id} className="row-end-1 flex justify-end p-4">
+                <div className="row-end-1 max-w-[300px] rounded border border-[#e5e7eb] p-2 shadow-sm">
+                  <span>{item.content}</span>
+                </div>
+              </div>
+            ) : (
+              <div
+                key={item.id}
+                className="flex items-end justify-start gap-2 p-4"
+              >
+                <Avatar
+                  size="medium"
+                  style={{ backgroundColor: "#87d068" }}
+                  icon={<UserOutlined />}
+                />
+                <div className="row-end-1 max-w-[300px] rounded border border-[#e5e7eb] p-2 shadow-sm">
+                  <span>{item.content}</span>
+                </div>
+              </div>
+            )
+          )}
         </div>
       </div>
+      <SendMessage id={params.id} />
     </div>
   );
 }
