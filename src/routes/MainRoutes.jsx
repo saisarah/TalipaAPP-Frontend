@@ -12,7 +12,7 @@ const AdminRoutes = () => import("./AdminRoutes");
 const VendorRoutes = () => import("./VendorRoutes");
 
 const lazyLoadRoutes = (routes) => {
-  const LazyElement = lazy(() => import(routes));
+  const LazyElement = lazy(routes);
   return (
     <Suspense fallback={"Lazy loading"}>
       <LazyElement />
@@ -47,7 +47,7 @@ export default function MainRoutes() {
 
   return (
     <AnimatePresence mode="wait">
-      {cloneElement(element, { key: location.pathname })}
+      {cloneElement(Routes, { key: location.pathname })}
     </AnimatePresence>
   );
 }
