@@ -8,6 +8,7 @@ import PageHeader from "@/components/PageHeader";
 import queryKeyFactory from "@/query/queryKeyFactory";
 import ResetPassword from "./ResetPassword/ResetPassword";
 import iconDeleteImg from "./images/icon_delete.svg";
+import { currentUserKey } from "@/apis/UserApi";
 
 function OTPButton({ children, className = "", onClick }) {
   return (
@@ -30,7 +31,7 @@ export default function ForgotPasswordCode({ reset, phone }) {
   const { mutate, isLoading } = useMutation(verifyLoginOtp, {
     onSuccess({ token, user }) {
       setAuthorization(token);
-      queryClient.setQueryData(queryKeyFactory.currentUser, user);
+      queryClient.setQueryData(currentUserKey, user);
 
       if (user.user_type === "farmer") navigate("/farmer");
       else if (user.user_type === "vendor") navigate("/");

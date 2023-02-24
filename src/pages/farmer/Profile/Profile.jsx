@@ -1,6 +1,5 @@
 import { EditOutlined, UserOutlined } from "@ant-design/icons";
 import { Avatar, Spin } from "antd";
-import useCurrentUserQuery from "../../../query/queries/useCurrentUserQuery";
 import { Button } from "antd";
 import { useQuery } from "@tanstack/react-query";
 import { fetchUserPosts } from "@/apis/Post";
@@ -10,6 +9,7 @@ import Page from "@/components/Page";
 import { useTab } from "@/helpers/hooks";
 import { Link } from "react-router-dom";
 import About from "./components/About";
+import { useCurrentUserQuery } from "@/query/queries/useCurrentUserQuery";
 
 const UserPosts = ({ id }) => {
   const { data: posts, isLoading } = useQuery(["users", id, "posts"], () =>

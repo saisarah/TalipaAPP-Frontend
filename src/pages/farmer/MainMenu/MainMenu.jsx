@@ -15,6 +15,8 @@ import notificationsImg from "./images/notifications.png";
 import ordersImg from "./images/orders.png";
 import settingsImg from "./images/settings.png";
 import walletImg from "./images/wallet.svg";
+import helpImg from "./images/help.svg";
+import { currentUserKey } from "@/apis/UserApi";
 
 export default function MainMenu() {
   const queryClient = useQueryClient();
@@ -25,7 +27,7 @@ export default function MainMenu() {
       onOk() {
         localStorage.clear();
         setAuthorization(undefined);
-        queryClient.setQueryData(queryKeyFactory.currentUser, null);
+        queryClient.setQueryData(currentUserKey, null);
       },
       content: "Are you sure you want to log out?",
     });
@@ -50,9 +52,8 @@ export default function MainMenu() {
         <MenuButton to="/farmer/profile" src={farmerImg} label="Profile" />
         <MenuButton to="/farmer/orders" src={ordersImg} label="Orders" />
         <MenuButton to="/farmer/wallet" src={walletImg} label="Wallet" />
-        <MenuButton label="Help" />
         <MenuButton to="/farmer/settings" src={settingsImg} label="Settings" />
-        {/* <MenuButton onClick={confirmLogout} label="Logout" /> */}
+        <MenuButton src={helpImg} label="Help" />
       </div>
     </div>
   );
