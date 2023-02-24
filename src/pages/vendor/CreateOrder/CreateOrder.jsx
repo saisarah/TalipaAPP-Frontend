@@ -4,6 +4,7 @@ import { currency } from "@/helpers/utils";
 import MapPinOutline from "@/icons/heroicons/MapPinOutline";
 import {
   useCurrentUserBalanceQuery,
+  useCurrentUserCompleteAddresQuery,
   useCurrentUserQuery,
 } from "@/query/queries/useCurrentUserQuery";
 import { ArrowLeftOutlined, WalletOutlined } from "@ant-design/icons";
@@ -13,6 +14,8 @@ export default function CreateOrder({ id, setQuantities }) {
   const { data: user } = useCurrentUserQuery();
   const { data: balance, isLoading: fetchingBalance } =
     useCurrentUserBalanceQuery();
+  const { data: address, isLoading: fetchingAddress } =
+    useCurrentUserCompleteAddresQuery();
 
   return (
     <Page className="bg-white">
@@ -50,7 +53,7 @@ export default function CreateOrder({ id, setQuantities }) {
             style={{ fontSize: "24px" }}
           />
           <div className="text-sm leading-5 text-slate-600">
-            Bldg2a 2u10 MRH NHA Site 4, Brgy.188 Tala Caloocan City, NCR
+            {fetchingAddress ? <i>Fetching Address</i> : address}
           </div>
         </div>
       </div>
@@ -67,7 +70,7 @@ export default function CreateOrder({ id, setQuantities }) {
           <div className="flex flex-col">
             <div className="font-semibold leading-3">TalipaAPP Wallet</div>
             <div className="text-sm text-slate-600">
-              Balance:{" "}
+              Balance:
               {fetchingBalance ? <i>Fetching Balance</i> : currency(balance)}
             </div>
           </div>
