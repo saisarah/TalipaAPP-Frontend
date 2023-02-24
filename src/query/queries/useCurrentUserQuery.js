@@ -1,20 +1,26 @@
+import {
+  currentUserBalanceKey,
+  currentUserKey,
+  fetchCurrentUser,
+  fetchCurrentUserBalance,
+} from "@/apis/UserApi";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
-import { fetchCurrentUser } from "../../apis/AuthApi";
-import queryKeyFactory from "../queryKeyFactory";
 
+export const useCurrentUserBalanceQuery = () => {
+  return useQuery(currentUserBalanceKey, fetchCurrentUserBalance);
+};
 
-export default function useCurrentUserQuery()
-{
-    const queryClient = useQueryClient()
+export const useCurrentUserQuery = () => {
+  const queryClient = useQueryClient();
 
-    return useQuery(queryKeyFactory.currentUser, fetchCurrentUser, {
-        retry: 0,
-        staleTime: 1000 * 60 * 60 * 2,
-        onError(error){
-            console.log(JSON.stringify(error))
-            if (error?.response?.status === 401) {
-                queryClient.setQueryData(queryKeyFactory.currentUser, null)
-            }
-        }
-    })
-}
+  return useQuery(currentUserKey, fetchCurrentUser, {
+    retry: 0,
+    staleTime: 1000 * 60 * 60 * 2,
+    onError(error) {
+      console.log(JSON.stringify(error));
+      if (error?.response?.status === 401) {
+        queryClient.setQueryData(currentUserKey, null);
+      }
+    },
+  });
+};

@@ -1,7 +1,7 @@
 import PageHeader from "@/components/PageHeader";
 import { setAuthorization } from "@/helpers/Http";
 import UserFilled from "@/icons/heroicons/UserFilled";
-import useCurrentUserQuery from "@/query/queries/useCurrentUserQuery";
+import { useCurrentUserQuery } from "@/query/queries/useCurrentUserQuery";
 import queryKeyFactory from "@/query/queryKeyFactory";
 import {
   BellFilled,
