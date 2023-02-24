@@ -9,12 +9,12 @@ import { MenuButton } from "./components/MenuButton";
 //assets
 import homeImg from "./images/home.png";
 import commentsImg from "./images/comments.png";
-import cropsImg from "./images/crops.png";
 import farmerImg from "./images/farmer.png";
 import groupImg from "./images/group.png";
 import notificationsImg from "./images/notifications.png";
 import ordersImg from "./images/orders.png";
 import settingsImg from "./images/settings.png";
+import walletImg from "./images/wallet.svg";
 import helpImg from "./images/help.svg";
 import { currentUserKey } from "@/apis/UserApi";
 
@@ -49,14 +49,11 @@ export default function MainMenu() {
           label="Notifications"
         />
         <MenuButton to="/farmer/groups" src={groupImg} label="Group" />
-
-        <MenuButton to="/farmer/settings" src={settingsImg} label="Settings" />
-
         <MenuButton to="/farmer/profile" src={farmerImg} label="Profile" />
         <MenuButton to="/farmer/orders" src={ordersImg} label="Orders" />
-        <MenuButton src={cropsImg} label="Crops" />
+        <MenuButton to="/farmer/wallet" src={walletImg} label="Wallet" />
+        <MenuButton to="/farmer/settings" src={settingsImg} label="Settings" />
         <MenuButton src={helpImg} label="Help" />
-        {/* <MenuButton onClick={confirmLogout} label="Logout" /> */}
       </div>
     </div>
   );
