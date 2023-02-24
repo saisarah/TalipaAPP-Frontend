@@ -17,6 +17,7 @@ import { Avatar, Button, Divider, Modal } from "antd";
 import { createContext, useContext, useEffect, useState } from "react";
 import { Link, Outlet, useLocation } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
+import { currentUserKey } from "@/apis/UserApi";
 
 export const VendorLayoutContext = createContext();
 
@@ -51,7 +52,7 @@ export const VendorLayout = () => {
       onOk() {
         localStorage.clear();
         setAuthorization(undefined);
-        queryClient.setQueryData(queryKeyFactory.currentUser, null);
+        queryClient.setQueryData(currentUserKey, null);
       },
       content: "Are you sure you want to log?",
     });

@@ -4,27 +4,30 @@ import Search from "antd/lib/transfer/search";
 import { Link } from "react-router-dom";
 
 import queryKeyFactory from "@/query/queryKeyFactory";
-import { ArrowRightOutlined, QuestionCircleTwoTone, RightOutlined } from "@ant-design/icons";
+import {
+  ArrowRightOutlined,
+  QuestionCircleTwoTone,
+  RightOutlined,
+} from "@ant-design/icons";
 import { useQueryClient } from "@tanstack/react-query";
 import { Modal } from "antd";
 import { setAuthorization } from "@/helpers/Http";
-
-
+import { currentUserKey } from "@/apis/UserApi";
 
 export default function Settings() {
-    const queryClient = useQueryClient();
+  const queryClient = useQueryClient();
 
-    const confirmLogout = () => {
-      Modal.confirm({
-        icon: <QuestionCircleTwoTone />,
-        onOk() {
-          localStorage.clear();
-          setAuthorization(undefined);
-          queryClient.setQueryData(queryKeyFactory.currentUser, null);
-        },
-        content: "Are you sure you want to log out?",
-      });
-    };
+  const confirmLogout = () => {
+    Modal.confirm({
+      icon: <QuestionCircleTwoTone />,
+      onOk() {
+        localStorage.clear();
+        setAuthorization(undefined);
+        queryClient.setQueryData(currentUserKey, null);
+      },
+      content: "Are you sure you want to log out?",
+    });
+  };
   return (
     <Page className="bg-white">
       <PageHeader title="Settings" back="/" />
