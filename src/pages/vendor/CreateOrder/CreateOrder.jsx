@@ -2,12 +2,17 @@ import Page from "@/components/Page";
 import PageHeader from "@/components/PageHeader";
 import { currency } from "@/helpers/utils";
 import MapPinOutline from "@/icons/heroicons/MapPinOutline";
-import { useCurrentUserQuery } from "@/query/queries/useCurrentUserQuery";
+import {
+  useCurrentUserBalanceQuery,
+  useCurrentUserQuery,
+} from "@/query/queries/useCurrentUserQuery";
 import { ArrowLeftOutlined, WalletOutlined } from "@ant-design/icons";
 import { Avatar, Button, Divider } from "antd";
 
 export default function CreateOrder({ id, setQuantities }) {
   const { data: user } = useCurrentUserQuery();
+  const { data: balance, isLoading: fetchingBalance } =
+    useCurrentUserBalanceQuery();
 
   return (
     <Page className="bg-white">
@@ -27,7 +32,7 @@ export default function CreateOrder({ id, setQuantities }) {
           Delivering to
         </h4>
         <div className="flex items-center gap-2">
-          <Avatar size="large" />
+          <Avatar size="large" src={user.profile_picture} />
           <div className="flex flex-col">
             <div className="font-semibold leading-3">{user.fullname}</div>
             <div className="text-sm text-slate-600">{user.contact_number}</div>
@@ -62,7 +67,8 @@ export default function CreateOrder({ id, setQuantities }) {
           <div className="flex flex-col">
             <div className="font-semibold leading-3">TalipaAPP Wallet</div>
             <div className="text-sm text-slate-600">
-              Balance: {currency(25000)}
+              Balance:{" "}
+              {fetchingBalance ? <i>Fetching Balance</i> : currency(balance)}
             </div>
           </div>
         </div>

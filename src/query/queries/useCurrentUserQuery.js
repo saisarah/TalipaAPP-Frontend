@@ -1,5 +1,14 @@
-import { currentUserKey, fetchCurrentUser } from "@/apis/UserApi";
+import {
+  currentUserBalanceKey,
+  currentUserKey,
+  fetchCurrentUser,
+  fetchCurrentUserBalance,
+} from "@/apis/UserApi";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
+
+export const useCurrentUserBalanceQuery = () => {
+  return useQuery(currentUserBalanceKey, fetchCurrentUserBalance);
+};
 
 export const useCurrentUserQuery = () => {
   const queryClient = useQueryClient();
