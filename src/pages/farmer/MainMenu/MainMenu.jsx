@@ -15,6 +15,7 @@ import groupImg from "./images/group.png";
 import notificationsImg from "./images/notifications.png";
 import ordersImg from "./images/orders.png";
 import settingsImg from "./images/settings.png";
+import helpImg from "./images/help.svg";
 import { currentUserKey } from "@/apis/UserApi";
 
 export default function MainMenu() {
@@ -54,7 +55,7 @@ export default function MainMenu() {
         <MenuButton to="/farmer/profile" src={farmerImg} label="Profile" />
         <MenuButton to="/farmer/orders" src={ordersImg} label="Orders" />
         <MenuButton src={cropsImg} label="Crops" />
-        <MenuButton label="Help" />
+        <MenuButton src={helpImg} label="Help" />
         {/* <MenuButton onClick={confirmLogout} label="Logout" /> */}
       </div>
     </div>
