@@ -57,6 +57,7 @@ export const SetQuantityStraight = ({
               <div className="mt-4 flex">
                 <Button
                   size="small"
+                  shape="circle"
                   onClick={() => setValue((i) => Math.max(0, i - 1))}
                   className="shadow"
                   icon={<MinusOutlined />}
@@ -69,6 +70,7 @@ export const SetQuantityStraight = ({
                   min={0}
                 />
                 <Button
+                  shape="circle"
                   size="small"
                   onClick={() => setValue((i) => Math.min(i + 1, price.stocks))}
                   className="shadow"
