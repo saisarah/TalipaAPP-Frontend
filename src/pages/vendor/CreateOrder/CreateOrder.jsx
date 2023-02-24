@@ -2,10 +2,13 @@ import Page from "@/components/Page";
 import PageHeader from "@/components/PageHeader";
 import { currency } from "@/helpers/utils";
 import MapPinOutline from "@/icons/heroicons/MapPinOutline";
+import useCurrentUserQuery from "@/query/queries/useCurrentUserQuery";
 import { ArrowLeftOutlined, WalletOutlined } from "@ant-design/icons";
 import { Avatar, Button, Divider } from "antd";
 
 export default function CreateOrder({ id, setQuantities }) {
+  const { data: user } = useCurrentUserQuery();
+
   return (
     <Page className="bg-white">
       <PageHeader
@@ -26,8 +29,8 @@ export default function CreateOrder({ id, setQuantities }) {
         <div className="flex items-center gap-2">
           <Avatar size="large" />
           <div className="flex flex-col">
-            <div className="font-semibold leading-3">Lenard Mangay-ayam</div>
-            <div className="text-sm text-slate-600">09390943727</div>
+            <div className="font-semibold leading-3">{user.fullname}</div>
+            <div className="text-sm text-slate-600">{user.contact_number}</div>
           </div>
         </div>
       </div>
