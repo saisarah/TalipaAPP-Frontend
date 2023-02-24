@@ -2,7 +2,7 @@ import Page from "@/components/Page";
 import PageHeader from "@/components/PageHeader";
 import { currency } from "@/helpers/utils";
 import MapPinOutline from "@/icons/heroicons/MapPinOutline";
-import useCurrentUserQuery from "@/query/queries/useCurrentUserQuery";
+import { useCurrentUserQuery } from "@/query/queries/useCurrentUserQuery";
 import { ArrowLeftOutlined, WalletOutlined } from "@ant-design/icons";
 import { Avatar, Button, Divider } from "antd";
 

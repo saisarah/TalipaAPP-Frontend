@@ -5,3 +5,9 @@ export const fetchCurrentUser = async () => {
   return data;
 };
 export const currentUserKey = ["user"];
+
+export const fetchCurrentUserBalance = async () => {
+  const { data } = await Http.get("/user/balance");
+  return data;
+};
+export const currentUserBalanceKey = ["user", "balance"];

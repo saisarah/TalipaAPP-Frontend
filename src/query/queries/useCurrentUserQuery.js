@@ -1,8 +1,7 @@
 import { currentUserKey, fetchCurrentUser } from "@/apis/UserApi";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
-import queryKeyFactory from "../queryKeyFactory";
 
-export default function useCurrentUserQuery() {
+export const useCurrentUserQuery = () => {
   const queryClient = useQueryClient();
 
   return useQuery(currentUserKey, fetchCurrentUser, {
@@ -11,8 +10,8 @@ export default function useCurrentUserQuery() {
     onError(error) {
       console.log(JSON.stringify(error));
       if (error?.response?.status === 401) {
-        queryClient.setQueryData(queryKeyFactory.currentUser, null);
+        queryClient.setQueryData(currentUserKey, null);
       }
     },
   });
-}
+};
