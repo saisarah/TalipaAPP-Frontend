@@ -1,13 +1,22 @@
 import {
   currentUserBalanceKey,
+  currentUserCompleteAddressKey,
   currentUserKey,
   fetchCurrentUser,
   fetchCurrentUserBalance,
+  fetchCurrentUserCompleteAddress,
 } from "@/apis/UserApi";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 
 export const useCurrentUserBalanceQuery = () => {
   return useQuery(currentUserBalanceKey, fetchCurrentUserBalance);
+};
+
+export const useCurrentUserCompleteAddresQuery = () => {
+  return useQuery(
+    currentUserCompleteAddressKey,
+    fetchCurrentUserCompleteAddress
+  );
 };
 
 export const useCurrentUserQuery = () => {
