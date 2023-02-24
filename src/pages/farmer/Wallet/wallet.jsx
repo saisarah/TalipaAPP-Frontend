@@ -28,13 +28,13 @@ export default function Wallet() {
               className="min-w-[100px] rounded border text-[15px] font-bold"
               type="primary"
             >
-              <span>
+              <span className="mr-2">
                 <UploadOutlined style={{ fontWeight: "bold" }} />
               </span>
               Send
             </Button>
             <Button className="min-w-[100px] rounded border border-[#739559] text-[15px] font-bold text-[#739559]">
-              <span>
+              <span className="mr-2">
                 <DownloadOutlined />
               </span>
               Cash In

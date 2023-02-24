@@ -25,11 +25,8 @@ import ChangeAddress from "@/pages/farmer/settings/form/ChangeAddress";
 import AccountDeletion from "@/pages/farmer/settings/form/AccountDeletion";
 import OrderInfo from "@/pages/farmer/orders/OrderInfo/OrderInfo";
 import Reviews from "@/pages/farmer/Profile/components/Reviews";
-<<<<<<< HEAD:src/routes/farmerRoutes.jsx
 import Wallet from "@/pages/farmer/Wallet/wallet";
-=======
 import { useRoutes } from "react-router-dom";
->>>>>>> master:src/routes/FarmerRoutes.jsx
 
 /**
  * All of the path is under farmer route
