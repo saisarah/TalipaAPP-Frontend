@@ -1,4 +1,5 @@
 import { login } from "@/apis/AuthApi";
+import { currentUserKey } from "@/apis/UserApi";
 import FormItem from "@/components/FormItem";
 import PageHeader from "@/components/PageHeader";
 import { getErrorMessage, setAuthorization } from "@/helpers/Http";
@@ -19,7 +20,7 @@ export default function Login() {
     onSuccess({ token, user }) {
       notification.success({ message: "Successfully Login" });
       setAuthorization(token);
-      queryClient.setQueryData(queryKeyFactory.currentUser, user);
+      queryClient.setQueryData(currentUserKey, user);
     },
   });
 

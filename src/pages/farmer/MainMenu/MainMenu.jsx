@@ -15,6 +15,7 @@ import groupImg from "./images/group.png";
 import notificationsImg from "./images/notifications.png";
 import ordersImg from "./images/orders.png";
 import settingsImg from "./images/settings.png";
+import { currentUserKey } from "@/apis/UserApi";
 
 export default function MainMenu() {
   const queryClient = useQueryClient();
@@ -25,7 +26,7 @@ export default function MainMenu() {
       onOk() {
         localStorage.clear();
         setAuthorization(undefined);
-        queryClient.setQueryData(queryKeyFactory.currentUser, null);
+        queryClient.setQueryData(currentUserKey, null);
       },
       content: "Are you sure you want to log out?",
     });
