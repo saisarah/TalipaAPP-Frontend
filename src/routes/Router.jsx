@@ -1,40 +1,14 @@
-import { AnimatePresence } from "framer-motion";
-import { cloneElement } from "react";
-import {
-  createBrowserRouter,
-  RouterProvider,
-  createHashRouter,
-  useRoutes,
-  useLocation,
-  BrowserRouter,
-  HashRouter,
-} from "react-router-dom";
-import routes from "./routes";
+import { BrowserRouter, HashRouter } from "react-router-dom";
+import MainRoutes from "./MainRoutes";
 
 const platform = import.meta.env.VITE_PLATFLORM;
 
-const router =
-  platform === "android"
-    ? createHashRouter(routes)
-    : createBrowserRouter(routes);
-
-const Temp = () => {
-  const element = useRoutes(routes);
-  const location = useLocation()
-
-  if (!element) return null
+export default function Router() {
+  const Router = platform === "android" ? HashRouter : BrowserRouter;
 
   return (
-    <AnimatePresence mode="wait">
-      {cloneElement(element, { key: location.pathname })}
-    </AnimatePresence>
+    <Router>
+      <MainRoutes />
+    </Router>
   );
-};
-
-export default function Router() {
-  if (platform === "android") {
-    return <HashRouter><Temp /></HashRouter>
-  }
-  
-  return <BrowserRouter><Temp /></BrowserRouter>
 }
