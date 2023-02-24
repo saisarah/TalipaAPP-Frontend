@@ -45,9 +45,9 @@ export const PostDetails = () => {
         />
       </div>
       <div className="p-4">
-        <div className="flex justify-between">
+        <div className="flex justify-between gap-2">
           <h1 className="text-xl font-semibold">{post.title}</h1>
-          <span className="text-lg">
+          <span className="whitespace-nowrap text-lg">
             {currency(post.display_price)} / {post.unit}
           </span>
         </div>
