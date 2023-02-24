@@ -1,8 +1,10 @@
 import Page from "@/components/Page";
 import PageHeader from "@/components/PageHeader";
 import {
+  DownCircleOutlined,
   DownloadOutlined,
   UnorderedListOutlined,
+  UpCircleOutlined,
   UploadOutlined,
 } from "@ant-design/icons";
 import { Button } from "antd";
@@ -43,13 +45,59 @@ export default function Wallet() {
         </div>
       </div>
 
-      <div className="flex p-4">
-        <div className="inline-flex">
-          <div>Transaction History</div>
-          <div className="flex-end">
-            <UnorderedListOutlined />
-          </div>
+      <div className="flex w-full justify-between p-4">
+        <div className="text-base font-bold">Transaction History</div>
+        <div className="">
+          <UnorderedListOutlined />
         </div>
+      </div>
+
+      <div className="flex w-full items-center gap-6 p-4">
+        <span>
+          <DownCircleOutlined
+            className="opacity-50"
+            style={{ fontSize: "22px", color: "#739559" }}
+          />
+        </span>
+        <div className="flex h-full flex-grow flex-col leading-4">
+          <span className="text-sm ">Payment received by wallet</span>
+          <span className="text-xs text-slate-500">
+            July 22, 2023 <span className="ml-8">2:00 am</span>
+          </span>
+        </div>
+        <div className="text-lg font-semibold">₱ 9835.98</div>
+      </div>
+
+      <div className="flex w-full items-center gap-6 p-4">
+        <span>
+          <DownCircleOutlined
+            className="opacity-50"
+            style={{ fontSize: "22px", color: "#739559" }}
+          />
+        </span>
+        <div className="flex h-full flex-grow flex-col leading-4">
+          <span className="text-sm ">Payment received by wallet</span>
+          <span className="text-xs text-slate-500">
+            July 22, 2023 <span className="ml-8">2:00 am</span>
+          </span>
+        </div>
+        <div className="text-lg font-semibold">₱ 9835.98</div>
+      </div>
+
+      <div className="flex w-full items-center gap-6 p-4">
+        <span>
+          <UpCircleOutlined
+            className="opacity-50"
+            style={{ fontSize: "22px", color: "#FF0000" }}
+          />
+        </span>
+        <div className="flex h-full flex-grow flex-col leading-4">
+          <span className="text-sm ">Payment sent to name</span>
+          <span className="text-xs text-slate-500">
+            July 22, 2023 <span className="ml-8">2:00 am</span>
+          </span>
+        </div>
+        <div className="text-lg font-semibold">₱ 9835.98</div>
       </div>
     </Page>
   );
