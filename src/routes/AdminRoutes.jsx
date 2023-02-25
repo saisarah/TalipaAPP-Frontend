@@ -12,6 +12,7 @@ import ChangePassword from "@/pages/admin/Settings/ChangePassword";
 import FarmerGroupsProfile from "@/pages/admin/UserManagement/FarmerGroups/Profile";
 import FarmerProfile from "@/pages/admin/UserManagement/Farmer/Profile";
 import { useRoutes } from "react-router-dom";
+import Profile1 from "@/pages/admin/UserManagement/Vendor/Profile";
 
 const routes = [
   {
@@ -49,9 +50,14 @@ const routes = [
         path: "farmers/profile",
         element: <FarmerProfile />,
       },
+
       {
         path: "vendors",
         element: <Vendor />,
+      },
+      {
+        path: "vendor/profile1",
+        element: <Profile1 />,
       },
       {
         path: "change-password",
@@ -61,7 +67,6 @@ const routes = [
         path: "FAQs",
         element: <Faq />,
       },
-
     ],
   },
 

@@ -1,32 +1,38 @@
 import { SearchOutlined } from "@ant-design/icons";
-import { Button, Input, Space, Table } from "antd";
+import { Button, Input, Space, Table, Tag } from "antd";
 import { useRef, useState } from "react";
+import { Link } from "react-router-dom";
+
 // import Highlighter from "react-highlight-words";
 
-export default function ManagementVendor() {
+export default function Vendor() {
   const data = [
     {
       key: "1",
       name: "John Brown",
-      age: 32,
+      isGroup: "Not in Group",
+      product: "Apple , Banana",
       address: "New York No. 1 Lake Park",
     },
     {
       key: "2",
       name: "Joe Black",
-      age: 42,
+      isGroup: "Not in Group",
+      product: "Apple, Banana",
       address: "London No. 1 Lake Park",
     },
     {
       key: "3",
       name: "Jim Green",
-      age: 32,
+      isGroup: "In Group",
+      product: "Apple, Banana, Onion",
       address: "Sydney No. 1 Lake Park",
     },
     {
       key: "4",
       name: "Jim Red",
-      age: 32,
+      isGroup: "In Group",
+      product: "Garlic",
       address: "London No. 2 Lake Park",
     },
   ];
@@ -152,18 +158,30 @@ export default function ManagementVendor() {
       title: "Vendor",
       dataIndex: "name",
       key: "name",
-      width: "30%",
-      // ...getColumnSearchProps("name"),
+      // width: "30%",
+      ...getColumnSearchProps("name"),
       sorter: (a, b) => a.name.length - b.name.length,
+      sortDirections: ["descend", "ascend"],
+      render: (_, record) => (
+        <Link to="/admin/vendor/profile1">{record.name}</Link>
+      ),
+    },
+    {
+      title: "isGroup",
+      dataIndex: "isGroup",
+      key: "isGroup",
+      // width: "30%",
+      // ...getColumnSearchProps("isGroup"),
+      sorter: (a, b) => a.isGroup.length - b.isGroup.length,
       sortDirections: ["descend", "ascend"],
     },
     {
-      title: "Age",
-      dataIndex: "age",
-      key: "age",
-      width: "20%",
-      // ...getColumnSearchProps("age"),
-      sorter: (a, b) => a.age.length - b.age.length,
+      title: "Product",
+      dataIndex: "product",
+      key: "product",
+      // width: "20%",
+      // ...getColumnSearchProps("product"),
+      sorter: (a, b) => a.product.length - b.product.length,
       sortDirections: ["descend", "ascend"],
     },
     {
@@ -181,7 +199,7 @@ export default function ManagementVendor() {
       {/* <div className="flex grow justify-center rounded bg-primary p-5">
         <img src="/assets/images/manageVendor.png" alt="" />
       </div> */}
-      <h1>VENDORS MANAGEMENT</h1>
+      <h1>FARMERS MANAGEMENT</h1>
       <div className="pt-2">
         <Table columns={columns} dataSource={data} />;
       </div>
