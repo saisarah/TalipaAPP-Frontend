@@ -29,7 +29,7 @@ export default function Wallet() {
               Send
             </Button>
 
-            <Link to="/farmer/wallet/cash-in">
+            <Link to="/farmer/wallet/cash-in-methods">
               <Button icon={<DownloadOutlined />} className="min-w-[100px] rounded border border-[#739559] text-[15px] text-[#739559]">
                 Cash In
               </Button>
