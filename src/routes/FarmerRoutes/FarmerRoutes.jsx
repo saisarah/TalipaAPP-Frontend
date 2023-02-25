@@ -15,7 +15,9 @@ import Wallet from "@/pages/farmer/Wallet/Wallet";
 import { useRoutes } from "react-router-dom";
 import { groups } from "./groups";
 import { settings } from "./settings";
+import ChooseMethod from "@/pages/farmer/Wallet/CashIn/ChooseMethod";
 import CashIn from "@/pages/farmer/Wallet/CashIn/CashIn";
+import CashInSuccess from "@/pages/farmer/Wallet/CashIn/CashInSuccess";
 
 /**
  * All of the path is under farmer route
@@ -82,8 +84,16 @@ const routes = [
     element: <Wallet />,
   },
   {
+    path: "wallet/cash-in-methods",
+    element: <ChooseMethod />
+  },
+  {
     path: "wallet/cash-in",
     element: <CashIn />
+  },
+  {
+    path: "wallet/cash-in/success",
+    element: <CashInSuccess />
   },
   ...settings,
   ...groups
