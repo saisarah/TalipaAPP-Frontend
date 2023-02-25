@@ -6,8 +6,9 @@
   "scripts": {
     "dev": "vite --host",
     "build": "vite build",
-    "preview": "vite preview",
-    "build-android": "vite build --mode android"
+    "preview": "vite preview --host",
+    "build-android": "vite build --mode android",
+    "build-dev": "vite build --mode development --sourcemap"
   },
   "dependencies": {
     "@ant-design/icons": "^4.7.0",
