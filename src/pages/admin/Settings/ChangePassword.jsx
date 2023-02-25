@@ -1,5 +1,6 @@
 import { EyeInvisibleOutlined, EyeTwoTone } from "@ant-design/icons";
 import { Button, Form, Input, Space } from "antd";
+import "../Settings/breakpoint.css";
 
 export default function ChangePassword() {
   const onChange = (e) => {
@@ -7,10 +8,10 @@ export default function ChangePassword() {
   };
   return (
     <div>
-      <div style={{ display: "flex" }}>
-        <div className="flex flex-1 flex-col p-40">
+      <div id="breakpoint">
+        <div className="flex flex-1 flex-col px-40 pt-20" id="title">
           <p className="text-3xl font-bold text-primary">
-            Talipaapp Accout Change password
+            Talipaapp Account Change password
           </p>
           <p className="text-lg">
             We recommend that you periodically update your password to help to
