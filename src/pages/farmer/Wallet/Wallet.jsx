@@ -8,7 +8,8 @@ import {
   UploadOutlined,
 } from "@ant-design/icons";
 import { Button } from "antd";
-import Card from "antd/lib/card/Card";
+import { Balance } from "./components/Balance";
+
 
 export default function Wallet() {
   return (
@@ -16,14 +17,7 @@ export default function Wallet() {
       <PageHeader back="/farmer" title="Wallet" />
       <div>
         <div className="h-auto w-full bg-slate-50 p-2">
-          <div className="text-center">
-            <span className="font-light text-slate-800">
-              CURRENT WALLET BALANCE
-            </span>
-            <div className="text-[40px] font-bold text-black">
-              942983.89<sup className=" top-[-20px] text-xl font-light"> ₱</sup>
-            </div>
-          </div>
+          <Balance />
 
           <div className="inline-flex w-full justify-center gap-6 p-2 text-center">
             <Button

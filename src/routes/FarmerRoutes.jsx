@@ -25,7 +25,7 @@ import ChangeAddress from "@/pages/farmer/settings/form/ChangeAddress";
 import AccountDeletion from "@/pages/farmer/settings/form/AccountDeletion";
 import OrderInfo from "@/pages/farmer/orders/OrderInfo/OrderInfo";
 import Reviews from "@/pages/farmer/Profile/components/Reviews";
-import Wallet from "@/pages/farmer/Wallet/wallet";
+import Wallet from "@/pages/farmer/Wallet/Wallet";
 import { useRoutes } from "react-router-dom";
 
 /**
