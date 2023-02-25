@@ -15,6 +15,7 @@ import groupImg from "./images/group.png";
 import notificationsImg from "./images/notifications.png";
 import ordersImg from "./images/orders.png";
 import settingsImg from "./images/settings.png";
+import { currentUserKey } from "@/apis/UserApi";
 
 export default function MainMenu() {
   const queryClient = useQueryClient();
@@ -25,7 +26,7 @@ export default function MainMenu() {
       onOk() {
         localStorage.clear();
         setAuthorization(undefined);
-        queryClient.setQueryData(queryKeyFactory.currentUser, null);
+        queryClient.setQueryData(currentUserKey, null);
       },
       content: "Are you sure you want to log out?",
     });
@@ -34,7 +35,7 @@ export default function MainMenu() {
   return (
     <div className="app-size bg-white">
       <PageHeader
-        left={<img src="/assets/talipaapp.svg" className="h-16" />}
+        left={<img src="/assets/talipaapp.svg" className="h-12" />}
         title="TalipaAPP"
       />
 
@@ -47,8 +48,6 @@ export default function MainMenu() {
           label="Notifications"
         />
         <MenuButton to="/farmer/groups" src={groupImg} label="Group" />
-
-       
 
         <MenuButton to="/farmer/settings" src={settingsImg} label="Settings" />
 

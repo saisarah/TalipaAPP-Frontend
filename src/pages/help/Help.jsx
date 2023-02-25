@@ -2,11 +2,15 @@ import Page from "@/components/Page";
 import PageHeader from "@/components/PageHeader";
 import { SearchOutlined } from "@ant-design/icons";
 import { Avatar, Input } from "antd";
+import changeNumberImg from "./images/changenumber.png";
+import changePassImg from "./images/changepass.png";
+import deleteImg from "./images/delete.png";
+import trackImg from "./images/track.png";
 
 export default function Help() {
   return (
     <Page>
-      <PageHeader title="TalipaAPP Help Center" back="/"/>
+      <PageHeader title="TalipaAPP Help Center" back="/" />
       <div className="my-2 bg-white">
         <div className="mx-4 flex grow pt-2">
           <Input
@@ -23,15 +27,15 @@ export default function Help() {
           </div>
 
           <div className="flex-cols-2 mx-4 flex items-center gap-4 pb-4 font-bold">
-            <img src="/assets/images/track.png" className="h-20 w-20 " />
+            <img src={trackImg} className="h-20 w-20 " />
             <span>Track Order</span>
-            <img src="/assets/images/changepass.png" className="h-20 w-20 " />
+            <img src={changePassImg} className="h-20 w-20 " />
             <span>Track Order</span>
           </div>
           <div className="flex-cols-2 mx-4 flex items-center gap-4 font-bold">
-            <img src="/assets/images/changenumber.png" className="h-20 w-20 " />
+            <img src={changeNumberImg} className="h-20 w-20 " />
             <span>Track Order</span>
-            <img src="/assets/images/delete.png" className="h-20 w-20 " />
+            <img src={deleteImg} className="h-20 w-20 " />
             <span>Track Order</span>
           </div>
         </div>
