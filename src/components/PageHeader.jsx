@@ -37,6 +37,7 @@ function BackLink({ to })
     <Button
       onClick={handleClick}
       type="link"
+      className="text-black"
       icon={<ArrowLeftOutlined style={{ fontSize: "16px" }} />}
     />
   );
