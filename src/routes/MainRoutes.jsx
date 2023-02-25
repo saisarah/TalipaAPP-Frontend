@@ -6,17 +6,20 @@ import GuestGate from "./gates/GuestGate";
 import { cloneElement, lazy, Suspense } from "react";
 import { useLocation, useRoutes } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
+import ErrorBoundary from "antd/lib/alert/ErrorBoundary";
 
-const FarmerRoutes = () => import("./FarmerRoutes");
+const FarmerRoutes = () => import("./FarmerRoutes/FarmerRoutes");
 const AdminRoutes = () => import("./AdminRoutes");
 const VendorRoutes = () => import("./VendorRoutes");
 
 const lazyLoadRoutes = (routes) => {
   const LazyElement = lazy(routes);
   return (
-    <Suspense fallback={"Lazy loading"}>
-      <LazyElement />
-    </Suspense>
+    <ErrorBoundary>
+      <Suspense fallback={"Lazy loading"}>
+        <LazyElement />
+      </Suspense>
+    </ErrorBoundary>
   );
 };
 

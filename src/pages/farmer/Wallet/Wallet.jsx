@@ -8,7 +8,9 @@ import {
   UploadOutlined,
 } from "@ant-design/icons";
 import { Button } from "antd";
-import Card from "antd/lib/card/Card";
+import { Link } from "react-router-dom";
+import { Balance } from "./components/Balance";
+
 
 export default function Wallet() {
   return (
@@ -16,31 +18,22 @@ export default function Wallet() {
       <PageHeader back="/farmer" title="Wallet" />
       <div>
         <div className="h-auto w-full bg-slate-50 p-2">
-          <div className="text-center">
-            <span className="font-light text-slate-800">
-              CURRENT WALLET BALANCE
-            </span>
-            <div className="text-[40px] font-bold text-black">
-              942983.89<sup className=" top-[-20px] text-xl font-light"> ₱</sup>
-            </div>
-          </div>
+          <Balance />
 
           <div className="inline-flex w-full justify-center gap-6 p-2 text-center">
             <Button
               className="min-w-[100px] rounded border text-[15px] font-bold"
               type="primary"
+              icon={<UploadOutlined />}
             >
-              <span className="mr-2">
-                <UploadOutlined style={{ fontWeight: "bold" }} />
-              </span>
               Send
             </Button>
-            <Button className="min-w-[100px] rounded border border-[#739559] text-[15px] font-bold text-[#739559]">
-              <span className="mr-2">
-                <DownloadOutlined />
-              </span>
-              Cash In
-            </Button>
+
+            <Link to="/farmer/wallet/cash-in-methods">
+              <Button icon={<DownloadOutlined />} className="min-w-[100px] rounded border border-[#739559] text-[15px] text-[#739559]">
+                Cash In
+              </Button>
+            </Link>
           </div>
         </div>
       </div>
