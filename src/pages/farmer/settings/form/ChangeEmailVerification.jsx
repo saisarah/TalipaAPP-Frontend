@@ -3,7 +3,7 @@ import PageHeader from "@/components/PageHeader";
 import { Button, Input, Space } from "antd";
 import { Link } from "react-router-dom";
 
-export default function ChangeEmail() {
+export default function ChangeEmailVerification() {
   
   return (
     <Page className="bg-white">
