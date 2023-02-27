@@ -2,7 +2,7 @@ import { SearchOutlined } from "@ant-design/icons";
 import { Button, Input, Space, Table } from "antd";
 import { useRef, useState } from "react";
 import { Link } from "react-router-dom";
-// import Highlighter from "react-highlight-words";
+import Highlighter from "react-highlight-words";
 
 export default function FarmerGroup() {
   const data = [

@@ -9,7 +9,7 @@
     "preview": "vite preview --host",
     "build-android": "vite build --mode android",
     "build-dev": "vite build --mode development --sourcemap",
-    "lint": "prettier src --check && eslint src",
+    "lint": "prettier src --check \neslint src --ext js,jsx",
     "format": "prettier src --write"
   },
   "dependencies": {
@@ -25,6 +25,7 @@
     "react": "^18.2.0",
     "react-apexcharts": "^1.4.0",
     "react-dom": "^18.2.0",
+    "react-highlight-words": "^0.20.0",
     "react-router-dom": "^6.4.3",
     "select-philippines-address": "^1.0.6",
     "styled-components": "^5.3.6"
