@@ -8,7 +8,8 @@
     "build": "vite build",
     "preview": "vite preview --host",
     "build-android": "vite build --mode android",
-    "build-dev": "vite build --mode development --sourcemap"
+    "build-dev": "vite build --mode development --sourcemap",
+    "lint": "eslint src"
   },
   "dependencies": {
     "@ant-design/icons": "^4.7.0",
@@ -32,6 +33,9 @@
     "@types/react-dom": "^18.0.8",
     "@vitejs/plugin-react": "^2.2.0",
     "autoprefixer": "^10.4.13",
+    "eslint": "^8.35.0",
+    "eslint-config-prettier": "^8.6.0",
+    "eslint-plugin-react": "^7.32.2",
     "postcss": "^8.4.18",
     "prettier": "2.7.1",
     "prettier-plugin-tailwindcss": "^0.1.13",
