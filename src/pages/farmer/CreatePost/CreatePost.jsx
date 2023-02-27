@@ -43,9 +43,9 @@ export default function CreatePost() {
             />
           </FormItem>
 
-          <FormItem rules={required()} label="Title" name="title" >
-            <Input size="small"/>
-            </FormItem>
+          <FormItem rules={required()} label="Title" name="title">
+            <Input size="small" />
+          </FormItem>
 
           <FormItem
             rules={required()}

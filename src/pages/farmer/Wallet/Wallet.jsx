@@ -11,7 +11,6 @@ import { Button } from "antd";
 import { Link } from "react-router-dom";
 import { Balance } from "./components/Balance";
 
-
 export default function Wallet() {
   return (
     <Page className="bg-white">
@@ -30,7 +29,10 @@ export default function Wallet() {
             </Button>
 
             <Link to="/farmer/wallet/cash-in-methods">
-              <Button icon={<DownloadOutlined />} className="min-w-[100px] rounded border border-[#739559] text-[15px] text-[#739559]">
+              <Button
+                icon={<DownloadOutlined />}
+                className="min-w-[100px] rounded border border-[#739559] text-[15px] text-[#739559]"
+              >
                 Cash In
               </Button>
             </Link>

@@ -3,9 +3,7 @@ import Page from "@/components/Page";
 import PageHeader from "@/components/PageHeader";
 import { Button, Input, Select, Space } from "antd";
 
-
 export default function ChangeAddress() {
-
   return (
     <Page className="bg-white">
       <PageHeader title="Change Address" back="/farmer/settings" />
@@ -47,7 +45,7 @@ export default function ChangeAddress() {
             { value: "Region III", label: "Region III" },
           ]}
         />
-        <Input placeholder="Enter your street or building name"/>
+        <Input placeholder="Enter your street or building name" />
       </Space>
       <div className="flex justify-end px-4">
         <Button type="primary" className="flex-grow">

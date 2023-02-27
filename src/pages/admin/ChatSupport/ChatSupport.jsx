@@ -3,15 +3,10 @@ import Search from "antd/lib/transfer/search";
 import React from "react";
 
 function User({}) {
-  return 
-  (
+  return;
   <>
-  <div>
-    
-  </div>
-    </>
-    )
-  
+    <div></div>
+  </>;
 }
 
 export default function ChatSupport() {

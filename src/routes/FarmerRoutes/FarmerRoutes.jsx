@@ -85,18 +85,18 @@ const routes = [
   },
   {
     path: "wallet/cash-in-methods",
-    element: <ChooseMethod />
+    element: <ChooseMethod />,
   },
   {
     path: "wallet/cash-in",
-    element: <CashIn />
+    element: <CashIn />,
   },
   {
     path: "wallet/cash-in/success",
-    element: <CashInSuccess />
+    element: <CashInSuccess />,
   },
   ...settings,
-  ...groups
+  ...groups,
 ];
 
 export default function FarmerRoutes() {

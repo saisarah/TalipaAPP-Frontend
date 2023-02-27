@@ -11,7 +11,12 @@
 */
 
 // import { useState } from "react";
-import { EyeOutlined, QuestionCircleFilled, QuestionCircleOutlined, VerticalAlignTopOutlined } from "@ant-design/icons";
+import {
+  EyeOutlined,
+  QuestionCircleFilled,
+  QuestionCircleOutlined,
+  VerticalAlignTopOutlined,
+} from "@ant-design/icons";
 import { Menu, Button, Avatar } from "antd";
 import { NavLink, useLocation } from "react-router-dom";
 import logo from "./images/TalipaApp_Icon.png";

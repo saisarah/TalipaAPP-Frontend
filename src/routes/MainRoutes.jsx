@@ -39,5 +39,5 @@ const routes = [
 ];
 
 export default function MainRoutes() {
-  return useRoutes(routes)
+  return useRoutes(routes);
 }

@@ -1,4 +1,3 @@
-
 import { StarFilled, StarOutlined } from "@ant-design/icons";
 import { Avatar, Button, Card, Tag } from "antd";
 import { Link } from "react-router-dom";
@@ -49,7 +48,6 @@ export default function About() {
   return (
     <div>
       <div className="mx-auto min-h-screen max-w-md bg-white">
-       
         <div>
           <AboutInfo title={"Place lived"} descriptions={["Caloocan City"]} />
         </div>
@@ -72,7 +70,7 @@ export default function About() {
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua.
           </span>
-          <div className="flex py-2 items-center">
+          <div className="flex items-center py-2">
             <h1 className="mb-2 mr-2 text-6xl">4.0</h1>
             <div className="flex flex-col text-base text-[#739559]">
               <div className="flex">

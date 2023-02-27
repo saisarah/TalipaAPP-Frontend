@@ -1,5 +1,9 @@
 import { useEffect, useState } from "react";
-import { useLocation, useNavigationType, useSearchParams } from "react-router-dom";
+import {
+  useLocation,
+  useNavigationType,
+  useSearchParams,
+} from "react-router-dom";
 
 export const useEffectSkipFirst = (callback, dependencies) => {
   const [isFirst, setIsFirst] = useState(true);
@@ -35,13 +39,12 @@ export const useHistoryStack = () => {
       setStack((prev) => [...prev, pathname]);
     } else {
       setStack((prev) => {
-        if (prev.length === 0) 
-          return []
+        if (prev.length === 0) return [];
 
-        return [...prev.slice(0, prev.length - 1), pathname]
+        return [...prev.slice(0, prev.length - 1), pathname];
       });
     }
   }, [pathname, type]);
 
   return stack;
-}
+};

@@ -25,11 +25,14 @@ export const useCurrentUserQuery = () => {
   const queryClient = useQueryClient();
 
   return useQuery(currentUserKey, fetchCurrentUser, {
-    retry(failureCount, error){
+    retry(failureCount, error) {
       if (failureCount >= 3) return false;
 
-      if (error.isAxiosError && error.response.status === 401 || error === "Unauthorized") {
-        return false
+      if (
+        (error.isAxiosError && error.response.status === 401) ||
+        error === "Unauthorized"
+      ) {
+        return false;
       }
 
       return true;
@@ -37,16 +40,16 @@ export const useCurrentUserQuery = () => {
     // staleTime: 1000 * 60 * 60 * 2,
     // cacheTime: 1000 * 5,
     initialData() {
-      return Cache.get(currentUserKey)
+      return Cache.get(currentUserKey);
     },
 
     onSuccess(data) {
-      Cache.set(currentUserKey, data, 1000 * 60 * 60 * 2)
+      Cache.set(currentUserKey, data, 1000 * 60 * 60 * 2);
     },
 
     onError(error) {
       if (error?.response?.status === 401 || error === "Unauthorized") {
-        clearAuthorization()
+        clearAuthorization();
         queryClient.setQueryData(currentUserKey, null);
       }
     },
