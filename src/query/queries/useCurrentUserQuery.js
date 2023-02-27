@@ -6,6 +6,8 @@ import {
   fetchCurrentUserBalance,
   fetchCurrentUserCompleteAddress,
 } from "@/apis/UserApi";
+import Cache from "@/helpers/Cache";
+import { clearAuthorization } from "@/helpers/Http";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 
 export const useCurrentUserBalanceQuery = () => {
@@ -23,11 +25,28 @@ export const useCurrentUserQuery = () => {
   const queryClient = useQueryClient();
 
   return useQuery(currentUserKey, fetchCurrentUser, {
-    retry: 0,
-    staleTime: 1000 * 60 * 60 * 2,
+    retry(failureCount, error){
+      if (failureCount >= 3) return false;
+
+      if (error.isAxiosError && error.response.status === 401 || error === "Unauthorized") {
+        return false
+      }
+
+      return true;
+    },
+    // staleTime: 1000 * 60 * 60 * 2,
+    // cacheTime: 1000 * 5,
+    initialData() {
+      return Cache.get(currentUserKey)
+    },
+
+    onSuccess(data) {
+      Cache.set(currentUserKey, data, 1000 * 60 * 60 * 2)
+    },
+
     onError(error) {
-      console.log(JSON.stringify(error));
-      if (error?.response?.status === 401) {
+      if (error?.response?.status === 401 || error === "Unauthorized") {
+        clearAuthorization()
         queryClient.setQueryData(currentUserKey, null);
       }
     },
