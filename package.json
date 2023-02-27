@@ -9,7 +9,8 @@
     "preview": "vite preview --host",
     "build-android": "vite build --mode android",
     "build-dev": "vite build --mode development --sourcemap",
-    "lint": "eslint src"
+    "lint": "prettier src --check && eslint src",
+    "format": "prettier src"
   },
   "dependencies": {
     "@ant-design/icons": "^4.7.0",
