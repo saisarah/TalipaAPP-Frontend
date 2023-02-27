@@ -1,8 +1,7 @@
 import Http, { hasAuthorization } from "@/helpers/Http";
 
 export const fetchCurrentUser = async () => {
-
-  if (!hasAuthorization()) return null
+  if (!hasAuthorization()) return null;
 
   const { data } = await Http.get("/user");
   return data;

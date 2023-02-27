@@ -11,8 +11,8 @@ import moment from "moment";
 
 window.Http = Http;
 window.queryClient = queryClient;
-window.Cache = Cache
-window.moment = moment
+window.Cache = Cache;
+window.moment = moment;
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>

@@ -27,69 +27,69 @@ function Review({ user, ratings, comment, review }) {
 
 export default function Reviews() {
   return (
-      <Page className="bg-white">
-        <PageHeader back="/#" title="Reviews" />
+    <Page className="bg-white">
+      <PageHeader back="/#" title="Reviews" />
 
-        <div>
-          <Review
-            user={"Sarah Grace Arlyn Oben"}
-            ratings={[
-              <StarFilled />,
-              <StarFilled />,
-              <StarOutlined />,
-              <StarOutlined />,
-              <StarOutlined />,
-            ]}
-            comment={
-              "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-            }
-          />
-        </div>
-        <div>
-          <Review
-            user={"Reilly Rubante"}
-            ratings={[
-              <StarFilled />,
-              <StarOutlined />,
-              <StarOutlined />,
-              <StarOutlined />,
-              <StarOutlined />,
-            ]}
-            comment={
-              "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-            }
-          />
-        </div>
-        <div>
-          <Review
-            user={"John Kenneth Reyes"}
-            ratings={[
-              <StarFilled />,
-              <StarFilled />,
-              <StarFilled />,
-              <StarFilled />,
-              <StarOutlined />,
-            ]}
-            comment={
-              "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-            }
-          />
-        </div>
-        <div>
-          <Review
-            user={"Saturnino Ursua"}
-            ratings={[
-              <StarFilled />,
-              <StarFilled />,
-              <StarFilled />,
-              <StarOutlined />,
-              <StarOutlined />,
-            ]}
-            comment={
-              "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-            }
-          />
-        </div>
-      </Page>
+      <div>
+        <Review
+          user={"Sarah Grace Arlyn Oben"}
+          ratings={[
+            <StarFilled />,
+            <StarFilled />,
+            <StarOutlined />,
+            <StarOutlined />,
+            <StarOutlined />,
+          ]}
+          comment={
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+          }
+        />
+      </div>
+      <div>
+        <Review
+          user={"Reilly Rubante"}
+          ratings={[
+            <StarFilled />,
+            <StarOutlined />,
+            <StarOutlined />,
+            <StarOutlined />,
+            <StarOutlined />,
+          ]}
+          comment={
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+          }
+        />
+      </div>
+      <div>
+        <Review
+          user={"John Kenneth Reyes"}
+          ratings={[
+            <StarFilled />,
+            <StarFilled />,
+            <StarFilled />,
+            <StarFilled />,
+            <StarOutlined />,
+          ]}
+          comment={
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+          }
+        />
+      </div>
+      <div>
+        <Review
+          user={"Saturnino Ursua"}
+          ratings={[
+            <StarFilled />,
+            <StarFilled />,
+            <StarFilled />,
+            <StarOutlined />,
+            <StarOutlined />,
+          ]}
+          comment={
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+          }
+        />
+      </div>
+    </Page>
   );
 }

@@ -11,19 +11,22 @@ const sendMessage = async function (id, content) {
 export default function SendMessage({ id }) {
   const queryClient = useQueryClient();
 
-  const { mutate, isLoading } = useMutation((message) => sendMessage(id, message), {
-    onSuccess(data) {
-        queryClient.setQueryData(['messages', id], (messages) => {
-            return [...messages, data]
-        })
-        setMessage("")
+  const { mutate, isLoading } = useMutation(
+    (message) => sendMessage(id, message),
+    {
+      onSuccess(data) {
+        queryClient.setQueryData(["messages", id], (messages) => {
+          return [...messages, data];
+        });
+        setMessage("");
+      },
     }
-  });
+  );
 
   const [message, setMessage] = useState("");
 
   const handleSubmit = () => {
-    if (message.length === 0  || isLoading) return;
+    if (message.length === 0 || isLoading) return;
     mutate(message);
   };
 

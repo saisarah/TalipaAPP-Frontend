@@ -1,23 +1,20 @@
-import { sleep } from "../../../../helpers/utils"
-
+import { sleep } from "../../../../helpers/utils";
 
 const posts = [
-    {
-        id: 1,
-        name: 'Joshua Villanueva',
-        title: 'Sample Title',
-        description: 'Sample description',
-
-    },
-
-]
+  {
+    id: 1,
+    name: "Joshua Villanueva",
+    title: "Sample Title",
+    description: "Sample description",
+  },
+];
 
 export const getPosts = async () => {
-    await sleep(500)
-    return posts
-}
+  await sleep(500);
+  return posts;
+};
 
 export const getGroup = async (id) => {
-    const posts = await getPosts()
-    return posts.find(post => post.id == id)
-}
+  const posts = await getPosts();
+  return posts.find((post) => post.id == id);
+};

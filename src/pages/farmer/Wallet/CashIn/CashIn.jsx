@@ -18,7 +18,7 @@ const cashIn = async (amount) => {
 export default function CashIn() {
   const { mutate, isLoading } = useMutation(cashIn, {
     onSuccess(data) {
-      window.location = data.redirect.url
+      window.location = data.redirect.url;
     },
   });
 

@@ -4,8 +4,7 @@ import { useTab } from "@/helpers/hooks";
 import ForSale from "./ForSale";
 
 export const Home = () => {
-
-  const { isActive } = useTab(["sale", "demands", "create"], "sale")
+  const { isActive } = useTab(["sale", "demands", "create"], "sale");
 
   useTitle("Home");
 

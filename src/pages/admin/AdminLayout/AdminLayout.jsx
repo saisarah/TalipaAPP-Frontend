@@ -16,9 +16,8 @@ import { Layout, Drawer, Affix } from "antd";
 import Sidenav from "./Sidenav";
 import Header from "./Header";
 import Footer from "./Footer";
-import '@/styles/admin.css';
-import '@/styles/responsive.css';
-
+import "@/styles/admin.css";
+import "@/styles/responsive.css";
 
 const { Header: AntHeader, Content, Sider } = Layout;
 
