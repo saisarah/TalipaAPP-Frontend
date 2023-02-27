@@ -5,6 +5,7 @@ import GuestGate from "./gates/GuestGate";
 
 import { lazy, Suspense } from "react";
 import { useRoutes } from "react-router-dom";
+import { loadingScreen } from "../components/LoadingScreen/loadingScreen";
 
 const FarmerRoutes = () => import("./FarmerRoutes/FarmerRoutes");
 const AdminRoutes = () => import("./AdminRoutes");
@@ -13,7 +14,15 @@ const VendorRoutes = () => import("./VendorRoutes");
 const lazyLoadRoutes = (routes) => {
   const LazyElement = lazy(routes);
   return (
-    <Suspense fallback={"Lazy loading"}>
+    <Suspense
+      fallback={
+        <div>
+          <h1>dkawmdkd</h1>
+          <loadingScreen />
+          <p>madkmwa</p>
+        </div>
+      }
+    >
       <LazyElement />
     </Suspense>
   );
