@@ -15,46 +15,45 @@ import { useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import tranportifyImg from "./images/transportify.png";
 
-const TRANSACTION_FEE = .08
-const DELIVERY_FEE = 200
+const TRANSACTION_FEE = 0.08;
+const DELIVERY_FEE = 200;
 
 const submitOrder = async (id, quantities) => {
   const { data } = await Http.post(`/posts/${id}/order`, {
-    quantities
+    quantities,
   });
-  return data
-}
+  return data;
+};
 
 export default function CreateOrder({ id, setQuantities, prices, quantities }) {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const { data: user } = useCurrentUserQuery();
   const { data: balance, isLoading: fetchingBalance } =
     useCurrentUserBalanceQuery();
   const { data: address, isLoading: fetchingAddress } =
     useCurrentUserCompleteAddresQuery();
   const subtotal = useMemo(() => {
-    return quantities.reduce( (acm, {quantity, variant}) => {
-      const price = prices.find(price => price.variant === variant)
-      return acm + (price.value*quantity)
-    }, 0)
+    return quantities.reduce((acm, { quantity, variant }) => {
+      const price = prices.find((price) => price.variant === variant);
+      return acm + price.value * quantity;
+    }, 0);
   }, [quantities]);
-  const transaction_fee = subtotal * TRANSACTION_FEE
-  const total = subtotal + transaction_fee + DELIVERY_FEE
+  const transaction_fee = subtotal * TRANSACTION_FEE;
+  const total = subtotal + transaction_fee + DELIVERY_FEE;
   const { mutate, isLoading } = useMutation(() => submitOrder(id, quantities), {
     onError(error) {
-      notification.error({ message: getErrorMessage(error) })
+      notification.error({ message: getErrorMessage(error) });
     },
     onSuccess(data) {
       notification.success({ message: "Order place successfully" });
-      navigate(`/orders/${data.id}`)
-    }
-  })
-  
+      navigate(`/orders/${data.id}`);
+    },
+  });
 
   const handleSubmit = () => {
     if (isLoading) return;
-    mutate()
-  }
+    mutate();
+  };
 
   return (
     <Page className="bg-white">
@@ -121,7 +120,7 @@ export default function CreateOrder({ id, setQuantities, prices, quantities }) {
           Delivery Method
         </h4>
         <div className="mx-4 flex items-center gap-2">
-          <Avatar src={tranportifyImg} shape="square" className="w-6 h-6" />
+          <Avatar src={tranportifyImg} shape="square" className="h-6 w-6" />
           <div className="flex flex-col">
             <div className="font-semibold leading-3">Transportify</div>
             <div className="text-sm text-slate-600">Get by January 23-25</div>
@@ -152,7 +151,14 @@ export default function CreateOrder({ id, setQuantities, prices, quantities }) {
       </div>
 
       <div className="p-4">
-        <Button loading={isLoading} onClick={handleSubmit} block type="primary" className="rounded" size="large">
+        <Button
+          loading={isLoading}
+          onClick={handleSubmit}
+          block
+          type="primary"
+          className="rounded"
+          size="large"
+        >
           Place Order
         </Button>
       </div>
