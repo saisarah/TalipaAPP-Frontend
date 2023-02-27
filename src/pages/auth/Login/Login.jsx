@@ -3,6 +3,7 @@ import { currentUserKey } from "@/apis/UserApi";
 import FormItem from "@/components/FormItem";
 import PageHeader from "@/components/PageHeader";
 import { getErrorMessage, setAuthorization } from "@/helpers/Http";
+import { useLogin } from "@/query/mutations/useLogin";
 import queryKeyFactory from "@/query/queryKeyFactory";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { Button, Form, Input, notification } from "antd";
@@ -12,17 +13,7 @@ import logo from "./images/logo.svg";
 export default function Login() {
   const queryClient = useQueryClient();
 
-  const { mutate, isLoading } = useMutation(login, {
-    onError(error) {
-      notification.error({ message: getErrorMessage(error) });
-    },
-
-    onSuccess({ token, user }) {
-      notification.success({ message: "Successfully Login" });
-      setAuthorization(token);
-      queryClient.setQueryData(currentUserKey, user);
-    },
-  });
+  const { mutate, isLoading } = useLogin();
 
   const handleSubmit = (data) => {
     if (isLoading) return;
