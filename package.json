@@ -9,7 +9,7 @@
     "preview": "vite preview --host",
     "build-android": "vite build --mode android",
     "build-dev": "vite build --mode development --sourcemap",
-    "lint": "prettier src --check \neslint src --ext js,jsx",
+    "lint": "npx prettier src --check \nnpx eslint src --ext js,jsx",
     "format": "prettier src --write"
   },
   "dependencies": {
