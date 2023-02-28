@@ -37,12 +37,12 @@ export default function Sidebar({ sideNavOpen, setSideNavOpen }) {
         onClick={() => setSideNavOpen(false)}
         className={`${
           sideNavOpen ? "opacity-100" : "pointer-events-none opacity-0"
-        } absolute inset-0 z-20 bg-black/50 transition-opacity duration-500`}
+        } absolute inset-0 z-30 bg-black/50 transition-opacity duration-500`}
       />
       <div
         className={`${
           sideNavOpen ? "animate-slide-in" : "animate-slide-out"
-        } w-25% fixed top-0 bottom-0 z-[21] h-screen  min-w-[300px] overflow-y-auto bg-white py-8`}
+        } w-25% fixed top-0 bottom-0 z-30 h-screen  min-w-[300px] overflow-y-auto bg-white py-8`}
       >
         <div className="flex items-center gap-2 px-4">
           <Avatar size="large" src={user.profile_picture} />

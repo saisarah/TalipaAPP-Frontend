@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import {
   useLocation,
+  useNavigate,
   useNavigationType,
   useSearchParams,
 } from "react-router-dom";
@@ -19,10 +20,15 @@ export const useEffectSkipFirst = (callback, dependencies) => {
 
 export const useTab = (tabs = [], defaultActive) => {
   const [params] = useSearchParams();
-  const selected = tabs.includes(params.get("tab"))
-    ? params.get("tab")
-    : defaultActive;
-  const isActive = (tab) => tab == selected;
+  const navigate = useNavigate();
+  const selected = params.get("tab");
+  const isActive = (tab) => tab === selected;
+
+  useEffect(() => {
+    if (!tabs.includes(selected)) {
+      navigate(`?tab=${defaultActive}`, { replace: true });
+    }
+  }, [selected]);
 
   return { isActive, selected };
 };
