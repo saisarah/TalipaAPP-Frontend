@@ -14,6 +14,7 @@ export const useLogoutModal = () => {
         setAuthorization(undefined);
         queryClient.setQueryData(currentUserKey, null);
       },
+      content: "Are you sure to logout?",
     });
   };
 
