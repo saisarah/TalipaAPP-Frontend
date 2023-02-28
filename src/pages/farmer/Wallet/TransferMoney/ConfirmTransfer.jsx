@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 
 export default function ConfirmTransfer() {
   return (
-    <Page className="bg-white text-black ">
+    <Page className="bg-white ">
       <PageHeader back="/wallet/transfer-money" title="Transfer Money" />
       <div className="mt-4 text-center">
         <span className="text-3xl font-bold text-black">₱ 999.42</span>
