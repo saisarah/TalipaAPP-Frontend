@@ -1,15 +1,20 @@
 import FormItem from "@/components/FormItem";
 import PageHeader from "@/components/PageHeader";
+import { getErrorMessage } from "@/helpers/Http";
 import { useLogin } from "@/query/mutations/useLogin";
-import { useQueryClient } from "@tanstack/react-query";
-import { Button, Form, Input } from "antd";
+import { Button, Form, Input, notification } from "antd";
 import { Link } from "react-router-dom";
 import logo from "./images/logo.svg";
 
 export default function Login() {
-  const queryClient = useQueryClient();
-
-  const { mutate, isLoading } = useLogin();
+  const { mutate, isLoading } = useLogin({
+    onError(err) {
+      notification.error({ message: getErrorMessage(err) });
+    },
+    onSuccess() {
+      notification.success({ message: "Login Succesfully" });
+    },
+  });
 
   const handleSubmit = (data) => {
     if (isLoading) return;
