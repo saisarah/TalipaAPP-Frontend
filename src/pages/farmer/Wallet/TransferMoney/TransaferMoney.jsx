@@ -1,13 +1,8 @@
 import Page from "@/components/Page";
 import PageHeader from "@/components/PageHeader";
-import {
-  CloseCircleOutlined,
-  CloseOutlined,
-  SearchOutlined,
-} from "@ant-design/icons";
+import { CloseOutlined, SearchOutlined } from "@ant-design/icons";
 import { Avatar, Button, Input } from "antd";
 import TextArea from "antd/lib/input/TextArea";
-import { useState } from "react";
 import { Link } from "react-router-dom";
 
 export default function WalletTransferMoney({ setStep }) {
@@ -53,7 +48,7 @@ export default function WalletTransferMoney({ setStep }) {
 
       <div className="p-4 text-center">
         <span className=" text-sm text-slate-500">Enter amount</span>
-        <Input className=" mt-5 border-b-2 border-t-0 border-r-0 border-l-0 bg-transparent focus:outline-none hover:border-transparent" />
+        <Input className=" mt-5 border-b-2 border-t-0 border-r-0 border-l-0 bg-transparent hover:border-transparent focus:outline-none" />
       </div>
 
       {/* <div>
