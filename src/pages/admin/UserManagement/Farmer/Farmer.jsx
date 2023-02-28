@@ -1,11 +1,25 @@
-import { SearchOutlined } from "@ant-design/icons";
-import { Button, Input, Space, Table, Tag } from "antd";
+import { DownOutlined, MenuOutlined, SearchOutlined } from "@ant-design/icons";
+import { Avatar, Button, Dropdown, Input, Space, Table, Tag } from "antd";
 import { useRef, useState } from "react";
 import { Link } from "react-router-dom";
 
 // import Highlighter from "react-highlight-words";
 
 export default function Farmer() {
+  const items = [
+    {
+      key: "1",
+      label: "Approved",
+    },
+    {
+      key: "2",
+      label: "Pending",
+    },
+    {
+      key: "3",
+      label: "Resubmit",
+    },
+  ];
   const data = [
     {
       key: "1",
@@ -13,6 +27,7 @@ export default function Farmer() {
       isGroup: "Not in Group",
       product: "Apple , Banana",
       address: "New York No. 1 Lake Park",
+      tags: ["Pending"],
     },
     {
       key: "2",
@@ -20,6 +35,7 @@ export default function Farmer() {
       isGroup: "Not in Group",
       product: "Apple, Banana",
       address: "London No. 1 Lake Park",
+      tags: ["resubmit"],
     },
     {
       key: "3",
@@ -27,6 +43,7 @@ export default function Farmer() {
       isGroup: "In Group",
       product: "Apple, Banana, Onion",
       address: "Sydney No. 1 Lake Park",
+      tags: ["Pending"],
     },
     {
       key: "4",
@@ -34,6 +51,7 @@ export default function Farmer() {
       isGroup: "In Group",
       product: "Garlic",
       address: "London No. 2 Lake Park",
+      tags: ["approved"],
     },
   ];
 
@@ -153,7 +171,13 @@ export default function Farmer() {
         text
       ),
   });
+
   const columns = [
+    {
+      dataIndex: "avatar",
+      key: "avatar",
+      render: (avatar) => <Avatar src={avatar} alt="avatar" />,
+    },
     {
       title: "Farmer",
       dataIndex: "name",
@@ -191,6 +215,47 @@ export default function Farmer() {
       // ...getColumnSearchProps("address"),
       sorter: (a, b) => a.address.length - b.address.length,
       sortDirections: ["descend", "ascend"],
+    },
+    {
+      title: "Status",
+      key: "tags",
+      dataIndex: "tags",
+      render: (_, { tags }) => (
+        <>
+          {tags.map((tag) => {
+            let color = tag.length > 7 ? "green" : "geekblue";
+            if (tag === "resubmit") {
+              color = "volcano";
+            }
+            return (
+              <Tag color={color} key={tag}>
+                {tag.toUpperCase()}
+              </Tag>
+            );
+          })}
+        </>
+      ),
+    },
+    {
+      dataIndex: "operation",
+      key: "operation",
+      render: () => (
+        <div className="flex">
+          <div className="flex grow">
+            <Space size="middle">
+              <Dropdown
+                menu={{
+                  items,
+                }}
+              >
+                <a>
+                  <MenuOutlined />
+                </a>
+              </Dropdown>
+            </Space>
+          </div>
+        </div>
+      ),
     },
   ];
 
