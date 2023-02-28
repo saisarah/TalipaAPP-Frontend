@@ -9,11 +9,12 @@ export default function PostCard({ post, to }) {
 
   return (
     <div className="mb-2 flex h-full	 break-inside-avoid flex-col border border-slate-200 bg-white shadow-sm">
-      <Image
+      <img
         className="aspect-square object-cover"
         width="100%"
         height="100%"
         src={attachments[0].source}
+        loading="lazy"
       />
       <div className="flex flex-col p-2">
         <Link to={to} className="text-xl font-semibold leading-6">

@@ -1,6 +1,6 @@
 import SplashScreen from "@/components/SplashScreen/SplashScreen";
 import { useCurrentUserQuery } from "@/query/queries/useCurrentUserQuery";
-import { Navigate, Outlet } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 
 export default function VendorGate({ children }) {
   const { isLoading, isError, data: user } = useCurrentUserQuery();

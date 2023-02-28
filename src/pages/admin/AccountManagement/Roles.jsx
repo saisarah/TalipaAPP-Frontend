@@ -157,18 +157,18 @@ export default function Roles() {
                 onChange={handleChange}
                 optionLabelProp="label"
               >
-                <Option value="Admin" label="Admin">
+                <Select.Option value="Admin" label="Admin">
                   Admin
-                </Option>
-                <Option value="Chat Support" label="Chat Support">
+                </Select.Option>
+                <Select.Option value="Chat Support" label="Chat Support">
                   Chat Support
-                </Option>
-                <Option value="Moderator" label="Moderator">
+                </Select.Option>
+                <Select.Option value="Moderator" label="Moderator">
                   Moderator
-                </Option>
-                <Option value="Account Manager" label="Account Manager">
+                </Select.Option>
+                <Select.Option value="Account Manager" label="Account Manager">
                   Account Manager
-                </Option>
+                </Select.Option>
               </Select>
 
               <Select

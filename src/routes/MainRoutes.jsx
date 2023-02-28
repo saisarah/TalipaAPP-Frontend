@@ -1,8 +1,9 @@
-import guestRoutes from "./guestRoutes";
 import FarmerGate from "./gates/FarmerGate";
-import VendorGate from "./gates/VendorGate";
 import GuestGate from "./gates/GuestGate";
+import VendorGate from "./gates/VendorGate";
+import guestRoutes from "./guestRoutes";
 
+import { LoadingSkeleton } from "@/components/LoadingSkeleton";
 import { lazy, Suspense } from "react";
 import { useRoutes } from "react-router-dom";
 
@@ -13,7 +14,7 @@ const VendorRoutes = () => import("./VendorRoutes");
 const lazyLoadRoutes = (routes) => {
   const LazyElement = lazy(routes);
   return (
-    <Suspense fallback={"Lazy loading"}>
+    <Suspense fallback={<LoadingSkeleton loading="true" />}>
       <LazyElement />
     </Suspense>
   );
