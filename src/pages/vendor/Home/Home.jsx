@@ -1,6 +1,6 @@
-import { useTitle } from "@/pages/vendor/components/VendorLayout/VendorLayout";
-import { Link } from "react-router-dom";
+import { useTitle } from "@/contexts/VendorContext";
 import { useTab } from "@/helpers/hooks";
+import { Link } from "react-router-dom";
 import ForSale from "./ForSale";
 
 export const Home = () => {
