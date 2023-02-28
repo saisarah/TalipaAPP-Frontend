@@ -1,7 +1,7 @@
 import { SearchOutlined } from "@ant-design/icons";
 import { Button, Input, Space, Table } from "antd";
 import { useRef, useState } from "react";
-// import Highlighter from "react-highlight-words";
+import Highlighter from "react-highlight-words";
 
 export default function ManagementVendor() {
   const data = [

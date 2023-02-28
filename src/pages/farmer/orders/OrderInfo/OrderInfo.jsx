@@ -162,7 +162,7 @@ export default function OrderInfo() {
 
           {order.status == "pending" && (
             <div className="mt-4 justify-end text-center">
-              <button class="align-items-center mt-2 w-10/12 rounded-[4px] bg-[#739559] p-2 font-bold text-white">
+              <button className="align-items-center mt-2 w-10/12 rounded-[4px] bg-[#739559] p-2 font-bold text-white">
                 Accept
               </button>
             </div>

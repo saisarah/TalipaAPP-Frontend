@@ -1,10 +1,9 @@
-import Page from "@/components/Page";
+import { useTitle } from "@/contexts/VendorContext";
 import { Avatar } from "antd";
-import { useTitle } from "../components/VendorLayout/VendorLayout";
 
 export default function Notifications() {
   return (
-    <Page className="bg-white">
+    <div className="bg-white">
       <h1 className="px-4 pt-4">Today</h1>
       <Notif
         name="Joshua Villanueva"
@@ -34,7 +33,7 @@ export default function Notifications() {
         date="5 hours ago"
         description="commented on your post"
       />
-    </Page>
+    </div>
   );
 }
 

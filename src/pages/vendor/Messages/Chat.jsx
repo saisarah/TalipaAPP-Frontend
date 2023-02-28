@@ -1,8 +1,8 @@
 import Page from "@/components/Page";
+import { useTitle } from "@/contexts/VendorContext";
 import Http from "@/helpers/Http";
 import { useQuery } from "@tanstack/react-query";
 import { Spin } from "antd";
-import { useTitle } from "../components/VendorLayout/VendorLayout";
 import ChatItem from "./components/ChatItem";
 
 const fetchMessages = async () => {
