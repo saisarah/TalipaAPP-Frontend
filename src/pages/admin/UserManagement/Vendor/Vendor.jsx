@@ -1,7 +1,7 @@
 import { SearchOutlined } from "@ant-design/icons";
 import { Button, Input, Space, Table } from "antd";
 import { useRef, useState } from "react";
-import Highlighter from "react-highlight-words";
+//import Highlighter from "react-highlight-words";
 
 export default function ManagementVendor() {
   const data = [
@@ -133,19 +133,18 @@ export default function ManagementVendor() {
       }
     },
     render: (text) =>
-      searchedColumn === dataIndex ? (
-        <Highlighter
-          highlightStyle={{
-            backgroundColor: "#ffc069",
-            padding: 0,
-          }}
-          searchWords={[searchText]}
-          autoEscape
-          textToHighlight={text ? text.toString() : ""}
-        />
-      ) : (
-        text
-      ),
+      searchedColumn === dataIndex
+        ? // <Highlighter
+          //   highlightStyle={{
+          //     backgroundColor: "#ffc069",
+          //     padding: 0,
+          //   }}
+          //   searchWords={[searchText]}
+          //   autoEscape
+          //   textToHighlight={text ? text.toString() : ""}
+          // />
+          null
+        : text,
   });
   const columns = [
     {
