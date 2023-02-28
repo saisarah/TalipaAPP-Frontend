@@ -1,4 +1,5 @@
-import { Collapse, Space } from "antd";
+import { DeleteOutlined, EditOutlined } from "@ant-design/icons";
+import { Button, Collapse, Space } from "antd";
 
 export default function Faq() {
   const { Panel } = Collapse;
@@ -60,6 +61,16 @@ export default function Faq() {
                   respect of interpretation set out in Schedule 1 will apply to
                   these Terms of Use.
                 </p>
+                <div className="flex">
+                  <div className="flex grow justify-center">
+                    <Button type="text">
+                      <EditOutlined />
+                    </Button>
+                    <Button type="text">
+                      <DeleteOutlined />
+                    </Button>
+                  </div>
+                </div>
               </Panel>
             </Collapse>
             <Collapse>
@@ -138,6 +149,17 @@ export default function Faq() {
                   additional terms and conditions, which will apply in full
                   force and effect.
                 </p>
+
+                <div className="flex">
+                  <div className="flex grow justify-center">
+                    <Button type="text">
+                      <EditOutlined />
+                    </Button>
+                    <Button type="text">
+                      <DeleteOutlined />
+                    </Button>
+                  </div>
+                </div>
               </Panel>
             </Collapse>
             <Collapse>
@@ -191,6 +213,16 @@ export default function Faq() {
                   results on the Platform. Such Product listings may be
                   accompanied by a “megaphone” logo.
                 </p>
+                <div className="flex">
+                  <div className="flex grow justify-center">
+                    <Button type="text">
+                      <EditOutlined />
+                    </Button>
+                    <Button type="text">
+                      <DeleteOutlined />
+                    </Button>
+                  </div>
+                </div>
               </Panel>
             </Collapse>
             <Collapse>
@@ -243,6 +275,16 @@ export default function Faq() {
                   access to the Platform referable to your Username and
                   Password.
                 </p>
+                <div className="flex">
+                  <div className="flex grow justify-center">
+                    <Button type="text">
+                      <EditOutlined />
+                    </Button>
+                    <Button type="text">
+                      <DeleteOutlined />
+                    </Button>
+                  </div>
+                </div>
               </Panel>
             </Collapse>
             <Collapse>
@@ -281,6 +323,16 @@ export default function Faq() {
                   website) any Trademarks displayed on the Services, without our
                   written permission or any other applicable trademark owner.
                 </p>
+                <div className="flex">
+                  <div className="flex grow justify-center">
+                    <Button type="text">
+                      <EditOutlined />
+                    </Button>
+                    <Button type="text">
+                      <DeleteOutlined />
+                    </Button>
+                  </div>
+                </div>
               </Panel>
             </Collapse>
             <Collapse>
@@ -343,6 +395,16 @@ export default function Faq() {
                   Platform is entirely at your own risk and we shall not be
                   liable therefor.
                 </p>
+                <div className="flex">
+                  <div className="flex grow justify-center">
+                    <Button type="text">
+                      <EditOutlined />
+                    </Button>
+                    <Button type="text">
+                      <DeleteOutlined />
+                    </Button>
+                  </div>
+                </div>
               </Panel>
             </Collapse>
             <Collapse>
@@ -372,6 +434,16 @@ export default function Faq() {
                   entitled to receive any payment, fee and/or commission in
                   respect of any such promotional materials.
                 </p>
+                <div className="flex">
+                  <div className="flex grow justify-center">
+                    <Button type="text">
+                      <EditOutlined />
+                    </Button>
+                    <Button type="text">
+                      <DeleteOutlined />
+                    </Button>
+                  </div>
+                </div>
               </Panel>
             </Collapse>
             <Collapse>
@@ -417,6 +489,16 @@ export default function Faq() {
                   disclosure of your Personal Data for the purposes as set out
                   in the Privacy Policy.
                 </p>
+                <div className="flex">
+                  <div className="flex grow justify-center">
+                    <Button type="text">
+                      <EditOutlined />
+                    </Button>
+                    <Button type="text">
+                      <DeleteOutlined />
+                    </Button>
+                  </div>
+                </div>
               </Panel>
             </Collapse>
             <Collapse>
@@ -440,6 +522,16 @@ export default function Faq() {
                   9.2 Termination by you: You may terminate these Terms of Use
                   by giving seven days’ notice in writing to us.
                 </p>
+                <div className="flex">
+                  <div className="flex grow justify-center">
+                    <Button type="text">
+                      <EditOutlined />
+                    </Button>
+                    <Button type="text">
+                      <DeleteOutlined />
+                    </Button>
+                  </div>
+                </div>
               </Panel>
             </Collapse>
             <Collapse>
@@ -464,6 +556,16 @@ export default function Faq() {
                   or other forms of electronic communication) and the time or
                   event by which such notice shall be deemed given.
                 </p>
+                <div className="flex">
+                  <div className="flex grow justify-center">
+                    <Button type="text">
+                      <EditOutlined />
+                    </Button>
+                    <Button type="text">
+                      <DeleteOutlined />
+                    </Button>
+                  </div>
+                </div>
               </Panel>
             </Collapse>
             <Collapse>
@@ -599,6 +701,16 @@ export default function Faq() {
                   this is due, in whole or in part, directly or indirectly to an
                   event or failure which is beyond our reasonable control.
                 </p>
+                <div className="flex">
+                  <div className="flex grow justify-center">
+                    <Button type="text">
+                      <EditOutlined />
+                    </Button>
+                    <Button type="text">
+                      <DeleteOutlined />
+                    </Button>
+                  </div>
+                </div>
               </Panel>
             </Collapse>
             <h1 className="text-xl">SHEDULE</h1>
@@ -727,6 +839,16 @@ export default function Faq() {
                   shall be resolved in favor of TalipaAPP and the provision
                   which is more favorable to TalipaAPP shall prevail.
                 </p>
+                <div className="flex">
+                  <div className="flex grow justify-center">
+                    <Button type="text">
+                      <EditOutlined />
+                    </Button>
+                    <Button type="text">
+                      <DeleteOutlined />
+                    </Button>
+                  </div>
+                </div>
               </Panel>
             </Collapse>
             <p className="text-xl"> Terms & conditions of Sale</p>
@@ -741,6 +863,16 @@ export default function Faq() {
                   respect of interpretation set out in Schedule 1 will apply to
                   these Terms & Conditions of Sale.
                 </p>
+                <div className="flex">
+                  <div className="flex grow justify-center">
+                    <Button type="text">
+                      <EditOutlined />
+                    </Button>
+                    <Button type="text">
+                      <DeleteOutlined />
+                    </Button>
+                  </div>
+                </div>
               </Panel>
             </Collapse>
             <Collapse>
@@ -944,6 +1076,16 @@ export default function Faq() {
                   been obtained, the Customer undertakes to return the Product
                   Materials and/or any copies thereof upon TalipaAPP request.
                 </p>
+                <div className="flex">
+                  <div className="flex grow justify-center">
+                    <Button type="text">
+                      <EditOutlined />
+                    </Button>
+                    <Button type="text">
+                      <DeleteOutlined />
+                    </Button>
+                  </div>
+                </div>
               </Panel>
             </Collapse>
             <Collapse>
@@ -994,6 +1136,16 @@ export default function Faq() {
                   right or remedy available to Seller, Seller may terminate the
                   Customer Contract.
                 </p>
+                <div className="flex">
+                  <div className="flex grow justify-center">
+                    <Button type="text">
+                      <EditOutlined />
+                    </Button>
+                    <Button type="text">
+                      <DeleteOutlined />
+                    </Button>
+                  </div>
+                </div>
               </Panel>
             </Collapse>
             <Collapse>
@@ -1023,6 +1175,16 @@ export default function Faq() {
                   Listing Prices at any time without giving any reason or prior
                   notice.
                 </p>
+                <div className="flex">
+                  <div className="flex grow justify-center">
+                    <Button type="text">
+                      <EditOutlined />
+                    </Button>
+                    <Button type="text">
+                      <DeleteOutlined />
+                    </Button>
+                  </div>
+                </div>
               </Panel>
             </Collapse>
             <Collapse>
@@ -1083,6 +1245,16 @@ export default function Faq() {
                   notice. 5.6.6. The guidelines regarding the refunds process of
                   TalipaAPP can be accessed Here.
                 </p>
+                <div className="flex">
+                  <div className="flex grow justify-center">
+                    <Button type="text">
+                      <EditOutlined />
+                    </Button>
+                    <Button type="text">
+                      <DeleteOutlined />
+                    </Button>
+                  </div>
+                </div>
               </Panel>
             </Collapse>
             <Collapse>
@@ -1152,6 +1324,16 @@ export default function Faq() {
                   best efforts to return the product to the Customer within the
                   time frame provided.
                 </p>
+                <div className="flex">
+                  <div className="flex grow justify-center">
+                    <Button type="text">
+                      <EditOutlined />
+                    </Button>
+                    <Button type="text">
+                      <DeleteOutlined />
+                    </Button>
+                  </div>
+                </div>
               </Panel>
             </Collapse>
             <Collapse>
@@ -1166,6 +1348,16 @@ export default function Faq() {
                   TalipaAPP will liaise with Sellers on your questions and
                   complaints.
                 </p>
+                <div className="flex">
+                  <div className="flex grow justify-center">
+                    <Button type="text">
+                      <EditOutlined />
+                    </Button>
+                    <Button type="text">
+                      <DeleteOutlined />
+                    </Button>
+                  </div>
+                </div>
               </Panel>
             </Collapse>
             <Collapse>
@@ -1208,6 +1400,16 @@ export default function Faq() {
                   Court of competent jurisdiction for protection from its
                   creditors.
                 </p>
+                <div className="flex">
+                  <div className="flex grow justify-center">
+                    <Button type="text">
+                      <EditOutlined />
+                    </Button>
+                    <Button type="text">
+                      <DeleteOutlined />
+                    </Button>
+                  </div>
+                </div>
               </Panel>
             </Collapse>
             <Collapse>
@@ -1275,6 +1477,16 @@ export default function Faq() {
                   fees incurred by the Customer in connection with the assertion
                   and enforcement of TalipaAPP rights under this condition.sss
                 </p>
+                <div className="flex">
+                  <div className="flex grow justify-center">
+                    <Button type="text">
+                      <EditOutlined />
+                    </Button>
+                    <Button type="text">
+                      <DeleteOutlined />
+                    </Button>
+                  </div>
+                </div>
               </Panel>
             </Collapse>
             <Collapse>
@@ -1308,6 +1520,16 @@ export default function Faq() {
                   instructions on the use of the products (whether oral or
                   written).
                 </p>
+                <div className="flex">
+                  <div className="flex grow justify-center">
+                    <Button type="text">
+                      <EditOutlined />
+                    </Button>
+                    <Button type="text">
+                      <DeleteOutlined />
+                    </Button>
+                  </div>
+                </div>
               </Panel>
             </Collapse>
             <Collapse>
@@ -1476,6 +1698,16 @@ export default function Faq() {
                   directly or indirectly to an event or failure which is beyond
                   TalipaAPP or Seller’s reasonable control.
                 </p>
+                <div className="flex">
+                  <div className="flex grow justify-center">
+                    <Button type="text">
+                      <EditOutlined />
+                    </Button>
+                    <Button type="text">
+                      <DeleteOutlined />
+                    </Button>
+                  </div>
+                </div>
               </Panel>
             </Collapse>
             <p className="text-xl">Schedule 1</p>
@@ -1596,6 +1828,16 @@ export default function Faq() {
                   favor of TalipaAPP and the provision which is more favorable
                   to TalipaAPP shall prevail.
                 </p>
+                <div className="flex">
+                  <div className="flex grow justify-center">
+                    <Button type="text">
+                      <EditOutlined />
+                    </Button>
+                    <Button type="text">
+                      <DeleteOutlined />
+                    </Button>
+                  </div>
+                </div>
               </Panel>
             </Collapse>
             <Collapse>
@@ -1617,60 +1859,57 @@ export default function Faq() {
                   the same meanings as set forth in the TalipaAPP Terms. This
                   Policy is a legal agreement between you and TalipaAPP
                   E-Services Philippines, Inc. By using your TalipaAPP Account,
-                  you agree to be bound by the terms of this Policy. 
+                  you agree to be bound by the terms of this Policy.
                   <br />
-                  1.1
-                  Protection against Unauthorized Transactions. TalipaAPP will
-                  provide you with compensation for Unauthorized Transactions
-                  (defined below), provided that you comply with the procedures
-                  set out within the Policy. An "Unauthorized Transaction"
-                  occurs when, because of a fraudulent take-over of the
-                  TalipaAPP Account: Notwithstanding the foregoing, you have an
-                  obligation to ensure the safety and security of your TalipaAPP
-                  Account. If you authorize someone to access your account by
-                  providing them with your login information or otherwise, and
-                  they conduct transactions without your knowledge or
-                  permission, you shall be responsible for all consequences
-                  arising from such use. 
+                  1.1 Protection against Unauthorized Transactions. TalipaAPP
+                  will provide you with compensation for Unauthorized
+                  Transactions (defined below), provided that you comply with
+                  the procedures set out within the Policy. An "Unauthorized
+                  Transaction" occurs when, because of a fraudulent take-over of
+                  the TalipaAPP Account: Notwithstanding the foregoing, you have
+                  an obligation to ensure the safety and security of your
+                  TalipaAPP Account. If you authorize someone to access your
+                  account by providing them with your login information or
+                  otherwise, and they conduct transactions without your
+                  knowledge or permission, you shall be responsible for all
+                  consequences arising from such use.
                   <br />
-                  1.2 Notify TalipaAPP a. You should
-                  immediately notify TalipaAPP if you believe there has been an
-                  Unauthorized Transaction or unauthorized access to your
-                  TalipaAPP Account. To be eligible for compensation under this
-                  Policy, you must notify us within 60 days from the date an
-                  Unauthorized Transaction first appears in your account. b. You
-                  should regularly log into your account and review your order
-                  history to ensure that there has not been an Unauthorized
-                  Transaction. TalipaAPP will send you an e-mail through
-                  the-mail address you have provided to notify you of every
-                  transaction made in your account. You should check these
-                  transaction confirmation messages to ensure that each
-                  transaction has been authorized by you and the information in
-                  your account is accurate. c. If an Unauthorized Transaction
-                  appears in your account, please contact TalipaAPP Customer
-                  Service through the contact us page
+                  1.2 Notify TalipaAPP a. You should immediately notify
+                  TalipaAPP if you believe there has been an Unauthorized
+                  Transaction or unauthorized access to your TalipaAPP Account.
+                  To be eligible for compensation under this Policy, you must
+                  notify us within 60 days from the date an Unauthorized
+                  Transaction first appears in your account. b. You should
+                  regularly log into your account and review your order history
+                  to ensure that there has not been an Unauthorized Transaction.
+                  TalipaAPP will send you an e-mail through the-mail address you
+                  have provided to notify you of every transaction made in your
+                  account. You should check these transaction confirmation
+                  messages to ensure that each transaction has been authorized
+                  by you and the information in your account is accurate. c. If
+                  an Unauthorized Transaction appears in your account, please
+                  contact TalipaAPP Customer Service through the contact us page
                   (https://www.TalipaAPP.com.contact). You will need to provide
                   a complete set of information and/or documentation, in
                   accordance with the requirements set out on that page and as
                   requested by us, in order for the investigation to begin.
                   TalipaAPP will only initiate an investigation upon receipt of
-                  all information/documents. 
+                  all information/documents.
                   <br />
-                  1.3 Actions taken by TalipaAPP upon
-                  receipt of notification a. Once you notify us and provide us
-                  with a complete set of the necessary information and/or
-                  documents that we request, we will do the following: (a) We
-                  will conduct an investigation and determine whether there has
-                  been an Unauthorized Transaction. (b) TalipaAPP will complete
-                  the investigation within 2 working days from the date where
-                  all necessary information and/or documents were received by
-                  us. (c) We will inform you of our decision once we complete
-                  the investigation. 
+                  1.3 Actions taken by TalipaAPP upon receipt of notification a.
+                  Once you notify us and provide us with a complete set of the
+                  necessary information and/or documents that we request, we
+                  will do the following: (a) We will conduct an investigation
+                  and determine whether there has been an Unauthorized
+                  Transaction. (b) TalipaAPP will complete the investigation
+                  within 2 working days from the date where all necessary
+                  information and/or documents were received by us. (c) We will
+                  inform you of our decision once we complete the investigation.
                   <br />
-                  1.4 Scope of protection a. The following
-                  types of transactions are excluded from the scope of coverage
-                  of our TalipaAPP Payment Protection Policy: (a) Disputes on
-                  genuine transactions, such as non-receipt of the item you have
+                  1.4 Scope of protection a. The following types of transactions
+                  are excluded from the scope of coverage of our TalipaAPP
+                  Payment Protection Policy: (a) Disputes on genuine
+                  transactions, such as non-receipt of the item you have
                   purchased; (b) Where we determine that there has been fraud or
                   negligence on behalf of the Customer. For example, if we
                   determine that you have willfully provided your account
@@ -1694,6 +1933,16 @@ export default function Faq() {
                   legal restriction that prevents the reimbursement to be made
                   to the Customer.
                 </p>
+                <div className="flex">
+                  <div className="flex grow justify-center">
+                    <Button type="text">
+                      <EditOutlined />
+                    </Button>
+                    <Button type="text">
+                      <DeleteOutlined />
+                    </Button>
+                  </div>
+                </div>
               </Panel>
             </Collapse>
           </Space>
