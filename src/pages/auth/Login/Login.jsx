@@ -1,12 +1,8 @@
-import { login } from "@/apis/AuthApi";
-import { currentUserKey } from "@/apis/UserApi";
 import FormItem from "@/components/FormItem";
 import PageHeader from "@/components/PageHeader";
-import { getErrorMessage, setAuthorization } from "@/helpers/Http";
 import { useLogin } from "@/query/mutations/useLogin";
-import queryKeyFactory from "@/query/queryKeyFactory";
-import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { Button, Form, Input, notification } from "antd";
+import { useQueryClient } from "@tanstack/react-query";
+import { Button, Form, Input } from "antd";
 import { Link } from "react-router-dom";
 import logo from "./images/logo.svg";
 
