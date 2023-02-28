@@ -1,4 +1,5 @@
 import { Avatar, Badge } from "antd";
+import moment from "moment";
 import { Link } from "react-router-dom";
 
 const statusMap = {
@@ -39,26 +40,24 @@ const statusMap = {
 
 export default function OrderItem({
   id,
-  name,
-  timestamp,
-  order_name,
-  quantity,
-  location,
-  status,
+  created_at,
+  order_status,
   total,
-  displayphoto,
+  post,
 }) {
   return (
     <div className="w-full border-b border-t bg-white">
       <ul className="">
         <li className="">
           <div href="#" className="flex w-full items-center gap-2 p-4">
-            <Avatar size={52} src={displayphoto} />
+            <Avatar size={52} src={post.author.profile_picture} />
             <div className="flex h-full flex-grow flex-col leading-4">
               <Link to={`/vendor/orders/${id}`}>
-                <span className="text-xl font-bold">{name}</span>
+                <span className="text-xl font-bold">
+                  {post.author.fullname}
+                </span>
               </Link>
-              <span className="">{timestamp}</span>
+              <span className="">{moment(created_at).fromNow()}</span>
             </div>
             <div className="">
               <span>
@@ -87,7 +86,7 @@ export default function OrderItem({
         </div>
 
         <div className="text-lg">
-          <p>{order_name}</p>
+          <p>{post.crop.name}</p>
         </div>
       </div>
 
@@ -98,7 +97,9 @@ export default function OrderItem({
         </div>
 
         <div className="text-lg">
-          <p>{quantity}</p>
+          <p>
+            {total["quantity"]} {post.unit}
+          </p>
         </div>
       </div>
 
@@ -109,7 +110,7 @@ export default function OrderItem({
         </div>
 
         <div className="text-lg">
-          <p>{location}</p>
+          <p>{post.location}</p>
         </div>
       </div>
 
@@ -117,17 +118,17 @@ export default function OrderItem({
       <div className="with-full border-b border-t pt-4">
         <div className="flex justify-between px-4">
           <Badge
-            status={statusMap[status].status}
-            color={statusMap[status].color}
+            status={statusMap[order_status].status}
+            color={statusMap[order_status].color}
             text={
-              <span className={statusMap[status].className}>
-                {statusMap[status].text}
+              <span className={statusMap[order_status].className}>
+                {statusMap[order_status].text}
               </span>
             }
           />
 
           <div className="text-lg">
-            <p>Total: {total}</p>
+            <p>Total: {total["price"]}</p>
           </div>
         </div>
       </div>

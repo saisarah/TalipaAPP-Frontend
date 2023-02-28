@@ -1,11 +1,18 @@
+import Http from "@/helpers/Http";
 import { useQuery } from "@tanstack/react-query";
 import { Spin } from "antd";
-import { getOrders } from "../ordersData";
 import OrderItem from "./OrderItem";
 
-export default function OrderLists({ selected }) {
-  const { data, isLoading } = useQuery(["orders", selected], () =>
-    getOrders(selected)
+const fetchOrders = async (status) => {
+  const { data } = await Http.get(`/orders`, {
+    params: { status },
+  });
+  return data;
+};
+
+export default function OrderLists({ status }) {
+  const { data, isLoading } = useQuery(["orders", { status }], () =>
+    fetchOrders(status)
   );
 
   if (isLoading)
