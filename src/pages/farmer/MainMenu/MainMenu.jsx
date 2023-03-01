@@ -1,5 +1,4 @@
 import PageHeader from "@/components/PageHeader";
-import queryKeyFactory from "@/query/queryKeyFactory";
 import { QuestionCircleTwoTone } from "@ant-design/icons";
 import { useQueryClient } from "@tanstack/react-query";
 import { Modal } from "antd";
@@ -7,16 +6,16 @@ import { setAuthorization } from "../../../helpers/Http";
 import { MenuButton } from "./components/MenuButton";
 
 //assets
-import homeImg from "./images/home.png";
+import { currentUserKey } from "@/apis/UserApi";
 import commentsImg from "./images/comments.png";
 import farmerImg from "./images/farmer.png";
 import groupImg from "./images/group.png";
+import helpImg from "./images/help.svg";
+import homeImg from "./images/home.png";
 import notificationsImg from "./images/notifications.png";
 import ordersImg from "./images/orders.png";
 import settingsImg from "./images/settings.png";
 import walletImg from "./images/wallet.svg";
-import helpImg from "./images/help.svg";
-import { currentUserKey } from "@/apis/UserApi";
 
 export default function MainMenu() {
   const queryClient = useQueryClient();
@@ -53,7 +52,7 @@ export default function MainMenu() {
         <MenuButton to="/farmer/orders" src={ordersImg} label="Orders" />
         <MenuButton to="/farmer/wallet" src={walletImg} label="Wallet" />
         <MenuButton to="/farmer/settings" src={settingsImg} label="Settings" />
-        <MenuButton src={helpImg} label="Help" />
+        <MenuButton to="/farmer/help" src={helpImg} label="Help" />
       </div>
     </div>
   );
