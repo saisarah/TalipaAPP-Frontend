@@ -263,7 +263,7 @@ export default function Vendor() {
       {/* <div className="flex grow justify-center rounded bg-primary p-5">
         <img src="/assets/images/manageVendor.png" alt="" />
       </div> */}
-      <h1>FARMERS MANAGEMENT</h1>
+      <h1>VENDORS MANAGEMENT</h1>
       <div className="pt-2">
         <Table columns={columns} dataSource={data} />;
       </div>
