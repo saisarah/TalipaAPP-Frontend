@@ -18,6 +18,8 @@ import { settings } from "./settings";
 import ChooseMethod from "@/pages/farmer/Wallet/CashIn/ChooseMethod";
 import CashIn from "@/pages/farmer/Wallet/CashIn/CashIn";
 import CashInSuccess from "@/pages/farmer/Wallet/CashIn/CashInSuccess";
+import WalletTransferMoney from "@/pages/farmer/Wallet/TransferMoney/TransaferMoney";
+import ConfirmTransfer from "@/pages/farmer/Wallet/TransferMoney/ConfirmTransfer";
 
 /**
  * All of the path is under farmer route
@@ -82,6 +84,14 @@ const routes = [
   {
     path: "wallet",
     element: <Wallet />,
+  },
+  {
+    path: "wallet/transfer-money",
+    element: <WalletTransferMoney />,
+  },
+  {
+    path: "wallet/transfer-money/confirm-transfer",
+    element: <ConfirmTransfer />,
   },
   {
     path: "wallet/cash-in-methods",

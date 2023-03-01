@@ -23,7 +23,13 @@ function AboutInfo({ title, descriptions }) {
   );
 }
 
-function Reviews({ user, ratings, comment, review }) {
+function Reviews({ user, ratings, comment }) {
+  const Ratings = Array(5)
+    .fill(null)
+    .map((star, i) =>
+      i < ratings ? <StarFilled key={i} /> : <StarOutlined key={i} />
+    );
+
   return (
     <div>
       <div className="mx-4 my-4">
@@ -32,7 +38,7 @@ function Reviews({ user, ratings, comment, review }) {
             <Avatar className="mr-2 h-10 w-10 flex-shrink-0" />
             <div className="flex flex-grow justify-between">
               <h1 className="text-lg">{user}</h1>
-              <span className="ml-2 text-lg text-[#739559]">{ratings}</span>
+              <span className="ml-2 text-lg text-[#739559]">{Ratings}</span>
             </div>
           </div>
           <div className="">
@@ -89,13 +95,7 @@ export default function About() {
         <div>
           <Reviews
             user={"Ruel Almonia"}
-            ratings={[
-              <StarFilled />,
-              <StarFilled />,
-              <StarOutlined />,
-              <StarOutlined />,
-              <StarOutlined />,
-            ]}
+            ratings={2}
             comment={
               "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
             }
@@ -105,13 +105,7 @@ export default function About() {
         <div>
           <Reviews
             user={"Lenard Mangay-ayam"}
-            ratings={[
-              <StarFilled />,
-              <StarFilled />,
-              <StarOutlined />,
-              <StarOutlined />,
-              <StarOutlined />,
-            ]}
+            ratings={2}
             comment={
               "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
             }
@@ -120,13 +114,7 @@ export default function About() {
         <div>
           <Reviews
             user={"Joshua Villanueva"}
-            ratings={[
-              <StarFilled />,
-              <StarOutlined />,
-              <StarOutlined />,
-              <StarOutlined />,
-              <StarOutlined />,
-            ]}
+            ratings={1}
             comment={
               "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
             }
@@ -135,13 +123,7 @@ export default function About() {
         <div>
           <Reviews
             user={"Jhunrizz Lalata"}
-            ratings={[
-              <StarFilled />,
-              <StarFilled />,
-              <StarFilled />,
-              <StarFilled />,
-              <StarOutlined />,
-            ]}
+            ratings={4}
             comment={
               "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
             }
@@ -150,13 +132,7 @@ export default function About() {
         <div>
           <Reviews
             user={"Juan Paolo Ortega"}
-            ratings={[
-              <StarFilled />,
-              <StarFilled />,
-              <StarFilled />,
-              <StarOutlined />,
-              <StarOutlined />,
-            ]}
+            ratings={3}
             comment={
               "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
             }

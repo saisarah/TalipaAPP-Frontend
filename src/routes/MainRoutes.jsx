@@ -1,7 +1,7 @@
-import guestRoutes from "./guestRoutes";
 import FarmerGate from "./gates/FarmerGate";
-import VendorGate from "./gates/VendorGate";
 import GuestGate from "./gates/GuestGate";
+import VendorGate from "./gates/VendorGate";
+import guestRoutes from "./guestRoutes";
 
 import { lazy, Suspense } from "react";
 import { useRoutes } from "react-router-dom";

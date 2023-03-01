@@ -8,6 +8,7 @@ import { items } from "./post-data";
 import MemberPosts from "../components/MembersPosts";
 import PageHeader from "@/components/PageHeader";
 import groupIllustrationImg from "../images/group_illustration.png";
+import { getGroup } from "../groups";
 
 export const Posts = () => {
   const [active, setActive] = useState("forum");
