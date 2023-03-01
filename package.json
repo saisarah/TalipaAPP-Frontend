@@ -24,6 +24,7 @@
     "react-apexcharts": "^1.4.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.4.3",
+    "react-scroll-to-bottom": "^4.2.0",
     "select-philippines-address": "^1.0.6",
     "styled-components": "^5.3.6"
   },

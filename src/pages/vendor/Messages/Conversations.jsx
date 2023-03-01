@@ -6,6 +6,7 @@ import { useConversationsQuery } from "@/query/queries/useMessagesQuery";
 import { useUserQuery } from "@/query/queries/useUsersQuery";
 import { Spin } from "antd";
 import { useParams } from "react-router";
+import ScrollToBottom from "react-scroll-to-bottom";
 
 export default function Conversations() {
   const { id } = useParams();
@@ -22,10 +23,10 @@ export default function Conversations() {
     );
 
   return (
-    <div className="app-size flex flex-col bg-white">
+    <div className="app-size flex max-h-screen flex-col bg-white">
       <PageHeader back="/messages" title={user.fullname} />
 
-      <div className="flex flex-1 flex-col-reverse">
+      <ScrollToBottom className="talipaapp-scrollbar flex flex-1 flex-grow flex-col-reverse overflow-y-auto">
         <div className="mb-4">
           {data.map((item) =>
             id == item.receiver_id ? (
@@ -39,7 +40,7 @@ export default function Conversations() {
             )
           )}
         </div>
-      </div>
+      </ScrollToBottom>
       <SendMessage id={id} />
     </div>
   );
