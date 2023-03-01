@@ -22,6 +22,8 @@ export const VerificationForm = () => {
   const handleSubmit = ({ code }) => {
     if (isLoading) return;
     const formData = toFormData({ ...data, code });
+    // console.log({ ...data });
+    // return;
 
     if (accountType === "farmer") mutateFarmer(formData);
     else mutateVendor(formData);
