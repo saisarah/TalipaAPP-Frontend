@@ -1,7 +1,7 @@
 import { VendorLayout } from "@/pages/vendor/components/VendorLayout/VendorLayout";
 import { Home } from "@/pages/vendor/Home/Home";
-import Chat from "@/pages/vendor/Messages/Chat";
-import PrivateMessage from "@/pages/vendor/Messages/PrivateMessage";
+import Conversations from "@/pages/vendor/Messages/Conversations";
+import Messages from "@/pages/vendor/Messages/Messages";
 import Notifications from "@/pages/vendor/Notifications/Notifications";
 import OrderInfo from "@/pages/vendor/Orders/OrderInfo/OrderInfo";
 import Orders from "@/pages/vendor/Orders/Orders";
@@ -19,7 +19,7 @@ const routes = [
       },
       {
         path: "messages",
-        element: <Chat />,
+        element: <Messages />,
       },
       {
         path: "notifications",
@@ -37,7 +37,7 @@ const routes = [
   },
   {
     path: "/messages/:id",
-    element: <PrivateMessage />,
+    element: <Conversations />,
   },
   {
     path: "orders/:id",

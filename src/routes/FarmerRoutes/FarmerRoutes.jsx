@@ -1,11 +1,11 @@
-import Chat from "@/pages/farmer/Chat/Chat";
-import PrivateMessage from "@/pages/farmer/Chat/PrivateMessage";
 import CreatePost from "@/pages/farmer/CreatePost/CreatePost";
 import Help from "@/pages/farmer/Help/help";
 import Commodities from "@/pages/farmer/Home/demand/Commodities";
 import Region from "@/pages/farmer/Home/demand/Region";
 import Home from "@/pages/farmer/Home/Home";
 import MainMenu from "@/pages/farmer/MainMenu/MainMenu";
+import Conversations from "@/pages/farmer/Messages/Conversations";
+import Messages from "@/pages/farmer/Messages/Messages";
 import Notifications from "@/pages/farmer/notifications/Notifications";
 import OrderInfo from "@/pages/farmer/orders/OrderInfo/OrderInfo";
 import Orders from "@/pages/farmer/orders/Orders";
@@ -72,11 +72,11 @@ const routes = [
   },
   {
     path: "messages",
-    element: <Chat />,
+    element: <Messages />,
   },
   {
     path: "messages/:id",
-    element: <PrivateMessage />,
+    element: <Conversations />,
   },
   {
     path: "notifications",
