@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite --host",
-    "build": "npm run lint \nvite build",
+    "build": "npm run lint \nnpx vite build",
     "preview": "vite preview --host",
     "build-android": "vite build --mode android",
     "build-dev": "vite build --mode development --sourcemap",
