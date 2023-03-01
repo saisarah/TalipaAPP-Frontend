@@ -19,3 +19,10 @@ export const fetchCurrentUserCompleteAddress = async () => {
   return data;
 };
 export const currentUserCompleteAddressKey = ["user", "address", "complete"];
+
+export const fetchUser = async (id) => {
+  const { data } = await Http.get(`/users/${id}`);
+  return data;
+};
+fetchUser.key = (id) => ["users", id];
+fetchUser.fetcher = (id) => () => fetchUser(id);

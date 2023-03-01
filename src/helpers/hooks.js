@@ -18,17 +18,20 @@ export const useEffectSkipFirst = (callback, dependencies) => {
   }, dependencies);
 };
 
-export const useTab = (tabs = [], defaultActive) => {
+export const useTab = (tabs = [], defaultActive = null) => {
+  defaultActive = defaultActive || tabs[0];
   const [params] = useSearchParams();
   const navigate = useNavigate();
-  const selected = params.get("tab");
+  const tab = params.get("tab");
+  const selected = !tabs.includes(tab) ? defaultActive : tab;
+
   const isActive = (tab) => tab === selected;
 
   useEffect(() => {
-    if (!tabs.includes(selected)) {
+    if (!tabs.includes(tab)) {
       navigate(`?tab=${defaultActive}`, { replace: true });
     }
-  }, [selected]);
+  }, [tab]);
 
   return { isActive, selected };
 };
