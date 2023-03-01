@@ -1,3 +1,4 @@
+import { getErrorMessage } from "@/helpers/Http";
 import { useMutation } from "@tanstack/react-query";
 import { Modal } from "antd";
 import { useNavigate } from "react-router-dom";
@@ -12,7 +13,7 @@ export const useFarmerRegistration = () => {
       navigate("/login");
     },
     onError(e) {
-      Modal.error({ content: "An error occured while registering" });
+      Modal.error({ content: getErrorMessage(e) });
       console.log(e);
     },
   });
@@ -27,7 +28,7 @@ export const useVendorRegistration = () => {
       navigate("/login");
     },
     onError(e) {
-      Modal.error({ content: "An error occured while registering" });
+      Modal.error({ content: getErrorMessage(e) });
       console.log(e);
     },
   });
