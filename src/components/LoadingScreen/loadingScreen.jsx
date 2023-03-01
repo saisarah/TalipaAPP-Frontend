@@ -1,6 +1,6 @@
-import logo from "./images/talipaapp_loading.svg";
+import logo from "./images/talipaapp2.svg";
 
-export default function loadingScreen() {
+export default function LoadingScreen() {
   return (
     <div className="bg-primary-accent-2">
       <div className="grid-col mx-auto grid min-h-screen max-w-md place-content-center  p-4 px-8 text-center">

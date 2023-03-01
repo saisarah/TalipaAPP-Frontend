@@ -5,7 +5,7 @@ import GuestGate from "./gates/GuestGate";
 
 import { lazy, Suspense } from "react";
 import { useRoutes } from "react-router-dom";
-import { loadingScreen } from "../components/LoadingScreen/loadingScreen";
+import LoadingScreen from "@/components/LoadingScreen/LoadingScreen";
 
 const FarmerRoutes = () => import("./FarmerRoutes/FarmerRoutes");
 const AdminRoutes = () => import("./AdminRoutes");
@@ -17,9 +17,7 @@ const lazyLoadRoutes = (routes) => {
     <Suspense
       fallback={
         <div>
-          <h1>dkawmdkd</h1>
-          <loadingScreen />
-          <p>madkmwa</p>
+          <LoadingScreen />
         </div>
       }
     >
