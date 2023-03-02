@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import {
   useLocation,
+  useNavigate,
   useNavigationType,
   useSearchParams,
 } from "react-router-dom";
@@ -17,14 +18,45 @@ export const useEffectSkipFirst = (callback, dependencies) => {
   }, dependencies);
 };
 
-export const useTab = (tabs = [], defaultActive) => {
+export const useTab = (tabs = [], defaultActive = null) => {
+  defaultActive = defaultActive || tabs[0];
   const [params] = useSearchParams();
-  const selected = tabs.includes(params.get("tab"))
-    ? params.get("tab")
-    : defaultActive;
-  const isActive = (tab) => tab == selected;
+  const navigate = useNavigate();
+  const tab = params.get("tab");
+  const selected = !tabs.includes(tab) ? defaultActive : tab;
+
+  const isActive = (tab) => tab === selected;
+
+  useEffect(() => {
+    if (!tabs.includes(tab)) {
+      navigate(`?tab=${defaultActive}`, { replace: true });
+    }
+  }, [tab]);
 
   return { isActive, selected };
+};
+
+export const useTabAdvance = (tabs = {}) => {
+  const [params] = useSearchParams();
+  const tabKeys = Object.keys(tabs);
+  const tab = params.get("tab");
+  const selected = !tabKeys.includes(tab) ? tabKeys[0] : tab;
+  const navigate = useNavigate();
+  const tabLinks = tabKeys.map((tab) => ({
+    key: tab,
+    title: tabs[tab]["title"],
+  }));
+
+  useEffect(() => {
+    if (!tabKeys.includes(tab)) {
+      navigate(`?tab=${tabKeys[0]}`, { replace: true });
+    }
+  }, [tab]);
+
+  return {
+    outlet: tabs[selected].element,
+    tabs: tabLinks,
+  };
 };
 
 export const useHistoryStack = () => {

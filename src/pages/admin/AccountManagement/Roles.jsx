@@ -1,15 +1,4 @@
-import { DownOutlined, PlusOutlined } from "@ant-design/icons";
-import {
-  Button,
-  Dropdown,
-  Form,
-  Input,
-  Modal,
-  Select,
-  Space,
-  Table,
-  Tag,
-} from "antd";
+import { Table, Tag } from "antd";
 import { useState } from "react";
 
 export default function Roles() {
@@ -74,23 +63,6 @@ export default function Roles() {
         </>
       ),
     },
-    {
-      dataIndex: "operation",
-      key: "operation",
-      render: () => (
-        <Space size="middle">
-          <Dropdown
-            menu={{
-              items,
-            }}
-          >
-            <a>
-              Settings <DownOutlined />
-            </a>
-          </Dropdown>
-        </Space>
-      ),
-    },
   ];
   const data = [
     {
@@ -128,73 +100,6 @@ export default function Roles() {
       <div className="">
         <div className="flex justify-between">
           <h1>ROLES MANAGEMENT</h1>
-
-          <Button
-            type="primary"
-            size="small"
-            onClick={() => setModal1Open(true)}
-          >
-            <PlusOutlined />
-            Add new role
-          </Button>
-          <Modal
-            title="Add new role"
-            style={{
-              top: 20,
-            }}
-            open={modal1Open}
-            onOk={() => setModal1Open(false)}
-            onCancel={() => setModal1Open(false)}
-          >
-            <Form className="space-y-4">
-              <Input placeholder="Name of roles" />
-              <Select
-                mode="multiple"
-                style={{
-                  width: "100%",
-                }}
-                placeholder="Select Permission"
-                onChange={handleChange}
-                optionLabelProp="label"
-              >
-                <Select.Option value="Admin" label="Admin">
-                  Admin
-                </Select.Option>
-                <Select.Option value="Chat Support" label="Chat Support">
-                  Chat Support
-                </Select.Option>
-                <Select.Option value="Moderator" label="Moderator">
-                  Moderator
-                </Select.Option>
-                <Select.Option value="Account Manager" label="Account Manager">
-                  Account Manager
-                </Select.Option>
-              </Select>
-
-              <Select
-                defaultValue="Select status"
-                style={{
-                  width: 120,
-                }}
-                onChange={handleChange}
-                options={[
-                  {
-                    value: "Select status",
-                    label: "Select status",
-                    disabled: true,
-                  },
-                  {
-                    value: "Active",
-                    label: "Active",
-                  },
-                  {
-                    value: "Inactive",
-                    label: "Inactive",
-                  },
-                ]}
-              />
-            </Form>
-          </Modal>
         </div>
       </div>
       <div className="pt-2">

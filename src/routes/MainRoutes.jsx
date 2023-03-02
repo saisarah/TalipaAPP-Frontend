@@ -3,9 +3,9 @@ import GuestGate from "./gates/GuestGate";
 import VendorGate from "./gates/VendorGate";
 import guestRoutes from "./guestRoutes";
 
+import LoadingScreen from "@/components/LoadingScreen/LoadingScreen";
 import { lazy, Suspense } from "react";
 import { useRoutes } from "react-router-dom";
-import LoadingScreen from "@/components/LoadingScreen/LoadingScreen";
 
 const FarmerRoutes = () => import("./FarmerRoutes/FarmerRoutes");
 const AdminRoutes = () => import("./AdminRoutes");

@@ -69,21 +69,29 @@ a {
   @apply mx-auto min-h-screen max-w-md;
 }
 
-.animate-slide-in {
-  animation-name: slide-in;
+.animate-slide-in,
+.animate-slide-out,
+.animate-slide-left,
+.animate-slide-right {
   animation-duration: 200ms;
   animation-timing-function: ease-in;
-  animation-fill-mode: forwards;
+}
+
+.animate-slide-in,
+.animate-slide-right {
+  animation-name: slide-in;
   opacity: 1;
 }
 
 .animate-slide-out {
   @apply transition-opacity delay-[200ms];
   animation-name: slide-out;
-  animation-duration: 200ms;
-  animation-timing-function: ease-in;
   animation-fill-mode: forwards;
   opacity: 0;
+}
+
+.animate-slide-left {
+  animation-name: slide-left;
 }
 
 @keyframes slide-in {
@@ -101,5 +109,14 @@ a {
   }
   to {
     transform: translateX(-100%);
+  }
+}
+
+@keyframes slide-left {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
   }
 }

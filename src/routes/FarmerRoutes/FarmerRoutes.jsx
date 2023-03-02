@@ -1,25 +1,26 @@
 import CreatePost from "@/pages/farmer/CreatePost/CreatePost";
-import Home from "@/pages/farmer/Home/Home";
-import MainMenu from "@/pages/farmer/MainMenu/MainMenu";
-import PostDetails from "@/pages/farmer/PostDetails/PostDetails";
-import Profile from "@/pages/farmer/Profile/Profile";
-import Orders from "@/pages/farmer/orders/Orders";
+import Help from "@/pages/farmer/Help/help";
 import Commodities from "@/pages/farmer/Home/demand/Commodities";
 import Region from "@/pages/farmer/Home/demand/Region";
-import Chat from "@/pages/farmer/Chat/Chat";
-import PrivateMessage from "@/pages/farmer/Chat/PrivateMessage";
+import Home from "@/pages/farmer/Home/Home";
+import MainMenu from "@/pages/farmer/MainMenu/MainMenu";
+import Conversations from "@/pages/farmer/Messages/Conversations";
+import Messages from "@/pages/farmer/Messages/Messages";
 import Notifications from "@/pages/farmer/notifications/Notifications";
 import OrderInfo from "@/pages/farmer/orders/OrderInfo/OrderInfo";
+import Orders from "@/pages/farmer/orders/Orders";
+import PostDetails from "@/pages/farmer/PostDetails/PostDetails";
 import Reviews from "@/pages/farmer/Profile/components/Reviews";
+import Profile from "@/pages/farmer/Profile/Profile";
+import CashIn from "@/pages/farmer/Wallet/CashIn/CashIn";
+import CashInSuccess from "@/pages/farmer/Wallet/CashIn/CashInSuccess";
+import ChooseMethod from "@/pages/farmer/Wallet/CashIn/ChooseMethod";
+import ConfirmTransfer from "@/pages/farmer/Wallet/TransferMoney/ConfirmTransfer";
+import WalletTransferMoney from "@/pages/farmer/Wallet/TransferMoney/TransaferMoney";
 import Wallet from "@/pages/farmer/Wallet/Wallet";
 import { useRoutes } from "react-router-dom";
 import { groups } from "./groups";
 import { settings } from "./settings";
-import ChooseMethod from "@/pages/farmer/Wallet/CashIn/ChooseMethod";
-import CashIn from "@/pages/farmer/Wallet/CashIn/CashIn";
-import CashInSuccess from "@/pages/farmer/Wallet/CashIn/CashInSuccess";
-import WalletTransferMoney from "@/pages/farmer/Wallet/TransferMoney/TransaferMoney";
-import ConfirmTransfer from "@/pages/farmer/Wallet/TransferMoney/ConfirmTransfer";
 
 /**
  * All of the path is under farmer route
@@ -71,11 +72,11 @@ const routes = [
   },
   {
     path: "messages",
-    element: <Chat />,
+    element: <Messages />,
   },
   {
     path: "messages/:id",
-    element: <PrivateMessage />,
+    element: <Conversations />,
   },
   {
     path: "notifications",
@@ -104,6 +105,10 @@ const routes = [
   {
     path: "wallet/cash-in/success",
     element: <CashInSuccess />,
+  },
+  {
+    path: "help",
+    element: <Help />,
   },
   ...settings,
   ...groups,

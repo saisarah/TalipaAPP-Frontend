@@ -1,17 +1,12 @@
+import { fetchMessages } from "@/apis/MessageApi";
+import MessageItem from "@/components/MessageItem";
 import Page from "@/components/Page";
 import PageHeader from "@/components/PageHeader";
-import Http from "@/helpers/Http";
 import { useQuery } from "@tanstack/react-query";
 import { Spin } from "antd";
-import ChatItem from "./components/ChatItem";
 
-const fetchMessages = async () => {
-  const result = await Http.get("/messages");
-  return result.data;
-};
-
-export default function Chat() {
-  const { data, isLoading } = useQuery(["messages"], fetchMessages);
+export default function Messages() {
+  const { data, isLoading } = useQuery(fetchMessages.key, fetchMessages);
 
   if (isLoading)
     return (
@@ -25,10 +20,15 @@ export default function Chat() {
 
   return (
     <Page className="bg-gray-100">
-      <PageHeader back="/farmer" title="Chat" />
+      <PageHeader back="/farmer" title="Messages" />
 
       {data.map((item) => (
-        <ChatItem key={item.id} {...item} />
+        <MessageItem
+          key={item.id}
+          to={`/farmer/messages/${item.id}`}
+          avatar={item.profile_picture}
+          fullname={item.fullname}
+        />
       ))}
     </Page>
   );
