@@ -1,29 +1,38 @@
-import { Link } from "react-router-dom";
-import ForSale from "./ForSale";
 import CreateInfo from "./CreateInfo";
+import ForSale from "./ForSale";
 
-import { useTab } from "@/helpers/hooks";
-import PageHeader from "@/components/PageHeader";
 import Page from "@/components/Page";
+import PageHeader from "@/components/PageHeader";
+import TabLink from "@/components/TabLink";
+import { useTab } from "@/helpers/hooks";
 import { Demands } from "./demand/Demands";
 
 export default function Home() {
-  const { isActive } = useTab(["demands", "sale", "create"], "demands");
+  const { isActive } = useTab(["demands", "sale", "create"]);
 
   return (
     <Page className="bg-slate-50">
       <PageHeader back="/farmer" title="Home" />
 
       <div className="sticky top-0 grid h-16 grid-cols-3 bg-white text-lg shadow-md">
-        <TabLink tab="demands" isActive={isActive}>
-          Demands
-        </TabLink>
-        <TabLink tab="sale" isActive={isActive}>
-          For Sale
-        </TabLink>
-        <TabLink tab="create" isActive={isActive}>
-          Create Post
-        </TabLink>
+        <TabLink
+          tab="demands"
+          className="flex items-center justify-center"
+          activeClassName="border-b border-primary text-primary"
+          text="Demand"
+        />
+        <TabLink
+          tab="sale"
+          className="flex items-center justify-center"
+          activeClassName="border-b border-primary text-primary"
+          text="For Sale"
+        />
+        <TabLink
+          tab="create"
+          className="flex items-center justify-center"
+          activeClassName="border-b border-primary text-primary"
+          text="Create Post"
+        />
       </div>
 
       {isActive("demands") && <Demands />}
@@ -33,43 +42,16 @@ export default function Home() {
   );
 }
 
-function CropsFilter() {
-  return (
-    <div className="flex gap-4 p-4">
-      <div className="flex flex-col items-center gap-1">
-        <div className="h-12 w-12 rounded-full bg-slate-400"></div>
-        <span className="text-xs">Mango</span>
-      </div>
-      <div className="flex flex-col items-center gap-1">
-        <div className="h-12 w-12 rounded-full bg-slate-400"></div>
-        <span className="text-xs">Banana</span>
-      </div>
-      <div className="flex flex-col items-center gap-1">
-        <div className="h-12 w-12 rounded-full bg-slate-400"></div>
-        <span className="text-xs">Pineapple</span>
-      </div>
-      <div className="flex flex-col items-center gap-1">
-        <div className="h-12 w-12 rounded-full bg-slate-400"></div>
-        <span className="text-xs">Garlic</span>
-      </div>
-      <div className="flex flex-col items-center gap-1">
-        <div className="h-12 w-12 rounded-full bg-slate-400"></div>
-        <span className="text-xs">Onion</span>
-      </div>
-    </div>
-  );
-}
-
-function TabLink({ children, tab, isActive }) {
-  return (
-    <Link
-      to={`?tab=${tab}`}
-      className={`flex items-center justify-center ${
-        isActive(tab) ? "border-b border-primary text-primary" : ""
-      }`}
-      replace
-    >
-      {children}
-    </Link>
-  );
-}
+// function TabLink({ children, tab, isActive }) {
+//   return (
+//     <Link
+//       to={`?tab=${tab}`}
+//       className={`flex items-center justify-center ${
+//         isActive(tab) ? "border-b border-primary text-primary" : ""
+//       }`}
+//       replace
+//     >
+//       {children}
+//     </Link>
+//   );
+// }

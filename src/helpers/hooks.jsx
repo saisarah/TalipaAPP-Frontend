@@ -36,6 +36,29 @@ export const useTab = (tabs = [], defaultActive = null) => {
   return { isActive, selected };
 };
 
+export const useTabAdvance = (tabs = {}) => {
+  const [params] = useSearchParams();
+  const tabKeys = Object.keys(tabs);
+  const tab = params.get("tab");
+  const selected = !tabKeys.includes(tab) ? tabKeys[0] : tab;
+  const navigate = useNavigate();
+  const tabLinks = tabKeys.map((tab) => ({
+    key: tab,
+    title: tabs[tab]["title"],
+  }));
+
+  useEffect(() => {
+    if (!tabKeys.includes(tab)) {
+      navigate(`?tab=${tabKeys[0]}`, { replace: true });
+    }
+  }, [tab]);
+
+  return {
+    outlet: tabs[selected].element,
+    tabs: tabLinks,
+  };
+};
+
 export const useHistoryStack = () => {
   const [stack, setStack] = useState([]);
   const { pathname } = useLocation();

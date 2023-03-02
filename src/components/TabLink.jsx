@@ -13,3 +13,24 @@ export default function TabLink({ tab, text, className, activeClassName }) {
     </NavLink>
   );
 }
+
+export const TabLinks = ({
+  tabs,
+  className,
+  defaultClassName,
+  activeClassName,
+}) => {
+  return (
+    <div className={className}>
+      {tabs.map((tab) => (
+        <TabLink
+          key={tab.key}
+          tab={tab.key}
+          text={tab.title}
+          className={defaultClassName}
+          activeClassName={activeClassName}
+        />
+      ))}
+    </div>
+  );
+};
