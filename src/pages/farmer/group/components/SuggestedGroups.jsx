@@ -1,8 +1,6 @@
 import Http from "@/helpers/Http";
 import { useQuery } from "@tanstack/react-query";
 import { Spin } from "antd";
-import { getGroups } from "../groups";
-import { items } from "../Posts/post-data";
 import GroupItem from "./GroupItem";
 
 const fetchFarmerGroups = async function () {
