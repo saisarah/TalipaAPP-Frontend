@@ -4,7 +4,7 @@ import { SearchOutlined } from "@ant-design/icons";
 import { Collapse, Input } from "antd";
 const { Panel } = Collapse;
 export default function Help() {
-  useTitle("TalipaAPP Help Center");
+  useTitle("Help Center");
   return (
     <Page className="mb-4 bg-white">
       <div className="p-4">
