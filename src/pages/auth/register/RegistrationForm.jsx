@@ -40,7 +40,7 @@ export default function RegistrationForm({ accountType, reset }) {
             <ArrowLeftOutlined />
           </button>
         }
-        title="Create your Account"
+        title="Register"
       />
       <div className="p-4">
         <Steps
