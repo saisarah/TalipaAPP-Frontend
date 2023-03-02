@@ -1,22 +1,14 @@
 import {
-  Row,
-  Col,
-  Card,
-  Radio,
-  Table,
-  message,
-  Button,
-  Avatar,
-  Typography,
+  Avatar, Button, Card, Col, message, Radio, Row, Table, Typography
 } from "antd";
 
 // Images
-import face from "/assets/images/banana-com.png";
-import face2 from "/assets/images/garlic-com.png";
-import face3 from "/assets/images/eggplant-com.png";
-import face4 from "/assets/images/cabbage-com.png";
-import face5 from "/assets/images/onion-com.png";
-import face6 from "/assets/images/pineapple-com.png";
+import face from "./images/banana-com.png";
+import face4 from "./images/cabbage-com.png";
+import face3 from "./images/eggplant-com.png";
+import face2 from "./images/garlic-com.png";
+import face5 from "./images/onion-com.png";
+import face6 from "./images/pineapple-com.png";
 
 const { Title } = Typography;
 
