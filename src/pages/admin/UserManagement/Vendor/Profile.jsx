@@ -1,10 +1,10 @@
 import { Card, Col, Row } from "antd";
 
-export default function Profile() {
+export default function Profile1() {
   return (
     <>
       <div className="rounded bg-white p-4">
-        <h1>Farmers Profile</h1>
+        <h1>Vendors Profile</h1>
 
         <div className="my-4 flex flex-grow justify-around gap-4">
           <div>
@@ -32,11 +32,11 @@ export default function Profile() {
             </h1>
           </div>
           <div className="my-2 flex-col">
-            <h1>Farmer Details</h1>
+            <h1>Vendors Details</h1>
             <hr />
-            <p>Farm Area</p>
+            <p>Vendor Area</p>
             <h1>5 - hectares</h1>
-            <p>Farm Type</p>
+            <p>Vendor Type</p>
             <h1>Irrigated</h1>
             <p>Ownership type</p>
             <h1>Registered Owner</h1>
