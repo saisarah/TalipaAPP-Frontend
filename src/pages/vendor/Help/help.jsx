@@ -1,12 +1,12 @@
 import Page from "@/components/Page";
-import PageHeader from "@/components/PageHeader";
+import { useTitle } from "@/contexts/VendorContext";
 import { SearchOutlined } from "@ant-design/icons";
 import { Collapse, Input } from "antd";
 const { Panel } = Collapse;
 export default function Help() {
+  useTitle("TalipaAPP Help Center");
   return (
     <Page className="mb-4 bg-white">
-      <PageHeader title="TalipaAPP Help Center" back="/" />
       <div className="p-4">
         <p className="text-justify text-2xl  text-black">
           We're here to help you with anything and everything on TalipaApp
