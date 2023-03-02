@@ -24,11 +24,15 @@ export default function Users() {
   const items = [
     {
       key: "1",
-      label: "Update",
+      label: "approve",
     },
     {
       key: "2",
-      label: "Remove",
+      label: "pending",
+    },
+    {
+      key: "3",
+      label: "Resubmit",
     },
   ];
 
@@ -38,6 +42,11 @@ export default function Users() {
       dataIndex: "name",
       key: "name",
       render: (text) => <a>{text}</a>,
+    },
+    {
+      title: "Contact No.",
+      dataIndex: "contact",
+      key: "contact",
     },
 
     {
@@ -57,9 +66,12 @@ export default function Users() {
       render: (_, { tags }) => (
         <>
           {tags.map((tag) => {
-            let color = tag.length > 7 ? "volcano" : "";
-            if (tag === "active") {
-              color = "green";
+            let color = tag.length > 6 ? "green" : "";
+            if (tag === "resubmit") {
+              color = "volcano";
+            }
+            if (tag === "pending") {
+              color = "geekblue";
             }
             return (
               <Tag color={color} key={tag}>
@@ -96,23 +108,26 @@ export default function Users() {
     {
       key: "1",
       name: "John Brown",
+      contact: "09123456789",
       email: "email@gmail.com",
       roles: "Super admin",
-      tags: ["active"],
+      tags: ["approve"],
     },
     {
       key: "2",
       name: "Jim Green",
+      contact: "09123456789",
       email: "email@gmail.com",
       roles: "Chat support",
-      tags: ["Inactive"],
+      tags: ["pending"],
     },
     {
       key: "3",
       name: "Joe Black",
+      contact: "09123456789",
       email: "email@gmail.com",
       roles: "Moderator",
-      tags: ["active"],
+      tags: ["resubmit"],
     },
   ];
   const items1 = [
@@ -150,7 +165,8 @@ export default function Users() {
           >
             <Form className="space-y-4">
               <Input placeholder="E-mail" />
-              <Input placeholder="Fullname" />
+              <Input placeholder="Lastname" />
+              <Input placeholder="Firstname" />
               <Input placeholder="Contact" />
               <Input placeholder="Age" />
               <Input placeholder="Address" />
@@ -173,6 +189,10 @@ export default function Users() {
                   {
                     value: "Inactive",
                     label: "Inactive",
+                  },
+                  {
+                    value: "Resubmit",
+                    label: "Resubmit",
                   },
                 ]}
               />

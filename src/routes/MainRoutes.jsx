@@ -5,6 +5,7 @@ import guestRoutes from "./guestRoutes";
 
 import { LoadingSkeleton } from "@/components/LoadingSkeleton";
 import LandingPage from "@/pages/LandingPage/LandingPage";
+import LoadingScreen from "@/components/LoadingScreen/LoadingScreen";
 import { lazy, Suspense } from "react";
 import { useRoutes } from "react-router-dom";
 
@@ -15,7 +16,7 @@ const VendorRoutes = () => import("./VendorRoutes");
 const lazyLoadRoutes = (routes) => {
   const LazyElement = lazy(routes);
   return (
-    <Suspense fallback={<LoadingSkeleton loading="true" />}>
+    <Suspense fallback={<LoadingScreen />}>
       <LazyElement />
     </Suspense>
   );

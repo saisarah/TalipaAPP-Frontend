@@ -274,7 +274,7 @@ export default function Dashboard() {
               md={12}
               lg={6}
               xl={6}
-              className="mb-24"
+              className="mb-10"
             >
               <Card bordered={false} className="criclebox ">
                 <div className="number">
@@ -286,7 +286,7 @@ export default function Dashboard() {
                       </Title>
                     </Col>
                     <Col xs={6}>
-                      <div className="icon-box">{c.icon}</div>
+                      {/* <div className="icon-box">{c.icon}</div> */}
                     </Col>
                   </Row>
                 </div>
@@ -296,12 +296,12 @@ export default function Dashboard() {
         </Row>
 
         <Row gutter={[24, 0]}>
-          <Col xs={24} sm={24} md={12} lg={12} xl={10} className="mb-24">
+          <Col xs={24} sm={24} md={12} lg={12} xl={10} className="mb-10">
             <Card bordered={false} className="criclebox h-full">
               <Echart />
             </Card>
           </Col>
-          <Col xs={24} sm={24} md={12} lg={12} xl={14} className="mb-24">
+          <Col xs={24} sm={24} md={12} lg={12} xl={14} className="mb-10">
             <Card bordered={false} className="criclebox h-full">
               <LineChart />
             </Card>
