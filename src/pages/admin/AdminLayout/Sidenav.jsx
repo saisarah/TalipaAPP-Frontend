@@ -235,7 +235,7 @@ function Sidenav({ color }) {
           Records and Reports
         </Menu.Item>
         <Menu.Item key="7">
-          <NavLink to="/admin/sales">
+          <NavLink to="admin/sales">
             <span
               className="icon"
               style={{

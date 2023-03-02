@@ -128,7 +128,6 @@ export default function Sales() {
       bnb: "bnb2",
     },
   ];
-
   return (
     <>
       <div className="layout-content">

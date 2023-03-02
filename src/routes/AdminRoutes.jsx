@@ -13,6 +13,7 @@ import FarmerGroupsProfile from "@/pages/admin/UserManagement/FarmerGroups/Profi
 import FarmerProfile from "@/pages/admin/UserManagement/Farmer/Profile";
 import { useRoutes } from "react-router-dom";
 import Profile1 from "@/pages/admin/UserManagement/Vendor/Profile";
+import Sales from "@/pages/admin/Sales/Sales";
 
 const routes = [
   {
@@ -33,6 +34,10 @@ const routes = [
       {
         path: "commodities",
         element: <Commodities />,
+      },
+      {
+        path: "sales",
+        element: <Sales />,
       },
       {
         path: "farmer-groups",
