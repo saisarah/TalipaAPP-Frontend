@@ -86,6 +86,7 @@ a {
 .animate-slide-out {
   @apply transition-opacity delay-[200ms];
   animation-name: slide-out;
+  animation-fill-mode: forwards;
   opacity: 0;
 }
 
