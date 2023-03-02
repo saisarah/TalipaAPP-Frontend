@@ -6,7 +6,7 @@ export default function Profile() {
       <div className="rounded bg-white p-4">
         <h1>Farmers Profile</h1>
 
-        <div className="my-4 flex flex-grow gap-4 justify-around">
+        <div className="my-4 flex flex-grow justify-around gap-4">
           <div>
             <img
               src="https://via.placeholder.com/200"
