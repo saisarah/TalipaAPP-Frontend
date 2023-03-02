@@ -1,5 +1,5 @@
 import CreatePost from "@/pages/farmer/CreatePost/CreatePost";
-import Help from "@/pages/farmer/Help/help";
+import Help from "@/pages/farmer/Help/Help";
 import Commodities from "@/pages/farmer/Home/demand/Commodities";
 import Region from "@/pages/farmer/Home/demand/Region";
 import Home from "@/pages/farmer/Home/Home";
