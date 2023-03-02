@@ -7,7 +7,7 @@ module.exports = {
     "eslint:recommended",
     "plugin:react/recommended",
     "plugin:react/jsx-runtime",
-    "prettier"
+    "prettier",
   ],
   overrides: [
     {
@@ -23,13 +23,13 @@ module.exports = {
   },
   plugins: ["react"],
   rules: {
-    "no-unused-vars": ["warn"],
+    "no-unused-vars": ["off"],
     "react/prop-types": ["off"],
-    "react/no-unescaped-entities": ["off"]
+    "react/no-unescaped-entities": ["off"],
   },
   settings: {
     react: {
-      version: "detect"
-    }
-  }
+      version: "detect",
+    },
+  },
 };
