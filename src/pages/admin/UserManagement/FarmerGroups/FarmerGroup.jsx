@@ -2,7 +2,7 @@ import { MenuOutlined, SearchOutlined } from "@ant-design/icons";
 import { Avatar, Button, Dropdown, Input, Space, Table, Tag } from "antd";
 import { useRef, useState } from "react";
 import { Link } from "react-router-dom";
-// import Highlighter from "react-highlight-words";
+//import Highlighter from "react-highlight-words";
 
 export default function FarmerGroup() {
   const items = [
@@ -148,19 +148,18 @@ export default function FarmerGroup() {
       }
     },
     render: (text) =>
-      searchedColumn === dataIndex ? (
-        <Highlighter
-          highlightStyle={{
-            backgroundColor: "#ffc069",
-            padding: 0,
-          }}
-          searchWords={[searchText]}
-          autoEscape
-          textToHighlight={text ? text.toString() : ""}
-        />
-      ) : (
-        text
-      ),
+      searchedColumn === dataIndex
+        ? null
+        : // <Highlighter
+          //   highlightStyle={{
+          //     backgroundColor: "#ffc069",
+          //     padding: 0,
+          //   }}
+          //   searchWords={[searchText]}
+          //   autoEscape
+          //   textToHighlight={text ? text.toString() : ""}
+          // />
+          text,
   });
   const columns = [
     {

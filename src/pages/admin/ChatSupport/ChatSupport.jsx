@@ -2,18 +2,6 @@ import { Avatar, Card } from "antd";
 import Search from "antd/lib/transfer/search";
 import React from "react";
 
-function User({}) {
-  return 
-  (
-  <>
-  <div>
-    
-  </div>
-    </>
-    )
-  
-}
-
 export default function ChatSupport() {
   const onSearch = (value) => console.log(value);
   return (

@@ -23,7 +23,7 @@ export const PostDetails = () => {
     );
   }
 
-  const { attachments, author } = post;
+  const { attachments, author, prices } = post;
   const isStraight = post.pricing_type === "straight";
 
   if (orderQuantities.length > 0) {
@@ -32,6 +32,7 @@ export const PostDetails = () => {
         id={id}
         quantities={orderQuantities}
         setQuantities={setOrderQuantities}
+        prices={prices}
       />
     );
   }

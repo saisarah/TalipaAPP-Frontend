@@ -1,26 +1,18 @@
-import { login } from "@/apis/AuthApi";
-import { currentUserKey } from "@/apis/UserApi";
 import FormItem from "@/components/FormItem";
 import PageHeader from "@/components/PageHeader";
-import { getErrorMessage, setAuthorization } from "@/helpers/Http";
-import queryKeyFactory from "@/query/queryKeyFactory";
-import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { getErrorMessage } from "@/helpers/Http";
+import { useLogin } from "@/query/mutations/useLogin";
 import { Button, Form, Input, notification } from "antd";
 import { Link } from "react-router-dom";
 import logo from "./images/logo.svg";
 
 export default function Login() {
-  const queryClient = useQueryClient();
-
-  const { mutate, isLoading } = useMutation(login, {
-    onError(error) {
-      notification.error({ message: getErrorMessage(error) });
+  const { mutate, isLoading } = useLogin({
+    onError(err) {
+      notification.error({ message: getErrorMessage(err) });
     },
-
-    onSuccess({ token, user }) {
-      notification.success({ message: "Successfully Login" });
-      setAuthorization(token);
-      queryClient.setQueryData(currentUserKey, user);
+    onSuccess() {
+      notification.success({ message: "Login Succesfully" });
     },
   });
 

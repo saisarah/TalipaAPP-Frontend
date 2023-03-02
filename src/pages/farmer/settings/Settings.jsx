@@ -1,33 +1,13 @@
 import Page from "@/components/Page";
 import PageHeader from "@/components/PageHeader";
+import { useLogoutModal } from "@/hooks/useLogoutModal";
+import { RightOutlined } from "@ant-design/icons";
 import Search from "antd/lib/transfer/search";
 import { Link } from "react-router-dom";
 
-import queryKeyFactory from "@/query/queryKeyFactory";
-import {
-  ArrowRightOutlined,
-  QuestionCircleTwoTone,
-  RightOutlined,
-} from "@ant-design/icons";
-import { useQueryClient } from "@tanstack/react-query";
-import { Modal } from "antd";
-import { setAuthorization } from "@/helpers/Http";
-import { currentUserKey } from "@/apis/UserApi";
-
 export default function Settings() {
-  const queryClient = useQueryClient();
+  const { confirmLogout } = useLogoutModal();
 
-  const confirmLogout = () => {
-    Modal.confirm({
-      icon: <QuestionCircleTwoTone />,
-      onOk() {
-        localStorage.clear();
-        setAuthorization(undefined);
-        queryClient.setQueryData(currentUserKey, null);
-      },
-      content: "Are you sure you want to log out?",
-    });
-  };
   return (
     <Page className="bg-white">
       <PageHeader title="Settings" back="/" />
@@ -40,7 +20,7 @@ export default function Settings() {
           <span className="font-bold">Personal Information</span>
 
           <Link
-            className="mx-4 flex justify-between border-b-2 pb-2 mb-3"
+            className="mx-4 mb-3 flex justify-between border-b-2 pb-2"
             to="/farmer/settings/change-name"
           >
             <div className="flex flex-col">
@@ -52,7 +32,7 @@ export default function Settings() {
           </Link>
 
           <Link
-            className="mx-4 flex justify-between border-b-2 pb-2 mb-3"
+            className="mx-4 mb-3 flex justify-between border-b-2 pb-2"
             to="/farmer/settings/change-username"
           >
             <div className="flex flex-col">
@@ -62,7 +42,7 @@ export default function Settings() {
             <RightOutlined />
           </Link>
           <Link
-            className="mx-4 flex justify-between border-b-2 pb-2 mb-3"
+            className="mx-4 mb-3 flex justify-between border-b-2 pb-2"
             to="/farmer/settings/change-number"
           >
             <div className="flex flex-col">
@@ -72,7 +52,7 @@ export default function Settings() {
             <RightOutlined />
           </Link>
           <Link
-            className="mx-4 flex justify-between border-b-2 pb-2 mb-3"
+            className="mx-4 mb-3 flex justify-between border-b-2 pb-2"
             to="/farmer/settings/change-email"
           >
             <div className="flex flex-col">
@@ -88,7 +68,7 @@ export default function Settings() {
           <span className="font-bold">Account settings</span>
 
           <Link
-            className="mx-4 flex justify-between border-b-2 pb-2 mb-3"
+            className="mx-4 mb-3 flex justify-between border-b-2 pb-2"
             to="/farmer/settings/change-address"
           >
             <div className="flex flex-col">
@@ -100,7 +80,7 @@ export default function Settings() {
             <RightOutlined />
           </Link>
           <Link
-            className="mx-4 flex justify-between border-b-2 pb-2 mb-3"
+            className="mx-4 mb-3 flex justify-between border-b-2 pb-2"
             to="/farmer/settings/account-deletion"
           >
             <div className="flex flex-col">
@@ -112,7 +92,7 @@ export default function Settings() {
             <RightOutlined />
           </Link>
           <Link
-            className="mx-4 flex justify-between border-b-2 pb-2 mb-3"
+            className="mx-4 mb-3 flex justify-between border-b-2 pb-2"
             to="/farmer/settings/change-password"
           >
             <div className="flex flex-col">

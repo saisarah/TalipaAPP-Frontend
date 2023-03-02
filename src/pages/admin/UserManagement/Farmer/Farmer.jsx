@@ -1,8 +1,7 @@
-import { DownOutlined, MenuOutlined, SearchOutlined } from "@ant-design/icons";
+import { MenuOutlined, SearchOutlined } from "@ant-design/icons";
 import { Avatar, Button, Dropdown, Input, Space, Table, Tag } from "antd";
 import { useRef, useState } from "react";
 import { Link } from "react-router-dom";
-
 // import Highlighter from "react-highlight-words";
 
 export default function Farmer() {
@@ -157,19 +156,18 @@ export default function Farmer() {
       }
     },
     render: (text) =>
-      searchedColumn === dataIndex ? (
-        <Highlighter
-          highlightStyle={{
-            backgroundColor: "#ffc069",
-            padding: 0,
-          }}
-          searchWords={[searchText]}
-          autoEscape
-          textToHighlight={text ? text.toString() : ""}
-        />
-      ) : (
-        text
-      ),
+      searchedColumn === dataIndex
+        ? // <Highlighter
+          //   highlightStyle={{
+          //     backgroundColor: "#ffc069",
+          //     padding: 0,
+          //   }}
+          //   searchWords={[searchText]}
+          //   autoEscape
+          //   textToHighlight={text ? text.toString() : ""}
+          // />
+          null
+        : text,
   });
 
   const columns = [

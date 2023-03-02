@@ -7,4 +7,4 @@ export const grouptype = [
     value: "Cooperative",
     label: "Cooperative",
   },
-]
+];

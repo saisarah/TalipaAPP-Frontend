@@ -4,7 +4,7 @@ import SuggestedGroups from "./components/SuggestedGroups";
 import GroupInvitation from "./GroupInvitation";
 import PageHeader from "@/components/PageHeader";
 import { Link } from "react-router-dom";
-import groupIllustrationImg from "./images/group_illustration.png"
+import groupIllustrationImg from "./images/group_illustration.png";
 import Page from "@/components/Page";
 
 const HAS_INVITATION = false;

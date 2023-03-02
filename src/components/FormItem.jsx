@@ -11,7 +11,7 @@ export default function FormItem({
   ...props
 }) {
   return (
-    <Form.Item className="mb-4" hasFeedback {...props} >
+    <Form.Item className="mb-4" hasFeedback {...props}>
       {children || (
         <Input
           addonBefore={addonBefore}
