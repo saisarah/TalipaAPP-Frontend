@@ -14,13 +14,7 @@ const VendorRoutes = () => import("./VendorRoutes");
 const lazyLoadRoutes = (routes) => {
   const LazyElement = lazy(routes);
   return (
-    <Suspense
-      fallback={
-        <div>
-          <LoadingScreen />
-        </div>
-      }
-    >
+    <Suspense fallback={<LoadingScreen />}>
       <LazyElement />
     </Suspense>
   );
