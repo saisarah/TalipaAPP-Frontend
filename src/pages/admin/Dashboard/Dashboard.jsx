@@ -1,39 +1,19 @@
 import { useState } from "react";
 
 import {
+  Button,
   Card,
   Col,
-  Row,
-  Typography,
-  Tooltip,
-  Progress,
-  Upload,
   message,
-  Button,
+  Progress,
+  Row,
   Timeline,
-  Radio,
+  Typography,
 } from "antd";
-import {
-  ToTopOutlined,
-  MenuUnfoldOutlined,
-  RightOutlined,
-} from "@ant-design/icons";
 import Paragraph from "antd/lib/typography/Paragraph";
 
 import Echart from "./chart/EChart";
 import LineChart from "./chart/LineChart";
-
-import ava1 from "../AdminLayout/images/logo-shopify.svg";
-import ava2 from "../AdminLayout/images/logo-atlassian.svg";
-import ava3 from "../AdminLayout/images/logo-slack.svg";
-import ava4 from "../AdminLayout/images/logo-spotify.svg";
-import ava5 from "../AdminLayout/images/logo-jira.svg";
-import ava6 from "../AdminLayout/images/logo-invision.svg";
-import team1 from "../AdminLayout/images/team-1.jpg";
-import team2 from "../AdminLayout/images/team-2.jpg";
-import team3 from "../AdminLayout/images/team-3.jpg";
-import team4 from "../AdminLayout/images/team-4.jpg";
-import card from "../AdminLayout/images/info-card-1.jpg";
 
 export default function Dashboard() {
   const { Title, Text } = Typography;
@@ -313,7 +293,7 @@ export default function Dashboard() {
             <Card bordered={false} className="criclebox cardbody h-full">
               <div className="project-ant">
                 <div>
-                  <Title level={5}>Commodities per Region</Title>
+                  <Title level={5}>Commodities</Title>
                   <Paragraph className="lastweek">
                     REALTIME<span className="blue"> UPDATE</span>
                   </Paragraph>
@@ -334,7 +314,7 @@ export default function Dashboard() {
                     <tr>
                       <th>COMMODITY</th>
 
-                      <th>BUDGET</th>
+                      {/* <th>BUDGET</th> */}
                       <th>PERCENTAGE</th>
                     </tr>
                   </thead>
@@ -345,11 +325,11 @@ export default function Dashboard() {
                           <h6>{d.Title}</h6>
                         </td>
 
-                        <td>
+                        {/* <td>
                           <span className="font-weight-bold text-xs">
                             {d.bud}{" "}
                           </span>
-                        </td>
+                        </td> */}
                         <td>
                           <div className="percent-progress">{d.progress}</div>
                         </td>
