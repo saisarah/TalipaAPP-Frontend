@@ -8,11 +8,10 @@ export default function ForgotPassword() {
   const [number, setNumber] = useState(null);
 
   const handleSubmit = (data) => {
-    setNumber(data.number)
+    setNumber(data.number);
   };
 
-  if (number !== null) 
-    return <ForgotPasswordCode />
+  if (number !== null) return <ForgotPasswordCode />;
 
   return (
     <Page className="bg-white">
@@ -32,7 +31,7 @@ export default function ForgotPassword() {
             {
               required: true,
               message: "Please input a valid number",
-            }
+            },
           ]}
         >
           <InputNumber
@@ -45,7 +44,13 @@ export default function ForgotPassword() {
           />
         </Form.Item>
 
-        <Button htmlType="submit" size="large" className="mt-6 rounded" block type="primary">
+        <Button
+          htmlType="submit"
+          size="large"
+          className="mt-6 rounded"
+          block
+          type="primary"
+        >
           Continue
         </Button>
       </Form>

@@ -1,5 +1,7 @@
 import PageHeader from "@/components/PageHeader";
 import { Link } from "react-router-dom";
+import farmerImg from "../images/farmer.png";
+import vendorImg from "../images/vendor.png";
 
 export default function ChooseAccountType({ setAccountType }) {
   return (
@@ -18,7 +20,7 @@ export default function ChooseAccountType({ setAccountType }) {
       >
         <img
           className="absolute inset-0 h-full w-full object-cover"
-          src="/assets/images/vendor.png"
+          src={vendorImg}
         />
         <span className="relative z-10 text-xl font-bold text-white">
           Vendor
@@ -30,7 +32,7 @@ export default function ChooseAccountType({ setAccountType }) {
       >
         <img
           className="absolute inset-0 h-full w-full object-cover"
-          src="/assets/images/farmer.png"
+          src={farmerImg}
         />
         <span className="relative z-10 text-xl font-bold text-white">
           Farmer

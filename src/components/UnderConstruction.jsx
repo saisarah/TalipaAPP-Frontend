@@ -8,7 +8,13 @@ export default function UnderConstruction({ showHomeBtn = false }) {
       status="404"
       title="Sorry, Page is currently under construction"
       subTitle="We will try to fix this as soon as we can."
-      extra={showHomeBtn && <Link to='/'><Button type="primary">Back to Home</Button></Link>}
+      extra={
+        showHomeBtn && (
+          <Link to="/">
+            <Button type="primary">Back to Home</Button>
+          </Link>
+        )
+      }
     />
   );
 }
