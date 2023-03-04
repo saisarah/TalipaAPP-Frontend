@@ -1,14 +1,16 @@
-import { BrowserRouter, HashRouter } from "react-router-dom";
-import MainRoutes from "./MainRoutes";
+import {
+  createBrowserRouter,
+  createHashRouter,
+  RouterProvider,
+} from "react-router-dom";
+import { routes } from "./MainRoutes";
 
 const platform = import.meta.env.VITE_PLATFLORM;
+const createRouter =
+  platform === "android" ? createHashRouter : createBrowserRouter;
+
+const router = createRouter(routes);
 
 export default function Router() {
-  const Router = platform === "android" ? HashRouter : BrowserRouter;
-
-  return (
-    <Router>
-      <MainRoutes />
-    </Router>
-  );
+  return <RouterProvider router={router} />;
 }

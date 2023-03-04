@@ -20,7 +20,7 @@ const lazyLoadRoutes = (routes) => {
   );
 };
 
-const routes = [
+export const routes = [
   {
     path: "/*",
     element: <VendorGate>{lazyLoadRoutes(VendorRoutes)}</VendorGate>,

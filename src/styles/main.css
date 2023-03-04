@@ -1,3 +1,5 @@
+@import "./preflight.css";
+@import "antd/dist/antd.variable.min.css";
 @tailwind components;
 @tailwind utilities;
 

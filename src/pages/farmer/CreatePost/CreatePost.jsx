@@ -1,16 +1,51 @@
+import { createPost } from "@/apis/Post";
 import Page from "@/components/Page";
 import PageHeader from "@/components/PageHeader";
-import { Steps } from "antd";
-import { useState } from "react";
+import { getErrorMessage } from "@/helpers/Http";
+import { QuestionCircleTwoTone } from "@ant-design/icons";
+import { useMutation } from "@tanstack/react-query";
+import { Modal, notification, Steps } from "antd";
+import { toFormData } from "axios";
+import { useMemo, useState } from "react";
 import Form1 from "./components/Form1";
 import Form2 from "./components/Form2";
+import Form3 from "./components/Form3";
 
 export default function CreatePost() {
+  const { mutateAsync } = useMutation(createPost, {
+    onSuccess(data) {
+      notification.success({ message: "Post Created Successfully." });
+    },
+    onError(error) {
+      notification.error({ message: getErrorMessage(error) });
+    },
+  });
   const [step, setStep] = useState(0);
+  const formData = useMemo(() => new FormData(), []);
+
+  const [data, setData] = useState({
+    crop_id: null,
+    title: "",
+    caption: "",
+    unit: "kg",
+    prices: [],
+    attachments: [],
+  });
+
+  const handleSubmit = () => {
+    Modal.confirm({
+      icon: <QuestionCircleTwoTone />,
+      title: "Are all the details you entered is correct?",
+      async onOk() {
+        const formData = toFormData(data);
+        await mutateAsync(formData);
+      },
+    });
+  };
 
   return (
     <Page className="bg-white">
-      <PageHeader back="/farmer/home" title="Create Post" />
+      <PageHeader back="/farmer/home?tab=create" title="Create Post" />
 
       <div className="border-b">
         <Steps
@@ -29,9 +64,25 @@ export default function CreatePost() {
       </div>
 
       <div className="max-w-screen flex overflow-x-hidden">
-        <Form1 step={step} setStep={setStep} />
-        <Form2 step={step} setStep={setStep} />
-        <Form2 step={step} setStep={setStep} />
+        <Form1
+          step={step}
+          setStep={setStep}
+          formData={formData}
+          setData={setData}
+        />
+        <Form2
+          step={step}
+          setStep={setStep}
+          setData={setData}
+          formData={formData}
+        />
+        <Form3
+          step={step}
+          setStep={setStep}
+          setData={setData}
+          onSubmit={handleSubmit}
+          formData={formData}
+        />
       </div>
     </Page>
   );
