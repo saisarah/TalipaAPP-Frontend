@@ -35,6 +35,7 @@ export default function Login() {
               label="Mobile Number"
               name="contact_number"
               placeholder="912 3456 789"
+              type="number"
               inputProps={{ prefix: "+63", required: true }}
             />
 

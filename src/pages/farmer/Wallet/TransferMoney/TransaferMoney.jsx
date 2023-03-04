@@ -68,9 +68,11 @@ export default function WalletTransferMoney({ setStep }) {
         })}
       </div> */}
       <div className="flex-col-2 mx-7 flex gap-4   py-16">
-        <Button type="primary" className="hover:bg-primary-500 flex-grow">
-          Create
-        </Button>
+        <Link to="/farmer/transfer-money/confirm-transfer">
+          <Button type="primary" className="hover:bg-primary-500 flex-grow">
+            Create
+          </Button>
+        </Link>
       </div>
     </Page>
   );
