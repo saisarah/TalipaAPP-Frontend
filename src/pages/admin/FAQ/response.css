@@ -1,0 +1,13 @@
+@media (max-width: 500px) {
+  #response {
+    font-size: 15px;
+  }
+
+  h1 {
+    font-size: 25px;
+    padding: 50px;
+  }
+  p {
+    font-size: 12px;
+  }
+}
