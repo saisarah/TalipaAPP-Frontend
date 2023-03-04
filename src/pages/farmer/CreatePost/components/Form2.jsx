@@ -4,7 +4,7 @@ import { required } from "../rules";
 import { NotStraight } from "./NotStraight";
 import { Straight } from "./Straight";
 
-export default function Form2({ step, setStep, setData, formData }) {
+export default function Form2({ step, setStep, formData }) {
   const [unit, setUnit] = useState("kg");
   const [straight, setStraight] = useState(1);
   const [prices, setPrices] = useState([
@@ -37,24 +37,9 @@ export default function Form2({ step, setStep, setData, formData }) {
       return;
     }
 
-    setData((oldData) => ({
-      ...oldData,
-      prices: filteredPrice,
-      unit: data.unit,
-      is_straight: straight,
-    }));
-
-    formData.set("unit", data.unit);
-    formData.set("is_straight", straight);
-
-    formData.delete("prices[][variant]");
-    formData.delete("prices[][price]");
-    formData.delete("prices[][stock]");
-    filteredPrice.forEach((price, i) => {
-      formData.append("prices[][variant]", price.variant);
-      formData.append("prices[][price]", price.price);
-      formData.append("prices[][stock]", price.stock);
-    });
+    formData.unit = data.unit;
+    formData.is_straight = straight;
+    formData.prices = filteredPrice;
 
     setStep(2);
   };

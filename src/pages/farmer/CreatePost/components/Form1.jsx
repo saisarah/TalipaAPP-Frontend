@@ -2,20 +2,16 @@ import { useCropOptions } from "@/query/queries/useCropsQuery";
 import { Button, Form, Input, Select } from "antd";
 import { required } from "../rules";
 
-export default function Form1({ step, setStep, setData, formData }) {
+export default function Form1({ step, setStep, formData }) {
   const { data: crops, isLoading: fetchingCrops } = useCropOptions();
 
   const handleSubmit = ({ crop_id, title, caption }) => {
-    setData((oldData) => ({
-      ...oldData,
-      crop_id,
-      title,
-      caption,
-    }));
-
-    formData.set("crop_id", crop_id);
-    formData.set("title", title);
-    formData.set("caption", caption);
+    formData.crop_id = crop_id;
+    formData.title = title;
+    formData.caption = caption;
+    // formData.set("crop_id", crop_id);
+    // formData.set("title", title);
+    // formData.set("caption", caption);
 
     setStep(1);
   };

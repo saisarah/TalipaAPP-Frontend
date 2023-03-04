@@ -1,13 +1,10 @@
 import { InboxOutlined } from "@ant-design/icons";
-import { useMutation } from "@tanstack/react-query";
 import { Button, Form, notification } from "antd";
 import Dragger from "antd/lib/upload/Dragger";
 import { useState } from "react";
 
-export default function Form3({ step, setData, onSubmit, formData }) {
+export default function Form3({ step, onSubmit, formData }) {
   const [attachments, setAttachments] = useState([]);
-
-  const { mutate } = useMutation(null);
 
   const handleSubmit = () => {
     if (attachments.length <= 0) {
@@ -17,15 +14,9 @@ export default function Form3({ step, setData, onSubmit, formData }) {
       return;
     }
 
-    setData((oldData) => ({
-      ...oldData,
-      attachments,
-    }));
+    formData.attachments = attachments;
 
-    formData.delete("attachments[]");
-    attachments.forEach((file) => formData.append("attachments[]", file));
-
-    onSubmit();
+    setTimeout(onSubmit);
   };
 
   return (

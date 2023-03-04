@@ -6,24 +6,26 @@ import { QuestionCircleTwoTone } from "@ant-design/icons";
 import { useMutation } from "@tanstack/react-query";
 import { Modal, notification, Steps } from "antd";
 import { toFormData } from "axios";
-import { useMemo, useState } from "react";
+import { useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Form1 from "./components/Form1";
 import Form2 from "./components/Form2";
 import Form3 from "./components/Form3";
 
 export default function CreatePost() {
+  const navigate = useNavigate();
+
   const { mutateAsync } = useMutation(createPost, {
     onSuccess(data) {
       notification.success({ message: "Post Created Successfully." });
+      navigate(`/farmer/posts/${data.id}`, { replace: true });
     },
     onError(error) {
       notification.error({ message: getErrorMessage(error) });
     },
   });
   const [step, setStep] = useState(0);
-  const formData = useMemo(() => new FormData(), []);
-
-  const [data, setData] = useState({
+  const formData = useRef({
     crop_id: null,
     title: "",
     caption: "",
@@ -37,8 +39,8 @@ export default function CreatePost() {
       icon: <QuestionCircleTwoTone />,
       title: "Are all the details you entered is correct?",
       async onOk() {
-        const formData = toFormData(data);
-        await mutateAsync(formData);
+        const data = toFormData(formData.current); ///
+        await mutateAsync(data);
       },
     });
   };
@@ -64,178 +66,14 @@ export default function CreatePost() {
       </div>
 
       <div className="max-w-screen flex overflow-x-hidden">
-        <Form1
-          step={step}
-          setStep={setStep}
-          formData={formData}
-          setData={setData}
-        />
-        <Form2
-          step={step}
-          setStep={setStep}
-          setData={setData}
-          formData={formData}
-        />
+        <Form1 step={step} setStep={setStep} formData={formData.current} />
+        <Form2 step={step} setStep={setStep} formData={formData.current} />
         <Form3
           step={step}
-          setStep={setStep}
-          setData={setData}
           onSubmit={handleSubmit}
-          formData={formData}
+          formData={formData.current}
         />
       </div>
     </Page>
   );
-
-  // return (
-  //   <Page className="bg-slate-50">
-  //     <PageHeader back="/farmer/home?tab=create" title="Create Post" />
-  //     <div className="p-4">
-  //       <Form layout="vertical" onFinish={handleSubmit}>
-  //         <FormItem rules={required()} label="Commodity">
-  //           <Select
-  //             placeholder="Select Commodity"
-  //             options={crops}
-  //             size="large"
-  //             className="rounded"
-  //             loading={fetchingCrops}
-  //           />
-  //         </FormItem>
-
-  //         <FormItem rules={required()} label="Title" name="title">
-  //           <Input size="small" />
-  //         </FormItem>
-
-  //         <FormItem
-  //           rules={required()}
-  //           label="Delivery Options"
-  //           name="delivery_options"
-  //         >
-  //           <Select
-  //             required
-  //             placeholder="Select Available Delivery Options"
-  //             options={[{ value: "Pick-up" }, { value: "Transportify" }]}
-  //             size="large"
-  //             mode="multiple"
-  //             className="rounded"
-  //             loading={fetchingCrops}
-  //           />
-  //         </FormItem>
-
-  //         <FormItem
-  //           rules={required()}
-  //           label="Payment Options"
-  //           name="payment_options"
-  //         >
-  //           <Select
-  //             required
-  //             placeholder="Select Available Payment Options"
-  //             options={[{ value: "GCash" }, { value: "Cash" }]}
-  //             size="large"
-  //             mode="multiple"
-  //             className="rounded"
-  //             loading={fetchingCrops}
-  //           />
-  //         </FormItem>
-
-  //         <FormItem label="Unit" name="unit" initialValue={selectedUnit}>
-  //           <Select
-  //             className="rounded"
-  //             size="large"
-  //             value={selectedUnit}
-  //             onChange={(unit) => setSelectedUnit(unit)}
-  //           >
-  //             <Select.Option value="kg">Kilogram</Select.Option>
-  //             <Select.Option value="pc">Piece</Select.Option>
-  //           </Select>
-  //         </FormItem>
-
-  //         <FormItem
-  //           label="Pricing Type"
-  //           name="is_straight"
-  //           initialValue={isStraight}
-  //         >
-  //           <Select
-  //             className="rounded"
-  //             size="large"
-  //             value={isStraight}
-  //             onChange={(isStraight) => setIsStraight(isStraight)}
-  //           >
-  //             <Select.Option value={1}>Straight</Select.Option>
-  //             <Select.Option value={0}>Not Straight</Select.Option>
-  //           </Select>
-  //         </FormItem>
-
-  //         {Boolean(isStraight) && (
-  //           <div className="grid grid-cols-2 gap-4">
-  //             <FormItem
-  //               className="hidden"
-  //               name="sizes"
-  //               size="large"
-  //               inputProps={{ value: "__default" }}
-  //             />
-  //             {/* <input type="hidden" name="sizes[0]" value="__default" /> */}
-  //             <FormItem
-  //               label="Total Stocks"
-  //               name="stock"
-  //               size="large"
-  //               inputProps={{ addonAfter: selectedUnit }}
-  //             />
-  //             <FormItem
-  //               label="Price"
-  //               size="large"
-  //               name="price"
-  //               inputProps={{ addonAfter: `/${selectedUnit}` }}
-  //             />
-  //           </div>
-  //         )}
-  //         <FormItem rules={required()} label="Details" name="details">
-  //           <Input.TextArea
-  //             size="large"
-  //             className="rounded"
-  //             placeholder="Add a short description"
-  //           />
-  //         </FormItem>
-
-  //         <FormItem label="Add Photos">
-  //           <Upload
-  //             onRemove={(file) => {
-  //               setAttachments((attachments) => {
-  //                 return attachments.filter((a) => a !== file);
-  //               });
-  //             }}
-  //             fileList={attachments}
-  //             beforeUpload={(file) => {
-  //               setAttachments((files) => [...files, file]);
-  //               return false;
-  //             }}
-  //             className="grid grid-cols-1"
-  //           >
-  //             <Button icon={<UploadOutlined />} size="large" block>
-  //               Click to Upload
-  //             </Button>
-  //           </Upload>
-  //         </FormItem>
-
-  //         {!isStraight && (
-  //           <PricingForm
-  //             unit={selectedUnit}
-  //             sizes={sizes}
-  //             setSizes={setSizes}
-  //           />
-  //         )}
-  //         <Button
-  //           className="mt-4"
-  //           htmlType="submit"
-  //           block
-  //           type="primary"
-  //           size="large"
-  //           loading={isLoading}
-  //         >
-  //           Post
-  //         </Button>
-  //       </Form>
-  //     </div>
-  //   </Page>
-  // );
 }
