@@ -1,5 +1,4 @@
 import { VendorLayout } from "@/pages/vendor/components/VendorLayout/VendorLayout";
-import Help from "@/pages/vendor/Help/help";
 import { Home } from "@/pages/vendor/Home/Home";
 import Conversations from "@/pages/vendor/Messages/Conversations";
 import Messages from "@/pages/vendor/Messages/Messages";
@@ -29,10 +28,6 @@ const routes = [
       {
         path: "orders",
         element: <Orders />,
-      },
-      {
-        path: "help",
-        element: <Help />,
       },
     ],
   },
