@@ -2,8 +2,8 @@ import { useState } from "react";
 
 import { Button, Card, Col, Row, Typography } from "antd";
 
-import Echart from "../Dashboard/chart/EChart";
-import LineChart from "../Dashboard/chart/LineChart";
+import Echart from "../Sales/chart/EChart";
+import LineChart from "../Sales/chart/LineChart";
 
 export default function Sales() {
   const { Title, Text } = Typography;
