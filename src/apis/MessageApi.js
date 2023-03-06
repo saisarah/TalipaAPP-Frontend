@@ -10,7 +10,7 @@ export const fetchConversations = async (id) => {
   const { data } = await Http.get(`/messages/${id}`);
   return data;
 };
-fetchConversations.key = (id) => ["messages", id];
+fetchConversations.key = (id) => ["messages", parseInt(id)];
 fetchConversations.fetcher = (id) => () => fetchConversations(id);
 
 export const sendMessage = async function (id, content) {
