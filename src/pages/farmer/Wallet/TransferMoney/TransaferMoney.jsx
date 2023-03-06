@@ -55,7 +55,7 @@ export default function WalletTransferMoney({ setStep }) {
       </div>
       <Link to="/farmer/wallet/transfer-money/confirm-transfer">
         <div className="mt-4 flex w-full justify-center px-4 text-center">
-          <button className=" w-10/12 rounded-[4px] bg-[#739559] p-2 font-bold  text-white">
+          <button className="w-11/12 rounded-[4px] bg-[#739559] p-1  font-bold  text-white">
             Accept
           </button>
         </div>

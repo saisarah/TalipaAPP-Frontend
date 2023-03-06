@@ -53,24 +53,11 @@ export default function ConfirmTransfer() {
         </FormItem>
       </div>
 
-      {/* <div>
-        {members.map(function (member) {
-          return (
-            <div
-              key={member}
-              className="flex cursor-pointer items-center gap-2 border-b bg-white p-4 hover:bg-slate-50"
-            >
-              <Avatar className="border border-green-500" />
-              <span className="flex-grow text-lg">{member}</span>
-              <button className="text-red-500">
-                <CloseCircleOutlined className="text-lg" />
-              </button>
-            </div>
-          );
-        })}
-      </div> */}
-      <div className="flex-col-2 mx-7 flex gap-4   py-16">
-        <Button type="primary" className="hover:bg-primary-500 flex-grow">
+      <div className="flex-col-2 mx-7 flex gap-4 py-16">
+        <Button
+          type="primary"
+          className="hover:bg-primary-500 flex-grow rounded-[4px] bg-[#739559]  font-bold  text-white"
+        >
           Send Money
         </Button>
       </div>
