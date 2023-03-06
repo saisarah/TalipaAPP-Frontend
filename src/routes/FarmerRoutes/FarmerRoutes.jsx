@@ -4,7 +4,7 @@ import Commodities from "@/pages/farmer/Home/demand/Commodities";
 import Region from "@/pages/farmer/Home/demand/Region";
 import Home from "@/pages/farmer/Home/Home";
 import MainMenu from "@/pages/farmer/MainMenu/MainMenu";
-import Conversations from "@/pages/farmer/Messages/Conversations";
+import Chat from "@/pages/farmer/Messages/Chat";
 import Messages from "@/pages/farmer/Messages/Messages";
 import Notifications from "@/pages/farmer/notifications/Notifications";
 import OrderInfo from "@/pages/farmer/orders/OrderInfo/OrderInfo";
@@ -71,7 +71,7 @@ const routes = [
   },
   {
     path: "messages/:id",
-    element: <Conversations />,
+    element: <Chat />,
   },
   {
     path: "notifications",
