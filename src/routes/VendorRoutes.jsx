@@ -7,7 +7,7 @@ import Notifications from "@/pages/vendor/Notifications/Notifications";
 import OrderInfo from "@/pages/vendor/Orders/OrderInfo/OrderInfo";
 import Orders from "@/pages/vendor/Orders/Orders";
 import { PostDetails } from "@/pages/vendor/PostDetails/PostDetails";
-import Profile from "@/pages/vendor/Profile/profile";
+import Profile from "@/pages/vendor/Profile/Profile";
 
 import { useRoutes } from "react-router-dom";
 
