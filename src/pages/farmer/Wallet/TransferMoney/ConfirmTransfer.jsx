@@ -53,7 +53,7 @@ export default function ConfirmTransfer() {
         </FormItem>
       </div>
 
-      <div className="flex-col-2 mx-7 flex gap-4 py-16">
+      <div className="flex-col-2 mx-7 flex gap-4 py-4">
         <Button
           type="primary"
           className="hover:bg-primary-500 flex-grow rounded-[4px] bg-[#739559]  font-bold  text-white"
