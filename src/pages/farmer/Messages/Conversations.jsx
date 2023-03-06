@@ -1,12 +1,12 @@
 import { ReceivedChat, SentChat } from "@/components/ChatItem";
 import Page from "@/components/Page";
 import PageHeader from "@/components/PageHeader";
+import SendMessage from "@/components/SendMessage";
 import { useConversationsQuery } from "@/query/queries/useMessagesQuery";
 import { useUserQuery } from "@/query/queries/useUsersQuery";
 import { Spin } from "antd";
 import { useParams } from "react-router";
 import ScrollToBottom from "react-scroll-to-bottom";
-import SendMessage from "../../../components/SendMessage";
 
 export default function Conversations() {
   const { id } = useParams();

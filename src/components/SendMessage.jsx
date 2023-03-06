@@ -1,17 +1,17 @@
-import { fetchConversations, sendMessage } from "@/apis/MessageApi";
+import { sendMessage } from "@/apis/MessageApi";
+import { usePushMessage } from "@/query/mutations/messages";
 import { SendOutlined } from "@ant-design/icons";
-import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { useMutation } from "@tanstack/react-query";
 import { Button, Input } from "antd";
 import { useState } from "react";
 
 const useSendMessage = (id, { onSuccess }) => {
-  const queryClient = useQueryClient();
+  const { push } = usePushMessage()
 
   return useMutation((message) => sendMessage(id, message), {
     onSuccess(data) {
-      queryClient.setQueryData(fetchConversations.key(id), (messages) => {
-        return [...messages, data];
-      });
+      push(id, data)
+
       if (onSuccess) onSuccess(data);
     },
   });
