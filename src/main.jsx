@@ -1,6 +1,5 @@
 import { toFormData } from "axios";
 import moment from "moment";
-import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
 import Cache from "./helpers/Cache";
@@ -15,7 +14,7 @@ window.moment = moment;
 window.toFormData = toFormData;
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+  // <React.StrictMode>
+  <App />
+  // </React.StrictMode>
 );
