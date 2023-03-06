@@ -1,7 +1,7 @@
 import { VendorLayout } from "@/pages/vendor/components/VendorLayout/VendorLayout";
 import Help from "@/pages/vendor/Help/help";
 import { Home } from "@/pages/vendor/Home/Home";
-import Conversations from "@/pages/vendor/Messages/Conversations";
+import Chat from "@/pages/vendor/Messages/Chat";
 import Messages from "@/pages/vendor/Messages/Messages";
 import Notifications from "@/pages/vendor/Notifications/Notifications";
 import OrderInfo from "@/pages/vendor/Orders/OrderInfo/OrderInfo";
@@ -48,7 +48,7 @@ const routes = [
   },
   {
     path: "/messages/:id",
-    element: <Conversations />,
+    element: <Chat />,
   },
   {
     path: "orders/:id",
