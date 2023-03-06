@@ -1,7 +1,7 @@
 import Page from "@/components/Page";
 import PageHeader from "@/components/PageHeader";
 import { CloseOutlined, SearchOutlined } from "@ant-design/icons";
-import { Avatar, Button, Input } from "antd";
+import { Avatar, Input } from "antd";
 import TextArea from "antd/lib/input/TextArea";
 import { Link } from "react-router-dom";
 
@@ -14,7 +14,7 @@ export default function WalletTransferMoney({ setStep }) {
 
   return (
     <Page className="bg-slate-50">
-      <PageHeader back="/wallet" title="Transfer Money" />
+      <PageHeader back="/farmer/wallet" title="Transfer Money" />
 
       <div className="border-b bg-white p-4">
         <span className="text-lg font-semibold">Invite Members</span>
@@ -48,32 +48,18 @@ export default function WalletTransferMoney({ setStep }) {
 
       <div className="p-4 text-center">
         <span className=" text-sm text-slate-500">Enter amount</span>
-        <Input className=" mt-5 border-b-2 border-t-0 border-r-0 border-l-0 bg-transparent hover:border-transparent focus:outline-none" />
+        <Input
+          type="number"
+          className="mt-5 border-b-2 border-t-0 border-r-0 border-l-0 bg-transparent text-center text-lg font-bold hover:border-t-0 hover:border-r-0 hover:border-l-0 active:border-red-50 "
+        />
       </div>
-
-      {/* <div>
-        {members.map(function (member) {
-          return (
-            <div
-              key={member}
-              className="flex cursor-pointer items-center gap-2 border-b bg-white p-4 hover:bg-slate-50"
-            >
-              <Avatar className="border border-green-500" />
-              <span className="flex-grow text-lg">{member}</span>
-              <button className="text-red-500">
-                <CloseCircleOutlined className="text-lg" />
-              </button>
-            </div>
-          );
-        })}
-      </div> */}
-      <div className="flex-col-2 mx-7 flex gap-4   py-16">
-        <Link to="/farmer/transfer-money/confirm-transfer">
-          <Button type="primary" className="hover:bg-primary-500 flex-grow">
-            Create
-          </Button>
-        </Link>
-      </div>
+      <Link to="/farmer/wallet/transfer-money/confirm-transfer">
+        <div className="mt-4 flex w-full justify-center px-4 text-center">
+          <button className=" w-10/12 rounded-[4px] bg-[#739559] p-2 font-bold  text-white">
+            Accept
+          </button>
+        </div>
+      </Link>
     </Page>
   );
 }
