@@ -42,8 +42,11 @@ export default function SearchGroup({ setStep }) {
           );
         })}
       </div>
-      <div className="flex-col-2 flex gap-4 mx-7 bg-slate-100 py-16">
-        <Button onClick={() => setStep(0)} className="text-bold hover:bg-primary-500 flex-grow border-primary text-primary">
+      <div className="flex-col-2 mx-7 flex gap-4 bg-slate-100 py-16">
+        <Button
+          onClick={() => setStep(0)}
+          className="text-bold hover:bg-primary-500 flex-grow border-primary text-primary"
+        >
           Back
         </Button>
         <Button type="primary" className="hover:bg-primary-500 flex-grow">

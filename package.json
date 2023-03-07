@@ -5,14 +5,16 @@
   "type": "module",
   "scripts": {
     "dev": "vite --host",
-    "build": "vite build",
-    "preview": "vite preview",
-    "build-android": "vite build --mode android"
+    "build": "npm run lint \nnpx vite build",
+    "preview": "vite preview --host",
+    "build-android": "vite build --mode android",
+    "build-dev": "vite build --mode development --sourcemap",
+    "lint": "npx prettier src --check \nnpx eslint src --ext js,jsx",
+    "format": "prettier src --write"
   },
   "dependencies": {
     "@ant-design/icons": "^4.7.0",
     "@tanstack/react-query": "^4.19.0",
-    "@tanstack/react-query-devtools": "^4.19.0",
     "antd": "^4.24.1",
     "axios": "^1.2.0",
     "framer-motion": "^7.6.6",
@@ -22,16 +24,21 @@
     "react-apexcharts": "^1.4.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.4.3",
+    "react-scroll-to-bottom": "^4.2.0",
     "select-philippines-address": "^1.0.6",
     "styled-components": "^5.3.6"
   },
   "devDependencies": {
+    "@tanstack/react-query-devtools": "^4.19.0",
     "@types/react": "^18.0.24",
     "@types/react-dom": "^18.0.8",
     "@vitejs/plugin-react": "^2.2.0",
     "autoprefixer": "^10.4.13",
+    "eslint": "^8.35.0",
+    "eslint-config-prettier": "^8.6.0",
+    "eslint-plugin-react": "^7.32.2",
     "postcss": "^8.4.18",
-    "prettier": "2.7.1",
+    "prettier": "^2.7.1",
     "prettier-plugin-tailwindcss": "^0.1.13",
     "tailwindcss": "^3.2.3",
     "vite": "^3.2.3"

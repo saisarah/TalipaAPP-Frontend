@@ -1,5 +1,5 @@
+import { RegisterContextProvider } from "@/contexts/RegistrationContext";
 import { useState } from "react";
-import { RegisterContextProvider } from "../../../contexts/RegistrationContext";
 import ChooseAccountType from "./forms/ChooseAccountType";
 import RegistrationForm from "./RegistrationForm";
 

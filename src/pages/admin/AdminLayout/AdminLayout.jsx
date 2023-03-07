@@ -10,15 +10,15 @@
   * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 */
 
-import { useState, useEffect } from "react";
+import "@/styles/admin.css";
+import "@/styles/responsive.css";
+import { Affix, Drawer, Layout } from "antd";
+import { useEffect, useState } from "react";
 import { Outlet, useLocation } from "react-router-dom";
-import { Layout, Drawer, Affix } from "antd";
-import Sidenav from "./Sidenav";
-import Header from "./Header";
-import Footer from "./Footer";
-import '@/styles/admin.css';
-import '@/styles/responsive.css';
 
+import Footer from "./Footer";
+import Header from "./Header";
+import Sidenav from "./Sidenav";
 
 const { Header: AntHeader, Content, Sider } = Layout;
 
