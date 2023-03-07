@@ -1,8 +1,24 @@
-import { DeleteOutlined, EditOutlined } from "@ant-design/icons";
-import { Button, Collapse, Space } from "antd";
+import {
+  ContainerOutlined,
+  DeleteOutlined,
+  EditOutlined,
+} from "@ant-design/icons";
+import { Button, Collapse, Input, Modal, Space } from "antd";
+import { useState } from "react";
 import "../../admin/FAQ/response.css";
 
 export default function Faq() {
+  const { TextArea } = Input;
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const showModal = () => {
+    setIsModalOpen(true);
+  };
+  const handleOk = () => {
+    setIsModalOpen(false);
+  };
+  const handleCancel = () => {
+    setIsModalOpen(false);
+  };
   const { Panel } = Collapse;
   const text = `
   A dog is a type of domesticated animal.
@@ -16,8 +32,26 @@ export default function Faq() {
           <h1>Frequently Asked Questions</h1>
         </div>
       </div>
+      <div className="flex justify-end gap-y-20 px-20">
+        <div>
+          <Button id="modal" type="primary" onClick={showModal} size="large">
+            <ContainerOutlined /> Add
+          </Button>
+          <Modal
+            title="Add FAQ"
+            open={isModalOpen}
+            onOk={handleOk}
+            onCancel={handleCancel}
+          >
+            <h4>Title</h4>
+            <Input required placeholder="Basic usage" />
+            <h4>Description</h4>
+            <TextArea required rows={4} />
+          </Modal>
+        </div>
+      </div>
       <div className="flex">
-        <div className="flex grow p-20">
+        <div className="flex grow px-20">
           <Space direction="vertical w-full py-10 border-none">
             <Collapse>
               <Panel
