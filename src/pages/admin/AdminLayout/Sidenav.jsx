@@ -11,8 +11,9 @@
 */
 
 // import { useState } from "react";
-import { VerticalAlignTopOutlined } from "@ant-design/icons";
-import { Menu, Button, Avatar } from "antd";
+import { EyeOutlined, QuestionCircleFilled } from "@ant-design/icons";
+
+import { Menu } from "antd";
 import { NavLink, useLocation } from "react-router-dom";
 import logo from "./images/TalipaApp_Icon.png";
 
@@ -165,8 +166,8 @@ function Sidenav({ color }) {
     <>
       <div className="brand">
         <div className="flex">
-        <img src={logo} alt="TalipaApp Logo" />
-        <span>TalipaApp Dashboard</span>
+          <img src={logo} alt="TalipaApp Logo" />
+          <span>TalipaApp Dashboard</span>
         </div>
       </div>
       <hr />
@@ -197,11 +198,11 @@ function Sidenav({ color }) {
             <span className="label">Payments</span>
           </NavLink>
           <Menu.Item className="menu-item-header" key="3">
-          Management
-        </Menu.Item>
+            Management
+          </Menu.Item>
         </Menu.Item>
         <Menu.Item key="4">
-          <NavLink to="/manage-product">
+          <NavLink to="/admin/commodities">
             <span
               className="icon"
               style={{
@@ -214,7 +215,7 @@ function Sidenav({ color }) {
           </NavLink>
         </Menu.Item>
         <Menu.Item key="5">
-          <NavLink to="admin/chat-support">
+          <NavLink to="admin/commodities">
             <span
               className="icon"
               style={{
@@ -240,48 +241,6 @@ function Sidenav({ color }) {
               {recordsReports}
             </span>
             <span className="label">Sales</span>
-          </NavLink>
-        </Menu.Item>
-        <Menu.Item className="menu-item-header" key="8">
-          Settings
-        </Menu.Item>
-        <Menu.Item key="9">
-          <NavLink to="/admin/change-password">
-            <span
-              className="icon"
-              style={{
-                background: page === "change-password" ? color : "",
-              }}
-            >
-              {recordsReports}
-            </span>
-            <span className="label">Change password</span>
-          </NavLink>
-        </Menu.Item>
-        <Menu.Item key="10">
-          <NavLink to="/admin/FAQs">
-            <span
-              className="icon"
-              style={{
-                background: page === "FAQs" ? color : "",
-              }}
-            >
-              {recordsReports}
-            </span>
-            <span className="label">FAQs</span>
-          </NavLink>
-        </Menu.Item>
-        <Menu.Item key="11">
-          <NavLink to="/admin/Terms">
-            <span
-              className="icon"
-              style={{
-                background: page === "Terms" ? color : "",
-              }}
-            >
-              {recordsReports}
-            </span>
-            <span className="label">Terms & Conditions</span>
           </NavLink>
         </Menu.Item>
         <Menu.Item className="menu-item-header" key="12">
@@ -314,11 +273,11 @@ function Sidenav({ color }) {
           </NavLink>
         </Menu.Item>
         <Menu.Item key="15">
-          <NavLink to="/admin/farmers-groups">
+          <NavLink to="/admin/farmer-groups">
             <span
               className="icon"
               style={{
-                background: page === "farmers-groups" ? color : "",
+                background: page === "farmer-groups" ? color : "",
               }}
             >
               {recordsReports}
@@ -355,9 +314,61 @@ function Sidenav({ color }) {
             <span className="label">Roles</span>
           </NavLink>
         </Menu.Item>
-        
-        
-
+        <Menu.Item className="menu-item-header" key="8">
+          Settings
+        </Menu.Item>
+        <Menu.Item key="9">
+          <NavLink to="/admin/change-password">
+            <span
+              className="icon"
+              style={{
+                background: page === "change-password" ? color : "",
+              }}
+            >
+              <EyeOutlined height={100} />
+            </span>
+            <span className="label">Change password</span>
+          </NavLink>
+        </Menu.Item>
+        <Menu.Item key="10">
+          <NavLink to="/admin/FAQs">
+            <span
+              className="icon"
+              style={{
+                background: page === "FAQs" ? color : "",
+              }}
+            >
+              <QuestionCircleFilled />
+            </span>
+            <span className="label">FAQs</span>
+          </NavLink>
+        </Menu.Item>
+        <Menu.Item key="11">
+          <NavLink to="/admin/Terms">
+            <span
+              className="icon"
+              style={{
+                background: page === "Terms" ? color : "",
+              }}
+            >
+              {recordsReports}
+            </span>
+            <span className="label">Terms & Conditions</span>
+          </NavLink>
+        </Menu.Item>
+        <Menu.Item key="11">
+          <NavLink to="/admin/login">
+            <span
+              className="icon"
+              style={{
+                background: page === "" ? color : "",
+              }}
+            >
+              {recordsReports}
+            </span>
+            <span className="label">Logout</span>
+          </NavLink>
+        </Menu.Item>
       </Menu>
       {/* <div className="aside-footer">
         <div
