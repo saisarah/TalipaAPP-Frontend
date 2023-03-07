@@ -44,7 +44,7 @@ export default function Faq() {
             onCancel={handleCancel}
           >
             <h4>Title</h4>
-            <Input required placeholder="Basic usage" />
+            <Input required placeholder="Title" />
             <h4>Description</h4>
             <TextArea required rows={4} />
           </Modal>
