@@ -142,33 +142,33 @@ export default function Dashboard() {
   const list = [
     {
       Title: "Pineapple",
-      bud: "₱14,000",
+      region: "Region I (Ilocos Region)",
       progress: <Progress percent={60} size="small" />,
     },
     {
       Title: "Mango",
-      bud: "₱3,000",
+      region: "Region II (Cagayan Valley)",
       progress: <Progress percent={10} size="small" />,
     },
     {
       Title: "Banana",
-      bud: "₱20,600",
+      region: "Region III (Central Luzon)",
       progress: <Progress percent={100} size="small" status="active" />,
     },
     {
       Title: "Garlic",
-      bud: "₱20,600",
+      region: "Region IV-A (CALABARZON)",
       progress: <Progress percent={100} size="small" status="active" />,
     },
     {
       Title: "Onion",
-      bud: "₱4,000",
+      region: "Region IV-B (MIMAROPA)",
       progress: <Progress percent={80} size="small" />,
     },
 
     {
       Title: "Cabbage",
-      bud: "₱2,000",
+      region: "Region V (Bicol Region)",
       progress: (
         <Progress
           percent={100}
@@ -181,7 +181,7 @@ export default function Dashboard() {
     },
     {
       Title: "EggPlant",
-      bud: "₱2,000",
+      region: "National Capital Region (NCR)",
       progress: (
         <Progress
           percent={100}
@@ -314,7 +314,7 @@ export default function Dashboard() {
                     <tr>
                       <th>COMMODITY</th>
 
-                      {/* <th>BUDGET</th> */}
+                      <th>REGION</th>
                       <th>PERCENTAGE</th>
                     </tr>
                   </thead>
@@ -325,11 +325,11 @@ export default function Dashboard() {
                           <h6>{d.Title}</h6>
                         </td>
 
-                        {/* <td>
+                        <td>
                           <span className="font-weight-bold text-xs">
-                            {d.bud}{" "}
+                            {d.region}{" "}
                           </span>
-                        </td> */}
+                        </td>
                         <td>
                           <div className="percent-progress">{d.progress}</div>
                         </td>
