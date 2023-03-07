@@ -12,6 +12,7 @@
 
 // import { useState } from "react";
 import { EyeOutlined, QuestionCircleFilled } from "@ant-design/icons";
+
 import { Menu } from "antd";
 import { NavLink, useLocation } from "react-router-dom";
 import logo from "./images/TalipaApp_Icon.png";
@@ -356,11 +357,11 @@ function Sidenav({ color }) {
           </NavLink>
         </Menu.Item>
         <Menu.Item key="11">
-          <NavLink to="/admin/Terms">
+          <NavLink to="/admin/login">
             <span
               className="icon"
               style={{
-                background: page === "Terms" ? color : "",
+                background: page === "" ? color : "",
               }}
             >
               {recordsReports}
