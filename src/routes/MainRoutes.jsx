@@ -8,7 +8,7 @@ import { lazy, Suspense } from "react";
 import { useRoutes } from "react-router-dom";
 
 const FarmerRoutes = () => import("./FarmerRoutes/FarmerRoutes");
-const AdminRoutes = () => import("./AdminRoutes");
+const AdminRoutes = () => import("./adminRoutes");
 const VendorRoutes = () => import("./VendorRoutes");
 
 const lazyLoadRoutes = (routes) => {

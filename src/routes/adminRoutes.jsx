@@ -7,7 +7,6 @@ import Dashboard from "@/pages/admin/Dashboard/Dashboard";
 import Faq from "@/pages/admin/FAQ/Faq";
 import Login from "@/pages/admin/Login/Login";
 import ChangePassword from "@/pages/admin/Settings/ChangePassword";
-import Terms from "@/pages/admin/terms/Term";
 import Farmer from "@/pages/admin/UserManagement/Farmer/Farmer";
 import FarmerProfile from "@/pages/admin/UserManagement/Farmer/Profile";
 import FarmerGroup from "@/pages/admin/UserManagement/FarmerGroups/FarmerGroup";
@@ -70,10 +69,6 @@ const routes = [
       {
         path: "FAQs",
         element: <Faq />,
-      },
-      {
-        path: "terms",
-        element: <Terms />,
       },
       {
         path: "profile",
