@@ -1,14 +1,17 @@
+import { RegistrationContext, useRegistrationContext } from "@/contexts/RegistrationContext";
 import { Button, Form, Input, Select } from "antd";
 import { useContext } from "react";
 import FormItem from "../../../../components/FormItem";
-import { RegistrationContext } from "../../../../contexts/RegistrationContext";
 import { rules } from "../rules";
 
 export default function PersonalInformationForm() {
-  const { setStep, data, setData } = useContext(RegistrationContext);
+  const { setStep, data, setData, accountType } = useRegistrationContext();
 
   const handleSubmit = (personalData) => {
-    setData((data) => ({ ...data, ...personalData }));
+    setData((data) => ({ 
+      ...data, 
+      ...personalData, 
+      region: accountType === "vendor" && "National Capital Region (NCR)" }));
     setStep((step) => step + 1);
   };
 

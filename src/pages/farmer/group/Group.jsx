@@ -1,6 +1,5 @@
 import Page from "@/components/Page";
 import PageHeader from "@/components/PageHeader";
-import { TabLinks } from "@/components/TabLink";
 import { useTabAdvance } from "@/helpers/hooks";
 import { Button } from "antd";
 import { Link } from "react-router-dom";
@@ -44,17 +43,32 @@ export default function Group() {
   if (HAS_INVITATION) return <GroupInvitation />;
 
   return (
-    <Page className="bg-slate-50">
-      <PageHeader back="/farmer" title="Group" />
+    <Page className="bg-white">
+      <PageHeader back="/farmer" title="Farmer Groups" />
 
-      <TabLinks
+      {/* <TabLinks
         className="sticky top-0 z-10 grid h-16 grid-cols-2 bg-white text-lg shadow-md"
         activeClassName="border-b border-primary text-primary"
         defaultClassName="flex items-center justify-center"
         tabs={tabs}
-      />
+      /> */}
 
-      {outlet}
+      <div className="shadow-xs border-b bg-white p-4">
+        <div className="text-lg font-bold">Create</div>
+        <div className="mt-2 text-center">
+          Farmer groups are group of individual farmers, an association,
+          cooperative or any legal entity with a common farming interest.
+        </div>
+        <Link to="/farmer/groups/new" className="mt-6 flex justify-center">
+          <Button className="rounded" type="primary">
+            Create
+          </Button>
+        </Link>
+      </div>
+
+      <div className="p-4 text-lg font-bold ">Suggested Groups</div>
+
+      <SuggestedGroups />
     </Page>
   );
 }

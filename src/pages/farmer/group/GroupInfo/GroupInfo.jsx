@@ -1,23 +1,43 @@
 import PageHeader from "@/components/PageHeader";
 import { TabLinks } from "@/components/TabLink";
 import { useTabAdvance } from "@/helpers/hooks";
-import { Button } from "antd";
+import Http from "@/helpers/Http";
+import { useQuery } from "@tanstack/react-query";
+import { Button, Spin } from "antd";
 import { useParams } from "react-router-dom";
 import Forum from "../components/Forum";
 import Join from "../components/Join";
 
+const fetchGroup = async (id) => {
+  const { data } = await Http.get(`/farmer-groups/${id}`);
+  return data;
+};
+
 export default function GroupInfo() {
   const { id } = useParams();
+
+  const { data, isLoading } = useQuery(["farmer-groups", id], () =>
+    fetchGroup(id)
+  );
+
   const { outlet, tabs } = useTabAdvance({
     join: {
       title: "Join",
-      element: <Join />,
+      element: data && <Join data={data} />,
     },
     forum: {
       title: "Forum",
       element: <Forum />,
     },
   });
+
+  if (isLoading) {
+    return (
+      <div className="flex flex-col items-center py-16">
+        <Spin />
+      </div>
+    );
+  }
 
   return (
     <div className="app-size bg-white">
@@ -29,9 +49,9 @@ export default function GroupInfo() {
         style={{ marginTop: "-45px" }}
       />
       <div className="my-6 text-center">
-        <h1>Totong Lipay Farmers Association</h1>
-        <h1>Association</h1>
-        <p>200 Members</p>
+        <h1>{data.name}</h1>
+        <h1>{data.type}</h1>
+        <p>Members</p>
         <Button type="primary" className="mx-auto">
           Join
         </Button>
