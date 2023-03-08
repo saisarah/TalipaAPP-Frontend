@@ -1,16 +1,15 @@
-import { DownOutlined, PlusOutlined, SearchOutlined } from "@ant-design/icons";
+import { MenuOutlined, PlusOutlined } from "@ant-design/icons";
 import {
   Button,
   Dropdown,
   Form,
   Input,
   Modal,
-  Table,
-  Space,
-  Tag,
   Select,
+  Space,
+  Table,
+  Tag,
 } from "antd";
-import Search from "antd/lib/transfer/search";
 
 import { useState } from "react";
 
@@ -90,12 +89,12 @@ export default function Users() {
           <div className="flex grow">
             <Space size="middle">
               <Dropdown
-                menu={{
+                items={{
                   items,
                 }}
               >
                 <a>
-                  Settings <DownOutlined />
+                  <MenuOutlined />
                 </a>
               </Dropdown>
             </Space>
