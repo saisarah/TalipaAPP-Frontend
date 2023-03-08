@@ -22,10 +22,12 @@ export default function SuggestedGroups() {
     );
 
   return (
-    <div className="divide-y divide-slate-200">
-      {data.map((item) => (
-        <GroupItem key={item.id} {...item} />
-      ))}
-    </div>
+    <>
+      <div className=" divide-slate-200">
+        {data.map((item) => (
+          <GroupItem key={item.id} {...item} />
+        ))}
+      </div>
+    </>
   );
 }

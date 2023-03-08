@@ -1,22 +1,18 @@
 import { DownOutlined } from "@ant-design/icons";
-import { useQuery } from "@tanstack/react-query";
 import { Dropdown, Space } from "antd";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
-import { About } from "../components/About";
-import { items } from "./post-data";
-import MemberPosts from "../components/MembersPosts";
+// import { About } from "../components/About";
 import PageHeader from "@/components/PageHeader";
+// import MemberPosts from "../components/MembersPosts";
+import MembersPosts from "../components/MembersPosts";
 import groupIllustrationImg from "../images/group_illustration.png";
-import { getGroup } from "../groups";
+// import { items } from "./post-data";
 
 export const Posts = () => {
   const [active, setActive] = useState("forum");
   const { id } = useParams();
 
-  const { data: group, isLoading } = useQuery(["groups", id], () =>
-    getGroup(id)
-  );
   return (
     <div className="app-size">
       <PageHeader back="/farmer/groups" title="Group" />
@@ -53,7 +49,7 @@ export const Posts = () => {
           placeholder="Start a discussion"
         />
         <div className="pb-4 text-center">
-          <Dropdown menu={{ items }} trigger={["click"]}>
+          <Dropdown menu={[]} trigger={["click"]}>
             <a onClick={(e) => e.preventDefault()}>
               <Space>
                 Showing:
@@ -66,7 +62,7 @@ export const Posts = () => {
         </div>
 
         {active === "forum" ? (
-          <MemberPosts />
+          <MembersPosts />
         ) : (
           <div className="flex flex-col items-center gap-4 bg-slate-100 py-16">
             <img src={groupIllustrationImg} />
@@ -81,7 +77,7 @@ export const Posts = () => {
           </div>
         )}
 
-        {active === "about" && <About />}
+        {active === "about" && null}
       </>
       {/* )} */}
     </div>
