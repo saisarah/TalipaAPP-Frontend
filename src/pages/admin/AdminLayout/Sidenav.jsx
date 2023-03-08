@@ -186,7 +186,7 @@ function Sidenav({ color }) {
           </NavLink>
         </Menu.Item>
         <Menu.Item key="2">
-          <NavLink to="/admin/payments">
+          {/* <NavLink to="/admin/payments">
             <span
               className="icon"
               style={{
@@ -196,7 +196,7 @@ function Sidenav({ color }) {
               {payments}
             </span>
             <span className="label">Payments</span>
-          </NavLink>
+          </NavLink> */}
           <Menu.Item className="menu-item-header" key="3">
             Management
           </Menu.Item>
@@ -215,7 +215,7 @@ function Sidenav({ color }) {
           </NavLink>
         </Menu.Item>
         <Menu.Item key="5">
-          <NavLink to="admin/commodities">
+          <NavLink to="/admin/chat-support">
             <span
               className="icon"
               style={{

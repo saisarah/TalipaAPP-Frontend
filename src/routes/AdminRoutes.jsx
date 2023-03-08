@@ -10,6 +10,7 @@ import Login from "@/pages/admin/Login/Login";
 import Sales from "@/pages/admin/Sales/Sales";
 import Transaction from "@/pages/admin/Sales/Transaction";
 import ChangePassword from "@/pages/admin/Settings/ChangePassword";
+import Terms from "@/pages/admin/terms/Term";
 import Farmer from "@/pages/admin/UserManagement/Farmer/Farmer";
 import FarmerProfile from "@/pages/admin/UserManagement/Farmer/Profile";
 import FarmerGroup from "@/pages/admin/UserManagement/FarmerGroups/FarmerGroup";
@@ -74,6 +75,10 @@ const routes = [
         element: <Faq />,
       },
       {
+        path: "terms",
+        element: <Terms />,
+      },
+      {
         path: "profile",
         element: <AdminProfile />,
       },
@@ -85,7 +90,6 @@ const routes = [
         path: "transaction",
         element: <Transaction />,
       },
-      
     ],
   },
 
