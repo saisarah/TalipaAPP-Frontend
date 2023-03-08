@@ -22,7 +22,6 @@ function Footer() {
         <Col xs={24} md={12} lg={12}>
           <div className="copyright">
             © 2022, made by
-            
             <a href="#" className="font-weight-bold" target="_blank">
               Hagilap
             </a>

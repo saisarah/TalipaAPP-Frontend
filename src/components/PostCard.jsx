@@ -5,31 +5,22 @@ import { currency } from "@/helpers/utils";
 import { Link } from "react-router-dom";
 
 export default function PostCard({ post, to }) {
-  const {
-    crop_id,
-    author,
-    id,
-    created_at,
-    title,
-    caption,
-    attachments,
-    display_price,
-  } = post;
-  const crop = useCrop(crop_id);
+  const { author, title, attachments, display_price, crop } = post;
 
   return (
     <div className="mb-2 flex h-full	 break-inside-avoid flex-col border border-slate-200 bg-white shadow-sm">
-      <Image
+      <img
         className="aspect-square object-cover"
         width="100%"
         height="100%"
         src={attachments[0].source}
+        loading="lazy"
       />
       <div className="flex flex-col p-2">
-        <div className="text-xs text-slate-600">{crop?.name}</div>
-        <Link to={to} className="text-xl font-semibold">
+        <Link to={to} className="text-xl font-semibold leading-6">
           {title}
         </Link>
+        <div className="my-1 text-xs text-slate-500">{crop.name}</div>
         <span className="text-base font-medium text-primary">
           {currency(display_price)}
         </span>

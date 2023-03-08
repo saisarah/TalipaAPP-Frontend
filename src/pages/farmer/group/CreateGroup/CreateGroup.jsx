@@ -4,15 +4,14 @@ import GroupInfoForm from "./components/GroupInfoForm";
 import SearchGroup from "./components/SearchGroup";
 
 export default function CreateGroup() {
-
-  const [step, setStep] = useState(0)
+  const [step, setStep] = useState(0);
 
   return (
     <div className="app-size bg-slate-50 bg-white">
       <PageHeader back="/farmer/groups" title="Create Group" />
 
-      {step === 0 && <GroupInfoForm setStep={setStep}/> }
-      {step === 1 && <SearchGroup setStep={setStep}/>  }
+      {step === 0 && <GroupInfoForm setStep={setStep} />}
+      {step === 1 && <SearchGroup setStep={setStep} />}
     </div>
   );
 }

@@ -1,46 +1,33 @@
-import { useTitle } from "@/pages/vendor/components/VendorLayout/VendorLayout";
-import { Link } from "react-router-dom";
-import { useTab } from "@/helpers/hooks";
+import { TabLinks } from "@/components/TabLink";
+import { useTitle } from "@/contexts/VendorContext";
+import { useTabAdvance } from "@/helpers/hooks";
 import ForSale from "./ForSale";
 
+const homeTab = {
+  sale: {
+    element: <ForSale />,
+    title: "For Sale",
+  },
+  demands: {
+    element: null,
+    title: "Demands",
+  },
+};
+
 export const Home = () => {
-
-  const { isActive } = useTab(["sale", "demands", "create"], "sale")
-
   useTitle("Home");
+
+  const { outlet, tabs } = useTabAdvance(homeTab);
 
   return (
     <div>
-      <div className="grid h-16 grid-cols-3 bg-white text-lg shadow-md">
-        <Link
-          to="?tab=sale"
-          className={`flex items-center justify-center ${
-            isActive("sale") ? "border-b border-primary text-primary" : ""
-          }`}
-        >
-          For Sale
-        </Link>
-
-        <Link
-          to="?tab=demands"
-          className={`flex items-center justify-center ${
-            isActive("demands") ? "border-b border-primary text-primary" : ""
-          }`}
-        >
-          Demands
-        </Link>
-
-        <Link
-          to="?tab=create"
-          className={`flex items-center justify-center ${
-            isActive("create") ? "border-b border-primary text-primary" : ""
-          }`}
-        >
-          Create Post
-        </Link>
-      </div>
-
-      {isActive("sale") && <ForSale />}
+      <TabLinks
+        className="sticky top-0 z-10 grid h-16 grid-cols-2 bg-white text-lg shadow-md"
+        defaultClassName="flex items-center justify-center"
+        activeClassName="border-b border-primary text-primary"
+        tabs={tabs}
+      />
+      {outlet}
     </div>
   );
 };

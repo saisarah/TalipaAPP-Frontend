@@ -1,24 +1,18 @@
-import { login } from "@/apis/AuthApi";
 import FormItem from "@/components/FormItem";
 import PageHeader from "@/components/PageHeader";
-import { getErrorMessage, setAuthorization } from "@/helpers/Http";
-import queryKeyFactory from "@/query/queryKeyFactory";
-import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { getErrorMessage } from "@/helpers/Http";
+import { useLogin } from "@/query/mutations/useLogin";
 import { Button, Form, Input, notification } from "antd";
 import { Link } from "react-router-dom";
+import logo from "./images/logo.svg";
 
 export default function Login() {
-  const queryClient = useQueryClient();
-
-  const { mutate, isLoading } = useMutation(login, {
-    onError(error) {
-      notification.error({ message: getErrorMessage(error) });
+  const { mutate, isLoading } = useLogin({
+    onError(err) {
+      notification.error({ message: getErrorMessage(err) });
     },
-
-    onSuccess({ token, user }) {
-      notification.success({ message: "Successfully Login" });
-      setAuthorization(token);
-      queryClient.setQueryData(queryKeyFactory.currentUser, user);
+    onSuccess() {
+      notification.success({ message: "Login Succesfully" });
     },
   });
 
@@ -31,8 +25,8 @@ export default function Login() {
     <div className="app-size bg-white">
       <PageHeader title="Login" />
 
-      <div className="flex flex-col  p-4 px-8 text-center">
-        <img className="mr-auto" src="/assets/images/logo.svg" alt="" />
+      <div className="flex flex-col p-4 px-8 text-center">
+        <img className="mx-auto" src={logo} height="100" width="300" alt="" />
 
         <p className="">Welcome to TalipaAPP</p>
         <div className="flex-grow">

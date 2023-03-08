@@ -1,6 +1,5 @@
-
 import ForgotPassword from "@/pages/auth/ForgotPassword/ForgotPassword";
-import Login from "../pages/auth/login/Login";
+import Login from "../pages/auth/Login/Login";
 import Register from "../pages/auth/register/Register";
 
 export default [
@@ -15,5 +14,5 @@ export default [
   {
     path: "/forgot-password",
     element: <ForgotPassword />,
-  }
+  },
 ];
