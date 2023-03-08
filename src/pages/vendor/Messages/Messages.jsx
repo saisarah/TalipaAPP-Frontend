@@ -2,7 +2,8 @@ import { fetchMessages } from "@/apis/MessageApi";
 import MessageItem from "@/components/MessageItem";
 import { useTitle } from "@/contexts/VendorContext";
 import { useQuery } from "@tanstack/react-query";
-import { Spin } from "antd";
+import { Empty, Spin } from "antd";
+import ReactLogo from "./svg/mobile.svg";
 
 export default function Messages() {
   const { data, isLoading } = useQuery(fetchMessages.key, fetchMessages);
@@ -18,6 +19,16 @@ export default function Messages() {
 
   return (
     <div>
+      <Empty
+        image={ReactLogo}
+        imageStyle={{
+          height: 300,
+        }}
+        description="No Massages"
+        style={{
+          padding: "100px",
+        }}
+      ></Empty>
       {data.map((item) => (
         <MessageItem
           to={`/messages/${item.id}`}
