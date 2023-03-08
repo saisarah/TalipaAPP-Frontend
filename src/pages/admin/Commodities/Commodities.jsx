@@ -381,7 +381,7 @@ export default function Commodities() {
           </Form>
         </Modal>
       </div>
-      <div className="my-2 text-center text-3xl md:text-2xl sm:text-4xl  text-primary-accent-3">
+      <div className="my-2 text-center text-xl text-primary-accent-3">
         <span>Featured Commodities</span>
       </div>
       <div className="tabled mx-52">
