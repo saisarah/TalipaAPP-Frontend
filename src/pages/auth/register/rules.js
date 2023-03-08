@@ -27,7 +27,10 @@ export const rules = {
   phone: [
     { required: true, message: "Please enter your phone number" },
     { len: 10, message: "Please enter 10 digit phone number" },
-    { pattern: /^[0-9]*$/, message: "Please enter a valid phone number" },
+    {
+      pattern: /^9[0-9]*$/,
+      message: "Please enter a valid phone number starting with 9",
+    },
     () => ({
       validator: async (_, phone) => {
         try {
