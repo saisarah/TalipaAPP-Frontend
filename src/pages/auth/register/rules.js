@@ -7,12 +7,20 @@ export const rules = {
       min: 2,
       message: "Your first name must have at least contain 2 characters",
     },
+    {
+      max: 64,
+      message: "Your first name should be maximun of 64 characters only",
+    },
     { pattern: /^[a-z ,.'-]+$/i, message: "Please enter a valid name" },
   ],
   middlename: [
     {
       min: 2,
       message: "Your middle name must have at least contain 2 characters",
+    },
+    {
+      max: 64,
+      message: "Your middle name should be maximun of 64 characters only",
     },
     { pattern: /^[a-z ,.'-]+$/i, message: "Please enter a valid name" },
   ],
@@ -21,6 +29,10 @@ export const rules = {
     {
       min: 2,
       message: "Your last name must have at least contain 2 characters",
+    },
+    {
+      max: 64,
+      message: "Your last name should be maximun of 64 characters only",
     },
     { pattern: /^[a-z ,.'-]+$/i, message: "Please enter a valid name" },
   ],
@@ -47,6 +59,10 @@ export const rules = {
   ],
   email: [
     { type: "email", message: "Please enter a valid email address" },
+    {
+      max: 255,
+      message: "Your email should be maximun of 255 characters only",
+    },
     () => ({
       validator: async (_, email) => {
         try {
