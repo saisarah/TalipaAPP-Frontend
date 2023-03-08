@@ -204,8 +204,8 @@ export default function Commodities() {
     },
     {
       title: "Number of Posts",
-      dataIndex: "isGroup",
-      key: "isGroup",
+      dataIndex: "posts",
+      key: "posts",
       // width: "30%",
       // ...getColumnSearchProps("isGroup"),
       sorter: (a, b) => a.isGroup.length - b.isGroup.length,
@@ -213,8 +213,8 @@ export default function Commodities() {
     },
     {
       title: "Number of Demands",
-      dataIndex: "product",
-      key: "product",
+      dataIndex: "demands",
+      key: "demands",
       // width: "20%",
       // ...getColumnSearchProps("product"),
       sorter: (a, b) => a.product.length - b.product.length,
