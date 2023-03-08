@@ -1,89 +1,83 @@
-import FormItem from "@/components/FormItem";
-import {
-  Row,
-  Col,
-  Card,
-  Table,
-  Button,
-  Avatar,
-  Dropdown,
-  Modal,
-  Form,
-  Input,
-  Space,
-} from "antd";
-import React, { useState } from "react";
-import { rules } from "./rules";
 import { MenuOutlined, SearchOutlined } from "@ant-design/icons";
-import { useRef} from "react";
+import { Avatar, Button, Dropdown, Input, Space, Table, Tag } from "antd";
+import { useRef, useState } from "react";
 import { Link } from "react-router-dom";
 
-export default function Commodities() {
+// import Highlighter from "react-highlight-words";
 
+export default function Transaction() {
   const items = [
     {
       key: "1",
-      label: "Edit",
+      label: "Approved",
     },
     {
       key: "2",
-      label: "Delete",
-    },
-    ];
-    const data = [
-    {
-      key: "1",
-      name: "Banana",
-      isGroup: "63",
-      product: "101",
-    },
-    {
-      key: "2",
-      name: "Garlic",
-      isGroup: "51",
-      product: "92",
+      label: "Pending",
     },
     {
       key: "3",
-      name: "Eggplant",
-      isGroup: "72",
-      product: "57",
+      label: "Resubmit",
+    },
+  ];
+  const data = [
+    {
+      key: "1",
+      name: "John Brown",
+      isGroup: "Banana",
+      product: "Bert",
+      address: "January 25, 2022",
+      tags: "200",
+      price: "200",
+      totalPrice: "14000",
+    },
+    {
+      key: "2",
+      name: "Joe Black",
+      isGroup: "Garlic",
+      product: "Juaniato",
+      address: "February 6, 2019",
+      tags: "150",
+      price: "90",
+      totalPrice: "6000",
+    },
+    {
+      key: "3",
+      name: "Jim Green",
+      isGroup: "Onion",
+      product: "Sebastian",
+      address: "December 1, 2018",
+      tags: "200",
+      price: "150",
+      totalPrice: "7000",
     },
     {
       key: "4",
-      name: "Cabbage",
-      isGroup: "90",
-      product: "86",
+      name: "Jim Red",
+      isGroup: "Cabbage",
+      product: "Stehr",
+      address: "December 5, 2018",
+      tags: "17",
+      price: "3",
+      totalPrice: "720",
     },
-    {
-      key: "5",
-      name: "Onion",
-      isGroup: "221",
-      product: "167",
-    },
-    {
-      key: "6",
-      name: "Pineapple",
-      isGroup: "80",
-      product: "91",
-    },
-    ];
-    
-    const [searchText, setSearchText] = useState("");
-    const [searchedColumn, setSearchedColumn] = useState("");
-    const searchInput = useRef(null);
-    const handleSearch = (selectedKeys, confirm, dataIndex) => {
+  ];
+
+  const [searchText, setSearchText] = useState("");
+  const [searchedColumn, setSearchedColumn] = useState("");
+  const searchInput = useRef(null);
+  const handleSearch = (selectedKeys, confirm, dataIndex) => {
     confirm();
     setSearchText(selectedKeys[0]);
     setSearchedColumn(dataIndex);
-    };
-    
-    const handleReset = (clearFilters) => {
+  };
+
+  const handleReset = (clearFilters) => {
     clearFilters();
     setSearchText("");
-    };
-    
-    const getColumnSearchProps = (dataIndex) => ({
+  };
+
+  const getColumnSearchProps = (dataIndex) => ({
     filterDropdown: ({
       setSelectedKeys,
       selectedKeys,
@@ -183,11 +177,10 @@ export default function Commodities() {
           // />
           null
         : text,
-    });
-    const columns = [
-    
+  });
+  const columns = [
     {
-      title: "Commodities",
+      title: "Vendor",
       dataIndex: "name",
       key: "name",
       // width: "30%",
@@ -195,11 +188,11 @@ export default function Commodities() {
       sorter: (a, b) => a.name.length - b.name.length,
       sortDirections: ["descend", "ascend"],
       render: (_, record) => (
-        <Link to="#">{record.name}</Link>
+        <Link to="/admin/vendor/profile1">{record.name}</Link>
       ),
     },
     {
-      title: "Number of Posts",
+      title: "Commodities",
       dataIndex: "isGroup",
       key: "isGroup",
       // width: "30%",
@@ -208,7 +201,7 @@ export default function Commodities() {
       sortDirections: ["descend", "ascend"],
     },
     {
-      title: "Number of Demands",
+      title: "Customer",
       dataIndex: "product",
       key: "product",
       // width: "20%",
@@ -217,7 +210,38 @@ export default function Commodities() {
       sortDirections: ["descend", "ascend"],
     },
     {
-      title: "Actions",
+      title: "Date",
+      dataIndex: "address",
+      key: "address",
+      // ...getColumnSearchProps("address"),
+      sorter: (a, b) => a.address.length - b.address.length,
+      sortDirections: ["descend", "ascend"],
+    },
+    {
+      title: "Quantity",
+      dataIndex: "tags",
+      key: "tags",
+      // ...getColumnSearchProps("tags"),
+      sorter: (a, b) => a.tags.length - b.address.length,
+      sortDirections: ["descend", "ascend"],
+    },
+    {
+      title: "Price",
+      dataIndex: "price",
+      key: "price",
+      // ...getColumnSearchProps("price"),
+      sorter: (a, b) => a.price.length - b.address.length,
+      sortDirections: ["descend", "ascend"],
+    },
+    {
+      title: "Total Price",
+      dataIndex: "totalPrice",
+      key: "totalPrice",
+      // ...getColumnSearchProps("totalPrice"),
+      sorter: (a, b) => a.totalPrice.length - b.address.length,
+      sortDirections: ["descend", "ascend"],
+    },
+    {
       dataIndex: "operation",
       key: "operation",
       render: () => (
@@ -238,69 +262,16 @@ export default function Commodities() {
         </div>
       ),
     },
-    ];
-    
-
-  const handleSubmit = (personalData) => {
-    setData((data) => ({ ...data, ...personalData }));
-    setStep((step) => step + 1);
-  };
-
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const showModal = () => {
-    setIsModalOpen(true);
-  };
-
-  const handleOk = () => {
-    setIsModalOpen(false);
-  };
-
-  const handleCancel = () => {
-    setIsModalOpen(false);
-  };
+  ];
 
   return (
     <div>
-      <div>
-        <Modal
-          title="Add Commodities"
-          open={isModalOpen}
-          onOk={handleOk}
-          onCancel={handleCancel}
-        >
-          <Form initialValues={data} layout="vertical" onFinish={handleSubmit}>
-            <FormItem
-              name="name"
-              rules={rules.name}
-              placeholder="Enter your name here"
-            />
-          </Form>
-        </Modal>
-      </div>
-      <div className="flex justify-end">
-        
-        <Button type="primary" onClick={showModal} className="flex">
-                    Add Commodities
-                  </Button>
-      </div>
-      <div className="tabled">
-        <Row gutter={[24, 0]}>
-          <Col xs="24" xl={24}>
-            <Card
-              bordered={false}
-            >
-              <div className="table-responsive">
-                <h1>Commodities</h1>
-                <Table
-                  columns={columns}
-                  dataSource={data}
-                  pagination={true}
-                />
-              </div>
-            </Card>
-          </Col>
-        </Row>
+      {/* <div className="flex grow justify-center rounded bg-primary p-5">
+        <img src="/assets/images/manageVendor.png" alt="" />
+      </div> */}
+      <h1>TRANSACTION MANAGEMENT</h1>
+      <div className="pt-2">
+        <Table columns={columns} dataSource={data} />;
       </div>
     </div>
   );

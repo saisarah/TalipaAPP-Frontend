@@ -7,6 +7,8 @@ import Commodities from "@/pages/admin/Commodities/Commodities";
 import Dashboard from "@/pages/admin/Dashboard/Dashboard";
 import Faq from "@/pages/admin/FAQ/Faq";
 import Login from "@/pages/admin/Login/Login";
+import Sales from "@/pages/admin/Sales/Sales";
+import Transaction from "@/pages/admin/Sales/Transaction";
 import ChangePassword from "@/pages/admin/Settings/ChangePassword";
 import Farmer from "@/pages/admin/UserManagement/Farmer/Farmer";
 import FarmerProfile from "@/pages/admin/UserManagement/Farmer/Profile";
@@ -79,6 +81,11 @@ const routes = [
         path: "chat-support",
         element: <ChatSupport />,
       },
+      {
+        path: "transaction",
+        element: <Transaction />,
+      },
+      
     ],
   },
 
