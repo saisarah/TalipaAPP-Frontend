@@ -2,6 +2,7 @@ import Role from "@/pages/admin/AccountManagement/Roles";
 import User from "@/pages/admin/AccountManagement/Users";
 import AdminLayout from "@/pages/admin/AdminLayout/AdminLayout";
 import AdminProfile from "@/pages/admin/AdminProfile/Profile";
+import ChatSupport from "@/pages/admin/ChatSupport/ChatSupport";
 import Commodities from "@/pages/admin/Commodities/Commodities";
 import Dashboard from "@/pages/admin/Dashboard/Dashboard";
 import Faq from "@/pages/admin/FAQ/Faq";
@@ -73,6 +74,10 @@ const routes = [
       {
         path: "profile",
         element: <AdminProfile />,
+      },
+      {
+        path: "chat-support",
+        element: <ChatSupport />,
       },
     ],
   },
