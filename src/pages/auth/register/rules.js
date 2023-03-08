@@ -98,4 +98,9 @@ export const rules = {
     { required: true, message: "Please enter your ownership type" },
   ],
   crops: [{ required: true, message: "Please select your crops" }],
+  zip_code: [
+    { required: true, message: "Please enter your ZIP Code" },
+    { len: 4, message: "Please enter 4 digit ZIP Code" },
+    { pattern: /^[0-9]*$/, message: "Please enter a valid ZIP Code" },
+  ],
 };

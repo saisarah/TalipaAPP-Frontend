@@ -97,6 +97,12 @@ export default function AddressForm() {
         name="house_number"
         rules={rules.house_number}
       />
+      <FormItem
+        label="ZIP Code"
+        placeholder="Enter your ZIP Code"
+        name="zip_code"
+        rules={rules.zip_code}
+      />
 
       <div className="mb-4 flex justify-between">
         <Button
