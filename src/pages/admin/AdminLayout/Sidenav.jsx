@@ -11,13 +11,9 @@
 */
 
 // import { useState } from "react";
-import {
-  EyeOutlined,
-  QuestionCircleFilled,
-  QuestionCircleOutlined,
-  VerticalAlignTopOutlined,
-} from "@ant-design/icons";
-import { Menu, Button, Avatar } from "antd";
+import { EyeOutlined, QuestionCircleFilled } from "@ant-design/icons";
+
+import { Menu } from "antd";
 import { NavLink, useLocation } from "react-router-dom";
 import logo from "./images/TalipaApp_Icon.png";
 
@@ -247,48 +243,6 @@ function Sidenav({ color }) {
             <span className="label">Sales</span>
           </NavLink>
         </Menu.Item>
-        <Menu.Item className="menu-item-header" key="8">
-          Settings
-        </Menu.Item>
-        <Menu.Item key="9">
-          <NavLink to="/admin/change-password">
-            <span
-              className="icon"
-              style={{
-                background: page === "change-password" ? color : "",
-              }}
-            >
-              <EyeOutlined height={100} />
-            </span>
-            <span className="label">Change password</span>
-          </NavLink>
-        </Menu.Item>
-        <Menu.Item key="10">
-          <NavLink to="/admin/FAQs">
-            <span
-              className="icon"
-              style={{
-                background: page === "FAQs" ? color : "",
-              }}
-            >
-              <QuestionCircleFilled />
-            </span>
-            <span className="label">FAQs</span>
-          </NavLink>
-        </Menu.Item>
-        <Menu.Item key="11">
-          <NavLink to="/admin/Terms">
-            <span
-              className="icon"
-              style={{
-                background: page === "Terms" ? color : "",
-              }}
-            >
-              {recordsReports}
-            </span>
-            <span className="label">Terms & Conditions</span>
-          </NavLink>
-        </Menu.Item>
         <Menu.Item className="menu-item-header" key="12">
           User Management
         </Menu.Item>
@@ -358,6 +312,61 @@ function Sidenav({ color }) {
               {recordsReports}
             </span>
             <span className="label">Roles</span>
+          </NavLink>
+        </Menu.Item>
+        <Menu.Item className="menu-item-header" key="8">
+          Settings
+        </Menu.Item>
+        <Menu.Item key="9">
+          <NavLink to="/admin/change-password">
+            <span
+              className="icon"
+              style={{
+                background: page === "change-password" ? color : "",
+              }}
+            >
+              <EyeOutlined height={100} />
+            </span>
+            <span className="label">Change password</span>
+          </NavLink>
+        </Menu.Item>
+        <Menu.Item key="10">
+          <NavLink to="/admin/FAQs">
+            <span
+              className="icon"
+              style={{
+                background: page === "FAQs" ? color : "",
+              }}
+            >
+              <QuestionCircleFilled />
+            </span>
+            <span className="label">FAQs</span>
+          </NavLink>
+        </Menu.Item>
+        <Menu.Item key="11">
+          <NavLink to="/admin/Terms">
+            <span
+              className="icon"
+              style={{
+                background: page === "Terms" ? color : "",
+              }}
+            >
+              {recordsReports}
+            </span>
+            <span className="label">Terms & Conditions</span>
+          </NavLink>
+        </Menu.Item>
+        <Menu.Item key="11">
+          <NavLink to="/admin/login">
+            <span
+              className="icon"
+              style={{
+                background: page === "" ? color : "",
+              }}
+            >
+              {recordsReports}
+            </span>
+            <span className="label">Logout</span>
           </NavLink>
         </Menu.Item>
       </Menu>

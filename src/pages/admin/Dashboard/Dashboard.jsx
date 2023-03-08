@@ -1,39 +1,19 @@
 import { useState } from "react";
 
 import {
+  Button,
   Card,
   Col,
-  Row,
-  Typography,
-  Tooltip,
-  Progress,
-  Upload,
   message,
-  Button,
+  Progress,
+  Row,
   Timeline,
-  Radio,
+  Typography,
 } from "antd";
-import {
-  ToTopOutlined,
-  MenuUnfoldOutlined,
-  RightOutlined,
-} from "@ant-design/icons";
 import Paragraph from "antd/lib/typography/Paragraph";
 
 import Echart from "./chart/EChart";
 import LineChart from "./chart/LineChart";
-
-import ava1 from "../AdminLayout/images/logo-shopify.svg";
-import ava2 from "../AdminLayout/images/logo-atlassian.svg";
-import ava3 from "../AdminLayout/images/logo-slack.svg";
-import ava4 from "../AdminLayout/images/logo-spotify.svg";
-import ava5 from "../AdminLayout/images/logo-jira.svg";
-import ava6 from "../AdminLayout/images/logo-invision.svg";
-import team1 from "../AdminLayout/images/team-1.jpg";
-import team2 from "../AdminLayout/images/team-2.jpg";
-import team3 from "../AdminLayout/images/team-3.jpg";
-import team4 from "../AdminLayout/images/team-4.jpg";
-import card from "../AdminLayout/images/info-card-1.jpg";
 
 export default function Dashboard() {
   const { Title, Text } = Typography;
@@ -162,33 +142,33 @@ export default function Dashboard() {
   const list = [
     {
       Title: "Pineapple",
-      bud: "₱14,000",
+      region: "Region I (Ilocos Region)",
       progress: <Progress percent={60} size="small" />,
     },
     {
       Title: "Mango",
-      bud: "₱3,000",
+      region: "Region II (Cagayan Valley)",
       progress: <Progress percent={10} size="small" />,
     },
     {
       Title: "Banana",
-      bud: "₱20,600",
+      region: "Region III (Central Luzon)",
       progress: <Progress percent={100} size="small" status="active" />,
     },
     {
       Title: "Garlic",
-      bud: "₱20,600",
+      region: "Region IV-A (CALABARZON)",
       progress: <Progress percent={100} size="small" status="active" />,
     },
     {
       Title: "Onion",
-      bud: "₱4,000",
+      region: "Region IV-B (MIMAROPA)",
       progress: <Progress percent={80} size="small" />,
     },
 
     {
       Title: "Cabbage",
-      bud: "₱2,000",
+      region: "Region V (Bicol Region)",
       progress: (
         <Progress
           percent={100}
@@ -201,7 +181,7 @@ export default function Dashboard() {
     },
     {
       Title: "EggPlant",
-      bud: "₱2,000",
+      region: "National Capital Region (NCR)",
       progress: (
         <Progress
           percent={100}
@@ -313,7 +293,7 @@ export default function Dashboard() {
             <Card bordered={false} className="criclebox cardbody h-full">
               <div className="project-ant">
                 <div>
-                  <Title level={5}>Commodities per Region</Title>
+                  <Title level={5}>Commodities</Title>
                   <Paragraph className="lastweek">
                     REALTIME<span className="blue"> UPDATE</span>
                   </Paragraph>
@@ -334,7 +314,7 @@ export default function Dashboard() {
                     <tr>
                       <th>COMMODITY</th>
 
-                      <th>BUDGET</th>
+                      <th>REGION</th>
                       <th>PERCENTAGE</th>
                     </tr>
                   </thead>
@@ -347,7 +327,7 @@ export default function Dashboard() {
 
                         <td>
                           <span className="font-weight-bold text-xs">
-                            {d.bud}{" "}
+                            {d.region}{" "}
                           </span>
                         </td>
                         <td>

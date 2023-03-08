@@ -10,32 +10,28 @@
   * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 */
 
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 
 import {
-  Row,
-  Col,
-  Breadcrumb,
-  Badge,
-  Dropdown,
-  Button,
-  List,
   Avatar,
-  Input,
+  Breadcrumb,
+  Button,
+  Col,
   Drawer,
-  Typography,
+  Dropdown,
+  List,
+  Row,
   Switch,
+  Typography,
 } from "antd";
 
 import {
-  SearchOutlined,
+  FacebookFilled,
   StarOutlined,
   TwitterOutlined,
-  FacebookFilled,
-  HomeOutlined,
 } from "@ant-design/icons";
 
-import { NavLink, Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import styled from "styled-components";
 import avtar from "./images/team-2.jpg";
 
@@ -59,6 +55,21 @@ const ButtonContainer = styled.div`
     background-color: #1890ff;
   }
 `;
+
+const items = [
+  {
+    label: <NavLink to="/admin/profile">Profile</NavLink>,
+    key: "0",
+  },
+  {
+    label: <NavLink to="/admin/settings">Account Settings</NavLink>,
+    key: "1",
+  },
+  {
+    label: <NavLink to="/admin/logout">Logout</NavLink>,
+    key: "2",
+  },
+];
 
 const bell = [
   <svg
@@ -419,9 +430,16 @@ function Header({
               </div>
             </div>
           </Drawer>
-          {/* <Link to="admin/profile" className="btn-sign-in">
-            {profile}
-          </Link> */}
+          <Dropdown
+            items={{
+              items,
+            }}
+            trigger={["click"]}
+          >
+            <a onClick={(e) => e.preventDefault()}>{profile}</a>
+          </Dropdown>
+
+          {/* <Link to="admin/profile" className="btn-sign-in"></Link> */}
           {/* <Input
             className="header-search"
             placeholder="Type here..."
