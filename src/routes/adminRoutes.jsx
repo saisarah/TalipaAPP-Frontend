@@ -20,64 +20,64 @@ const routes = [
   {
     element: <AdminLayout />,
     children: [
-        {
-            path: "",
-            element: <Dashboard />,
-        },
+      {
+        path: "",
+        element: <Dashboard />,
+      },
 
-        {
-          path: "users",
-          element: <User />,
-        },
-        {
-          path: "roles",
-          element: <Role />,
-        },
-        {
-          path: "commodities",
-          element: <Commodities />,
-        },
-        {
-          path: "farmer-groups",
-          element: <FarmerGroup />,
-        },
-        {
-          path: "farmer-groups/profile",
-          element: <FarmerGroupsProfile />,
-        },
-        {
-          path: "farmers",
-          element: <Farmer />,
-        },
-        {
-          path: "farmers/profile",
-          element: <FarmerProfile />,
-        },
-  
-        {
-          path: "vendors",
-          element: <Vendor />,
-        },
-        {
-          path: "vendor/profile1",
-          element: <Profile1 />,
-        },
-        {
-          path: "change-password",
-          element: <ChangePassword />,
-        },
-        {
-          path: "FAQs",
-          element: <Faq />,
-        },
-        {
-          path: "profile",
-          element: <AdminProfile />,
-        },
-      ],
-    },
+      {
+        path: "users",
+        element: <User />,
+      },
+      {
+        path: "roles",
+        element: <Role />,
+      },
+      {
+        path: "commodities",
+        element: <Commodities />,
+      },
+      {
+        path: "farmer-groups",
+        element: <FarmerGroup />,
+      },
+      {
+        path: "farmer-groups/profile",
+        element: <FarmerGroupsProfile />,
+      },
+      {
+        path: "farmers",
+        element: <Farmer />,
+      },
+      {
+        path: "farmers/profile",
+        element: <FarmerProfile />,
+      },
 
-    {
+      {
+        path: "vendors",
+        element: <Vendor />,
+      },
+      {
+        path: "vendor/profile1",
+        element: <Profile1 />,
+      },
+      {
+        path: "change-password",
+        element: <ChangePassword />,
+      },
+      {
+        path: "FAQs",
+        element: <Faq />,
+      },
+      {
+        path: "profile",
+        element: <AdminProfile />,
+      },
+    ],
+  },
+
+  {
     path: "login",
     element: <Login />,
   },
