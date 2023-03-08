@@ -295,7 +295,7 @@ export default function Dashboard() {
                 <div>
                   <Title level={5}>Commodities</Title>
                   <Paragraph className="lastweek">
-                    REALTIME<span className="blue"> UPDATE</span>
+                    MOST DEMANDS<span className="blue"> PER REGION</span>
                   </Paragraph>
                 </div>
                 {/* <div className="ant-filtertabs">
