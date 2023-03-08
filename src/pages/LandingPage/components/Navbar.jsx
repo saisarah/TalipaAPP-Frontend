@@ -1,7 +1,7 @@
 import { CloseOutlined, MenuOutlined } from "@ant-design/icons";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import logo from "../images/talipaapp.svg";
+import logo from "../images/TalipaApp LogIn.svg";
 export default function Navabar() {
   const [navbar, setNavbar] = useState(false);
   return (
@@ -10,7 +10,7 @@ export default function Navabar() {
         <div className="flex h-16 items-center justify-between">
           {/* <!-- Logo --> */}
           <Link className="flex-shrink-0">
-            <img className="h-8 w-auto" src={logo} alt="Logo" />
+            <img className="h-[55px] w-[130px]" src={logo} alt="Logo" />
           </Link>
 
           <div className="md:hidden">

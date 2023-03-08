@@ -10,9 +10,9 @@ export default function Banner() {
         backgroundPosition: "center",
       }}
     >
-      <div className=" ml-16 mr-16 mt-16 flex ">
+      <div className=" ml-40 mr-40 mt-16 flex ">
         <div className="mt-5 w-[600px] sm:mt-40 ">
-          <div className="text-center text-6xl text-black sm:text-left sm:text-6xl ">
+          <div className="text-center text-6xl text-black sm:text-left sm:text-6xl">
             <span className="font-thin">Delivering</span>
             <br />
             <span className="font-extrabold">Fresh Commodities</span>
