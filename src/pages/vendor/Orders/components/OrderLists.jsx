@@ -18,7 +18,7 @@ export default function OrderLists({ status }) {
 
   if (data.length == 0)
     return (
-      <div className="flex flex-col items-center py-40 opacity-50 ">
+      <div className="flex flex-col items-center py-40">
         <img width="200" height="100" src={emptySvg} alt="" />
         <span className="px-24 text-center text-sm">
           You have no orders yet, browse commodities in the home section
