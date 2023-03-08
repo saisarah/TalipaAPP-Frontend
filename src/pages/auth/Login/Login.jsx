@@ -1,5 +1,4 @@
 import FormItem from "@/components/FormItem";
-import PageHeader from "@/components/PageHeader";
 import { getErrorMessage } from "@/helpers/Http";
 import { useLogin } from "@/query/mutations/useLogin";
 import { Button, Form, Input, notification } from "antd";
@@ -23,13 +22,16 @@ export default function Login() {
 
   return (
     <div className="app-size bg-white">
-      <PageHeader title="Login" />
-
       <div className="flex flex-col p-4 px-8 text-center">
-        <img className="mx-auto" src={logo} height="100" width="300" alt="" />
-
+        <img
+          className="mx-auto mt-10"
+          src={logo}
+          height="100"
+          width="300"
+          alt=""
+        />
         <p className="">Welcome to TalipaAPP</p>
-        <div className="flex-grow">
+        <div className="mt-14 flex-grow">
           <Form layout="vertical" onFinish={handleSubmit}>
             <FormItem
               label="Mobile Number"
