@@ -7,7 +7,7 @@ export default function CreateGroup() {
   const [step, setStep] = useState(0);
 
   return (
-    <div className="app-size bg-slate-50 bg-white">
+    <div className="app-size bg-white">
       <PageHeader back="/farmer/groups" title="Create Group" />
 
       {step === 0 && <GroupInfoForm setStep={setStep} />}

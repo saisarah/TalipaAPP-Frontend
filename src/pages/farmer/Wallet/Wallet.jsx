@@ -20,13 +20,15 @@ export default function Wallet() {
           <Balance />
 
           <div className="inline-flex w-full justify-center gap-6 p-2 text-center">
-            <Button
-              className="min-w-[100px] rounded border text-[15px] font-bold"
-              type="primary"
-              icon={<UploadOutlined />}
-            >
-              Send
-            </Button>
+            <Link to="/farmer/wallet/transfer-money">
+              <Button
+                className="min-w-[100px] rounded border text-[15px]"
+                type="primary"
+                icon={<UploadOutlined />}
+              >
+                Send
+              </Button>
+            </Link>
 
             <Link to="/farmer/wallet/cash-in-methods">
               <Button

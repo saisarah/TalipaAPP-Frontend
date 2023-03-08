@@ -1,17 +1,17 @@
-import { fetchConversations, sendMessage } from "@/apis/MessageApi";
+import { sendMessage } from "@/apis/MessageApi";
+import { usePushMessage } from "@/query/mutations/messages";
 import { SendOutlined } from "@ant-design/icons";
-import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { useMutation } from "@tanstack/react-query";
 import { Button, Input } from "antd";
 import { useState } from "react";
 
 const useSendMessage = (id, { onSuccess }) => {
-  const queryClient = useQueryClient();
+  const { push } = usePushMessage();
 
   return useMutation((message) => sendMessage(id, message), {
     onSuccess(data) {
-      queryClient.setQueryData(fetchConversations.key(id), (messages) => {
-        return [...messages, data];
-      });
+      push(id, data);
+
       if (onSuccess) onSuccess(data);
     },
   });
@@ -32,8 +32,8 @@ export default function SendMessage({ id }) {
   };
 
   return (
-    <div className="sticky bottom-0 left-0 right-0 bg-white p-2 shadow">
-      <div className="flex rounded-full border">
+    <div className="bg-white p-2 shadow">
+      <div className="flex overflow-hidden rounded-full border">
         <Input
           value={message}
           onChange={(e) => setMessage(e.target.value)}
@@ -49,11 +49,10 @@ export default function SendMessage({ id }) {
         <Button
           loading={isLoading}
           onClick={handleSubmit}
+          icon={!isLoading && <SendOutlined className="text-primary" />}
           className="border-none"
           size="large"
-        >
-          {!isLoading && message.length > 0 && <SendOutlined />}
-        </Button>
+        />
       </div>
     </div>
   );

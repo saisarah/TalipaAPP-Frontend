@@ -7,8 +7,8 @@
     "dev": "vite --host",
     "build": "npm run lint \nnpx vite build",
     "preview": "vite preview --host",
-    "build-android": "vite build --mode android",
-    "build-dev": "vite build --mode development --sourcemap",
+    "build:android": "cross-env NODE_ENV=production VITE_PLATFORM=android vite build",
+    "build:dev": "vite build --mode development --sourcemap",
     "lint": "npx prettier src --check \nnpx eslint src --ext js,jsx",
     "format": "prettier src --write"
   },
@@ -25,8 +25,8 @@
     "react-apexcharts": "^1.4.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.4.3",
+    "react-router-prompt": "^0.5.2",
     "react-scroll-to-bottom": "^4.2.0",
-    "select-philippines-address": "^1.0.6",
     "styled-components": "^5.3.6"
   },
   "devDependencies": {
@@ -35,12 +35,15 @@
     "@types/react-dom": "^18.0.8",
     "@vitejs/plugin-react": "^2.2.0",
     "autoprefixer": "^10.4.13",
+    "cross-env": "^7.0.3",
     "eslint": "^8.35.0",
     "eslint-config-prettier": "^8.6.0",
     "eslint-plugin-react": "^7.32.2",
+    "laravel-echo": "^1.15.0",
     "postcss": "^8.4.18",
     "prettier": "^2.7.1",
     "prettier-plugin-tailwindcss": "^0.1.13",
+    "pusher-js": "^8.0.1",
     "tailwindcss": "^3.2.3",
     "vite": "^3.2.3"
   }
