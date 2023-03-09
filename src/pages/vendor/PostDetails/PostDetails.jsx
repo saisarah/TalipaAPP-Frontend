@@ -24,7 +24,6 @@ export const PostDetails = () => {
   }
 
   const { attachments, author, prices } = post;
-  const isStraight = post.pricing_type === "straight";
 
   if (orderQuantities.length > 0) {
     return (
@@ -63,9 +62,9 @@ export const PostDetails = () => {
         </div>
 
         <PostDescription
-          paymentOption={post.payment_option}
-          isStraight={isStraight}
-          deliveryOption={post.delivery_option}
+          paymentOption={"TalipaAPP Wallet"}
+          isStraight={post.is_straight}
+          deliveryOption={"Transportify"}
           unit={post.unit}
           prices={post.prices}
           caption={post.caption}
@@ -82,7 +81,7 @@ export const PostDetails = () => {
         </Button>
       </div>
 
-      {isStraight && (
+      {post.is_straight && (
         <SetQuantityStraight
           unit={post.unit}
           caption={post.caption}
