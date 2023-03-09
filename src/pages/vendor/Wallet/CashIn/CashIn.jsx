@@ -11,7 +11,7 @@ import { cashIn, PAYMONGO_FEE } from "@/apis/WalletApi";
 
 
 export default function CashIn() {
-  const return_url = window.location.origin + "/farmer/wallet/cash-in/success";
+  const return_url = window.location.origin + "/wallet/cash-in/result";
   const { mutate, isLoading } = useMutation((amount) => cashIn(return_url, amount), {
     onSuccess(data) {
       window.location = data.redirect.url;
@@ -36,7 +36,7 @@ export default function CashIn() {
   return (
     <Page className="">
       <PageHeader
-        back="/farmer/wallet/cash-in-methods"
+        back="/wallet/cash-in-methods"
         title="Cash in with GCash"
       />
 

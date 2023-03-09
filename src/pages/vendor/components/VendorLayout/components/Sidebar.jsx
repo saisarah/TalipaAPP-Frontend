@@ -7,6 +7,7 @@ import {
   MessageFilled,
   QuestionCircleFilled,
   SettingFilled,
+  WalletFilled,
 } from "@ant-design/icons";
 import { Avatar, Divider } from "antd";
 import { NavLink } from "react-router-dom";
@@ -66,6 +67,8 @@ export default function Sidebar({ sideNavOpen, setSideNavOpen }) {
             label="Messages"
           />
           <SideBarLink to="/profile" icon={<UserFilled />} label="Profile" />
+
+          <SideBarLink to="/wallet" icon={<WalletFilled />} label="Wallet" />
 
           <SideBarLink
             to="/orders"
