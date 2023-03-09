@@ -8,7 +8,7 @@ import { useQuery } from "@tanstack/react-query";
 import { Link, useParams, useSearchParams } from "react-router-dom";
 
 
-export default function CashInSuccess() {
+export default function CashInResult() {
   const [params] = useSearchParams();
 
   const { data, isLoading } = useQuery(
@@ -34,7 +34,7 @@ export default function CashInSuccess() {
       </div>
 
       <Link
-        to="/farmer/wallet"
+        to="/wallet"
         replace
         className="mt-8 block rounded bg-white py-3 px-8 text-center"
       >
