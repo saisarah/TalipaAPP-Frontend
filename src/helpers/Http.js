@@ -29,7 +29,7 @@ const isValidationError = (err) => err?.response?.status === 422;
 const isUnauthenticated = (err) => err?.response?.status === 401;
 
 export function getErrorMessage(error) {
-  if (error.response === null) return "An unknown error occured";
+  if (error.response === null) return "Failed to connect to the server";
 
   const { response } = error;
 
@@ -39,6 +39,9 @@ export function getErrorMessage(error) {
     return (
       response.data?.message || "You are not authorized to perform this action"
     );
+
+  if (response?.status === 500) 
+      return "Sorry, there seems to be a problem on our server. Please contact the administration."
 
   return response.data?.message || "An unknown error occured";
 }

@@ -1,3 +1,4 @@
+import { verifyPayment } from "@/apis/WalletApi";
 import Page from "@/components/Page";
 import SplashScreen from "@/components/SplashScreen/SplashScreen";
 import Http from "@/helpers/Http";
@@ -6,10 +7,6 @@ import { CheckCircleFilled } from "@ant-design/icons";
 import { useQuery } from "@tanstack/react-query";
 import { Link, useParams, useSearchParams } from "react-router-dom";
 
-const verifyPayment = async (id) => {
-  const { data } = await Http.get(`/payment/${id}`);
-  return data;
-};
 
 export default function CashInSuccess() {
   const [params] = useSearchParams();

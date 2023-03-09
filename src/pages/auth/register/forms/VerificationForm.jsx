@@ -1,11 +1,12 @@
+import { useRegistrationContext } from "@/contexts/RegistrationContext";
 import { getErrorMessage } from "@/helpers/Http";
+import { useOtp } from "@/query/mutations/useOtp";
 import { useRegistration } from "@/query/mutations/useRegistration";
 import { Button, Form, notification } from "antd";
 import { toFormData } from "axios";
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import FormItem from "../../../../components/FormItem";
-import { useRegistrationContext } from "../../../../contexts/RegistrationContext";
-import { useOtp } from "../../../../query/mutations/useOtp";
 
 export const VerificationForm = () => {
   const navigate = useNavigate();
@@ -22,6 +23,10 @@ export const VerificationForm = () => {
       notification.error({ message: getErrorMessage(e) });
     },
   });
+  
+  useEffect(() => {
+    sendOtp(data.contact_number)
+  }, [])
 
   const handleSubmit = ({ code }) => {
     if (isLoading) return;
@@ -65,7 +70,7 @@ export const VerificationForm = () => {
                 type="link"
                 disabled={throttle}
               >
-                {throttle > 0 ? `Resend in ${throttle}s` : "Send Code"}
+                {isSending ? 'Sending' : throttle > 0 ? `Resend in ${throttle}s` : "Send Code"}
               </Button>
             ),
           }}
