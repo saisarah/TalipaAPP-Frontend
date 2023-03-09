@@ -2,7 +2,7 @@ const eChart = {
   series: [
     {
       name: "Sales",
-      data: [450, 200, 100, 220, 500, 100, 400, 230, 500],
+      data: [200, 450, 150, 320, 120, 300, 410, 230, 210],
       color: "#fff",
     },
   ],
@@ -96,7 +96,7 @@ const eChart = {
     tooltip: {
       y: {
         formatter: function (val) {
-          return "₱ " + val + " thousands";
+          return "$ " + val + " thousands";
         },
       },
     },
