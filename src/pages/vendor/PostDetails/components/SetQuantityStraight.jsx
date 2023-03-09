@@ -42,7 +42,7 @@ export const SetQuantityStraight = ({
             initial={{ y: "100%" }}
             animate={{ y: 0 }}
             exit={{ y: "100%" }}
-            className="inset-x fixed bottom-0 z-20 w-full rounded-lg border bg-white p-4"
+            className="fixed max-w-md bottom-0 z-20 w-full rounded-lg border bg-white p-4"
           >
             <div className="flex flex-col items-center">
               <h1 className="text-4xl font-black">{title}</h1>
