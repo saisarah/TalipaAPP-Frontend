@@ -1,13 +1,13 @@
 import Page from "@/components/Page";
 import PageHeader from "@/components/PageHeader";
-import { Button, Input } from "antd";
+import { Button, Input, notification } from "antd";
 import gcashLogoImg from "./images/gcash_logo.png";
 import { currency } from "@/helpers/utils";
 import { useState } from "react";
 import Http from "@/helpers/Http";
 import { useMutation } from "@tanstack/react-query";
 
-const PAYMONGO_FEE = 0.02;
+const PAYMONGO_FEE = 0.025;
 
 const cashIn = async (amount) => {
   const return_url = window.location.origin + "/farmer/wallet/cash-in/success";
@@ -23,18 +23,18 @@ export default function CashIn() {
   });
 
   const [amount, setAmount] = useState(0);
-  const total = amount / (1 - PAYMONGO_FEE);
-  const fee = total - amount;
+  const fee = amount * PAYMONGO_FEE;
+  const total = amount - fee;
 
   const handleSubmit = () => {
-    if (total < 500) {
-      console.log("500 minimum");
+    if (amount < 500) {
+      notification.error({ message: "The minimum amount you can cash in is 500PHP" })
       return;
     }
 
     if (isLoading) return;
 
-    mutate(total);
+    mutate(amount);
   };
 
   return (
@@ -89,7 +89,6 @@ export default function CashIn() {
 
         <Button
           onClick={handleSubmit}
-          disabled={isLoading}
           loading={isLoading}
           size="large"
           type="primary"
