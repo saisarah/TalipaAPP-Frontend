@@ -5,7 +5,7 @@ import UserOutlined from "@/icons/heroicons/UserOutlined";
 import { rules } from "@/pages/auth/register/rules";
 import useCropsQuery from "@/query/queries/useCropsQuery";
 import { useCurrentUserQuery } from "@/query/queries/useCurrentUserQuery";
-import { Avatar, Input, Select } from "antd";
+import { Avatar, Button, Input, Select } from "antd";
 
 export default function Profile() {
   const { data: crops, isLoading: fetchingCrops } = useCropsQuery();
@@ -34,12 +34,12 @@ export default function Profile() {
           <div className="mt-2 flex-1 text-lg font-bold ">
             80
             <div className="text-sm font-thin leading-tight">
-              Transaction <br /> Rated
+              Transaction <br /> Ratings
             </div>
           </div>
-          <div className="m-2 flex-1 text-lg font-bold">
+          <div className="mt-2 flex-1 text-lg font-bold">
             4.6
-            <div className="text-sm font-thin leading-tight">Rated</div>
+            <div className="text-sm font-thin leading-tight">Ratings</div>
           </div>
         </div>
         <div className="flex w-full items-center gap-2 p-4">
@@ -48,23 +48,24 @@ export default function Profile() {
               {user.firstname} {user.lastname}
             </span>
 
-            <span className="text-slate-500">Local Store name</span>
+            <span className="text-slate-500">Sarah Oben's Store</span>
           </div>
-          <button className="rounded bg-[#739559] px-2 text-white">
+          <Button className="rounded text-base flex items-center p-2 ">
             Edit your profile
-          </button>
+          </Button>
         </div>
-        <div className="w-full px-4">
-          <div>
-            <label className="font-normal">Address:</label>
-            <Input
+        <div className="w-full px-4 my-2">
+          <div className="flex flex-col text-lg my-2">
+            <label className=" font-bold">Address:</label>
+            <span>Bagong Silang, Caloocan City</span>
+            {/* <Input
               disabled
               style={{ backgroundColor: "#fff" }}
               className=" font-normal"
               placeholder="djwandjan"
-            ></Input>
+            ></Input> */}
           </div>
-          <div className="mt-4">
+          {/* <div className="mt-4">
             <label className="font-normal">Mobile Number:</label>
             <Input
               disabled
@@ -72,19 +73,20 @@ export default function Profile() {
               className="bg-white font-normal"
               placeholder={user.contact_number}
             ></Input>
-          </div>
+          </div> */}
 
-          <div className="mt-4">
-            <label className="font-normal">Email:</label>
-            <Input
+          <div className=" flex flex-col text-lg my-2">
+            <label className="font-bold">Email:</label>
+            <span>Sarah@gmail.com</span>
+            {/* <Input
               disabled
               style={{ backgroundColor: "#fff" }}
               className=" font-normal"
               placeholder={user.email}
-            ></Input>
+            ></Input> */}
           </div>
 
-          <div className="mt-4">
+          {/* <div className="">
             <div className="font-medium">Store information</div>
             <label className="font-normal">Store Name:</label>
             <Input
@@ -93,25 +95,25 @@ export default function Profile() {
               className=" font-normal"
               placeholder="Mundo Store"
             ></Input>
-          </div>
-          <div className="mt-4">
-            <label className="font-normal">Store Location:</label>
-            <Input
+          </div> */}
+          <div className="flex flex-col text-lg my-2">
+            <label className="font-bold">Store Location:</label>
+            <span>Bagong Silang Ph1</span>
+            {/* <Input
               disabled
               style={{ backgroundColor: "#fff" }}
               className=" font-normal"
               placeholder="Poblacion Uno Guadalupe Makati City"
-            ></Input>
+            ></Input> */}
           </div>
 
-          <div className="mt-4 flex w-full flex-col">
+          <div className=" flex w-full flex-col text-lg my-2">
+          <label className="font-bold">Bio:</label>
             <div className="inline-block w-full text-justify font-light">
-              You can customize your interests by editing your preferences,
-              which will help you easily discover the commodities that you are
-              interested in.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
             </div>
             <div>
-              <FormItem rules={rules.crops} name="crops">
+              {/* <FormItem rules={rules.crops} name="crops">
                 <Select
                   disabled
                   style={{ backgroundColor: "#fff" }}
@@ -124,7 +126,7 @@ export default function Profile() {
                   }))}
                   loading={fetchingCrops}
                 />
-              </FormItem>
+              </FormItem> */}
             </div>
           </div>
         </div>
