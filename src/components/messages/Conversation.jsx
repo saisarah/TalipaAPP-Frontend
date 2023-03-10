@@ -1,39 +1,60 @@
-import { useCurrentUserQuery } from "@/query/queries/useCurrentUserQuery";
+import { useConversationsQuery } from "@/query/queries/useMessagesQuery";
+import { Spin } from "antd";
 import { useEffect, useRef } from "react";
-import { ReceivedChat, SentChat } from "./ChatItem";
+import ChatItem from "./ChatItem";
 
-export default function Conversation({ messages, user }) {
-  const { data } = useCurrentUserQuery();
-  const conversations = useRef();
+const ScrollToBottom = ({ children, dependency, ...props }) => {
+
+  const container = useRef()
 
   useEffect(() => {
-    console.log(messages);
-    conversations.current.scroll({
-      top: conversations.current.scrollTopMax,
+    container.current.scroll({
+      top: container.current.scrollTopMax,
       behavior: "smooth",
     });
-  }, [messages.length]);
+  }, [dependency])
 
   return (
-    <div
-      ref={conversations}
-      className="conversations talipaapp-scrollbar flex flex-grow flex-col justify-end overflow-y-auto px-2 py-4"
-    >
-      {messages.map((item, i) =>
-        data.id != item.receiver_id ? (
-          <SentChat key={item.id} content={item.content} />
-        ) : (
-          <ReceivedChat
-            key={item.id}
-            hasAvatar={
-              !messages[i + 1] ||
-              messages[i + 1].receiver_id !== item.receiver_id
-            }
-            avatar={user.profile_picture}
-            content={item.content}
-          />
-        )
-      )}
+    <div ref={container} {...props}>
+      {children}
     </div>
+  )
+}
+
+export default function Conversation({ id, avatar = null }) {
+  const { data: messages, isLoading } = useConversationsQuery(id);
+  const conversations = useRef();
+
+  // useEffect(() => {
+  //   if (messages)
+  //     conversations.current.scroll({
+  //       top: conversations.current.scrollTopMax,
+  //       behavior: "smooth",
+  //     });
+  // }, [messages]);
+
+  if (isLoading)
+    return (
+      <Spin
+        className="flex flex-grow flex-col items-center justify-center"
+        tip="Fetching messages"
+      />
+    );
+
+  return (
+    <ScrollToBottom
+      dependency={messages}
+      className="conversations talipaapp-scrollbar flex flex-grow flex-col overflow-y-auto px-2 py-4"
+    >
+      {messages.map((item, i) => (
+        <ChatItem
+          key={item.id}
+          avatar={avatar}
+          id={id}
+          message={item}
+          next_message={messages[i + 1]}
+        />
+      ))}
+    </ScrollToBottom>
   );
 }
