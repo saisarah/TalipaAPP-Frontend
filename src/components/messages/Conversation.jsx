@@ -17,7 +17,7 @@ export default function Conversation({ messages, user }) {
   return (
     <div
       ref={conversations}
-      className="conversations talipaapp-scrollbar flex flex-grow flex-col overflow-y-auto px-2 py-4"
+      className="conversations talipaapp-scrollbar flex flex-grow flex-col justify-end overflow-y-auto px-2 py-4"
     >
       {messages.map((item, i) =>
         data.id != item.receiver_id ? (
