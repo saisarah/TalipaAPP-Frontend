@@ -1,6 +1,7 @@
 import { TabLinks } from "@/components/TabLink";
 import { useTitle } from "@/contexts/VendorContext";
 import { useTabAdvance } from "@/helpers/hooks";
+import { Demands } from "./Demand";
 import ForSale from "./ForSale";
 
 const homeTab = {
@@ -9,7 +10,7 @@ const homeTab = {
     title: "For Sale",
   },
   demands: {
-    element: null,
+    element: <Demands />,
     title: "Demands",
   },
 };

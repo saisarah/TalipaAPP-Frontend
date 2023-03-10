@@ -1,5 +1,6 @@
 import { VendorLayout } from "@/pages/vendor/components/VendorLayout/VendorLayout";
 import Help from "@/pages/vendor/Help/help";
+import AddDemand from "@/pages/vendor/Home/components/AddDemand";
 import { Home } from "@/pages/vendor/Home/Home";
 import Chat from "@/pages/vendor/Messages/Chat";
 import Messages from "@/pages/vendor/Messages/Messages";
@@ -46,8 +47,12 @@ const routes = [
       },
       {
         path: "wallet",
-        element: <Wallet />
-      }
+        element: <Wallet />,
+      },
+      {
+        path: "add-demand",
+        element: <AddDemand />,
+      },
     ],
   },
   {
@@ -64,16 +69,16 @@ const routes = [
   },
   {
     path: "wallet/cash-in-methods",
-    element: <CashInMethod />
+    element: <CashInMethod />,
   },
   {
     path: "wallet/cash-in",
-    element: <CashIn />
+    element: <CashIn />,
   },
   {
     path: "wallet/cash-in/result",
-    element: <CashInResult />
-  }
+    element: <CashInResult />,
+  },
 ];
 
 export default function VendorRoutes() {
