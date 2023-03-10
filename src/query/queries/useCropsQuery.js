@@ -13,3 +13,9 @@ export const useCrop = (id) => {
   const { data: crops } = useCropsQuery();
   return crops && crops.find((crop) => crop.id === id);
 };
+
+export const useCropOptions = () => {
+  return useCropsQuery({
+    select: (data) => data.map(({ name, id }) => ({ value: id, label: name })),
+  });
+};

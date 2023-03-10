@@ -1,10 +1,10 @@
-import ChangePassword from "@/pages/admin/Settings/ChangePassword";
 import AccountDeletion from "@/pages/farmer/settings/form/AccountDeletion";
 import ChangeAddress from "@/pages/farmer/settings/form/ChangeAddress";
 import ChangeEmail from "@/pages/farmer/settings/form/ChangeEmail";
 import ChangeEmailVerification from "@/pages/farmer/settings/form/ChangeEmailVerification";
 import ChangeName from "@/pages/farmer/settings/form/ChangeName";
 import ChangeNumber from "@/pages/farmer/settings/form/ChangeNumber";
+import ChangePassword from "@/pages/farmer/settings/form/ChangePassword";
 import ChangeUsername from "@/pages/farmer/settings/form/ChangeUsername";
 import Settings from "@/pages/farmer/settings/Settings";
 

@@ -27,11 +27,8 @@ export const useCurrentUserQuery = () => {
   return useQuery(currentUserKey, fetchCurrentUser, {
     retry(failureCount, error) {
       if (failureCount >= 3) return false;
-
-      if (
-        (error.isAxiosError && error.response.status === 401) ||
-        error === "Unauthorized"
-      ) {
+      console.log("user ", error);
+      if (error?.response?.status === 401 || error === "Unauthorized") {
         return false;
       }
 

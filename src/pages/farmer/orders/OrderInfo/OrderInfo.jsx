@@ -1,9 +1,11 @@
+import Page from "@/components/Page";
 import PageHeader from "@/components/PageHeader";
 import { useQuery } from "@tanstack/react-query";
-import { Avatar, Card, Spin, Steps } from "antd";
+import { Avatar, Card, Descriptions, Spin, Steps } from "antd";
 import { Link, useParams } from "react-router-dom";
 import { getOrder } from "../ordersData";
-
+import mangoJpg from "../images/manga.jpg";
+import vendorjpg from "../images/vendorjpg.jpg";
 const statusMap = {
   pending: {
     className: "text-lg text-[#ea580c] capitalize",
@@ -21,7 +23,7 @@ const statusMap = {
   },
 
   completed: {
-    className: "text-lg text text-[#16a34a] capitalize",
+    className: "text-lg text-[#16a34a] capitalize",
   },
 };
 
@@ -60,7 +62,7 @@ export default function OrderInfo() {
 
   return (
     <div className="app-size bg-white ">
-      <PageHeader back={"farmer/orders"} title="Order" />
+      <PageHeader back="farmer/orders?tab=pending" title="Order" />
 
       {isLoading ? (
         <div className="flex items-center justify-center py-16">
@@ -68,11 +70,11 @@ export default function OrderInfo() {
         </div>
       ) : (
         <>
-          <div className="w-full border-b border-t bg-white">
+          <div className="w-full border-b border-t bg-white p-4">
             <ul>
               <li>
-                <div className="flex w-full items-center gap-2 p-4">
-                  <Avatar size={52} src={order.displayphoto} />
+                <div className="flex w-full items-center gap-2">
+                  <Avatar size={52} src={vendorjpg} />
                   <div className="leaing-4 flex h-full flex-grow flex-col">
                     <span className=" text-xl font-bold ">{order.name}</span>
                     <span className="">{order.timestamp}</span>
@@ -86,59 +88,63 @@ export default function OrderInfo() {
               </li>
             </ul>
 
-            {/* Order Status */}
-            <div className="flex justify-between px-4">
-              <div className="text-lg font-bold text-zinc-400">
-                <p>Order Name:</p>
-              </div>
+            <div className="mb-2">
+              <Descriptions
+                title="Order Details"
+                size="small"
+                bordered
+                column={1}
+              >
+                <Descriptions.Item label="Order Status">
+                  {order.status == "pending" && (
+                    <span className={"capitalize text-[#ea580c] "}>
+                      {order.status}
+                    </span>
+                  )}
 
-              <div className={statusMap[order.status].className}>
-                <p>{order.status}</p>
-              </div>
-            </div>
+                  {order.status == "confirmed" && (
+                    <span className="capitalize text-[#FDE047] ">
+                      {order.status}
+                    </span>
+                  )}
 
-            {/* Order name */}
-            <div className="flex justify-between px-4">
-              <div className="text-lg font-bold text-zinc-400">
-                <p>Order Name:</p>
-              </div>
+                  {order.status == "shipped" && (
+                    <span className="capitalize text-[#2563eb] ">
+                      {order.status}
+                    </span>
+                  )}
 
-              <div className="text-lg capitalize">
-                <p>{order.order_name}</p>
-              </div>
-            </div>
+                  {order.status == "cancelled" && (
+                    <span className="capitalize text-[#dc2626] ">
+                      {order.status}
+                    </span>
+                  )}
 
-            {/* Unit Price */}
-            <div className="flex justify-between px-4">
-              <div className="text-lg font-bold text-zinc-400">
-                <p>Unit Price:</p>
-              </div>
-
-              <div className="text-lg capitalize">
-                <p>₱{order.price}</p>
-              </div>
-            </div>
-
-            {/* Quantity */}
-            <div className="flex justify-between px-4">
-              <div className="text-lg font-bold text-zinc-400">
-                <p>Quantity:</p>
-              </div>
-
-              <div className="text-lg capitalize">
-                <p>{order.quantity}</p>
-              </div>
-            </div>
-
-            {/* Location */}
-            <div className="flex justify-between px-4">
-              <div className="text-lg font-bold text-zinc-400">
-                <p>Quantity:</p>
-              </div>
-
-              <div className="text-lg capitalize">
-                <p>{order.location}</p>
-              </div>
+                  {order.status == "completed" && (
+                    <span className=" capitalize text-[#16a34a]">
+                      {order.status}
+                    </span>
+                  )}
+                </Descriptions.Item>
+                <Descriptions.Item label="Drop off location">
+                  {order.location}
+                </Descriptions.Item>
+                <Descriptions.Item label="Payment Method">
+                  Gcash
+                </Descriptions.Item>
+                <Descriptions.Item label="Delivery Method">
+                  Transportify
+                </Descriptions.Item>
+                <Descriptions.Item label="Commodity Price">
+                  50 per Kilograms
+                </Descriptions.Item>
+                <Descriptions.Item label="Quantity">
+                  {order.quantity} Kilograms
+                </Descriptions.Item>
+                <Descriptions.Item className="font-bold" label="Total Price ">
+                  ₱{order.total}
+                </Descriptions.Item>
+              </Descriptions>
             </div>
           </div>
 
@@ -148,11 +154,13 @@ export default function OrderInfo() {
                 <Avatar
                   size={100}
                   className=" rounded-lg"
-                  src={order.displayphoto}
+                  src={mangoJpg}
                 ></Avatar>
                 <div className="ml-4">
-                  <h3 className="text-lg font-bold">Title</h3>
-                  <p className="text-gray-600">Description</p>
+                  <h3 className="text-lg font-bold">Sweet Mango</h3>
+                  <p className="text-gray-600">
+                    Available now, ready to ship matamis.
+                  </p>
 
                   <p className="text-red-600">*tap to see post</p>
                 </div>
@@ -172,40 +180,31 @@ export default function OrderInfo() {
             <>
               <div className="mt-2 w-full bg-white">
                 {/* Delivery Method */}
-                <div className="flex justify-between px-4">
+                {/* <div className="flex justify-between px-4">
                   <div className="text-lg font-bold text-zinc-400">
                     <p>Delivery Method:</p>
                   </div>
 
-                  <div className="text-lg capitalize">
-                    {/* <p>{order.deliveryMethod}</p> */}
-                    Transportify
-                  </div>
-                </div>
+                  <div className="text-lg capitalize">Transportify</div>
+                </div> */}
 
                 {/* Payment Method */}
-                <div className="flex justify-between px-4">
+                {/* <div className="flex justify-between px-4">
                   <div className="text-lg font-bold text-zinc-400">
                     <p>Payment Method:</p>
                   </div>
 
-                  <div className="text-lg capitalize">
-                    {/* <p>{order.paymentMethod}</p> */}
-                    Gcash
-                  </div>
-                </div>
+                  <div className="text-lg capitalize">Gcash</div>
+                </div> */}
 
                 {/* Tracking */}
-                <div className="flex justify-between px-4">
+                {/* <div className="flex justify-between px-4">
                   <div className="text-lg font-bold text-zinc-400">
                     <p>Tracking #:</p>
                   </div>
 
-                  <div className="text-lg capitalize">
-                    {/* <p>{order.trackingNum}</p> */}
-                    1Akw1298DCM5398
-                  </div>
-                </div>
+                  <div className="text-lg capitalize">1Akw1298DCM5398</div>
+                </div> */}
               </div>
 
               <div

@@ -11,13 +11,9 @@
 */
 
 // import { useState } from "react";
-import {
-  EyeOutlined,
-  QuestionCircleFilled,
-  QuestionCircleOutlined,
-  VerticalAlignTopOutlined,
-} from "@ant-design/icons";
-import { Menu, Button, Avatar } from "antd";
+import { EyeOutlined, QuestionCircleFilled } from "@ant-design/icons";
+
+import { Menu } from "antd";
 import { NavLink, useLocation } from "react-router-dom";
 import logo from "./images/TalipaApp_Icon.png";
 
@@ -190,7 +186,7 @@ function Sidenav({ color }) {
           </NavLink>
         </Menu.Item>
         <Menu.Item key="2">
-          <NavLink to="/admin/payments">
+          {/* <NavLink to="/admin/payments">
             <span
               className="icon"
               style={{
@@ -200,7 +196,7 @@ function Sidenav({ color }) {
               {payments}
             </span>
             <span className="label">Payments</span>
-          </NavLink>
+          </NavLink> */}
           <Menu.Item className="menu-item-header" key="3">
             Management
           </Menu.Item>
@@ -219,7 +215,7 @@ function Sidenav({ color }) {
           </NavLink>
         </Menu.Item>
         <Menu.Item key="5">
-          <NavLink to="admin/commodities">
+          <NavLink to="/admin/chat-support">
             <span
               className="icon"
               style={{
@@ -235,58 +231,16 @@ function Sidenav({ color }) {
           Records and Reports
         </Menu.Item>
         <Menu.Item key="7">
-          <NavLink to="/admin/sales">
+          <NavLink to="transaction">
             <span
               className="icon"
               style={{
-                background: page === "sales" ? color : "",
+                background: page === "transaction" ? color : "",
               }}
             >
               {recordsReports}
             </span>
-            <span className="label">Sales</span>
-          </NavLink>
-        </Menu.Item>
-        <Menu.Item className="menu-item-header" key="8">
-          Settings
-        </Menu.Item>
-        <Menu.Item key="9">
-          <NavLink to="/admin/change-password">
-            <span
-              className="icon"
-              style={{
-                background: page === "change-password" ? color : "",
-              }}
-            >
-              <EyeOutlined height={100} />
-            </span>
-            <span className="label">Change password</span>
-          </NavLink>
-        </Menu.Item>
-        <Menu.Item key="10">
-          <NavLink to="/admin/FAQs">
-            <span
-              className="icon"
-              style={{
-                background: page === "FAQs" ? color : "",
-              }}
-            >
-              <QuestionCircleFilled />
-            </span>
-            <span className="label">FAQs</span>
-          </NavLink>
-        </Menu.Item>
-        <Menu.Item key="11">
-          <NavLink to="/admin/Terms">
-            <span
-              className="icon"
-              style={{
-                background: page === "Terms" ? color : "",
-              }}
-            >
-              {recordsReports}
-            </span>
-            <span className="label">Terms & Conditions</span>
+            <span className="label">Transaction</span>
           </NavLink>
         </Menu.Item>
         <Menu.Item className="menu-item-header" key="12">
@@ -358,6 +312,61 @@ function Sidenav({ color }) {
               {recordsReports}
             </span>
             <span className="label">Roles</span>
+          </NavLink>
+        </Menu.Item>
+        <Menu.Item className="menu-item-header" key="8">
+          Settings
+        </Menu.Item>
+        <Menu.Item key="9">
+          <NavLink to="/admin/change-password">
+            <span
+              className="icon"
+              style={{
+                background: page === "change-password" ? color : "",
+              }}
+            >
+              <EyeOutlined height={100} />
+            </span>
+            <span className="label">Change password</span>
+          </NavLink>
+        </Menu.Item>
+        <Menu.Item key="10">
+          <NavLink to="/admin/FAQs">
+            <span
+              className="icon"
+              style={{
+                background: page === "FAQs" ? color : "",
+              }}
+            >
+              <QuestionCircleFilled />
+            </span>
+            <span className="label">FAQs</span>
+          </NavLink>
+        </Menu.Item>
+        <Menu.Item key="11">
+          <NavLink to="/admin/Terms">
+            <span
+              className="icon"
+              style={{
+                background: page === "Terms" ? color : "",
+              }}
+            >
+              {recordsReports}
+            </span>
+            <span className="label">Terms & Conditions</span>
+          </NavLink>
+        </Menu.Item>
+        <Menu.Item key="11">
+          <NavLink to="/admin/login">
+            <span
+              className="icon"
+              style={{
+                background: page === "" ? color : "",
+              }}
+            >
+              {recordsReports}
+            </span>
+            <span className="label">Logout</span>
           </NavLink>
         </Menu.Item>
       </Menu>

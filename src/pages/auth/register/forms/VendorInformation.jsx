@@ -34,8 +34,10 @@ export const VendorInformation = () => {
 
       <FormItem label="Upload proof of your identity">
         <Upload
+        accept ='image/*'
           onRemove={() => setDocumentImage(null)}
           fileList={documentImage && [documentImage]}
+          add
           beforeUpload={(file) => {
             setDocumentImage(file);
             return false;

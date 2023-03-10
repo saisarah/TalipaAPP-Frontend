@@ -7,12 +7,20 @@ export const rules = {
       min: 2,
       message: "Your first name must have at least contain 2 characters",
     },
+    {
+      max: 64,
+      message: "Your first name should be maximun of 64 characters only",
+    },
     { pattern: /^[a-z ,.'-]+$/i, message: "Please enter a valid name" },
   ],
   middlename: [
     {
       min: 2,
       message: "Your middle name must have at least contain 2 characters",
+    },
+    {
+      max: 64,
+      message: "Your middle name should be maximun of 64 characters only",
     },
     { pattern: /^[a-z ,.'-]+$/i, message: "Please enter a valid name" },
   ],
@@ -22,12 +30,19 @@ export const rules = {
       min: 2,
       message: "Your last name must have at least contain 2 characters",
     },
+    {
+      max: 64,
+      message: "Your last name should be maximun of 64 characters only",
+    },
     { pattern: /^[a-z ,.'-]+$/i, message: "Please enter a valid name" },
   ],
   phone: [
     { required: true, message: "Please enter your phone number" },
     { len: 10, message: "Please enter 10 digit phone number" },
-    { pattern: /^[0-9]*$/, message: "Please enter a valid phone number" },
+    {
+      pattern: /^9[0-9]*$/,
+      message: "Please enter a valid phone number starting with 9",
+    },
     () => ({
       validator: async (_, phone) => {
         try {
@@ -44,6 +59,10 @@ export const rules = {
   ],
   email: [
     { type: "email", message: "Please enter a valid email address" },
+    {
+      max: 255,
+      message: "Your email should be maximun of 255 characters only",
+    },
     () => ({
       validator: async (_, email) => {
         try {
@@ -98,4 +117,9 @@ export const rules = {
     { required: true, message: "Please enter your ownership type" },
   ],
   crops: [{ required: true, message: "Please select your crops" }],
+  zip_code: [
+    { required: true, message: "Please enter your ZIP Code" },
+    { len: 4, message: "Please enter 4 digit ZIP Code" },
+    { pattern: /^[0-9]*$/, message: "Please enter a valid ZIP Code" },
+  ],
 };

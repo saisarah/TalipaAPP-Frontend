@@ -1,5 +1,7 @@
 import { sendRegisterOtp } from "@/apis/AuthApi";
+import { getErrorMessage } from "@/helpers/Http";
 import { useMutation } from "@tanstack/react-query";
+import { notification } from "antd";
 import { useEffect, useState } from "react";
 
 export const useOtp = () => {
@@ -12,7 +14,7 @@ export const useOtp = () => {
     },
 
     onError(e) {
-      console.log(e);
+      notification.error({ message: getErrorMessage(e) })
     },
   });
 

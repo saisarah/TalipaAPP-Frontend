@@ -1,4 +1,5 @@
 import SplashScreen from "@/components/SplashScreen/SplashScreen";
+import { VendorContextProvider } from "@/contexts/VendorContext";
 import { useCurrentUserQuery } from "@/query/queries/useCurrentUserQuery";
 import { Navigate } from "react-router-dom";
 
@@ -13,5 +14,5 @@ export default function VendorGate({ children }) {
     return <Navigate to="/login" />;
   }
 
-  return children;
+  return <VendorContextProvider user={user}>{children}</VendorContextProvider>;
 }
