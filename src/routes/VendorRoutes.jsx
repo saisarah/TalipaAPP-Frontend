@@ -9,6 +9,10 @@ import OrderInfo from "@/pages/vendor/Orders/OrderInfo/OrderInfo";
 import Orders from "@/pages/vendor/Orders/Orders";
 import { PostDetails } from "@/pages/vendor/PostDetails/PostDetails";
 import Profile from "@/pages/vendor/Profile/Profile";
+import ChangeEmail from "@/pages/vendor/Settings/Forms/form/ChangeEmail";
+import ChangeName from "@/pages/vendor/Settings/Forms/form/ChangeName";
+import ChangeNumber from "@/pages/vendor/Settings/Forms/form/ChangeNumber";
+import Settings from "@/pages/vendor/Settings/Settings";
 import CashIn from "@/pages/vendor/Wallet/CashIn/CashIn";
 import CashInMethod from "@/pages/vendor/Wallet/CashIn/CashInMethod";
 import CashInResult from "@/pages/vendor/Wallet/CashIn/CashInResult";
@@ -50,6 +54,10 @@ const routes = [
         element: <Wallet />,
       },
       {
+        path: "settings",
+        element: <Settings />,
+      },
+      {
         path: "add-demand",
         element: <AddDemand />,
       },
@@ -78,6 +86,21 @@ const routes = [
   {
     path: "wallet/cash-in/result",
     element: <CashInResult />,
+  },
+  // settings
+  {
+    path: "settings/change-name",
+    element: <ChangeName />,
+  },
+
+  {
+    path: "settings/change-number",
+    element: <ChangeNumber />,
+  },
+
+  {
+    path: "settings/change-email",
+    element: <ChangeEmail />,
   },
 ];
 
