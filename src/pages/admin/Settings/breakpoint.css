@@ -1,0 +1,8 @@
+@media (min-width: 1600px) {
+  #breakpoint {
+    display: flex;
+  }
+  #title {
+    padding: 190px;
+  }
+}

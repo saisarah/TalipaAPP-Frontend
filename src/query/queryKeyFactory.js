@@ -1,15 +1,19 @@
-
-
 export default {
-    currentUser: ['users', 'current'],
+  currentUser: ["users", "current"],
 
-    regions: ['address', 'regions'],
+  regions: ["address", "regions"],
 
-    provinces: (region) => ['address', 'provinces', region],
+  provinces: (region) => ["address", "provinces", region],
 
-    cities: (region, province) => ["address", "cities", region, province],
+  cities: (region, province) => ["address", "cities", region, province],
 
-    barangays: (region, province, city) => ["address", "barangays", region, province, city],
+  barangays: (region, province, city) => [
+    "address",
+    "barangays",
+    region,
+    province,
+    city,
+  ],
 
-    crops: ['crops'],
-}
+  crops: ["crops"],
+};

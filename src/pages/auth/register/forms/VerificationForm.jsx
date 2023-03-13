@@ -1,34 +1,40 @@
-import { Button, Checkbox, Form, Modal } from "antd";
+import { useRegistrationContext } from "@/contexts/RegistrationContext";
+import { getErrorMessage } from "@/helpers/Http";
+import { useOtp } from "@/query/mutations/useOtp";
+import { useRegistration } from "@/query/mutations/useRegistration";
+import { Button, Form, notification } from "antd";
 import { toFormData } from "axios";
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import FormItem from "../../../../components/FormItem";
-import { useRegistrationContext } from "../../../../contexts/RegistrationContext";
-import { rules } from "../rules";
-import {
-  useFarmerRegistration,
-  useVendorRegistration,
-} from "../useFarmerRegistration";
-import { useOtp } from "../useOtp";
 import TermsAndCondition from "./TermsAndCondition";
 
 export const VerificationForm = () => {
+  const navigate = useNavigate();
   const { data, setStep, accountType } = useRegistrationContext();
-  const { mutate: mutateFarmer, isLoading: isLoading1 } =
-    useFarmerRegistration();
-  const { mutate: mutateVendor, isLoading: isLoading2 } =
-    useVendorRegistration();
-  const { contact_number } = data;
-  const isLoading = isLoading1 || isLoading2;
-
   const { sendOtp, isSending, throttle } = useOtp();
+  const { mutate: register, isLoading } = useRegistration(accountType, {
+    onSuccess() {
+      notification.success({
+        message: "Your account has been successfully registered.",
+      });
+      navigate("/", { replace: true });
+    },
+    onError(e) {
+      notification.error({ message: getErrorMessage(e) });
+    },
+  });
+  
+  useEffect(() => {
+    sendOtp(data.contact_number)
+  }, [])
 
   const handleSubmit = ({ code }) => {
     if (isLoading) return;
+
     const formData = toFormData({ ...data, code });
 
-    if (accountType === "farmer") mutateFarmer(formData);
-    else mutateVendor(formData);
+    register(formData);
   };
 
   return (
@@ -46,7 +52,7 @@ export const VerificationForm = () => {
         <FormItem
           label="Phone"
           inputProps={{
-            value: contact_number,
+            value: data.contact_number,
             disabled: true,
             prefix: "+63",
           }}
@@ -60,12 +66,12 @@ export const VerificationForm = () => {
           inputProps={{
             suffix: (
               <Button
-                onClick={() => sendOtp(contact_number)}
+                onClick={() => sendOtp(data.contact_number)}
                 loading={isSending}
                 type="link"
                 disabled={throttle}
               >
-                {throttle > 0 ? `Resend in ${throttle}s` : "Send Code"}
+                {isSending ? 'Sending' : throttle > 0 ? `Resend in ${throttle}s` : "Send Code"}
               </Button>
             ),
           }}

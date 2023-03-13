@@ -14,14 +14,14 @@ export const fetchProvinces = async (region) => {
 
 export const fetchCities = async (region, province) => {
   const { data } = await Http.get("/philippine-addresses/cities", {
-    params: { region, province }
-  })
-  return data
-}
+    params: { region, province },
+  });
+  return data;
+};
 
 export const fetchBarangays = async (region, province, city) => {
-  const { data } = await Http.get('/philippine-addresses/barangays', {
-    params: { region, province, city }
-  })
-  return data
-}
+  const { data } = await Http.get("/philippine-addresses/barangays", {
+    params: { region, province, city },
+  });
+  return data;
+};

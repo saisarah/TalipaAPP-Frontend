@@ -1,176 +1,78 @@
-import { UploadOutlined } from "@ant-design/icons";
-import { Button, Form, Input, Select, Upload } from "antd";
-import { useState } from "react";
-import { allSizes, PricingForm } from "./components/PricingForm";
-import { useCreatePost } from "./useCreatePost";
-import { required } from "./rules";
-import PageHeader from "@/components/PageHeader";
-import useCropsQuery from "@/query/queries/useCropsQuery";
-import FormItem from "@/components/FormItem";
+import { createPost } from "@/apis/Post";
 import Page from "@/components/Page";
+import PageHeader from "@/components/PageHeader";
+import { getErrorMessage } from "@/helpers/Http";
+import { QuestionCircleTwoTone } from "@ant-design/icons";
+import { useMutation } from "@tanstack/react-query";
+import { Modal, notification, Steps } from "antd";
+import { toFormData } from "axios";
+import { useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import Form1 from "./components/Form1";
+import Form2 from "./components/Form2";
+import Form3 from "./components/Form3";
 
 export default function CreatePost() {
-  const { data: crops, isLoading: fetchingCrops } = useCropsQuery({
-    select: (data) => data.map(({ name, id }) => ({ value: id, label: name })),
+  const navigate = useNavigate();
+
+  const { mutateAsync } = useMutation(createPost, {
+    onSuccess(data) {
+      notification.success({ message: "Post Created Successfully." });
+      navigate(`/farmer/posts/${data.id}`, { replace: true });
+    },
+    onError(error) {
+      notification.error({ message: getErrorMessage(error) });
+    },
+  });
+  const [step, setStep] = useState(0);
+  const formData = useRef({
+    crop_id: null,
+    title: "",
+    caption: "",
+    unit: "kg",
+    prices: [],
+    attachments: [],
   });
 
-  const [sizes, setSizes] = useState([
-    {
-      size: allSizes[0],
-      price: null,
-      stock: null,
-    },
-  ]);
-
-  const [selectedUnit, setSelectedUnit] = useState("kg");
-  const [isStraight, setIsStraight] = useState(false);
-  const [attachments, setAttachments] = useState([]);
-
-  const { handleSubmit, isLoading } = useCreatePost(attachments, sizes);
+  const handleSubmit = () => {
+    Modal.confirm({
+      icon: <QuestionCircleTwoTone />,
+      title: "Are all the details you entered is correct?",
+      async onOk() {
+        const data = toFormData(formData.current); ///
+        await mutateAsync(data);
+      },
+    });
+  };
 
   return (
-    <Page className="bg-slate-50">
+    <Page className="bg-white">
       <PageHeader back="/farmer/home?tab=create" title="Create Post" />
-      <div className="p-4">
-        <Form layout="vertical" onFinish={handleSubmit}>
-          <FormItem rules={required()} label="Commodity" name="crop_id">
-            <Select
-              placeholder="Select Commodity"
-              options={crops}
-              size="large"
-              className="rounded"
-              loading={fetchingCrops}
-            />
-          </FormItem>
 
-          <FormItem rules={required()} label="Title" name="title" />
+      <div className="border-b">
+        <Steps
+          responsive={false}
+          className=""
+          onChange={(n) => setStep((step) => Math.min(n, step))}
+          size="small"
+          current={step}
+          type="navigation"
+          items={[
+            { title: "Step 1" },
+            { title: "Step 2" },
+            { title: "Step 3" },
+          ]}
+        />
+      </div>
 
-          <FormItem
-            rules={required()}
-            label="Delivery Options"
-            name="delivery_options"
-          >
-            <Select
-              required
-              placeholder="Select Available Delivery Options"
-              options={[{ value: "Pick-up" }, { value: "Transportify" }]}
-              size="large"
-              mode="multiple"
-              className="rounded"
-              loading={fetchingCrops}
-            />
-          </FormItem>
-
-          <FormItem
-            rules={required()}
-            label="Payment Options"
-            name="payment_options"
-          >
-            <Select
-              required
-              placeholder="Select Available Payment Options"
-              options={[{ value: "GCash" }, { value: "Cash" }]}
-              size="large"
-              mode="multiple"
-              className="rounded"
-              loading={fetchingCrops}
-            />
-          </FormItem>
-
-          <FormItem label="Unit" name="unit" initialValue={selectedUnit}>
-            <Select
-              className="rounded"
-              size="large"
-              value={selectedUnit}
-              onChange={(unit) => setSelectedUnit(unit)}
-            >
-              <Select.Option value="kg">Kilogram</Select.Option>
-              <Select.Option value="pc">Piece</Select.Option>
-            </Select>
-          </FormItem>
-
-          <FormItem
-            label="Pricing Type"
-            name="is_straight"
-            initialValue={isStraight}
-          >
-            <Select
-              className="rounded"
-              size="large"
-              value={isStraight}
-              onChange={(isStraight) => setIsStraight(isStraight)}
-            >
-              <Select.Option value={1}>Straight</Select.Option>
-              <Select.Option value={0}>Not Straight</Select.Option>
-            </Select>
-          </FormItem>
-
-          {Boolean(isStraight) && (
-            <div className="grid grid-cols-2 gap-4">
-              <FormItem
-                className="hidden"
-                name="sizes"
-                inputProps={{ value: "__default" }}
-              />
-              {/* <input type="hidden" name="sizes[0]" value="__default" /> */}
-              <FormItem
-                label="Total Stocks"
-                name="stock"
-                inputProps={{ addonAfter: selectedUnit }}
-              />
-              <FormItem
-                label="Price"
-                name="price"
-                inputProps={{ addonAfter: `/${selectedUnit}` }}
-              />
-            </div>
-          )}
-          <FormItem rules={required()} label="Details" name="details">
-            <Input.TextArea
-              size="large"
-              className="rounded"
-              placeholder="Add a short description"
-            />
-          </FormItem>
-
-          <FormItem label="Add Photos">
-            <Upload
-              onRemove={(file) => {
-                setAttachments((attachments) => {
-                  return attachments.filter((a) => a !== file);
-                });
-              }}
-              fileList={attachments}
-              beforeUpload={(file) => {
-                setAttachments((files) => [...files, file]);
-                return false;
-              }}
-              className="grid grid-cols-1"
-            >
-              <Button icon={<UploadOutlined />} size="large" block>
-                Click to Upload
-              </Button>
-            </Upload>
-          </FormItem>
-
-          {!isStraight && (
-            <PricingForm
-              unit={selectedUnit}
-              sizes={sizes}
-              setSizes={setSizes}
-            />
-          )}
-          <Button
-            className="mt-4"
-            htmlType="submit"
-            block
-            type="primary"
-            size="large"
-            loading={isLoading}
-          >
-            Post
-          </Button>
-        </Form>
+      <div className="max-w-screen flex overflow-x-hidden">
+        <Form1 step={step} setStep={setStep} formData={formData.current} />
+        <Form2 step={step} setStep={setStep} formData={formData.current} />
+        <Form3
+          step={step}
+          onSubmit={handleSubmit}
+          formData={formData.current}
+        />
       </div>
     </Page>
   );
