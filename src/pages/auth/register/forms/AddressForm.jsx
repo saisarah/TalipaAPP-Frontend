@@ -1,6 +1,6 @@
+import FormItem from "@/components/FormItem";
+import { useRegistrationContext } from "@/contexts/RegistrationContext";
 import { Button, Form, Select } from "antd";
-import FormItem from "../../../../components/FormItem";
-import { useRegistrationContext } from "../../../../contexts/RegistrationContext";
 import { rules } from "../rules";
 import { useAddressFormState } from "../useAddressFormState";
 
@@ -96,6 +96,12 @@ export default function AddressForm() {
         placeholder="Enter your house number"
         name="house_number"
         rules={rules.house_number}
+      />
+      <FormItem
+        label="ZIP Code"
+        placeholder="Enter your ZIP Code"
+        name="zip_code"
+        rules={rules.zip_code}
       />
 
       <div className="mb-4 flex justify-between">

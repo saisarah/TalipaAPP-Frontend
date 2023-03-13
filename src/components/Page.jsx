@@ -1,21 +1,13 @@
-import { motion } from "framer-motion";
 import { useNavigationType } from "react-router-dom";
 
 export default function Page({ children, className = "", ...props }) {
   const type = useNavigationType();
-
-  console.log({ type });
+  const animation =
+    type === "POP" ? "animate-slide-right" : "animate-slide-left";
 
   return (
-    <motion.div
-      transition={{ bounce: 0, duration: 0.15}}
-      initial={type === "PUSH" ? { opacity: 0, x: "100%" } :{x:"-100%"}}
-      animate={{ opacity: 1, x: 0 }}
-      exit={type === "POP" ? { opacity: 0, x: "100%" }: {}}
-      {...props}
-      className={`app-size ${className}`}
-    >
+    <div className={`app-size ${animation} ${className}`} {...props}>
       {children}
-    </motion.div>
+    </div>
   );
 }

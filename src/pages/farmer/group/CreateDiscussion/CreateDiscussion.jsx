@@ -10,7 +10,7 @@ import { Link } from "react-router-dom";
 import Tags from "./components/Tags";
 import { useRef } from "react";
 
-function CreateDiscussion({ title, tags, image }) {
+function Discussions({ title, tags, image }) {
   const textAreaRef = useRef(null);
 
   function autoResize() {
@@ -53,7 +53,7 @@ function CreateDiscussion({ title, tags, image }) {
 
       <div className="">
         <textarea
-          class="
+          className="
         form-control
         m-0
         block
@@ -74,7 +74,7 @@ function CreateDiscussion({ title, tags, image }) {
   );
 }
 
-export default function Discussions() {
+export default function CreateDiscussion() {
   return (
     <div className="relative mx-auto min-h-screen max-w-md bg-white px-2">
       <PageHeader
@@ -87,7 +87,7 @@ export default function Discussions() {
       />
       <div className="flex">
         <div className="h-14 grow">
-          <CreateDiscussion title="This is a title of the discussion" />
+          <Discussions title="This is a title of the discussion" />
         </div>
         <div className="flex-none">
           <div className="absolute inset-x-0 bottom-0 m-6 ">
