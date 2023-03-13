@@ -30,7 +30,7 @@ export default function OrderLists({ status }) {
     );
 
   return (
-    <div className="divide-y divide-slate-200">
+    <div className="flex flex-col gap-2 p-2">
       {data.map(({ id, post, total, ...order }) => (
         <OrderCard
           to={`/orders/${id}`}

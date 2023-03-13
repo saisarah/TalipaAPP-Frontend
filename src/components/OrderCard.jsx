@@ -51,14 +51,14 @@ export default function OrderCard({
   to
 }) {
   return (
-    <div className="w-full border-b border-t bg-white">
+  <div className="w-full rounded-md shadow-sm bg-white text-slate-700">
       <Link to={to}>
-        <div className="flex justify-between px-4 py-2">
+        <div className="flex justify-between px-4 py-4">
           <div className="flex flex-col ">
-            <span className="text-xl  font-bold text-black">{order_name}</span>
-            <span className=" text-lg text-black">Quantity: {quantity}</span>
-            <span className="text-lg text-black">Price: {total}</span>
-            <div className="mt-2 flex items-center gap-2 overflow-hidden overflow-ellipsis text-xs text-slate-400">
+            <span className="text-xl font-bold text-slate-600 mb-2">{order_name}</span>
+            <span className=" text-sm">Quantity: {quantity}</span>
+            <span className="text-sm">Price: {total}</span>
+            <div className="mt-auto flex items-center gap-2 overflow-hidden overflow-ellipsis text-xs text-slate-400">
               <MapPinOutline />
               <span className=" whitespace-nowrap ">
                 {location} | {timestamp}
