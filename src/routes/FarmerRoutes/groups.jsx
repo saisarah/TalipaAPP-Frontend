@@ -1,4 +1,5 @@
 import GroupPosts from "@/pages/farmer/group/components/GroupPosts";
+import CreateDiscussion from "@/pages/farmer/group/CreateDiscussion/CreateDiscussion";
 import CreateGroup from "@/pages/farmer/group/CreateGroup/CreateGroup";
 import Group from "@/pages/farmer/group/Group";
 import GroupInfo from "@/pages/farmer/group/GroupInfo/GroupInfo";
@@ -16,6 +17,10 @@ export const groups = [
   {
     path: "groups/posts",
     element: <GroupPosts />,
+  },
+  {
+    path: "groups/posts/create",
+    element: <CreateDiscussion />
   },
   {
     path: "groups/posts/1",
