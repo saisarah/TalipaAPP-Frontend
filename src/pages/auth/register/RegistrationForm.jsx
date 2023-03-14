@@ -15,9 +15,9 @@ const vendorSteps = [
   { title: "Verification", form: <VerificationForm /> },
 ];
 const farmerSteps = [
-  { title: "Personal Information", form: <PersonalInformationForm /> },
-  { title: "Address", form: <AddressForm /> },
-  { title: "Farm Information", form: <FarmInformation /> },
+  // { title: "Personal Information", form: <PersonalInformationForm /> },
+  // { title: "Address", form: <AddressForm /> },
+  // { title: "Farm Information", form: <FarmInformation /> },
   { title: "Verification", form: <VerificationForm /> },
 ];
 
@@ -40,16 +40,20 @@ export default function RegistrationForm({ accountType, reset }) {
             <ArrowLeftOutlined />
           </button>
         }
-        title="Create your Account"
+        title="Register"
       />
-      <div className="p-4">
+      <div className="px-6 py-2 overflow-x-auto no-scrollbar">
         <Steps
+          responsive={false}
           items={accountType === "farmer" ? farmerSteps : vendorSteps}
           size="small"
-          className="mb-8"
+          className="gap-8"
           current={step}
-          type="inline"
+          type="navigation"
         />
+      </div>
+
+      <div className="p-4">
         {form}
       </div>
     </>

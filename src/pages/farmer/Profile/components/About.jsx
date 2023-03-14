@@ -1,4 +1,3 @@
-
 import { StarFilled, StarOutlined } from "@ant-design/icons";
 import { Avatar, Button, Card, Tag } from "antd";
 import { Link } from "react-router-dom";
@@ -24,7 +23,13 @@ function AboutInfo({ title, descriptions }) {
   );
 }
 
-function Reviews({ user, ratings, comment, review }) {
+function Reviews({ user, ratings, comment }) {
+  const Ratings = Array(5)
+    .fill(null)
+    .map((star, i) =>
+      i < ratings ? <StarFilled key={i} /> : <StarOutlined key={i} />
+    );
+
   return (
     <div>
       <div className="mx-4 my-4">
@@ -33,7 +38,7 @@ function Reviews({ user, ratings, comment, review }) {
             <Avatar className="mr-2 h-10 w-10 flex-shrink-0" />
             <div className="flex flex-grow justify-between">
               <h1 className="text-lg">{user}</h1>
-              <span className="ml-2 text-lg text-[#739559]">{ratings}</span>
+              <span className="ml-2 text-lg text-[#739559]">{Ratings}</span>
             </div>
           </div>
           <div className="">
@@ -49,7 +54,6 @@ export default function About() {
   return (
     <div>
       <div className="mx-auto min-h-screen max-w-md bg-white">
-       
         <div>
           <AboutInfo title={"Place lived"} descriptions={["Caloocan City"]} />
         </div>
@@ -72,7 +76,7 @@ export default function About() {
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua.
           </span>
-          <div className="flex py-2 items-center">
+          <div className="flex items-center py-2">
             <h1 className="mb-2 mr-2 text-6xl">4.0</h1>
             <div className="flex flex-col text-base text-[#739559]">
               <div className="flex">
@@ -91,13 +95,7 @@ export default function About() {
         <div>
           <Reviews
             user={"Ruel Almonia"}
-            ratings={[
-              <StarFilled />,
-              <StarFilled />,
-              <StarOutlined />,
-              <StarOutlined />,
-              <StarOutlined />,
-            ]}
+            ratings={2}
             comment={
               "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
             }
@@ -107,13 +105,7 @@ export default function About() {
         <div>
           <Reviews
             user={"Lenard Mangay-ayam"}
-            ratings={[
-              <StarFilled />,
-              <StarFilled />,
-              <StarOutlined />,
-              <StarOutlined />,
-              <StarOutlined />,
-            ]}
+            ratings={2}
             comment={
               "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
             }
@@ -122,13 +114,7 @@ export default function About() {
         <div>
           <Reviews
             user={"Joshua Villanueva"}
-            ratings={[
-              <StarFilled />,
-              <StarOutlined />,
-              <StarOutlined />,
-              <StarOutlined />,
-              <StarOutlined />,
-            ]}
+            ratings={1}
             comment={
               "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
             }
@@ -137,13 +123,7 @@ export default function About() {
         <div>
           <Reviews
             user={"Jhunrizz Lalata"}
-            ratings={[
-              <StarFilled />,
-              <StarFilled />,
-              <StarFilled />,
-              <StarFilled />,
-              <StarOutlined />,
-            ]}
+            ratings={4}
             comment={
               "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
             }
@@ -152,13 +132,7 @@ export default function About() {
         <div>
           <Reviews
             user={"Juan Paolo Ortega"}
-            ratings={[
-              <StarFilled />,
-              <StarFilled />,
-              <StarFilled />,
-              <StarOutlined />,
-              <StarOutlined />,
-            ]}
+            ratings={3}
             comment={
               "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
             }

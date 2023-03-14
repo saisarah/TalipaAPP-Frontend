@@ -1,8 +1,6 @@
 import Http from "@/helpers/Http";
 import { useQuery } from "@tanstack/react-query";
 import { Spin } from "antd";
-import { getGroups } from "../groups";
-import { items } from "../Posts/post-data";
 import GroupItem from "./GroupItem";
 
 const fetchFarmerGroups = async function () {
@@ -16,8 +14,6 @@ export default function SuggestedGroups() {
     fetchFarmerGroups
   );
 
-  // const { data, isLoading } = useQuery(["groups"], getGroups);
-
   if (isLoading)
     return (
       <div className="flex flex-col items-center py-16">
@@ -26,10 +22,12 @@ export default function SuggestedGroups() {
     );
 
   return (
-    <div className="divide-y divide-slate-200">
-      {data.map((item) => (
-        <GroupItem key={item.id} {...item} />
-      ))}
-    </div>
+    <>
+      <div className=" divide-slate-200">
+        {data.map((item) => (
+          <GroupItem key={item.id} {...item} />
+        ))}
+      </div>
+    </>
   );
 }
