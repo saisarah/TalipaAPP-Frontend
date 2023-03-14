@@ -19,6 +19,26 @@ export const sendRegisterOtp = async (contact_number) => {
   return data;
 };
 
+export const sendForgotPasswordOtp = async (contact_number) => {
+  const { data } = await Http.post("/forgot-password", { contact_number })
+  return data
+}
+
+export const verifyForgotPasswordOtp = async ({contact_number, code}) => {
+  const { data } = await Http.post("/forgot-password/verify", { contact_number, code });
+  return data
+}
+
+export const resetPassword = async ({contact_number, code, password, password_confirmation}) => {
+  const { data } = await Http.patch('/forgot-password/reset', {
+    contact_number,
+    code,
+    password,
+    password_confirmation
+  })
+  return data
+}
+
 export const verifyLoginOtp = async ({ contact_number, code }) => {
   const { data } = await Http.post("/login/verify-otp", {
     contact_number,
