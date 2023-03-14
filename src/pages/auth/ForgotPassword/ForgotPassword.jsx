@@ -5,7 +5,6 @@ import { getErrorMessage } from "@/helpers/Http";
 import { useMutation } from "@tanstack/react-query";
 import { Button, Form, Input, InputNumber, notification } from "antd";
 import { useEffect, useState } from "react";
-import ForgotPasswordCode from "./ForgotPasswordCode";
 import forgotPasswordImg from "./images/forgot_password.svg";
 import VerifyNumber from "./VerifyNumber";
 
