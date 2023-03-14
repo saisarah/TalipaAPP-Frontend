@@ -1,5 +1,6 @@
 import { VendorLayout } from "@/pages/vendor/components/VendorLayout/VendorLayout";
 import Help from "@/pages/vendor/Help/help";
+import AddDemand from "@/pages/vendor/Home/components/AddDemand";
 import { Home } from "@/pages/vendor/Home/Home";
 import Chat from "@/pages/vendor/Messages/Chat";
 import Messages from "@/pages/vendor/Messages/Messages";
@@ -8,6 +9,10 @@ import OrderInfo from "@/pages/vendor/Orders/OrderInfo/OrderInfo";
 import Orders from "@/pages/vendor/Orders/Orders";
 import { PostDetails } from "@/pages/vendor/PostDetails/PostDetails";
 import Profile from "@/pages/vendor/Profile/Profile";
+import ChangeEmail from "@/pages/vendor/Settings/Forms/form/ChangeEmail";
+import ChangeName from "@/pages/vendor/Settings/Forms/form/ChangeName";
+import ChangeNumber from "@/pages/vendor/Settings/Forms/form/ChangeNumber";
+import Settings from "@/pages/vendor/Settings/Settings";
 import CashIn from "@/pages/vendor/Wallet/CashIn/CashIn";
 import CashInMethod from "@/pages/vendor/Wallet/CashIn/CashInMethod";
 import CashInResult from "@/pages/vendor/Wallet/CashIn/CashInResult";
@@ -46,8 +51,16 @@ const routes = [
       },
       {
         path: "wallet",
-        element: <Wallet />
-      }
+        element: <Wallet />,
+      },
+      {
+        path: "settings",
+        element: <Settings />,
+      },
+      {
+        path: "add-demand",
+        element: <AddDemand />,
+      },
     ],
   },
   {
@@ -64,16 +77,31 @@ const routes = [
   },
   {
     path: "wallet/cash-in-methods",
-    element: <CashInMethod />
+    element: <CashInMethod />,
   },
   {
     path: "wallet/cash-in",
-    element: <CashIn />
+    element: <CashIn />,
   },
   {
     path: "wallet/cash-in/result",
-    element: <CashInResult />
-  }
+    element: <CashInResult />,
+  },
+  // settings
+  {
+    path: "settings/change-name",
+    element: <ChangeName />,
+  },
+
+  {
+    path: "settings/change-number",
+    element: <ChangeNumber />,
+  },
+
+  {
+    path: "settings/change-email",
+    element: <ChangeEmail />,
+  },
 ];
 
 export default function VendorRoutes() {

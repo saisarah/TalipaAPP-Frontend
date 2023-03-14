@@ -7,6 +7,7 @@ import { toFormData } from "axios";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import FormItem from "../../../../components/FormItem";
+import TermsAndCondition from "./TermsAndCondition";
 
 export const VerificationForm = () => {
   const navigate = useNavigate();
@@ -41,7 +42,7 @@ export const VerificationForm = () => {
       <Form layout="vertical" onFinish={handleSubmit}>
         <div className="mb-4">
           <span className="text-lg font-bold">
-            Your 1 step away from registering
+            You're 1 step away from registering
           </span>
           <div>
             We just need to verify your phone number. Click the Send Code button
@@ -75,6 +76,8 @@ export const VerificationForm = () => {
             ),
           }}
         />
+        {/* import here */}
+        <TermsAndCondition />
 
         <Button
           className="my-4"
