@@ -18,7 +18,7 @@ export const Demands = () => {
           Add Your Monthly Commodity Demand Here (Note: Only one demand can be
           submitted per month)
         </span>
-        <Link to="/add-demand">
+        <Link to="/demands/create">
           <Button size="large" type="primary" className="mt-4 rounded" block>
             Add Demand
           </Button>
