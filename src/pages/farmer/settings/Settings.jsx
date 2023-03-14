@@ -12,10 +12,6 @@ export default function Settings() {
     <Page className="bg-white">
       <PageHeader title="Settings" back="/" />
       <div className="p-4">
-        <div className="mb-2">
-          <Search placeholder="Search Settings" />
-        </div>
-
         <div className="mb-2 flex flex-col gap-2">
           <span className="font-bold">Personal Information</span>
 
