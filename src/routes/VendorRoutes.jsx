@@ -8,6 +8,7 @@ import Notifications from "@/pages/vendor/Notifications/Notifications";
 import OrderInfo from "@/pages/vendor/Orders/OrderInfo/OrderInfo";
 import Orders from "@/pages/vendor/Orders/Orders";
 import { PostDetails } from "@/pages/vendor/PostDetails/PostDetails";
+import Posting from "@/pages/vendor/PostDetails/Posting";
 import Profile from "@/pages/vendor/Profile/Profile";
 import ChangeEmail from "@/pages/vendor/Settings/Forms/form/ChangeEmail";
 import ChangeName from "@/pages/vendor/Settings/Forms/form/ChangeName";
@@ -57,10 +58,6 @@ const routes = [
         path: "settings",
         element: <Settings />,
       },
-      {
-        path: "add-demand",
-        element: <AddDemand />,
-      },
     ],
   },
   {
@@ -101,6 +98,11 @@ const routes = [
   {
     path: "settings/change-email",
     element: <ChangeEmail />,
+  },
+
+  {
+    path: "demands/create",
+    element: <Posting />,
   },
 ];
 
