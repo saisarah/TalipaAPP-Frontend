@@ -1,5 +1,5 @@
-import SplashScreen from "@/components/SplashScreen";
-import useCurrentUserQuery from "@/query/queries/useCurrentUserQuery";
+import SplashScreen from "@/components/SplashScreen/SplashScreen";
+import { useCurrentUserQuery } from "@/query/queries/useCurrentUserQuery";
 import { Navigate, Outlet } from "react-router-dom";
 
 export default function GuestGate() {

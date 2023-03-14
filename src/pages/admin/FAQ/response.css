@@ -1,0 +1,46 @@
+@media (max-width: 600px) {
+  #response {
+    font-size: 15px;
+  }
+
+  h1 {
+    font-size: 20px;
+    padding: 50px;
+  }
+  p {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 700px) {
+  #response {
+    font-size: 15px;
+  }
+
+  h1 {
+    font-size: 25px;
+    padding: 50px;
+  }
+  p {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 400px) {
+  #response {
+    font-size: 15px;
+    background-color: aqua;
+  }
+
+  #modal {
+    width: 100%;
+  }
+
+  h1 {
+    font-size: 25px;
+    padding: 50px;
+  }
+  p {
+    font-size: 12px;
+  }
+}
