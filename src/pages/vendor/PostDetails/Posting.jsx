@@ -25,7 +25,7 @@ export default function Posting() {
   const [quantity, setQuantity] = useState(0);
   return (
     <div className="app-size bg-white">
-      <PageHeader back="/farmer" title="Create Post" />
+      <PageHeader back="/?tab=demands" title="Create Post" />
 
       <div className="flex p-2">
         <div className="flex grow flex-col gap-2 p-4 font-semibold">

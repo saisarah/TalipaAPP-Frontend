@@ -1,4 +1,4 @@
-import dataEncryptionImg from '../images/data_encryption.png'
+import dataEncryptionImg from "../images/data_encryption.png";
 
 export default function Forum() {
   return (
