@@ -1,8 +1,9 @@
-import { Alert, Avatar, Table, Tooltip } from "antd";
-import { columns, data } from "@/components/Demands/post-data";
+import { Alert, Avatar, Button, Input, Space, Table, Tag, Tooltip } from "antd";
 import Page from "@/components/Page";
 import UserOutlined from "@/icons/heroicons/UserOutlined";
-import { AntDesignOutlined } from "@ant-design/icons";
+import { AntDesignOutlined, RightOutlined } from "@ant-design/icons";
+import { dataCommodities } from "./post-data";
+import { Link } from "react-router-dom";
 
 export const Demands = () => {
   return (
@@ -13,103 +14,70 @@ export const Demands = () => {
         showIcon
         closable
       />
-      <div className="border border-x-0 border-b border-t-0 border-slate-100 p-2">
-        <div className="flex flex-row items-center">
-          <div className="grow text-lg font-bold text-black">Mango</div>
-          <Avatar.Group
-            className="grow justify-center"
-            maxCount={3}
-            maxPopoverTrigger="click"
-            size="large"
-            maxStyle={{
-              color: "#f56a00",
-              backgroundColor: "#fde3cf",
-              cursor: "pointer",
-            }}
-          >
-            <Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />
-            <Avatar style={{ backgroundColor: "#f56a00" }}>K</Avatar>
-            <Tooltip title="Ant User" placement="top">
-              <Avatar
-                style={{ backgroundColor: "#87d068" }}
-                icon={<UserOutlined />}
-              />
-            </Tooltip>
-            <Avatar
-              style={{ backgroundColor: "#1890ff" }}
-              icon={<AntDesignOutlined />}
-            />
-          </Avatar.Group>
-          <div className="grow text-center text-slate-500">70%</div>
-        </div>
+
+      <div className="p-4">
+        <table className="w-full table-auto">
+          <thead className="bottom-1 mx-2 border border-x-0 border-t-0 ">
+            <tr className="">
+              <th className=" text-left text-lg font-normal">Commodity</th>
+              <th></th>
+              <th className="text-lg font-normal ">Percentage</th>
+              <th className="text-right"></th>
+            </tr>
+          </thead>
+          <tbody className="">
+            {dataCommodities.map((item) => (
+              <Link
+                className="table-row w-full shadow-sm hover:bg-slate-100 hover:bg-opacity-50 "
+                key={item.key}
+              >
+                <td className="py-2 text-left text-lg font-bold text-black ">
+                  {item.commodities}
+                </td>
+                <td className=" py-2 text-center">
+                  <Avatar.Group
+                    className="align-middle"
+                    maxCount={3}
+                    maxPopoverTrigger="click"
+                    size="medium"
+                    maxStyle={{
+                      color: "#f56a00",
+                      backgroundColor: "#fde3cf",
+                      cursor: "pointer",
+                    }}
+                  >
+                    <Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />
+
+                    <Avatar style={{ backgroundColor: "#f56a00" }}>J</Avatar>
+                    <Avatar src="" />
+                    <Tooltip title="Ant User" placement="top">
+                      <Avatar
+                        style={{ backgroundColor: "#87d068" }}
+                        icon={<UserOutlined />}
+                      />
+                    </Tooltip>
+
+                    <Avatar
+                      style={{ backgroundColor: "#1890ff" }}
+                      icon={<AntDesignOutlined />}
+                    />
+                  </Avatar.Group>
+                </td>
+                <td className="py-2 text-center">
+                  {item.percentage >= 50 ? (
+                    <Tag color="green">{item.percentage}%</Tag>
+                  ) : (
+                    <Tag color="red">{item.percentage}%</Tag>
+                  )}
+                </td>
+                <td className="py-2 text-right">
+                  <RightOutlined className="text-left" />
+                </td>
+              </Link>
+            ))}
+          </tbody>
+        </table>
       </div>
-      <div className="border border-x-0 border-b border-t-0 border-slate-100 p-2">
-        <div className="flex flex-row items-center">
-          <div className="grow text-lg font-bold text-black">Eggplant</div>
-          <Avatar.Group
-            className="grow justify-center"
-            maxCount={3}
-            maxPopoverTrigger="click"
-            size="large"
-            maxStyle={{
-              color: "#f56a00",
-              backgroundColor: "#fde3cf",
-              cursor: "pointer",
-            }}
-          >
-            <Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />
-            <Avatar style={{ backgroundColor: "#f56a00" }}>K</Avatar>
-            <Tooltip title="Ant User" placement="top">
-              <Avatar
-                style={{ backgroundColor: "#87d068" }}
-                icon={<UserOutlined />}
-              />
-            </Tooltip>
-            <Avatar
-              style={{ backgroundColor: "#1890ff" }}
-              icon={<AntDesignOutlined />}
-            />
-          </Avatar.Group>
-          <div className="grow text-center text-slate-500">80%</div>
-        </div>
-      </div>
-      <div className="border border-x-0 border-b border-t-0 border-slate-100 p-2">
-        <div className="flex flex-row items-center">
-          <div className="grow text-lg font-bold text-black">Pinapple</div>
-          <Avatar.Group
-            className="grow justify-center"
-            maxCount={3}
-            maxPopoverTrigger="click"
-            size="large"
-            maxStyle={{
-              color: "#f56a00",
-              backgroundColor: "#fde3cf",
-              cursor: "pointer",
-            }}
-          >
-            <Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />
-            <Avatar style={{ backgroundColor: "#f56a00" }}>J</Avatar>
-            <Tooltip title="Ant User" placement="top">
-              <Avatar
-                style={{ backgroundColor: "#87d068" }}
-                icon={<UserOutlined />}
-              />
-            </Tooltip>
-            <Avatar
-              style={{ backgroundColor: "#1890ff" }}
-              icon={<AntDesignOutlined />}
-            />
-          </Avatar.Group>
-          <div className="grow text-center text-slate-500">90%</div>
-        </div>
-      </div>
-      {/* <Table
-        className="justify-center text-center"
-        dataSource={dataCommodities}
-        columns={columnsCommodities}
-        pagination={false}
-      /> */}
-      <Table columns={columns} dataSource={data} />;
     </Page>
   );
 };
