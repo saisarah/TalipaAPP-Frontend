@@ -19,9 +19,9 @@ export const Demands = () => {
         <table className="w-full table-auto">
           <thead className="bottom-1 mx-2 border border-x-0 border-t-0 ">
             <tr className="">
-              <th className=" text-left text-lg font-normal">Commodity</th>
+              <th className="text-left text-sm font-bold ">Commodity</th>
               <th></th>
-              <th className="text-lg font-normal ">Percentage</th>
+              <th className="text-sm font-bold ">Percentage</th>
               <th className="text-right"></th>
             </tr>
           </thead>
@@ -31,7 +31,7 @@ export const Demands = () => {
                 className="table-row w-full shadow-sm hover:bg-slate-100 hover:bg-opacity-50 "
                 key={item.key}
               >
-                <td className="py-2 text-left text-lg font-bold text-black ">
+                <td className="py-2 text-left text-lg font-normal text-black ">
                   {item.commodities}
                 </td>
                 <td className=" py-2 text-center">
