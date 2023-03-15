@@ -42,7 +42,7 @@ export default function ChooseAccountType({ setAccountType }) {
         onClick={handleButtonClick}
         className={`relative grid flex-shrink-0 ${
           buttonClicked ? "h-full" : "h-[50%]"
-        } place-content-center transition-all duration-500 ease-in-out`}
+        } place-content-center transition-all duration-700 ease-in-out`}
       >
         <img
           className="absolute inset-0 h-full w-full  object-cover  "
