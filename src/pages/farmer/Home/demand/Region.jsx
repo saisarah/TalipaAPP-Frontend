@@ -1,7 +1,11 @@
 import Page from "@/components/Page";
 import PageHeader from "@/components/PageHeader";
 import MapPinOutline from "@/icons/heroicons/MapPinOutline";
-import { PushpinOutlined, SearchOutlined } from "@ant-design/icons";
+import {
+  LinkOutlined,
+  PushpinOutlined,
+  SearchOutlined,
+} from "@ant-design/icons";
 import { Avatar, Select } from "antd";
 import { dataRegion } from "./post-data";
 
@@ -141,6 +145,7 @@ export default function Region() {
             </div>
             <div className="mt-2 flex  justify-between gap-5">
               <button className="flex-grow rounded bg-[#739559] p-1  text-center font-bold text-white">
+                <LinkOutlined className="mr-4" />
                 Connect
               </button>
               <div className="text-centers flex items-center text-sm font-thin text-slate-400">
