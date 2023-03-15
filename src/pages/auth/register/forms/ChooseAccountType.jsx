@@ -10,7 +10,7 @@ export default function ChooseAccountType({ setAccountType }) {
       <Link to="/login">
         <Button
           type="link"
-          className="absolute z-20 text-white"
+          className="absolute z-20 text-white hover:text-black"
           icon={<LeftOutlined style={{ fontSize: "24px" }} />}
         />
       </Link>
@@ -19,9 +19,11 @@ export default function ChooseAccountType({ setAccountType }) {
         className="relative grid flex-shrink-0 flex-grow place-content-center"
       >
         <img
-          className="absolute inset-0 h-full w-full object-cover"
+          className="absolute inset-0 h-full w-full  object-cover  "
           src={vendorImg}
         />
+        <div className="absolute inset-0 bg-gradient-to-br from-[#739559] to-transparent duration-500 hover:opacity-0"></div>
+
         <span className="relative z-10 text-3xl font-bold text-white">
           Vendor
         </span>
@@ -34,6 +36,9 @@ export default function ChooseAccountType({ setAccountType }) {
           className="absolute inset-0 h-full w-full object-cover"
           src={farmerImg}
         />
+
+        <div className="absolute inset-0 bg-gradient-to-br from-transparent to-[#739559] duration-500 hover:opacity-0"></div>
+
         <span className="relative z-10 text-3xl font-bold text-white">
           Farmer
         </span>
