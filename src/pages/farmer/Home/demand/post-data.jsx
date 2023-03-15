@@ -5,37 +5,37 @@ export const dataCommodities = [
   {
     key: "1",
     commodities: "Pineapple",
-    percentage: 89,
+    percentage: 10,
   },
   {
     key: "2",
     commodities: "Mango",
-    percentage: 10,
+    percentage: 20,
   },
   {
     key: "3",
     commodities: "Banana",
-    percentage: 54,
+    percentage: 15,
   },
   {
     key: "4",
     commodities: "Garlic",
-    percentage: 30,
+    percentage: 15,
   },
   {
     key: "5",
     commodities: "Onion",
-    percentage: 48,
+    percentage: 30,
   },
   {
     key: "6",
     commodities: "Cabbage",
-    percentage: 50,
+    percentage: 6,
   },
   {
     key: "7",
     commodities: "Eggplant",
-    percentage: 70,
+    percentage: 4,
   },
 ];
 
