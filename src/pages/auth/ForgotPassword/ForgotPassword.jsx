@@ -93,13 +93,14 @@ export default function ForgotPassword() {
           <img className="" src={forgotPasswordImg} />
         </div>
 
-        <span className="mt-8 text-center text-lg font-medium">
-          Please Enter Your Contact Number To receive a Verification Code
+        <span className="mt-8 text-left text-sm font-medium w-full">
+          <span className="font-bold text-xl text-slate-900">Find your TalipaAPP account </span><br/>
+          <span className="text-light">Enter your phone number associated to your account to reset your password.</span>
         </span>
 
         <Form
           onFinish={handleSubmit}
-          className="mt-12 w-full"
+          className="mt-8 w-full"
           layout="vertical"
         >
           <Form.Item
