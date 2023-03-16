@@ -26,7 +26,7 @@ export const VerificationForm = () => {
   });
 
   useEffect(() => {
-    // sendOtp(data.contact_number);
+    sendOtp(data.contact_number);
   }, []);
 
   const handleSubmit = ({ code }) => {
