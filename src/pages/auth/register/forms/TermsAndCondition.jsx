@@ -193,15 +193,13 @@ export default function TermsAndCondition() {
   const checkbox = useRef()
 
   const onScroll = useCallback(function (e) {
-    if (e.target.scrollTop === e.target.scrollTopMax) {
+    if (e.target.scrollTop+10 >= e.target.scrollTopMax) {
       setHasRead(true);
-      console.log("Scrolled to bottom");
     }
   }, []);
 
   useEffect(() => {
     const body = document.querySelector(".ant-modal-body");
-    console.log(checkbox.current)
 
     if (body) {
       body.addEventListener("scroll", onScroll);
@@ -222,9 +220,9 @@ export default function TermsAndCondition() {
   return (
     <>
       <Checkbox ref={checkbox} disabled={!hasRead} className="text-justify">
-        Please read these
+        By Clicking Submit, you agree to the TalipaAPP
         <a href="#" onClick={() => setOpen(true)} className="ml-1 text-primary">
-          terms and conditions
+          Terms and Privacy Policy
         </a>
         .
       </Checkbox>
