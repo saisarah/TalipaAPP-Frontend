@@ -24,10 +24,10 @@ export const VerificationForm = () => {
       notification.error({ message: getErrorMessage(e) });
     },
   });
-  
+
   useEffect(() => {
-    sendOtp(data.contact_number)
-  }, [])
+    // sendOtp(data.contact_number);
+  }, []);
 
   const handleSubmit = ({ code }) => {
     if (isLoading) return;
@@ -71,12 +71,15 @@ export const VerificationForm = () => {
                 type="link"
                 disabled={throttle}
               >
-                {isSending ? 'Sending' : throttle > 0 ? `Resend in ${throttle}s` : "Send Code"}
+                {isSending
+                  ? "Sending"
+                  : throttle > 0
+                  ? `Resend in ${throttle}s`
+                  : "Send Code"}
               </Button>
             ),
           }}
         />
-        {/* import here */}
         <TermsAndCondition />
 
         <Button
