@@ -7,6 +7,7 @@ import { useParams } from "react-router-dom";
 import CreateOrder from "../CreateOrder/CreateOrder";
 import { PostDescription } from "./components/PostDescription";
 import { PostDetailsLayout } from "./components/PostDetailsLayout";
+import SetQuantityNotStraight from "./components/SetQuantityNotStraight";
 import { SetQuantityStraight } from "./components/SetQuantityStraight";
 
 export const PostDetails = () => {
@@ -38,11 +39,14 @@ export const PostDetails = () => {
 
   return (
     <PostDetailsLayout>
-      <div>
-        <img
-          className="aspect-video w-full object-cover"
-          src={attachments[0].source}
-        />
+      <div className="flex overflow-x-auto snap-mandatory snap-x talipaapp-scrollbar">
+        {attachments.map((img) => (
+          <img
+            key={img.id}
+            className="aspect-video w-full object-cover flex-shrink-0 snap-start"
+            src={img.source}
+          />
+        ))}
       </div>
       <div className="p-4">
         <div className="flex justify-between gap-2">
@@ -81,17 +85,26 @@ export const PostDetails = () => {
         </Button>
       </div>
 
-      {post.is_straight && (
-        <SetQuantityStraight
-          unit={post.unit}
-          caption={post.caption}
-          title={post.title}
-          price={post.prices[0]}
-          isOpen={isOpen}
-          setIsOpen={setIsOpen}
-          setOrderQuantities={setOrderQuantities}
-        />
-      )}
+      <SetQuantityStraight
+        unit={post.unit}
+        caption={post.caption}
+        title={post.title}
+        price={post.prices[0]}
+        isOpen={isOpen && post.is_straight}
+        setIsOpen={setIsOpen}
+        setOrderQuantities={setOrderQuantities}
+      />
+
+      <SetQuantityNotStraight 
+        title={post.title} 
+        caption={post.caption}
+        unit={post.unit}
+        setOrderQuantities={setOrderQuantities}
+        prices={post.prices}
+        isOpen={isOpen && !post.is_straight}
+        setIsOpen={setIsOpen}
+      />
+
     </PostDetailsLayout>
   );
 };
