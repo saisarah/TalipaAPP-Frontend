@@ -66,8 +66,6 @@ export default function Sidebar({ sideNavOpen, setSideNavOpen }) {
             icon={<MessageFilled />}
             label="Messages"
           />
-          <SideBarLink to="/profile" icon={<UserFilled />} label="Profile" />
-
           <SideBarLink to="/wallet" icon={<WalletFilled />} label="Wallet" />
 
           <SideBarLink
