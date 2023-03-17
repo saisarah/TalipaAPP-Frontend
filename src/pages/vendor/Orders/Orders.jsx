@@ -22,7 +22,10 @@ export default function Orders() {
         ))}
       </div>
 
-      <OrderLists status={selected} />
+      <OrderLists 
+        status={selected} 
+        cardLink={id => `/orders/${id}`}
+      />
     </div>
   );
 }

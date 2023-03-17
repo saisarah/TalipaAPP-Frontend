@@ -1,12 +1,11 @@
 import { fetchOrders } from "@/apis/OrderApi";
 import OrderCard from "@/components/OrderCard";
-import OrderItem from "@/components/OrderItem/OrderItem";
 import { currency } from "@/helpers/utils";
 import { useQuery } from "@tanstack/react-query";
 import { Spin } from "antd";
 import moment from "moment";
 import emptySvg from "../image/undraw_empty_cart_co35.svg";
-export default function OrderLists({ status }) {
+export default function OrderLists({ status, cardLink }) {
   const { data, isLoading } = useQuery(
     fetchOrders.key(status),
     fetchOrders.fetcher(status)
@@ -33,7 +32,7 @@ export default function OrderLists({ status }) {
     <div className="flex flex-col gap-2 p-2">
       {data.map(({ id, post, total, ...order }) => (
         <OrderCard
-          to={`/orders/${id}`}
+          to={cardLink(id)}
           key={id}
           id={id}
           order_name={post.crop.name}
@@ -44,18 +43,6 @@ export default function OrderLists({ status }) {
           location={post.location}
           timestamp={moment(order.created_at).fromNow()}
         />
-        // <OrderItem
-        //   key={id}
-        //   name={post.author.fullname}
-        //   to={`/orders/${id}`}
-        //   avatar={post.author.profile_picture}
-        //   created_at={order.created_at}
-        //   crop={post.crop.name}
-        //   quantity={total["quantity"]}
-        //   location={post.location}
-        //   status={order.order_status}
-        //   total={total["price"]}
-        // />
       ))}
     </div>
   );
