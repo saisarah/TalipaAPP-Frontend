@@ -4,7 +4,7 @@ import { currency } from "@/helpers/utils";
 import { useQuery } from "@tanstack/react-query";
 import { Spin } from "antd";
 import moment from "moment";
-import emptySvg from "../image/undraw_empty_cart_co35.svg";
+import emptyCartSvg from "./images/empty_cart.svg";
 export default function OrderLists({ status, cardLink }) {
   const { data, isLoading } = useQuery(
     fetchOrders.key(status),
@@ -21,7 +21,7 @@ export default function OrderLists({ status, cardLink }) {
   if (data.length == 0)
     return (
       <div className="flex flex-col items-center py-40">
-        <img width="200" height="100" src={emptySvg} alt="" />
+        <img width="200" height="100" src={emptyCartSvg} alt="" />
         <span className="px-24 text-center text-sm">
           You have no orders yet, browse commodities in the home section
         </span>

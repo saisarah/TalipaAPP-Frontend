@@ -1,23 +1,16 @@
-import { DELIVERY_FEE, TRANSACTION_FEE } from "@/apis/OrderApi";
+import OrderDescriptions from "@/components/Orders/OrderDescriptions";
+import PostLink from "@/components/Orders/PostLink";
 import PageHeader from "@/components/PageHeader";
 import Http from "@/helpers/Http";
-import { currency } from "@/helpers/utils";
+import { useOrderQuery } from "@/query/queries/useOrdersQuery";
 import { useQuery } from "@tanstack/react-query";
-import { Avatar, Button, Card, Descriptions, Spin, Steps } from "antd";
+import { Avatar, Button, Card, Divider, Spin } from "antd";
 import moment from "moment";
 import { Link, useParams } from "react-router-dom";
 
-const fetchOrder = async (id) => {
-  const { data } = await Http.get(`/orders/${id}`);
-  return data;
-};
-
 export default function OrderInfo() {
   const { id } = useParams();
-
-  const { data: order, isLoading } = useQuery(["orders", id], () =>
-    fetchOrder(id)
-  );
+  const { data: order, isLoading } = useOrderQuery(id)
 
   return (
     <div className="app-size bg-white ">
@@ -44,117 +37,11 @@ export default function OrderInfo() {
             </div>
           </div>
 
-          <div className="my-4">
-            <Descriptions
-              title="Order Details"
-              size="small"
-              bordered
-              column={1}
-            >
-              <Descriptions.Item label="Order Status">
-                <span className="capitalize">{order.order_status}</span>
-              </Descriptions.Item>
-              <Descriptions.Item label="Payment Method">
-                TalipaAPP Wallet
-              </Descriptions.Item>
-              <Descriptions.Item label="Delivery Method">
-                Transportify
-              </Descriptions.Item>
-              {!!order.post.is_straight && (
-                <>
-                  <Descriptions.Item label="Price">
-                    {order.quantities[0].price} / {order.post.unit}
-                  </Descriptions.Item>
-                  <Descriptions.Item label="Quantity">
-                    {order.total.quantity} Kilograms
-                  </Descriptions.Item>
-                  <Descriptions.Item className="font-semibold" label="Subtotal">
-                    {currency(order.total.price)}
-                  </Descriptions.Item>
-                  <Descriptions.Item
-                    className="font-semibold"
-                    label="Transaction Fee"
-                  >
-                    {currency(order.total.price * TRANSACTION_FEE)}
-                  </Descriptions.Item>
-                  <Descriptions.Item
-                    className="font-semibold"
-                    label="Delivery Fee"
-                  >
-                    {currency(DELIVERY_FEE)}
-                  </Descriptions.Item>
-                  <Descriptions.Item
-                    className="font-semibold"
-                    label="Total Price"
-                  >
-                    {currency(
-                      DELIVERY_FEE + order.total.price * (1 + TRANSACTION_FEE)
-                    )}
-                  </Descriptions.Item>
-                </>
-              )}
-            </Descriptions>
+          <OrderDescriptions order={order} className="my-4" />
 
-            {!order.post.is_straight && (
-              <Descriptions
-                className="mt-4"
-                title="Price"
-                size="small"
-                bordered
-                column={1}
-              >
-                {order.quantities.map((price) => (
-                  <Descriptions.Item key={price.id} label={price.variant}>
-                    {price.quantity}
-                    {order.post.unit} x {currency(parseFloat(price.price))}
-                  </Descriptions.Item>
-                ))}
-                <Descriptions.Item className="font-semibold" label="Subtotal">
-                  {currency(order.total.price)}
-                </Descriptions.Item>
-                <Descriptions.Item
-                  className="font-semibold"
-                  label="Transaction Fee"
-                >
-                  {currency(order.total.price * TRANSACTION_FEE)}
-                </Descriptions.Item>
-                <Descriptions.Item
-                  className="font-semibold"
-                  label="Delivery Fee"
-                >
-                  {currency(DELIVERY_FEE)}
-                </Descriptions.Item>
-                <Descriptions.Item
-                  className="font-semibold"
-                  label="Total Price"
-                >
-                  {currency(
-                    DELIVERY_FEE + order.total.price * (1 + TRANSACTION_FEE)
-                  )}
-                </Descriptions.Item>
-              </Descriptions>
-            )}
-          </div>
+          <Divider />
 
-          <Link className="mt-4" to={`/posts/${order.post_id}`}>
-            <Card className="rounded-lg bg-white  shadow">
-              <div className="flex">
-                <Avatar
-                  size={100}
-                  className=" flex-shrink-0 rounded-lg"
-                  src={order.post.thumbnail.source}
-                ></Avatar>
-                <div className="ml-4">
-                  <h3 className="text-lg font-bold">{order.post.title}</h3>
-                  <p className="text-gray-600">{order.post.caption}</p>
-
-                  <p className="text-sm italic text-slate-600">
-                    *tap to see post
-                  </p>
-                </div>
-              </div>
-            </Card>
-          </Link>
+          <PostLink to={`/orders/${order.id}`} post={order.post} />
 
           <div className="mt-4">
             {order.order_status == "pending" && (
