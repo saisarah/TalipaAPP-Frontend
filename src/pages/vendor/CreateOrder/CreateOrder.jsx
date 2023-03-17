@@ -1,3 +1,4 @@
+import { DELIVERY_FEE, TRANSACTION_FEE } from "@/apis/OrderApi";
 import Page from "@/components/Page";
 import PageHeader from "@/components/PageHeader";
 import Http, { getErrorMessage } from "@/helpers/Http";
@@ -14,9 +15,6 @@ import { Avatar, Button, notification } from "antd";
 import { useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import tranportifyImg from "./images/transportify.png";
-
-const TRANSACTION_FEE = 0.08;
-const DELIVERY_FEE = 200;
 
 const submitOrder = async (id, quantities) => {
   const { data } = await Http.post(`/posts/${id}/order`, {
