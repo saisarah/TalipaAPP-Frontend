@@ -21,7 +21,7 @@ export default function OrderInfo() {
 
   return (
     <div className="app-size bg-white ">
-      <PageHeader back="farmer/orders?tab=pending" title="Order" />
+      <PageHeader back="/orders?tab=pending" title="Order" />
 
       {isLoading ? (
         <div className="flex items-center justify-center py-16">
@@ -72,21 +72,71 @@ export default function OrderInfo() {
                     {order.total.quantity} Kilograms
                   </Descriptions.Item>
                   <Descriptions.Item className="font-semibold" label="Subtotal">
-                    { currency(order.total.price) }
+                    {currency(order.total.price)}
                   </Descriptions.Item>
-                  <Descriptions.Item className="font-semibold" label="Transaction Fee">
-                    { currency(order.total.price * TRANSACTION_FEE) }
+                  <Descriptions.Item
+                    className="font-semibold"
+                    label="Transaction Fee"
+                  >
+                    {currency(order.total.price * TRANSACTION_FEE)}
                   </Descriptions.Item>
-                  <Descriptions.Item className="font-semibold" label="Delivery Fee">
-                    { currency(DELIVERY_FEE) }
+                  <Descriptions.Item
+                    className="font-semibold"
+                    label="Delivery Fee"
+                  >
+                    {currency(DELIVERY_FEE)}
                   </Descriptions.Item>
-                  <Descriptions.Item className="font-semibold" label="Total Price">
-                    { currency(DELIVERY_FEE + (order.total.price * (1+TRANSACTION_FEE)) ) }
+                  <Descriptions.Item
+                    className="font-semibold"
+                    label="Total Price"
+                  >
+                    {currency(
+                      DELIVERY_FEE + order.total.price * (1 + TRANSACTION_FEE)
+                    )}
                   </Descriptions.Item>
-
                 </>
               )}
             </Descriptions>
+
+            {!order.post.is_straight && (
+              <Descriptions
+                className="mt-4"
+                title="Price"
+                size="small"
+                bordered
+                column={1}
+              >
+                {order.quantities.map((price) => (
+                  <Descriptions.Item key={price.id} label={price.variant}>
+                    {price.quantity}
+                    {order.post.unit} x {currency(parseFloat(price.price))}
+                  </Descriptions.Item>
+                ))}
+                <Descriptions.Item className="font-semibold" label="Subtotal">
+                  {currency(order.total.price)}
+                </Descriptions.Item>
+                <Descriptions.Item
+                  className="font-semibold"
+                  label="Transaction Fee"
+                >
+                  {currency(order.total.price * TRANSACTION_FEE)}
+                </Descriptions.Item>
+                <Descriptions.Item
+                  className="font-semibold"
+                  label="Delivery Fee"
+                >
+                  {currency(DELIVERY_FEE)}
+                </Descriptions.Item>
+                <Descriptions.Item
+                  className="font-semibold"
+                  label="Total Price"
+                >
+                  {currency(
+                    DELIVERY_FEE + order.total.price * (1 + TRANSACTION_FEE)
+                  )}
+                </Descriptions.Item>
+              </Descriptions>
+            )}
           </div>
 
           <Link className="mt-4" to={`/posts/${order.post_id}`}>
