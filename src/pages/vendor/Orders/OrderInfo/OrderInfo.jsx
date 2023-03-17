@@ -38,11 +38,8 @@ export default function OrderInfo() {
               <span className="">{moment(order.created_at).fromNow()}</span>
             </div>
             <div className="">
-              <Link
-                to={`/messages/${order.post.author_id}`}
-                className=" w-20 rounded-full border-2 border-solid border-[#314026] p-1  text-xs font-bold text-[#314026] "
-              >
-                Message
+              <Link to={`/messages/${order.post.author_id}`}>
+                <Button shape="round">Message</Button>
               </Link>
             </div>
           </div>
