@@ -9,6 +9,10 @@ export const fetchOrders = async (status) => {
   });
   return data;
 };
-
 fetchOrders.key = (status) => ["orders", { status }];
 fetchOrders.fetcher = (status) => () => fetchOrders(status);
+
+export const fetchOrder = async (id) => {
+  const { data } = await Http.get(`/orders/${id}`);
+  return data;
+};
