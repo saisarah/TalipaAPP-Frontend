@@ -2,16 +2,15 @@ import Page from "@/components/Page";
 import { useTitle } from "@/contexts/VendorContext";
 import { useCropOptions } from "@/query/queries/useCropsQuery";
 import { Button, Form, Input, Select } from "antd";
+import TextArea from "antd/lib/input/TextArea";
 import { required } from "./rules";
 
 export default function AddDemand() {
-  useTitle("Add Demand");
-
   const { data: crops, isLoading: fetchingCrops } = useCropOptions();
-
   const handleSubmit = ({ crop_id }) => {
     FormData.crop_id = crop_id;
   };
+  useTitle("Add Demand");
   return (
     <Page className="bg-white">
       <Form
@@ -20,13 +19,22 @@ export default function AddDemand() {
         onFinish={handleSubmit}
       >
         <Form.Item
+          name="description"
+          rules={required()}
+          label=" Description"
+          tooltip="[Update this]"
+        >
+          <TextArea rows={4} placeholder="Type here ...." />
+        </Form.Item>
+
+        <Form.Item
           name="crop_id"
           rules={required()}
           label="Commodity"
           tooltip="[Update this]"
         >
           <Select
-            placeholder="Select Commodity"
+            placeholder="Please select the desired commodity "
             options={crops}
             size="large"
             loading={fetchingCrops}
@@ -39,7 +47,7 @@ export default function AddDemand() {
           label="Quantity (This will be specified as kilograms)"
           tooltip="[Update this]"
         >
-          <Input type="number" size="large" />
+          <Input type="number" size="large" placeholder="KG 10000" />
         </Form.Item>
 
         <Form.Item
@@ -48,7 +56,7 @@ export default function AddDemand() {
           label="Budget"
           tooltip="[Update this]"
         >
-          <Input type="number" size="large" />
+          <Input type="number" size="large" placeholder="₱ 10000" />
         </Form.Item>
 
         <Button size="large" type="primary" className="mt-4 rounded" block>
