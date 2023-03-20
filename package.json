@@ -10,7 +10,8 @@
     "build:android": "cross-env NODE_ENV=production VITE_PLATFORM=android vite build",
     "build:dev": "vite build --mode development --sourcemap",
     "lint": "npx prettier src --check \nnpx eslint src --ext js,jsx",
-    "format": "prettier src --write"
+    "format": "prettier src --write",
+    "scan:dead-code": "npx unimported"
   },
   "dependencies": {
     "@ant-design/icons": "^4.7.0",
