@@ -1,15 +1,21 @@
 import Page from "@/components/Page";
 import PageHeader from "@/components/PageHeader";
 import MapPinOutline from "@/icons/heroicons/MapPinOutline";
+import { useDemandsQuery } from "@/query/queries/useDemandsQuery";
 import {
   LinkOutlined,
   PushpinOutlined,
   SearchOutlined,
 } from "@ant-design/icons";
-import { Avatar, Select } from "antd";
+import { Avatar, Select, Spin } from "antd";
+import moment from "moment";
+import { Link } from "react-router-dom";
 import { dataRegion } from "./post-data";
 
 export default function Region() {
+
+  const query = useDemandsQuery()
+
   const options = [
     {
       value: "Ilocos Region",
@@ -85,6 +91,12 @@ export default function Region() {
     console.log(`Selected: ${value}`);
   };
 
+  if (query.isLoading){
+    return <div>
+      <Spin />
+    </div>
+  }
+
   return (
     <Page className="bg-white">
       <PageHeader back="/farmer/home" title="Demands" />
@@ -99,18 +111,18 @@ export default function Region() {
           options={options}
           suffixIcon={<SearchOutlined />}
         />
-        {dataRegion.map((item) => (
+        {query.data.map((item) => (
           <div
-            key={item.key}
+            key={item.id}
             className=" mt-2 rounded border border-[#e5e7eb]  bg-white p-4 py-2 text-base shadow-sm"
           >
             <div className="flex">
               <div className="mr-14 flex flex-row items-center">
-                <Avatar size="large"></Avatar>
+                <Avatar size="large" src={item.author.profile_picture}></Avatar>
               </div>
               <div className="flex-auto flex-row">
                 <div className="text-center text-lg font-normal text-black">
-                  {item.commodity}
+                  {item.crop.name}
                 </div>
                 <div className="text-center text-xs font-thin">
                   Commodity <br />
@@ -133,23 +145,18 @@ export default function Region() {
                 </div>
               </div>
             </div>
-            <div className=" text-lg text-black">{item.name}</div>
+            <div className=" text-lg text-black">{item.author.fullname}</div>
             <div className="text-left text-sm font-thin text-slate-400">
-              <MapPinOutline /> {item.region}
+              <MapPinOutline /> Caloocan City
             </div>
-            <div className="text-justify text-sm font-normal">
-              LoLorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-              commodo tincidunt tortor, a luctus mi.rem ipsum dolor sit amet,
-              consectetur adipiscing elit. Sed commodo tincidunt tortor, a
-              luctus mi.
-            </div>
+            <div className="text-justify text-sm font-normal">{item.description}</div>
             <div className="mt-2 flex  justify-between gap-5">
-              <button className="flex-grow rounded bg-[#739559] p-1  text-center font-bold text-white">
+              <Link to={"/farmer/messages/"+item.author.id} className="flex-grow rounded bg-[#739559] p-1  text-center font-bold text-white">
                 <LinkOutlined className="mr-4" />
                 Connect
-              </button>
+              </Link>
               <div className="text-centers flex items-center text-sm font-thin text-slate-400">
-                2 days ago
+                {moment(item.created_at).fromNow()}
               </div>
             </div>
           </div>
