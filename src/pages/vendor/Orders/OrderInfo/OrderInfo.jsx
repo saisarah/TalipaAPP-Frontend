@@ -1,10 +1,9 @@
 import OrderDescriptions from "@/components/Orders/OrderDescriptions";
+import OrderProfile from "@/components/Orders/OrderProfile";
 import PostLink from "@/components/Orders/PostLink";
 import PageHeader from "@/components/PageHeader";
-import Http from "@/helpers/Http";
 import { useOrderQuery } from "@/query/queries/useOrdersQuery";
-import { useQuery } from "@tanstack/react-query";
-import { Avatar, Button, Card, Divider, Spin } from "antd";
+import { Avatar, Button, Divider, Spin } from "antd";
 import moment from "moment";
 import { Link, useParams } from "react-router-dom";
 
@@ -22,20 +21,11 @@ export default function OrderInfo() {
         </div>
       ) : (
         <div className="w-full bg-white p-4">
-          <div className="flex w-full items-center gap-2">
-            <Avatar size={52} src={order.post.author.profile_picture} />
-            <div className="leaing-4 flex h-full flex-grow flex-col">
-              <span className=" text-xl font-bold ">
-                {order.post.author.fullname}
-              </span>
-              <span className="">{moment(order.created_at).fromNow()}</span>
-            </div>
-            <div className="">
-              <Link to={`/messages/${order.post.author_id}`}>
-                <Button shape="round">Message</Button>
-              </Link>
-            </div>
-          </div>
+          <OrderProfile
+            messageLink={`/farmer/messages/${order.post.user_id}`}
+            user={order.post.author}
+            label="Seller"
+          />
 
           <OrderDescriptions order={order} className="my-4" />
 
