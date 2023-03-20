@@ -1,16 +1,19 @@
 import Page from "@/components/Page";
 import PageHeader from "@/components/PageHeader";
+import { useCurrentUserQuery } from "@/query/queries/useCurrentUserQuery";
 import { Button, Input, Space } from "antd";
 import { Link } from "react-router-dom";
 
 export default function ChangeEmailVerification() {
+  const { data: user } = useCurrentUserQuery();
+
   return (
     <Page className="bg-white">
       <PageHeader title="Change E-mail" back="/farmer/settings/change-email" />
 
       <Space direction="vertical flex p-4">
         <span>We send a 4 digits verification code on this Email</span>
-        <span>vill*******27@gmail.com</span>
+        <span>{user.email}</span>
         <Input placeholder="****" />
       </Space>
       <div className="flex justify-end px-4">
