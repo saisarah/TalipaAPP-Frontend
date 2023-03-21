@@ -1,3 +1,4 @@
+import { OrderAction } from "@/components/Orders/OrderAction";
 import OrderDescriptions from "@/components/Orders/OrderDescriptions";
 import OrderProfile from "@/components/Orders/OrderProfile";
 import PostLink from "@/components/Orders/PostLink";
@@ -9,7 +10,7 @@ import { Link, useParams } from "react-router-dom";
 
 export default function OrderInfo() {
   const { id } = useParams();
-  const { data: order, isLoading } = useOrderQuery(id)
+  const { data: order, isLoading } = useOrderQuery(id);
 
   return (
     <div className="app-size bg-white ">
@@ -31,15 +32,13 @@ export default function OrderInfo() {
 
           <Divider />
 
-          <PostLink to={`/orders/${order.id}`} post={order.post} />
+          <PostLink
+            className="mb-4"
+            to={`/orders/${order.id}`}
+            post={order.post}
+          />
 
-          <div className="mt-4">
-            {order.order_status == "pending" && (
-              <Button danger size="large" type="primary" block>
-                Cancel Order
-              </Button>
-            )}
-          </div>
+          <OrderAction status={order.order_status} />
         </div>
       )}
     </div>

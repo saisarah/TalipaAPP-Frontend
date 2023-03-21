@@ -1,3 +1,4 @@
+import { OrderAction } from "@/components/Orders/OrderAction";
 import OrderDescriptions from "@/components/Orders/OrderDescriptions";
 import OrderProfile from "@/components/Orders/OrderProfile";
 import PostLink from "@/components/Orders/PostLink";
@@ -30,84 +31,11 @@ export default function OrderInfo() {
 
           <Divider />
 
-          <PostLink to={`/farmer/posts/${order.id}`} post={order.post} />
+          <PostLink className="mb-4" to={`/farmer/posts/${order.id}`} post={order.post} />
+
+          <OrderAction status={order.order_status} />
         </div>
       )}
     </div>
   );
 }
-
-// {order.status == "pending" && (
-//   <div className="mt-4 justify-end text-center">
-//     <button className="align-items-center mt-2 w-10/12 rounded-[4px] bg-[#739559] p-2 font-bold text-white">
-//       Accept
-//     </button>
-//   </div>
-// )}
-//
-// {order.status == "shipped" && (
-//   <>
-//     <div className="mt-2 w-full bg-white">
-//       {/* Delivery Method */}
-//       {/* <div className="flex justify-between px-4">
-//         <div className="text-lg font-bold text-zinc-400">
-//           <p>Delivery Method:</p>
-//         </div>
-
-//         <div className="text-lg capitalize">Transportify</div>
-//       </div> */}
-
-//       {/* Payment Method */}
-//       {/* <div className="flex justify-between px-4">
-//         <div className="text-lg font-bold text-zinc-400">
-//           <p>Payment Method:</p>
-//         </div>
-
-//         <div className="text-lg capitalize">Gcash</div>
-//       </div> */}
-
-//       {/* Tracking */}
-//       {/* <div className="flex justify-between px-4">
-//         <div className="text-lg font-bold text-zinc-400">
-//           <p>Tracking #:</p>
-//         </div>
-
-//         <div className="text-lg capitalize">1Akw1298DCM5398</div>
-//       </div> */}
-//     </div>
-
-//     <div
-//       className="mb-4 h-1"
-//       style={{
-//         backgroundImage:
-//           "repeating-linear-gradient(45deg, #6fa6d6, #6fa6d6 33px, transparent 0, transparent 41px, #f18d9b 0, #f18d9b 74px, transparent 0, transparent 82px)",
-//       }}
-//     ></div>
-//     <div className="grid w-full justify-center">
-//       <Steps direction="vertical" current={2} className="w-full ">
-//         {items.map((item, index) => (
-//           <Step
-//             className=""
-//             key={index}
-//             title={
-//               <div>{item.title}</div>
-//               // <div className="flex items-center justify-between">
-
-//               // </div>
-//             }
-//             description={
-//               <div className="grid grid-cols-2 gap-2">
-//                 <div>
-//                   <p>{item.description}</p>
-//                 </div>
-//                 <div className="text-right text-sm">
-//                   {item.timestamp}
-//                 </div>
-//               </div>
-//             }
-//           />
-//         ))}
-//       </Steps>
-//     </div>
-//   </>
-// )}
