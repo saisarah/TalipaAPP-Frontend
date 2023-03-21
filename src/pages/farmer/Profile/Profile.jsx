@@ -2,7 +2,7 @@ import { EditOutlined, UserOutlined } from "@ant-design/icons";
 import { Avatar, Spin } from "antd";
 import { Button } from "antd";
 import { useQuery } from "@tanstack/react-query";
-import { fetchUserPosts } from "@/apis/Post";
+import { fetchUserPosts } from "@/apis/PostApi";
 import PostCard from "@/components/PostCard";
 import PageHeader from "@/components/PageHeader";
 import Page from "@/components/Page";

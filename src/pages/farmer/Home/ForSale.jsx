@@ -1,4 +1,4 @@
-import { fetchPosts } from "@/apis/Post";
+import { fetchPosts } from "@/apis/PostApi";
 import PostCard from "@/components/PostCard";
 import { useQuery } from "@tanstack/react-query";
 import { Spin } from "antd";

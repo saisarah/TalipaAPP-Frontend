@@ -1,4 +1,4 @@
-import { createPost } from "@/apis/Post";
+import { createPost } from "@/apis/PostApi";
 import Page from "@/components/Page";
 import PageHeader from "@/components/PageHeader";
 import { getErrorMessage } from "@/helpers/Http";

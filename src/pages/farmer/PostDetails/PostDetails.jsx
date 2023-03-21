@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { Avatar, Button, Descriptions, Rate } from "antd";
 import { LoadingSkeleton } from "@/components/LoadingSkeleton";
 import { currency } from "@/helpers/utils";
-import { fetchPost } from "@/apis/Post";
+import { fetchPost } from "@/apis/PostApi";
 import PageHeader from "@/components/PageHeader";
 import Page from "@/components/Page";
 

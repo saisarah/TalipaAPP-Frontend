@@ -1,4 +1,4 @@
-import { fetchPost } from "@/apis/Post";
+import { fetchPost } from "@/apis/PostApi";
 import { useQuery } from "@tanstack/react-query";
 
 export const usePost = (post_id) => {
