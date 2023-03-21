@@ -58,6 +58,10 @@ const routes = [
         path: "settings",
         element: <Settings />,
       },
+      {
+        path: "demands/create",
+        element: <AddDemand />,
+      },
     ],
   },
   {
@@ -98,11 +102,6 @@ const routes = [
   {
     path: "settings/change-email",
     element: <ChangeEmail />,
-  },
-
-  {
-    path: "demands/create",
-    element: <Posting />,
   },
 ];
 
