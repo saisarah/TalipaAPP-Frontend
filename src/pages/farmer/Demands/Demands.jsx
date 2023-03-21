@@ -1,17 +1,15 @@
-import { Alert, Avatar, Button, Input, Space, Table, Tag, Tooltip } from "antd";
-import Page from "@/components/Page";
 import UserOutlined from "@/icons/heroicons/UserOutlined";
 import {
   AntDesignOutlined,
-  ArrowUpOutlined,
-  RightOutlined,
+  ArrowUpOutlined
 } from "@ant-design/icons";
-import { dataCommodities } from "./post-data";
+import { Alert, Avatar, Tooltip } from "antd";
 import { Link } from "react-router-dom";
+import { dataCommodities } from "./post-data";
 
 export const Demands = () => {
   return (
-    <Page className="bg-white p-2">
+    <div className="bg-white p-2">
       <Alert
         message="Find Your Market Opportunities—top products currently in demand, the percentage  shows the proportion of each vendor's total demand that is attributed to each commodity. Click it to see more details."
         type="info"
@@ -77,6 +75,6 @@ export const Demands = () => {
           </div>
         </Link>
       ))}
-    </Page>
+    </div>
   );
 };
