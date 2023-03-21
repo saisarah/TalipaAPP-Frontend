@@ -1,6 +1,9 @@
 import CreatePost from "@/pages/farmer/CreatePost/CreatePost";
 import Help from "@/pages/farmer/Help/help";
-import Region from "@/pages/farmer/Home/demand/Region";
+import CreateInfo from "@/pages/farmer/Home/CreateInfo";
+import { CropsDemands } from "@/pages/farmer/Demands/CropsDemands";
+import Demands from "@/pages/farmer/Demands/Demands";
+import ForSale from "@/pages/farmer/Home/ForSale";
 import Home from "@/pages/farmer/Home/Home";
 import MainMenu from "@/pages/farmer/MainMenu/MainMenu";
 import Chat from "@/pages/farmer/Messages/Chat";
@@ -29,11 +32,19 @@ const routes = [
   },
   {
     path: "home",
-    element: <Home />,
+    element: (
+      <Home 
+        route={{
+          demands: { element: <CropsDemands />, title: "Demands" },
+          sale: { element: <ForSale />, title: "For Sale" },
+          create: { element: <CreateInfo />, title: "Create Post" }
+        }}
+      />
+    ),
   },
   {
-    path: "demand-list",
-    element: <Region />,
+    path: "demands",
+    element: <Demands />,
   },
 
   {

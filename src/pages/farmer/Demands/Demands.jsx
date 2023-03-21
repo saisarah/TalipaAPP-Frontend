@@ -3,16 +3,13 @@ import PageHeader from "@/components/PageHeader";
 import MapPinOutline from "@/icons/heroicons/MapPinOutline";
 import { useDemandsQuery } from "@/query/queries/useDemandsQuery";
 import {
-  LinkOutlined,
-  PushpinOutlined,
-  SearchOutlined,
+  LinkOutlined, SearchOutlined
 } from "@ant-design/icons";
 import { Avatar, Select, Spin } from "antd";
 import moment from "moment";
 import { Link } from "react-router-dom";
-import { dataRegion } from "./post-data";
 
-export default function Region() {
+export default function Demands() {
 
   const query = useDemandsQuery()
 

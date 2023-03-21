@@ -1,12 +1,11 @@
-import { fetchMessages } from "@/apis/MessageApi";
 import MessageItem from "@/components/MessageItem";
 import { useTitle } from "@/contexts/VendorContext";
-import { useQuery } from "@tanstack/react-query";
-import { Empty, Spin } from "antd";
+import { useMessagesQuery } from "@/query/queries/useMessagesQuery";
+import { Spin } from "antd";
 import ReactLogo from "./svg/mobile.svg";
 
 export default function Messages() {
-  const { data, isLoading } = useQuery(fetchMessages.key, fetchMessages);
+  const { data, isLoading } = useMessagesQuery();
 
   useTitle("Chat");
 

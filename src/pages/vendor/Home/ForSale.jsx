@@ -1,10 +1,9 @@
-import { fetchPosts } from "@/apis/Post";
 import PostCard from "@/components/PostCard";
-import { useQuery } from "@tanstack/react-query";
+import { usePostsQuery } from "@/query/queries/usePostsQuery";
 import { Spin } from "antd";
 
 export default function ForSale() {
-  const { data: posts, isLoading } = useQuery(["posts"], fetchPosts);
+  const { data: posts, isLoading } = usePostsQuery();
 
   if (isLoading)
     return (

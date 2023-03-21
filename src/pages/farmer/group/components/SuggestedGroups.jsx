@@ -1,18 +1,9 @@
-import Http from "@/helpers/Http";
-import { useQuery } from "@tanstack/react-query";
+import { useFarmerGroupsQuery } from "@/query/queries/useFarmerGroupsQuery";
 import { Spin } from "antd";
 import GroupItem from "./GroupItem";
 
-const fetchFarmerGroups = async function () {
-  const result = await Http.get("farmer-groups");
-  return result.data;
-};
-
 export default function SuggestedGroups() {
-  const { data, isLoading, error, isError } = useQuery(
-    ["farmer-groups"],
-    fetchFarmerGroups
-  );
+  const { data, isLoading } = useFarmerGroupsQuery
 
   if (isLoading)
     return (

@@ -26,3 +26,4 @@ export const fetchUser = async (id) => {
 };
 fetchUser.key = (id) => ["users", id];
 fetchUser.fetcher = (id) => () => fetchUser(id);
+//test
