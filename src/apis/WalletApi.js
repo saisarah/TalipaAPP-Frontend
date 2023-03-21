@@ -11,3 +11,8 @@ export const verifyPayment = async (id) => {
   const { data } = await Http.get(`/payment/${id}`);
   return data;
 };
+
+export const fetchTransactions = async () => {
+  const { data } = await Http.get("/user/transactions");
+  return data;
+};

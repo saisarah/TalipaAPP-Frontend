@@ -1,20 +1,11 @@
-import Http from "@/helpers/Http";
 import { currency } from "@/helpers/utils";
+import { useTransactions } from "@/query/queries/useTransactions";
 import { CreditCardOutlined } from "@ant-design/icons";
-import { useQuery } from "@tanstack/react-query";
 import { Spin } from "antd";
 import moment from "moment";
 
-const fetchTransactions = async () => {
-  const { data } = await Http.get("/user/transactions");
-  return data;
-};
-
 export default function Transactions() {
-  const { data, isLoading } = useQuery(
-    ["user", "transactions"],
-    fetchTransactions
-  );
+  const { data, isLoading } = useTransactions();
 
   if (isLoading)
     return (
