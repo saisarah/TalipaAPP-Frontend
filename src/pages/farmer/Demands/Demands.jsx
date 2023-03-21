@@ -9,7 +9,7 @@ import {
 import { Avatar, Select } from "antd";
 import { dataRegion } from "./post-data";
 
-export default function Region() {
+export default function Demands() {
   const options = [
     {
       value: "Ilocos Region",

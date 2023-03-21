@@ -2,7 +2,7 @@ import CreatePost from "@/pages/farmer/CreatePost/CreatePost";
 import Help from "@/pages/farmer/Help/help";
 import CreateInfo from "@/pages/farmer/Home/CreateInfo";
 import { CropsDemands } from "@/pages/farmer/Demands/CropsDemands";
-import Region from "@/pages/farmer/Demands/Region";
+import Demands from "@/pages/farmer/Demands/Demands";
 import ForSale from "@/pages/farmer/Home/ForSale";
 import Home from "@/pages/farmer/Home/Home";
 import MainMenu from "@/pages/farmer/MainMenu/MainMenu";
@@ -43,8 +43,8 @@ const routes = [
     ),
   },
   {
-    path: "demand-list",
-    element: <Region />,
+    path: "demands",
+    element: <Demands />,
   },
 
   {
