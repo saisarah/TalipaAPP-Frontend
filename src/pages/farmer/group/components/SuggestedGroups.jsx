@@ -3,7 +3,7 @@ import { Spin } from "antd";
 import GroupItem from "./GroupItem";
 
 export default function SuggestedGroups() {
-  const { data, isLoading } = useFarmerGroupsQuery
+  const { data, isLoading } = useFarmerGroupsQuery()
 
   if (isLoading)
     return (
