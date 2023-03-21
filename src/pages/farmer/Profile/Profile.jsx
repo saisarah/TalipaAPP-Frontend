@@ -10,11 +10,10 @@ import { useTab } from "@/helpers/hooks";
 import { Link } from "react-router-dom";
 import About from "./components/About";
 import { useCurrentUserQuery } from "@/query/queries/useCurrentUserQuery";
+import { useUserPostsQuery } from "@/query/queries/usePostsQuery";
 
 const UserPosts = ({ id }) => {
-  const { data: posts, isLoading } = useQuery(["users", id, "posts"], () =>
-    fetchUserPosts(id)
-  );
+  const { data: posts, isLoading } = useUserPostsQuery(id)
 
   if (isLoading)
     return (
