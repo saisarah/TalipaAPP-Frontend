@@ -1,20 +1,16 @@
-import { verifyPayment } from "@/apis/WalletApi";
 import Page from "@/components/Page";
 import SplashScreen from "@/components/SplashScreen/SplashScreen";
-import Http from "@/helpers/Http";
 import { currency } from "@/helpers/utils";
+import { useVerifyPayment } from "@/query/mutations/useVerifyPayment";
 import { CheckCircleFilled } from "@ant-design/icons";
-import { useQuery } from "@tanstack/react-query";
-import { Link, useParams, useSearchParams } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 
 
 export default function CashInResult() {
   const [params] = useSearchParams();
+  const paymentIntentId= params.get("payment_intent_id")
 
-  const { data, isLoading } = useQuery(
-    ["payment", params.get("payment_intent_id")],
-    () => verifyPayment(params.get("payment_intent_id"))
-  );
+  const { data, isLoading } = useVerifyPayment(paymentIntentId)
 
   if (isLoading) {
     return <SplashScreen />;
