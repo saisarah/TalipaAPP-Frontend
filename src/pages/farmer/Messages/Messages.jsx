@@ -1,13 +1,12 @@
-import { fetchMessages } from "@/apis/MessageApi";
 import MessageItem from "@/components/MessageItem";
 import Page from "@/components/Page";
 import PageHeader from "@/components/PageHeader";
-import { useQuery } from "@tanstack/react-query";
+import { useMessagesQuery } from "@/query/queries/useMessagesQuery";
 import { Spin } from "antd";
 import ReactLogo from "./img/mobile.svg";
 
 export default function Messages() {
-  const { data, isLoading } = useQuery(fetchMessages.key, fetchMessages);
+  const { data, isLoading } = useMessagesQuery()
 
   if (isLoading)
     return (
