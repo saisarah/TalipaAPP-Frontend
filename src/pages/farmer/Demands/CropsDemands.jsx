@@ -7,7 +7,7 @@ import { Alert, Avatar, Tooltip } from "antd";
 import { Link } from "react-router-dom";
 import { dataCommodities } from "./post-data";
 
-export const Demands = () => {
+export const CropsDemands = () => {
   return (
     <div className="bg-white p-2">
       <Alert

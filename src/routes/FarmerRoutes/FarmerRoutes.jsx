@@ -1,7 +1,7 @@
 import CreatePost from "@/pages/farmer/CreatePost/CreatePost";
 import Help from "@/pages/farmer/Help/help";
 import CreateInfo from "@/pages/farmer/Home/CreateInfo";
-import { Demands } from "@/pages/farmer/Demands/Demands";
+import { CropsDemands } from "@/pages/farmer/Demands/CropsDemands";
 import Region from "@/pages/farmer/Demands/Region";
 import ForSale from "@/pages/farmer/Home/ForSale";
 import Home from "@/pages/farmer/Home/Home";
@@ -35,7 +35,7 @@ const routes = [
     element: (
       <Home 
         route={{
-          demands: { element: <Demands />, title: "Demands" },
+          demands: { element: <CropsDemands />, title: "Demands" },
           sale: { element: <ForSale />, title: "For Sale" },
           create: { element: <CreateInfo />, title: "Create Post" }
         }}
