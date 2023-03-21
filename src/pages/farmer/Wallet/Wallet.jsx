@@ -1,23 +1,16 @@
 import Page from "@/components/Page";
 import PageHeader from "@/components/PageHeader";
 import {
-  DownCircleOutlined,
   DownloadOutlined,
   UnorderedListOutlined,
-  UpCircleOutlined,
   UploadOutlined,
 } from "@ant-design/icons";
-import { useQuery } from "@tanstack/react-query";
 import { Button } from "antd";
 import { Link } from "react-router-dom";
 import { Balance } from "./components/Balance";
 import Transactions from "./components/Transactions";
 
-
-
 export default function Wallet() {
-
-
   return (
     <Page className="bg-white">
       <PageHeader back="/farmer" title="Wallet" />
@@ -27,13 +20,13 @@ export default function Wallet() {
 
           <div className="inline-flex w-full justify-center gap-6 p-2 text-center">
             {/* <Link to="/farmer/wallet/transfer-money"> */}
-              <Button
-                className="min-w-[100px] rounded border text-[15px]"
-                type="primary"
-                icon={<UploadOutlined />}
-              >
-                Send
-              </Button>
+            <Button
+              className="min-w-[100px] rounded border text-[15px]"
+              type="primary"
+              icon={<UploadOutlined />}
+            >
+              Send
+            </Button>
             {/* </Link> */}
 
             <Link to="/farmer/wallet/cash-in-methods">
@@ -56,7 +49,6 @@ export default function Wallet() {
       </div>
 
       <Transactions />
-
     </Page>
   );
 }
