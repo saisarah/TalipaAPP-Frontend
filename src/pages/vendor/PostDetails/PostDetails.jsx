@@ -1,6 +1,6 @@
 import { LoadingSkeleton } from "@/components/LoadingSkeleton";
 import { currency } from "@/helpers/utils";
-import { usePost } from "@/query/queries/usePostsQuery";
+import { usePostQuery } from "@/query/queries/usePostsQuery";
 import { Avatar, Button, Rate } from "antd";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
@@ -12,7 +12,7 @@ import { SetQuantityStraight } from "./components/SetQuantityStraight";
 
 export const PostDetails = () => {
   const { id } = useParams();
-  const { data: post, isLoading } = usePost(id);
+  const { data: post, isLoading } = usePostQuery(id);
   const [isOpen, setIsOpen] = useState(false);
   const [orderQuantities, setOrderQuantities] = useState([]);
 
