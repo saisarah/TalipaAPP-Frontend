@@ -21,7 +21,7 @@ export const VendorLayout = () => {
     <div className="relative min-h-screen">
       <div className="lg:pl-[300px]">
         <Sidebar sideNavOpen={sideNavOpen || viewport.isLarge} setSideNavOpen={setSideNavOpen} />
-        <div className="overflow-x-auto flex-grow lg:pt-16">
+        <div className="overflow-x-auto flex-grow pt-16">
           <VendorPageHeader
             left={
               <Button
