@@ -6,7 +6,7 @@ import { useTab } from "@/helpers/hooks";
 // import OrderLists from "../../../components/Orders/OrderLists";
 
 export default function Orders() {
-  const tabs = ["pending", "confirmed", "shipped", "cancelled", "completed"];
+  const tabs = ["pending", "processing", "shipped", "cancelled", "completed"];
   const { selected } = useTab(tabs);
 
   useTitle("Orders");
