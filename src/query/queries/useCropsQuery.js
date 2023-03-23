@@ -1,5 +1,5 @@
+import { fetchCrops, fetchCropsDemands } from "@/apis/CropApi";
 import { useQuery } from "@tanstack/react-query";
-import { fetchCrops } from "../../apis/CropApi";
 import queryKeyFactory from "../queryKeyFactory";
 
 export default function useCropsQuery(options = {}) {
@@ -7,6 +7,10 @@ export default function useCropsQuery(options = {}) {
     staleTime: Infinity,
     ...options,
   });
+}
+
+export const useCropsDemandsQuery = () => {
+  return useQuery(["crops", "demans"], fetchCropsDemands)
 }
 
 export const useCrop = (id) => {

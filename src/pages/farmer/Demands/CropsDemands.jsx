@@ -1,7 +1,20 @@
-import { Alert } from "antd";
+import { useCropsDemandsQuery } from "@/query/queries/useCropsQuery";
+import { Alert, Spin } from "antd";
 import CropDemandsCard from "./components/CropDemandCard";
 
 export const CropsDemands = () => {
+  const { data, isLoading } = useCropsDemandsQuery();
+
+  if (isLoading) {
+    return (
+      <div className="flex justify-center py-16">
+        <Spin tip="Fetching demands" />
+      </div>
+    );
+  }
+
+  const total = data.reduce((acm, crop) => acm + parseFloat(crop.demands_sum_budget), 0)
+
   return (
     <div className="bg-white p-2">
       <Alert
@@ -11,24 +24,16 @@ export const CropsDemands = () => {
         closable
       />
 
-      <CropDemandsCard
-        id="1"
-        name="Mango"
-        percentage={20}
-        request_count={10}
-        avatars={[
-          "https://avatars.dicebear.com/api/initials/calista+kling.svg",
-          "https://avatars.dicebear.com/api/initials/sarah+oben.svg",
-          "https://avatars.dicebear.com/api/initials/d%27angelo+kreiger.svg",
-          "https://avatars.dicebear.com/api/initials/mackenzie+dubuque.svg",
-          "https://avatars.dicebear.com/api/initials/berry+macejkovic.svg",
-          "https://avatars.dicebear.com/api/initials/brandt+wyman.svg",
-          "https://avatars.dicebear.com/api/initials/cydney+schroeder.svg",
-          "https://avatars.dicebear.com/api/initials/celestine+christiansen.svg",
-          "https://avatars.dicebear.com/api/initials/palma+king.svg",
-          "https://avatars.dicebear.com/api/initials/camryn+stanton.svg",
-        ]}
-      />
+      {data.map((crop) => (
+        <CropDemandsCard
+          key={crop.id}
+          id={crop.id}
+          name={crop.name}
+          percentage={crop.demands_sum_budget*100/total}
+          request_count={crop.demands.length}
+          avatars={crop.demands.map(demand => demand.author.profile_picture)}
+        />
+      ))}
     </div>
   );
 };
