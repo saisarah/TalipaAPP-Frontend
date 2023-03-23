@@ -1,5 +1,5 @@
 import { fetchOrders } from "@/apis/OrderApi";
-import OrderCard from "@/components/OrderCard";
+import OrderCard from "@/components/Orders/OrderCard";
 import { currency } from "@/helpers/utils";
 import { useQuery } from "@tanstack/react-query";
 import { Spin } from "antd";

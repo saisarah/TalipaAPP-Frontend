@@ -1,4 +1,3 @@
-import { OrderAction } from "@/components/Orders/OrderAction";
 import OrderDescriptions from "@/components/Orders/OrderDescriptions";
 import OrderProfile from "@/components/Orders/OrderProfile";
 import PostLink from "@/components/Orders/PostLink";
@@ -6,11 +5,12 @@ import PageHeader from "@/components/PageHeader";
 import { useOrderQuery } from "@/query/queries/useOrdersQuery";
 import { Divider, Spin } from "antd";
 import { useParams } from "react-router-dom";
+import { OrderAction } from "./components/OrderAction";
 
 export default function OrderInfo() {
   const { id } = useParams();
 
-  const { data: order, isLoading } = useOrderQuery(id);
+  const { data: order, isLoading, refetch } = useOrderQuery(id);
 
   return (
     <div className="app-size bg-white ">
@@ -33,7 +33,7 @@ export default function OrderInfo() {
 
           <PostLink className="mb-4" to={`/farmer/posts/${order.id}`} post={order.post} />
 
-          <OrderAction status={order.order_status} />
+          <OrderAction refetch={refetch} order={order} />
         </div>
       )}
     </div>

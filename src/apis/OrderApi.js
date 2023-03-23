@@ -16,3 +16,8 @@ export const fetchOrder = async (id) => {
   const { data } = await Http.get(`/orders/${id}`);
   return data;
 };
+
+export const acceptOrder = async (id) => {
+  const { data } = await Http.post(`/orders/${id}`)
+  return data
+}
