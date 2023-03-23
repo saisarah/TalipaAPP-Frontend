@@ -62,7 +62,7 @@ const items = [
     key: "0",
   },
   {
-    label: <NavLink to="/admin/settings">Account Settings</NavLink>,
+    label: <NavLink to="/admin/profile/update">Account Settings</NavLink>,
     key: "1",
   },
   {
@@ -431,7 +431,7 @@ function Header({
             </div>
           </Drawer>
           <Dropdown
-            items={{
+            menu={{
               items,
             }}
             trigger={["click"]}

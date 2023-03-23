@@ -1,5 +1,5 @@
-import { MenuOutlined, SearchOutlined } from "@ant-design/icons";
-import { Avatar, Button, Dropdown, Input, Space, Table, Tag } from "antd";
+import { MenuOutlined, MoreOutlined, SearchOutlined } from "@ant-design/icons";
+import { Avatar, Button, Card, Dropdown, Input, Space, Table, Tag } from "antd";
 import { useRef, useState } from "react";
 import { Link } from "react-router-dom";
 
@@ -23,41 +23,45 @@ export default function Transaction() {
   const data = [
     {
       key: "1",
-      name: "John Brown",
-      isGroup: "Banana",
-      product: "Bert",
-      address: "January 25, 2022",
-      tags: "200",
+      transaction: "T-8873320",
+      vendor: "John Brown",
+      commcodities: "Banana",
+      customer: "Bert",
+      date: "January 25, 2022",
+      quantity: "200",
       price: "200",
       totalPrice: "14000",
     },
     {
       key: "2",
-      name: "Joe Black",
-      isGroup: "Garlic",
-      product: "Juaniato",
-      address: "February 6, 2019",
-      tags: "150",
+      transaction: "T-8195847",
+      vendor: "Joe Black",
+      commcodities: "Garlic",
+      customer: "Juaniato",
+      date: "February 6, 2019",
+      quantity: "150",
       price: "90",
       totalPrice: "6000",
     },
     {
       key: "3",
-      name: "Jim Green",
-      isGroup: "Onion",
-      product: "Sebastian",
-      address: "December 1, 2018",
-      tags: "200",
+      transaction: "T-8195838",
+      vendor: "Jim Green",
+      commcodities: "Onion",
+      customer: "Sebastian",
+      date: "December 1, 2018",
+      quantity: "200",
       price: "150",
       totalPrice: "7000",
     },
     {
       key: "4",
-      name: "Jim Red",
-      isGroup: "Cabbage",
-      product: "Stehr",
-      address: "December 5, 2018",
-      tags: "17",
+      transaction: "T-7875860",
+      vendor: "Jim Red",
+      commcodities: "Cabbage",
+      customer: "Stehr",
+      date: "December 5, 2018",
+      quantity: "17",
       price: "3",
       totalPrice: "720",
     },
@@ -180,99 +184,92 @@ export default function Transaction() {
   });
   const columns = [
     {
-      title: "Vendor",
-      dataIndex: "name",
-      key: "name",
-      // width: "30%",
-      ...getColumnSearchProps("name"),
-      sorter: (a, b) => a.name.length - b.name.length,
+      title: "Transaction ID",
+      dataIndex: "transaction",
+      key: "transaction",
+      ...getColumnSearchProps("transaction"),
+      sorter: (a, b) => a.transaction.length - b.transaction.length,
       sortDirections: ["descend", "ascend"],
-      render: (_, record) => (
-        <Link to="/admin/vendor/profile1">{record.name}</Link>
-      ),
+    },
+    {
+      title: "Vendor",
+      dataIndex: "vendor",
+      key: "vendor",
+      ...getColumnSearchProps("vendor"),
+      sorter: (a, b) => a.vendor.length - b.vendor.length,
+      sortDirections: ["descend", "ascend"],
     },
     {
       title: "Commodities",
-      dataIndex: "isGroup",
-      key: "isGroup",
-      // width: "30%",
-      // ...getColumnSearchProps("isGroup"),
-      sorter: (a, b) => a.isGroup.length - b.isGroup.length,
+      dataIndex: "commcodities",
+      key: "commcodities",
+      sorter: (a, b) => a.commcodities.length - b.commcodities.length,
       sortDirections: ["descend", "ascend"],
     },
     {
       title: "Customer",
-      dataIndex: "product",
-      key: "product",
-      // width: "20%",
-      // ...getColumnSearchProps("product"),
-      sorter: (a, b) => a.product.length - b.product.length,
+      dataIndex: "customer",
+      key: "customer",
+      sorter: (a, b) => a.customer.length - b.customer.length,
       sortDirections: ["descend", "ascend"],
     },
     {
       title: "Date",
-      dataIndex: "address",
-      key: "address",
-      // ...getColumnSearchProps("address"),
-      sorter: (a, b) => a.address.length - b.address.length,
+      dataIndex: "date",
+      key: "date",
+      sorter: (a, b) => a.date.length - b.date.length,
       sortDirections: ["descend", "ascend"],
     },
     {
       title: "Quantity",
-      dataIndex: "tags",
-      key: "tags",
-      // ...getColumnSearchProps("tags"),
-      sorter: (a, b) => a.tags.length - b.address.length,
+      dataIndex: "quantity",
+      key: "quantity",
+      sorter: (a, b) => a.quantity.length - b.quantity.length,
       sortDirections: ["descend", "ascend"],
     },
     {
       title: "Price",
       dataIndex: "price",
       key: "price",
-      // ...getColumnSearchProps("price"),
-      sorter: (a, b) => a.price.length - b.address.length,
+      sorter: (a, b) => a.price.length - b.price.length,
       sortDirections: ["descend", "ascend"],
     },
     {
       title: "Total Price",
       dataIndex: "totalPrice",
       key: "totalPrice",
-      // ...getColumnSearchProps("totalPrice"),
-      sorter: (a, b) => a.totalPrice.length - b.address.length,
+      sorter: (a, b) => a.totalPrice.length - b.totalPrice.length,
       sortDirections: ["descend", "ascend"],
     },
-    {
-      dataIndex: "operation",
-      key: "operation",
-      render: () => (
-        <div className="flex">
-          <div className="flex grow">
-            <Space size="middle">
-              <Dropdown
-                menu={{
-                  items,
-                }}
-              >
-                <a>
-                  <MenuOutlined />
-                </a>
-              </Dropdown>
-            </Space>
-          </div>
-        </div>
-      ),
-    },
+    // {
+    //   dataIndex: "operation",
+    //   key: "operation",
+    //   render: () => (
+    //     <div className="flex">
+    //       <div className="flex grow">
+    //         <Space size="middle">
+    //           <Dropdown
+    //             menu={{
+    //               items,
+    //             }}
+    //             trigger={["click"]}
+    //           >
+    //             <a>
+    //               <MoreOutlined />
+    //             </a>
+    //           </Dropdown>
+    //         </Space>
+    //       </div>
+    //     </div>
+    //   ),
+    // },
   ];
 
   return (
-    <div>
-      {/* <div className="flex grow justify-center rounded bg-primary p-5">
-        <img src="/assets/images/manageVendor.png" alt="" />
-      </div> */}
-      <h1>TRANSACTION MANAGEMENT</h1>
-      <div className="pt-2">
-        <Table columns={columns} dataSource={data} />;
+    <Card title="Transaction">
+      <div className="table-responsive">
+        <Table columns={columns} dataSource={data} pagination={true} />
       </div>
-    </div>
+    </Card>
   );
 }

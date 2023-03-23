@@ -14,12 +14,11 @@ import {
 } from "antd";
 import React, { useState } from "react";
 import { rules } from "./rules";
-import { MenuOutlined, SearchOutlined } from "@ant-design/icons";
-import { useRef} from "react";
+import { MenuOutlined, MoreOutlined, PlusOutlined, SearchOutlined } from "@ant-design/icons";
+import { useRef } from "react";
 import { Link } from "react-router-dom";
 
 export default function Commodities() {
-
   const items = [
     {
       key: "1",
@@ -29,61 +28,61 @@ export default function Commodities() {
       key: "2",
       label: "Delete",
     },
-    ];
-    const data = [
+  ];
+  const data = [
     {
       key: "1",
       name: "Banana",
-      isGroup: "63",
-      product: "101",
+      numberOfPosts: "63",
+      numberOfDemands: "101",
     },
     {
       key: "2",
       name: "Garlic",
-      isGroup: "51",
-      product: "92",
+      numberOfPosts: "51",
+      numberOfDemands: "92",
     },
     {
       key: "3",
       name: "Eggplant",
-      isGroup: "72",
-      product: "57",
+      numberOfPosts: "72",
+      numberOfDemands: "57",
     },
     {
       key: "4",
       name: "Cabbage",
-      isGroup: "90",
-      product: "86",
+      numberOfPosts: "90",
+      numberOfDemands: "86",
     },
     {
       key: "5",
       name: "Onion",
-      isGroup: "221",
-      product: "167",
+      numberOfPosts: "221",
+      numberOfDemands: "167",
     },
     {
       key: "6",
       name: "Pineapple",
-      isGroup: "80",
-      product: "91",
+      numberOfPosts: "80",
+      numberOfDemands: "91",
     },
-    ];
-    
-    const [searchText, setSearchText] = useState("");
-    const [searchedColumn, setSearchedColumn] = useState("");
-    const searchInput = useRef(null);
-    const handleSearch = (selectedKeys, confirm, dataIndex) => {
+  ];
+
+  const [searchText, setSearchText] = useState("");
+  const [searchedColumn, setSearchedColumn] = useState("");
+  const searchInput = useRef(null);
+  const handleSearch = (selectedKeys, confirm, dataIndex) => {
     confirm();
     setSearchText(selectedKeys[0]);
     setSearchedColumn(dataIndex);
-    };
-    
-    const handleReset = (clearFilters) => {
+  };
+
+  const handleReset = (clearFilters) => {
     clearFilters();
     setSearchText("");
-    };
-    
-    const getColumnSearchProps = (dataIndex) => ({
+  };
+
+  const getColumnSearchProps = (dataIndex) => ({
     filterDropdown: ({
       setSelectedKeys,
       selectedKeys,
@@ -183,9 +182,8 @@ export default function Commodities() {
           // />
           null
         : text,
-    });
-    const columns = [
-    
+  });
+  const columns = [
     {
       title: "Commodities",
       dataIndex: "name",
@@ -194,30 +192,27 @@ export default function Commodities() {
       ...getColumnSearchProps("name"),
       sorter: (a, b) => a.name.length - b.name.length,
       sortDirections: ["descend", "ascend"],
-      render: (_, record) => (
-        <Link to="#">{record.name}</Link>
-      ),
+      render: (_, record) => <Link to="#">{record.name}</Link>,
     },
     {
       title: "Number of Posts",
-      dataIndex: "isGroup",
-      key: "isGroup",
+      dataIndex: "numberOfPosts",
+      key: "numberOfPosts",
       // width: "30%",
-      // ...getColumnSearchProps("isGroup"),
-      sorter: (a, b) => a.isGroup.length - b.isGroup.length,
+      // ...getColumnSearchProps("numberOfPosts"),
+      sorter: (a, b) => a.numberOfPosts.length - b.numberOfPosts.length,
       sortDirections: ["descend", "ascend"],
     },
     {
       title: "Number of Demands",
-      dataIndex: "product",
-      key: "product",
+      dataIndex: "numberOfDemands",
+      key: "numberOfDemands",
       // width: "20%",
-      // ...getColumnSearchProps("product"),
-      sorter: (a, b) => a.product.length - b.product.length,
+      // ...getColumnSearchProps("numberOfDemands"),
+      sorter: (a, b) => a.numberOfDemands.length - b.numberOfDemands.length,
       sortDirections: ["descend", "ascend"],
     },
     {
-      title: "Actions",
       dataIndex: "operation",
       key: "operation",
       render: () => (
@@ -228,9 +223,10 @@ export default function Commodities() {
                 menu={{
                   items,
                 }}
+                trigger={["click"]}
               >
                 <a>
-                  <MenuOutlined />
+                  <MoreOutlined />
                 </a>
               </Dropdown>
             </Space>
@@ -238,8 +234,7 @@ export default function Commodities() {
         </div>
       ),
     },
-    ];
-    
+  ];
 
   const handleSubmit = (personalData) => {
     setData((data) => ({ ...data, ...personalData }));
@@ -261,47 +256,34 @@ export default function Commodities() {
   };
 
   return (
-    <div>
-      <div>
-        <Modal
-          title="Add Commodities"
-          open={isModalOpen}
-          onOk={handleOk}
-          onCancel={handleCancel}
-        >
-          <Form initialValues={data} layout="vertical" onFinish={handleSubmit}>
-            <FormItem
-              name="name"
-              rules={rules.name}
-              placeholder="Enter your name here"
-            />
-          </Form>
-        </Modal>
-      </div>
-      <div className="flex justify-end">
-        
-        <Button type="primary" onClick={showModal} className="flex">
-                    Add Commodities
-                  </Button>
-      </div>
-      <div className="tabled">
-        <Row gutter={[24, 0]}>
-          <Col xs="24" xl={24}>
-            <Card
-              bordered={false}
-            >
-              <div className="table-responsive">
-                <h1>Commodities</h1>
-                <Table
-                  columns={columns}
-                  dataSource={data}
-                  pagination={true}
-                />
-              </div>
-            </Card>
-          </Col>
-        </Row>
-      </div>
-    </div>
+    <>
+      <Modal
+        title="Add Commodities"
+        open={isModalOpen}
+        onOk={handleOk}
+        onCancel={handleCancel}
+      >
+        <Form initialValues={data} layout="vertical" onFinish={handleSubmit}>
+          <FormItem
+            name="name"
+            rules={rules.name}
+            placeholder="Enter commodities"
+          />
+        </Form>
+      </Modal>
+      <Card
+        title="Commodities"
+        extra={
+          <Button type="primary" onClick={showModal}>
+            <PlusOutlined />
+             Add Commodities
+          </Button>
+        }
+      >
+        <div className="table-responsive">
+          <Table columns={columns} dataSource={data} pagination={true} />
+        </div>
+      </Card>
+    </>
   );
 }
