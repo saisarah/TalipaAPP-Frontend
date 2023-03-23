@@ -27,26 +27,26 @@ export default function Vendor() {
   const data = [
     {
       key: "1",
-      name: "John Brown",
+      name: "Joshua Alfaro Villanueva",
       isGroup: "Not in Group",
       product: "Apple , Banana",
-      address: "New York No. 1 Lake Park",
+      address: "Level 3 Metropolis Mall Alabang Junction Alabang 1770",
       status: ["approved"],
     },
     {
       key: "2",
-      name: "Joe Black",
+      name: "Jhunriz Green Lalata",
       isGroup: "Not in Group",
       product: "Apple, Banana",
-      address: "London No. 1 Lake Park",
+      address: "CAP Building, McArthur Highway, San Sebastian Village",
       status: ["pending"],
     },
     {
       key: "3",
-      name: "Jim Green",
+      name: "Jim Brown",
       isGroup: "In Group",
       product: "Apple, Banana, Onion",
-      address: "Sydney No. 1 Lake Park",
+      address: "Paseo de Roxas cor. D",
       status: ["pending"],
     },
     {
@@ -54,7 +54,7 @@ export default function Vendor() {
       name: "Jim Red",
       isGroup: "In Group",
       product: "Garlic",
-      address: "London No. 2 Lake Park",
+      address: "Psp Compound, 7105 San Anselmo Street, Olympia",
       status: ["resubmit"],
     },
   ];
@@ -190,15 +190,15 @@ export default function Vendor() {
         </div>
       ),
     },
-    {
-      title: "isGroup",
-      dataIndex: "isGroup",
-      key: "isGroup",
-      // width: "30%",
-      // ...getColumnSearchProps("isGroup"),
-      sorter: (a, b) => a.isGroup.length - b.isGroup.length,
-      sortDirections: ["descend", "ascend"],
-    },
+    // {
+    //   title: "isGroup",
+    //   dataIndex: "isGroup",
+    //   key: "isGroup",
+    //   // width: "30%",
+    //   // ...getColumnSearchProps("isGroup"),
+    //   sorter: (a, b) => a.isGroup.length - b.isGroup.length,
+    //   sortDirections: ["descend", "ascend"],
+    // },
     {
       title: "Product",
       dataIndex: "product",
