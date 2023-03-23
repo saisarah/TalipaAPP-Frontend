@@ -241,28 +241,28 @@ export default function Transaction() {
       sorter: (a, b) => a.totalPrice.length - b.address.length,
       sortDirections: ["descend", "ascend"],
     },
-    {
-      dataIndex: "operation",
-      key: "operation",
-      render: () => (
-        <div className="flex">
-          <div className="flex grow">
-            <Space size="middle">
-              <Dropdown
-                menu={{
-                  items,
-                }}
-                trigger={["click"]}
-              >
-                <a>
-                  <MoreOutlined />
-                </a>
-              </Dropdown>
-            </Space>
-          </div>
-        </div>
-      ),
-    },
+    // {
+    //   dataIndex: "operation",
+    //   key: "operation",
+    //   render: () => (
+    //     <div className="flex">
+    //       <div className="flex grow">
+    //         <Space size="middle">
+    //           <Dropdown
+    //             menu={{
+    //               items,
+    //             }}
+    //             trigger={["click"]}
+    //           >
+    //             <a>
+    //               <MoreOutlined />
+    //             </a>
+    //           </Dropdown>
+    //         </Space>
+    //       </div>
+    //     </div>
+    //   ),
+    // },
   ];
 
   return (
