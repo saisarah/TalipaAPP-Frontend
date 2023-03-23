@@ -1,4 +1,4 @@
-import { Table, Tag } from "antd";
+import { Card, Table, Tag } from "antd";
 import { useState } from "react";
 
 export default function Roles() {
@@ -43,26 +43,26 @@ export default function Roles() {
         </>
       ),
     },
-    {
-      title: "Status",
-      key: "tags",
-      dataIndex: "tags",
-      render: (_, { tags }) => (
-        <>
-          {tags.map((tag) => {
-            let color = tag.length > 5 ? "green" : "geekblue";
-            if (tag === "Inactive") {
-              color = "volcano";
-            }
-            return (
-              <Tag color={color} key={tag}>
-                {tag.toUpperCase()}
-              </Tag>
-            );
-          })}
-        </>
-      ),
-    },
+    // {
+    //   title: "Status",
+    //   key: "tags",
+    //   dataIndex: "tags",
+    //   render: (_, { tags }) => (
+    //     <>
+    //       {tags.map((tag) => {
+    //         let color = tag.length > 5 ? "green" : "geekblue";
+    //         if (tag === "Inactive") {
+    //           color = "volcano";
+    //         }
+    //         return (
+    //           <Tag color={color} key={tag}>
+    //             {tag.toUpperCase()}
+    //           </Tag>
+    //         );
+    //       })}
+    //     </>
+    //   ),
+    // },
   ];
   const data = [
     {
@@ -96,15 +96,12 @@ export default function Roles() {
   ];
 
   return (
-    <div>
-      <div className="">
-        <div className="flex justify-between">
-          <h1>ROLES MANAGEMENT</h1>
+    <>
+      <Card title="Roles management">
+        <div className="table-responsive">
+          <Table columns={columns} dataSource={data} pagination={true} />
         </div>
-      </div>
-      <div className="pt-2">
-        <Table columns={columns} dataSource={data} />;
-      </div>
-    </div>
+      </Card>
+    </>
   );
 }

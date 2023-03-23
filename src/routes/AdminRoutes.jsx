@@ -2,6 +2,7 @@ import Role from "@/pages/admin/AccountManagement/Roles";
 import User from "@/pages/admin/AccountManagement/Users";
 import AdminLayout from "@/pages/admin/AdminLayout/AdminLayout";
 import AdminProfile from "@/pages/admin/AdminProfile/Profile";
+import ProfileUpdate from "@/pages/admin/AdminProfile/ProfileUpdate";
 import ChatSupport from "@/pages/admin/ChatSupport/ChatSupport";
 import Commodities from "@/pages/admin/Commodities/Commodities";
 import Dashboard from "@/pages/admin/Dashboard/Dashboard";
@@ -15,7 +16,7 @@ import Farmer from "@/pages/admin/UserManagement/Farmer/Farmer";
 import FarmerProfile from "@/pages/admin/UserManagement/Farmer/Profile";
 import FarmerGroup from "@/pages/admin/UserManagement/FarmerGroups/FarmerGroup";
 import FarmerGroupsProfile from "@/pages/admin/UserManagement/FarmerGroups/Profile";
-import Profile1 from "@/pages/admin/UserManagement/Vendor/Profile";
+import VendorProfile from "@/pages/admin/UserManagement/Vendor/Profile";
 import Vendor from "@/pages/admin/UserManagement/Vendor/Vendor";
 
 import { useRoutes } from "react-router-dom";
@@ -63,8 +64,8 @@ const routes = [
         element: <Vendor />,
       },
       {
-        path: "vendor/profile1",
-        element: <Profile1 />,
+        path: "vendors/profile",
+        element: <VendorProfile />,
       },
       {
         path: "change-password",
@@ -81,6 +82,10 @@ const routes = [
       {
         path: "profile",
         element: <AdminProfile />,
+      },
+      {
+        path: "profile/update",
+        element: <ProfileUpdate />,
       },
       {
         path: "chat-support",

@@ -20,7 +20,7 @@ function EChart() {
   const items = [
     {
       Title: "₱772",
-      user: "Sales",
+      user: "Total revenue",
     },
     {
       Title: "3,6K",

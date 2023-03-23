@@ -1,5 +1,5 @@
-import { MenuOutlined, SearchOutlined } from "@ant-design/icons";
-import { Avatar, Button, Dropdown, Input, Space, Table, Tag } from "antd";
+import { MenuOutlined, MoreOutlined, SearchOutlined } from "@ant-design/icons";
+import { Avatar, Button, Card, Dropdown, Input, Space, Table, Tag } from "antd";
 import { useRef, useState } from "react";
 import { Link } from "react-router-dom";
 
@@ -9,49 +9,53 @@ export default function Vendor() {
   const items = [
     {
       key: "1",
-      label: "Approved",
+      label: <Link to="/admin/vendors/profile">View profile</Link>,
     },
     {
       key: "2",
-      label: "Pending",
+      label: "Approved",
     },
     {
       key: "3",
+      label: "Pending",
+    },
+    {
+      key: "4",
       label: "Resubmit",
     },
   ];
   const data = [
     {
       key: "1",
-      name: "John Brown",
+      name: "Joshua Alfaro Villanueva",
       isGroup: "Not in Group",
       product: "Apple , Banana",
-      address: "New York No. 1 Lake Park",
-      tags: ["approved"],
+      address: "Level 3 Metropolis Mall Alabang Junction Alabang 1770",
+      status: ["approved"],
     },
     {
       key: "2",
-      name: "Joe Black",
+      name: "Jhunriz Green Lalata",
       isGroup: "Not in Group",
       product: "Apple, Banana",
-      address: "London No. 1 Lake Park",
-      tags: ["pending"],
+      address: "CAP Building, McArthur Highway, San Sebastian Village",
+      status: ["pending"],
     },
     {
       key: "3",
-      name: "Jim Green",
+      name: "Jim Brown",
       isGroup: "In Group",
       product: "Apple, Banana, Onion",
-      address: "Sydney No. 1 Lake Park",
-      tags: ["pending"],
+      address: "Paseo de Roxas cor. D",
+      status: ["pending"],
     },
     {
       key: "4",
       name: "Jim Red",
       isGroup: "In Group",
       product: "Garlic",
-      address: "London No. 2 Lake Park",
-      tags: ["resubmit"],
+      address: "Psp Compound, 7105 San Anselmo Street, Olympia",
+      status: ["resubmit"],
     },
   ];
 
@@ -172,31 +176,29 @@ export default function Vendor() {
   });
   const columns = [
     {
-      dataIndex: "avatar",
-      key: "avatar",
-      render: (avatar) => <Avatar src={avatar} alt="avatar" />,
-    },
-    {
-      title: "Vendor",
+      title: "Name",
       dataIndex: "name",
       key: "name",
       // width: "30%",
       ...getColumnSearchProps("name"),
       sorter: (a, b) => a.name.length - b.name.length,
       sortDirections: ["descend", "ascend"],
-      render: (_, record) => (
-        <Link to="/admin/vendor/profile1">{record.name}</Link>
+      render: (avatar, record) => (
+        <div className="flex gap-2">
+          <Avatar src={avatar} alt="avatar" size="large" />
+          <Link to="/admin/vendors/profile">{record.name}</Link>
+        </div>
       ),
     },
-    {
-      title: "isGroup",
-      dataIndex: "isGroup",
-      key: "isGroup",
-      // width: "30%",
-      // ...getColumnSearchProps("isGroup"),
-      sorter: (a, b) => a.isGroup.length - b.isGroup.length,
-      sortDirections: ["descend", "ascend"],
-    },
+    // {
+    //   title: "isGroup",
+    //   dataIndex: "isGroup",
+    //   key: "isGroup",
+    //   // width: "30%",
+    //   // ...getColumnSearchProps("isGroup"),
+    //   sorter: (a, b) => a.isGroup.length - b.isGroup.length,
+    //   sortDirections: ["descend", "ascend"],
+    // },
     {
       title: "Product",
       dataIndex: "product",
@@ -216,11 +218,11 @@ export default function Vendor() {
     },
     {
       title: "Status",
-      key: "tags",
-      dataIndex: "tags",
-      render: (_, { tags }) => (
+      key: "status",
+      dataIndex: "status",
+      render: (_, { status }) => (
         <>
-          {tags.map((tag) => {
+          {status.map((tag) => {
             let color = tag.length > 7 ? "green" : "geekblue";
             if (tag === "resubmit") {
               color = "volcano";
@@ -245,9 +247,10 @@ export default function Vendor() {
                 menu={{
                   items,
                 }}
+                trigger={["click"]}
               >
                 <a>
-                  <MenuOutlined />
+                  <MoreOutlined />
                 </a>
               </Dropdown>
             </Space>
@@ -258,14 +261,12 @@ export default function Vendor() {
   ];
 
   return (
-    <div>
-      {/* <div className="flex grow justify-center rounded bg-primary p-5">
-        <img src="/assets/images/manageVendor.png" alt="" />
-      </div> */}
-      <h1>VENDORS MANAGEMENT</h1>
-      <div className="pt-2">
-        <Table columns={columns} dataSource={data} />;
-      </div>
-    </div>
+    <>
+      <Card title="Vendors">
+        <div className="table-responsive">
+          <Table columns={columns} dataSource={data} pagination={true} />
+        </div>
+      </Card>
+    </>
   );
 }
