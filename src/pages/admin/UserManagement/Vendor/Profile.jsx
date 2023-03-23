@@ -20,7 +20,11 @@ export default function Profile() {
               Joshua Alfaro Villanueva
             </p>
             <p>
-              <Link class="text-primary" to="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=villanuevajoshua27@gmail.com">
+              <Link
+                class="text-primary"
+                to="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=villanuevajoshua27@gmail.com"
+                target="_blank"
+              >
                 villanuevajoshua27@gmail.com
               </Link>
               <Link to="tel:+63 976 007 0541"> | +63 976 007 0541</Link>
@@ -46,7 +50,7 @@ export default function Profile() {
             <p className="font-bold uppercase">Commodities</p>
           </div>
           <div className="col-span-2">
-            <p>Banana, Eggplant</p>
+            <p>Banana | Eggplant</p>
           </div>
         </div>
       </Card>
