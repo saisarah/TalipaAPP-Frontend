@@ -33,8 +33,8 @@ export default function MainMenu() {
         <MenuButton to="/farmer/profile" src={farmerImg} label="Profile" />
         <MenuButton to="/farmer/orders" src={ordersImg} label="Orders" />
         <MenuButton to="/farmer/wallet" src={walletImg} label="Wallet" />
-        <MenuButton to="/farmer/settings" src={settingsImg} label="Settings" />
         <MenuButton to="/farmer/help" src={helpImg} label="Help" />
+        <MenuButton to="/farmer/settings" src={settingsImg} label="Settings" />
       </div>
     </div>
   );
