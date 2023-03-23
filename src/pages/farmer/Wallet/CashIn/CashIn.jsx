@@ -1,22 +1,27 @@
+import { cashIn, PAYMONGO_FEE } from "@/apis/WalletApi";
 import Page from "@/components/Page";
 import PageHeader from "@/components/PageHeader/PageHeader";
-import { Button, Input, notification } from "antd";
-import gcashLogoImg from "./images/gcash_logo.png";
+import { getErrorMessage } from "@/helpers/Http";
 import { currency } from "@/helpers/utils";
-import { useState } from "react";
-import Http from "@/helpers/Http";
 import { useMutation } from "@tanstack/react-query";
-import { cashIn, PAYMONGO_FEE } from "@/apis/WalletApi";
-
-
+import { Button, Input, notification } from "antd";
+import { useState } from "react";
+import gcashLogoImg from "./images/gcash_logo.png";
 
 export default function CashIn() {
   const return_url = window.location.origin + "/farmer/wallet/cash-in/success";
-  const { mutate, isLoading } = useMutation((amount) => cashIn(return_url, amount), {
-    onSuccess(data) {
-      window.location = data.redirect.url;
-    },
-  });
+  const { mutate, isLoading } = useMutation(
+    (amount) => cashIn(return_url, amount),
+    {
+      onSuccess(data) {
+        window.location = data.redirect.url;
+      },
+
+      onError(err) {
+        notification.error({ message: getErrorMessage(err) });
+      },
+    }
+  );
 
   const [amount, setAmount] = useState(0);
   const fee = amount * PAYMONGO_FEE;
@@ -24,7 +29,9 @@ export default function CashIn() {
 
   const handleSubmit = () => {
     if (amount < 500) {
-      notification.error({ message: "The minimum amount you can cash in is 500PHP" })
+      notification.error({
+        message: "The minimum amount you can cash in is 500PHP",
+      });
       return;
     }
 
