@@ -1,4 +1,4 @@
-import { MenuOutlined, PlusOutlined } from "@ant-design/icons";
+import { MenuOutlined, MoreOutlined, PlusOutlined } from "@ant-design/icons";
 import {
   Button,
   Card,
@@ -96,7 +96,7 @@ export default function Users() {
                 trigger={["click"]}
               >
                 <a>
-                  <MenuOutlined />
+                  <MoreOutlined />
                 </a>
               </Dropdown>
             </Space>

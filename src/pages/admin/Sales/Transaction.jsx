@@ -1,4 +1,4 @@
-import { MenuOutlined, SearchOutlined } from "@ant-design/icons";
+import { MenuOutlined, MoreOutlined, SearchOutlined } from "@ant-design/icons";
 import { Avatar, Button, Card, Dropdown, Input, Space, Table, Tag } from "antd";
 import { useRef, useState } from "react";
 import { Link } from "react-router-dom";
@@ -255,7 +255,7 @@ export default function Transaction() {
                 trigger={["click"]}
               >
                 <a>
-                  <MenuOutlined />
+                  <MoreOutlined />
                 </a>
               </Dropdown>
             </Space>

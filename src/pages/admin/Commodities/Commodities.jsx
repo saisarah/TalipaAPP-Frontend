@@ -14,7 +14,7 @@ import {
 } from "antd";
 import React, { useState } from "react";
 import { rules } from "./rules";
-import { MenuOutlined, SearchOutlined } from "@ant-design/icons";
+import { MenuOutlined, MoreOutlined, SearchOutlined } from "@ant-design/icons";
 import { useRef } from "react";
 import { Link } from "react-router-dom";
 
@@ -213,7 +213,6 @@ export default function Commodities() {
       sortDirections: ["descend", "ascend"],
     },
     {
-      title: "Actions",
       dataIndex: "operation",
       key: "operation",
       render: () => (
@@ -227,7 +226,7 @@ export default function Commodities() {
                 trigger={["click"]}
               >
                 <a>
-                  <MenuOutlined />
+                  <MoreOutlined />
                 </a>
               </Dropdown>
             </Space>
