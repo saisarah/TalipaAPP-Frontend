@@ -431,7 +431,7 @@ function Header({
             </div>
           </Drawer>
           <Dropdown
-            items={{
+            menu={{
               items,
             }}
             trigger={["click"]}
