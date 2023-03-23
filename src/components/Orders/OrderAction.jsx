@@ -1,5 +1,6 @@
 import { useCurrentUserQuery } from "@/query/queries/useCurrentUserQuery";
-import { Button, Modal } from "antd";
+import { Button } from "antd";
+import { CancelOrderButton } from "./components/CancelOrderButton";
 
 export const OrderAction = ({ status }) => {
   const { data: user } = useCurrentUserQuery();
@@ -19,17 +20,3 @@ export const OrderAction = ({ status }) => {
   return null;
 };
 
-const CancelOrderButton = () => {
-  const handleClick = () => {
-    Modal.confirm({
-      content: "Are you sure to cancel this order?",
-      onOk() {},
-    });
-  };
-
-  return (
-    <Button onClick={handleClick} danger size="large"  block>
-      Cancel Order
-    </Button>
-  );
-};
