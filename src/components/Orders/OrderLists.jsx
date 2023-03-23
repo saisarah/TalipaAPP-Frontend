@@ -5,7 +5,7 @@ import { useQuery } from "@tanstack/react-query";
 import { Spin } from "antd";
 import moment from "moment";
 import emptyCartSvg from "./images/empty_cart.svg";
-export default function OrderLists({ status, cardLink }) {
+export default function OrderLists({ status, cardLink, ...props }) {
   const { data, isLoading } = useQuery(
     fetchOrders.key(status),
     fetchOrders.fetcher(status)
@@ -29,7 +29,7 @@ export default function OrderLists({ status, cardLink }) {
     );
 
   return (
-    <div className="flex flex-col gap-2 p-2">
+    <div {...props}>
       {data.map(({ id, post, total, ...order }) => (
         <OrderCard
           to={cardLink(id)}

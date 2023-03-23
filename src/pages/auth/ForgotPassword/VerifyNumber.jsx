@@ -1,5 +1,5 @@
 import Page from "@/components/Page";
-import PageHeader from "@/components/PageHeader";
+import PageHeader from "@/components/PageHeader/PageHeader";
 import messageSendImg from "./images/message_send.svg";
 import OTPInput from "otp-input-react";
 import { useState } from "react";

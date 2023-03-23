@@ -1,5 +1,5 @@
 import Page from "@/components/Page";
-import PageHeader from "@/components/PageHeader";
+import PageHeader from "@/components/PageHeader/PageHeader";
 import { Table } from "antd";
 import { dataRegion, columnsRegion } from "./post-data";
 

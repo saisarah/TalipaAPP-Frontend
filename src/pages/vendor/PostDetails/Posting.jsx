@@ -1,4 +1,4 @@
-import PageHeader from "@/components/PageHeader";
+import PageHeader from "@/components/PageHeader/PageHeader";
 import { MinusOutlined, PlusOutlined } from "@ant-design/icons";
 import { Button, Input, InputNumber, Select } from "antd";
 import TextArea from "antd/lib/input/TextArea";

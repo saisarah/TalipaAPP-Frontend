@@ -1,6 +1,6 @@
 import { resetPassword } from "@/apis/AuthApi";
 import Page from "@/components/Page";
-import PageHeader from "@/components/PageHeader";
+import PageHeader from "@/components/PageHeader/PageHeader";
 import { getErrorMessage } from "@/helpers/Http";
 import { useMutation } from "@tanstack/react-query";
 import { Button, Form, Input, notification } from "antd";

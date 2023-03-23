@@ -1,7 +1,7 @@
 import OrderDescriptions from "@/components/Orders/OrderDescriptions";
 import OrderProfile from "@/components/Orders/OrderProfile";
 import PostLink from "@/components/Orders/PostLink";
-import PageHeader from "@/components/PageHeader";
+import PageHeader from "@/components/PageHeader/PageHeader";
 import { useOrderQuery } from "@/query/queries/useOrdersQuery";
 import { Divider, Spin } from "antd";
 import { useParams } from "react-router-dom";

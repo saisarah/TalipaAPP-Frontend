@@ -1,6 +1,6 @@
 import { createPost } from "@/apis/PostApi";
 import Page from "@/components/Page";
-import PageHeader from "@/components/PageHeader";
+import PageHeader from "@/components/PageHeader/PageHeader";
 import { getErrorMessage } from "@/helpers/Http";
 import { QuestionCircleTwoTone } from "@ant-design/icons";
 import { useMutation } from "@tanstack/react-query";

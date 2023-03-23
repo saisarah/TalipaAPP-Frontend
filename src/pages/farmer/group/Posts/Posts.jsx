@@ -3,7 +3,7 @@ import { Dropdown, Space } from "antd";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
 // import { About } from "../components/About";
-import PageHeader from "@/components/PageHeader";
+import PageHeader from "@/components/PageHeader/PageHeader";
 // import MemberPosts from "../components/MembersPosts";
 import MembersPosts from "../components/MembersPosts";
 import groupIllustrationImg from "../images/group_illustration.png";

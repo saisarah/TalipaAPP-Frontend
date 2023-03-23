@@ -1,6 +1,6 @@
 import { LoadingSkeleton } from "@/components/LoadingSkeleton";
 import Page from "@/components/Page";
-import PageHeader from "@/components/PageHeader";
+import PageHeader from "@/components/PageHeader/PageHeader";
 import { currency } from "@/helpers/utils";
 import { usePostQuery } from "@/query/queries/usePostsQuery";
 import { Avatar, Button, Descriptions, Rate } from "antd";

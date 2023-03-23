@@ -1,6 +1,6 @@
 import FormItem from "@/components/FormItem";
 import Page from "@/components/Page";
-import PageHeader from "@/components/PageHeader";
+import PageHeader from "@/components/PageHeader/PageHeader";
 
 import { Avatar, Button, Input } from "antd";
 

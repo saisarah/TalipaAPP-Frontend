@@ -1,5 +1,5 @@
 import Page from "@/components/Page";
-import PageHeader from "@/components/PageHeader";
+import PageHeader from "@/components/PageHeader/PageHeader";
 import { useTab } from "@/helpers/hooks";
 import OrderLists from '@/components/Orders/OrderLists';
 import OrderTabLinks from "@/components/Orders/OrderTabLinks";
@@ -14,6 +14,7 @@ export default function Orders() {
       <OrderTabLinks tabs={tabs} />
 
       <OrderLists
+        className="flex flex-col gap-2 p-2"
         cardLink={id => `/farmer/orders/${id}`}
         status={selected}
       />

@@ -1,12 +1,10 @@
 import OrderLists from "@/components/Orders/OrderLists";
 import OrderTabLinks from "@/components/Orders/OrderTabLinks";
-import TabLink from "@/components/TabLink";
 import { useTitle } from "@/contexts/VendorContext";
 import { useTab } from "@/helpers/hooks";
-// import OrderLists from "../../../components/Orders/OrderLists";
 
 export default function Orders() {
-  const tabs = ["pending", "confirmed", "shipped", "cancelled", "completed"];
+  const tabs = ["pending", "processing", "shipped", "cancelled", "completed"];
   const { selected } = useTab(tabs);
 
   useTitle("Orders");
@@ -15,6 +13,7 @@ export default function Orders() {
     <div>
       <OrderTabLinks tabs={tabs} />
       <OrderLists 
+        className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-2 p-2"
         status={selected} 
         cardLink={id => `/orders/${id}`}
       />
