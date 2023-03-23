@@ -1,5 +1,5 @@
 import Page from "@/components/Page";
-import PageHeader from "@/components/PageHeader";
+import PageHeader from "@/components/PageHeader/PageHeader";
 import { useNotificationsQuery } from "@/query/queries/useNotificationsQuery";
 import { Avatar, Spin } from "antd";
 import { NotificationCard } from "./components/NotificationCard";

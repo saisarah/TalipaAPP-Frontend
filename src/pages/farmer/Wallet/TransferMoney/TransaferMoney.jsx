@@ -1,5 +1,5 @@
 import Page from "@/components/Page";
-import PageHeader from "@/components/PageHeader";
+import PageHeader from "@/components/PageHeader/PageHeader";
 import { CloseOutlined, SearchOutlined } from "@ant-design/icons";
 import { Avatar, Input } from "antd";
 import TextArea from "antd/lib/input/TextArea";

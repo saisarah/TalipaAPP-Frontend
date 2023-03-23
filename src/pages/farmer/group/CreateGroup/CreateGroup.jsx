@@ -1,4 +1,4 @@
-import PageHeader from "@/components/PageHeader";
+import PageHeader from "@/components/PageHeader/PageHeader";
 import { useState } from "react";
 import GroupInfoForm from "./components/GroupInfoForm";
 import SearchGroup from "./components/SearchGroup";

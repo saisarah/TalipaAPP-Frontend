@@ -1,5 +1,5 @@
 import Page from "@/components/Page";
-import PageHeader from "@/components/PageHeader";
+import PageHeader from "@/components/PageHeader/PageHeader";
 import PostCard from "@/components/PostCard";
 import { useTab } from "@/helpers/hooks";
 import { useCurrentUserQuery } from "@/query/queries/useCurrentUserQuery";

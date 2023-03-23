@@ -1,6 +1,6 @@
 import { Button } from "antd";
 import Invitation from "./components/Invitation";
-import PageHeader from "@/components/PageHeader";
+import PageHeader from "@/components/PageHeader/PageHeader";
 
 /**
  * Endpoint: /farmer/group

@@ -1,5 +1,5 @@
 import Page from "@/components/Page";
-import PageHeader from "@/components/PageHeader";
+import PageHeader from "@/components/PageHeader/PageHeader";
 import { RightOutlined } from "@ant-design/icons";
 import { Link } from "react-router-dom";
 // import { Link } from "react-router-dom";

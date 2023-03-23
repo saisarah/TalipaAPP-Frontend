@@ -1,5 +1,5 @@
 import Page from "@/components/Page";
-import PageHeader from "@/components/PageHeader";
+import PageHeader from "@/components/PageHeader/PageHeader";
 import { useTab } from "@/helpers/hooks";
 import OrderLists from '@/components/Orders/OrderLists';
 import OrderTabLinks from "@/components/Orders/OrderTabLinks";

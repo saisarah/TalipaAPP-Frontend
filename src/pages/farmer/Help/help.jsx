@@ -1,5 +1,5 @@
 import Page from "@/components/Page";
-import PageHeader from "@/components/PageHeader";
+import PageHeader from "@/components/PageHeader/PageHeader";
 import { SearchOutlined } from "@ant-design/icons";
 import { Collapse, Input } from "antd";
 const { Panel } = Collapse;

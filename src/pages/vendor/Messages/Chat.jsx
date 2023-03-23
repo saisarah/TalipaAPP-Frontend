@@ -1,7 +1,7 @@
 import Conversation from "@/components/messages/Conversation";
 import SendMessage from "@/components/messages/SendMessage";
 import Page from "@/components/Page";
-import PageHeader from "@/components/PageHeader";
+import PageHeader from "@/components/PageHeader/PageHeader";
 import { useUserQuery } from "@/query/queries/useUsersQuery";
 import SkeletonInput from "antd/lib/skeleton/Input";
 import { useParams } from "react-router";

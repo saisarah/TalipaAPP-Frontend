@@ -1,9 +1,7 @@
 import OrderLists from "@/components/Orders/OrderLists";
 import OrderTabLinks from "@/components/Orders/OrderTabLinks";
-import TabLink from "@/components/TabLink";
 import { useTitle } from "@/contexts/VendorContext";
 import { useTab } from "@/helpers/hooks";
-// import OrderLists from "../../../components/Orders/OrderLists";
 
 export default function Orders() {
   const tabs = ["pending", "processing", "shipped", "cancelled", "completed"];
