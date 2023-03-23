@@ -42,7 +42,7 @@ export default function RegistrationForm({ accountType, reset }) {
         }
         title="Register"
       />
-      <div className="px-6 py-2 overflow-x-auto no-scrollbar">
+      <div className="no-scrollbar overflow-x-auto px-6 py-2">
         <Steps
           responsive={false}
           items={accountType === "farmer" ? farmerSteps : vendorSteps}
@@ -53,9 +53,7 @@ export default function RegistrationForm({ accountType, reset }) {
         />
       </div>
 
-      <div className="p-4">
-        {form}
-      </div>
+      <div className="p-4">{form}</div>
     </>
   );
 }
