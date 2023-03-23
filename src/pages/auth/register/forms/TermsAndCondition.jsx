@@ -81,6 +81,47 @@ const Terms = () => {
         acceptable use policies of any connected computer networks, any
         applicable Internet standards and any other applicable laws.
       </p>
+      <h1 className="text-2xl font-bold">3. Use of Services</h1>
+      <p>
+        3.1 Application of this Clause: In addition to all other terms and
+        conditions of these Terms of Use, the provisions in this Clause 3 are
+        the additional specific terms and conditions governing your use of the
+        Services.
+      </p>
+      <p>
+        3.2 Restrictions: Use of the Services is limited to authorized Customers
+        that are of legal age and who have the legal capacity to enter into and
+        form contracts under any applicable law. Customers who have breached or
+        are in breach of the terms and conditions contained herein and Customers
+        who have been permanently or temporarily suspended from use of any of
+        the Services may not use the Services even if they satisfy the
+        requirements of this Clause 3.2.
+      </p>
+      <p>
+        3.2 Restrictions: Use of the Services is limited to authorized Customers
+        that are of legal age and who have the legal capacity to enter into and
+        form contracts under any applicable law. Customers who have breached or
+        are in breach of the terms and conditions contained herein and Customers
+        who have been permanently or temporarily suspended from use of any of
+        the Services may not use the Services even if they satisfy the
+        requirements of this Clause 3.2.
+      </p>
+      <p>3.3 General terms of use: You agree:</p>
+      <p>
+        (a) to access and/or use the Services only for lawful purposes and in a
+        lawful manner at all times and further agree to conduct any activity
+        relating to the Services in good faith; and
+      </p>
+      <p>
+        (b) to ensure that any information or data you post or cause to appear
+        on the Platform in connection with the Services is accurate and agree to
+        take sole responsibility for such information and data.
+      </p>
+      <p>
+        3.4 Product description: While we endeavor to provide an accurate
+        description of the Products, we do not warrant that such description is
+        accurate, current or free from error.
+      </p>
       <p>
         3.5 Prices of Products: All Listing Prices are subject to taxes, unless
         otherwise stated. We reserve the right to amend the Listing Prices at
@@ -132,12 +173,12 @@ const Terms = () => {
         to be, as the case may be:
       </p>
       <p>
-        • (a) access to the relevant Platform and/or use of the Services by you;
+        (a) access to the relevant Platform and/or use of the Services by you;
         or
       </p>
       <p>
-        • (b) information, data or communications posted, transmitted and
-        validly issued by you.
+        (b) information, data or communications posted, transmitted and validly
+        issued by you.
       </p>
       <p>
         You agree to be bound by any access of the Platform and/or use of any
@@ -190,10 +231,10 @@ export default function TermsAndCondition() {
   // const [loading, setLoading] = useState(false);
   const [open, setOpen] = useState(false);
   const [hasRead, setHasRead] = useState(false);
-  const checkbox = useRef()
+  const checkbox = useRef();
 
   const onScroll = useCallback(function (e) {
-    if (e.target.scrollTop+10 >= e.target.scrollTopMax) {
+    if (e.target.scrollTop + 10 >= e.target.scrollTopMax) {
       setHasRead(true);
     }
   }, []);
@@ -211,11 +252,13 @@ export default function TermsAndCondition() {
 
   const handleOk = () => {
     if (!hasRead) {
-      return notification.warn({message: "You must read the whole terms and condition"})
+      return notification.warn({
+        message: "You must read the whole terms and condition",
+      });
     }
-    checkbox.current.setState({ checked:true })
-    setOpen(false)
-  }
+    checkbox.current.setState({ checked: true });
+    setOpen(false);
+  };
 
   return (
     <>
@@ -228,7 +271,7 @@ export default function TermsAndCondition() {
       </Checkbox>
 
       <Modal
-        title="Terms and Condition"
+        title="Terms and Conditions"
         open={open}
         onOk={handleOk}
         onCancel={() => setOpen(false)}
