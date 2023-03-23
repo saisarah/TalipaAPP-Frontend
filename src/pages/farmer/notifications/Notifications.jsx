@@ -1,40 +1,34 @@
 import Page from "@/components/Page";
 import PageHeader from "@/components/PageHeader";
-import { Avatar } from "antd";
+import { useNotificationsQuery } from "@/query/queries/useNotificationsQuery";
+import { Avatar, Spin } from "antd";
+import { NotificationCard } from "./components/NotificationCard";
 
 export default function Notifications() {
+  const { data, isLoading } = useNotificationsQuery();
+
+  console.log(data)
+
   return (
     <Page className="bg-white">
       <PageHeader back="/" title="Notifications" />
-      <h1 className="px-4 pt-4">Today</h1>
-      <Notif
-        name="Joshua Villanueva"
-        date="1 minute ago"
-        description="Liked your post"
-      />
-
-      <Notif
-        name="Ruel Almonia"
-        date="5 hours ago"
-        description="invited you into a group"
-      />
-
-      <h1 className="px-4 pt-4">This Week</h1>
-      <Notif
-        name="Lenard"
-        date="5 hours ago"
-        description="invited you into a group"
-      />
-      <Notif
-        name="Jhunriz Lalata"
-        date="2 days ago"
-        description="order your item"
-      />
-      <Notif
-        name="Sarah Grace Oben"
-        date="5 hours ago"
-        description="commented on your post"
-      />
+      {isLoading ? (
+        <div className="flex justify-center py-16">
+          <Spin tip="Fetching notifications..." />
+        </div>
+      ) : (
+        <div>
+          <h1 className="px-4 pt-4">Recent</h1>
+          {data.map((notification) => (
+            <NotificationCard
+              key={notification.id}
+              type={notification.type}
+              context={notification.data}
+              created_at={notification.created_at}
+            />
+          ))}
+        </div>
+      )}
     </Page>
   );
 }
