@@ -1,6 +1,6 @@
 import { CancelOrderButton } from "@/components/Orders/CancelOrderButton";
-import { useCurrentUserQuery } from "@/query/queries/useCurrentUserQuery";
 import AcceptOrderButton from "./AcceptOrderButton";
+import BookVehicleButton from "./BookVehicleButton";
 
 export const OrderAction = ({ order, refetch }) => {
 
@@ -13,6 +13,11 @@ export const OrderAction = ({ order, refetch }) => {
         <AcceptOrderButton id={id} refetch={refetch} />
       </div>
     );
+
+  if (order_status === "processing")
+      return (
+        <BookVehicleButton />
+      )
 
   return null;
 };
