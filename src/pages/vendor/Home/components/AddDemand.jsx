@@ -1,4 +1,5 @@
 import Page from "@/components/Page";
+import PageHeader from "@/components/PageHeader";
 import { useTitle } from "@/contexts/VendorContext";
 import { useCropOptions } from "@/query/queries/useCropsQuery";
 import { Button, Form, Input, Select } from "antd";
@@ -7,12 +8,13 @@ import { required } from "./rules";
 
 export default function AddDemand() {
   const { data: crops, isLoading: fetchingCrops } = useCropOptions();
-  const handleSubmit = ({ crop_id }) => {
-    FormData.crop_id = crop_id;
+  const handleSubmit = (data) => {
+    console.log(data)
   };
-  useTitle("Add Demand");
+
   return (
     <Page className="bg-white">
+      <PageHeader back="/?tab=demands" title="Post Demand" />
       <Form
         className="min-w-full flex-shrink-0  p-4 transition"
         layout="vertical"
@@ -59,7 +61,7 @@ export default function AddDemand() {
           <Input type="number" size="large" placeholder="₱ 10000" />
         </Form.Item>
 
-        <Button size="large" type="primary" className="mt-4 rounded" block>
+        <Button htmlType="submit" size="large" type="primary" className="mt-4 rounded" block>
           Submit Demand
         </Button>
       </Form>

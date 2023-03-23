@@ -58,11 +58,11 @@ const routes = [
         path: "settings",
         element: <Settings />,
       },
-      {
-        path: "demands/create",
-        element: <AddDemand />,
-      },
     ],
+  },
+  {
+    path: "demands/create",
+    element: <AddDemand />,
   },
   {
     path: "/posts/:id",
