@@ -14,6 +14,7 @@ export default function Orders() {
       <OrderTabLinks tabs={tabs} />
 
       <OrderLists
+        className="flex flex-col gap-2 p-2"
         cardLink={id => `/farmer/orders/${id}`}
         status={selected}
       />

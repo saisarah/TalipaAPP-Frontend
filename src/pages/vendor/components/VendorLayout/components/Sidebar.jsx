@@ -11,6 +11,8 @@ import {
 } from "@ant-design/icons";
 import { Avatar, Divider } from "antd";
 import { NavLink } from "react-router-dom";
+import logo from "@/assets/logo-text.svg";
+import { useVendorContext } from "@/contexts/VendorContext";
 
 const SideBarLink = ({ icon, label, to }) => {
   return (
@@ -29,7 +31,7 @@ const SideBarLink = ({ icon, label, to }) => {
 };
 
 export default function Sidebar({ sideNavOpen, setSideNavOpen }) {
-  const { data: user } = useCurrentUserQuery();
+  const { user } = useVendorContext()
   const { confirmLogout } = useLogoutModal();
 
   return (
@@ -38,20 +40,30 @@ export default function Sidebar({ sideNavOpen, setSideNavOpen }) {
         onClick={() => setSideNavOpen(false)}
         className={`${
           sideNavOpen ? "opacity-100" : "pointer-events-none opacity-0"
-        } absolute inset-0 z-30 bg-black/50 transition-opacity duration-500`}
+        } absolute inset-0 z-30 bg-black/50 transition-opacity duration-500 lg:hidden`}
       />
       <div
         className={`${
           sideNavOpen ? "animate-slide-in" : "animate-slide-out"
-        } w-25% fixed top-0 bottom-0 z-30 h-screen  min-w-[300px] overflow-y-auto bg-white py-8`}
+        } w-25% fixed top-0 bottom-0 z-30 h-screen  min-w-[300px] overflow-y-auto bg-white py-8
+        lg:w-[300px] lg:left-0`}
       >
-        <div className="flex items-center gap-2 px-4">
+        <div className="flex items-center gap-2 px-4 lg:hidden">
           <Avatar size="large" src={user.profile_picture} />
           <div className="">
             <div className="font-semibold leading-4">{user.fullname}</div>
             <div className="text-xs">Vendor</div>
           </div>
         </div>
+
+        <div className="hidden lg:block px-8">
+          <img
+            className="mx-auto"
+            src={logo}
+            alt=""
+          />
+        </div>
+
         <Divider />
 
         <div className="flex flex-col pr-4">

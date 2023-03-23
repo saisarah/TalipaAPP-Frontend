@@ -23,8 +23,8 @@ export const Home = () => {
   return (
     <div>
       <TabLinks
-        className="sticky top-0 z-10 grid h-16 grid-cols-2 bg-white text-lg shadow-md"
-        defaultClassName="flex items-center justify-center"
+        className="sticky top-0 z-10 grid h-16 grid-cols-2 bg-white text-lg shadow-md lg:flex lg:gap-4"
+        defaultClassName="flex items-center justify-center px-6"
         activeClassName="border-b border-primary text-primary"
         tabs={tabs}
       />

@@ -13,6 +13,7 @@ export default function Orders() {
     <div>
       <OrderTabLinks tabs={tabs} />
       <OrderLists 
+        className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-2 p-2"
         status={selected} 
         cardLink={id => `/orders/${id}`}
       />

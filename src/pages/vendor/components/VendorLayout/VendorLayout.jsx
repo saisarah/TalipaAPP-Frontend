@@ -1,4 +1,5 @@
-import PageHeader from "@/components/PageHeader";
+import VendorPageHeader from "@/components/PageHeader/VendorPageHeader";
+import { useAppContext } from "@/contexts/AppContext";
 import { useVendorContext } from "@/contexts/VendorContext";
 import { MenuUnfoldOutlined } from "@ant-design/icons";
 import { Button } from "antd";
@@ -9,6 +10,7 @@ import Sidebar from "./components/Sidebar";
 export const VendorLayout = () => {
   const location = useLocation();
   const [sideNavOpen, setSideNavOpen] = useState(false);
+  const { viewport } = useAppContext();
   const { title } = useVendorContext();
 
   useEffect(() => {
@@ -16,20 +18,24 @@ export const VendorLayout = () => {
   }, [location.pathname]);
 
   return (
-    <div className="app-size relative">
-      <PageHeader
-        left={
-          <Button
-            onClick={() => setSideNavOpen(true)}
-            type="text"
-            icon={<MenuUnfoldOutlined />}
+    <div className="relative min-h-screen">
+      <div className="lg:pl-[300px]">
+        <Sidebar sideNavOpen={sideNavOpen || viewport.isLarge} setSideNavOpen={setSideNavOpen} />
+        <div className="overflow-x-auto flex-grow lg:pt-16">
+          <VendorPageHeader
+            left={
+              <Button
+                onClick={() => setSideNavOpen(true)}
+                type="text"
+                icon={<MenuUnfoldOutlined />}
+              />
+            }
+            title={title}
           />
-        }
-        title={title}
-      />
-      <Outlet />
 
-      <Sidebar sideNavOpen={sideNavOpen} setSideNavOpen={setSideNavOpen} />
+          <Outlet />
+        </div>
+      </div>
     </div>
   );
 };
