@@ -257,40 +257,33 @@ export default function Commodities() {
   };
 
   return (
-    <div>
-      <div>
-        <Modal
-          title="Add Commodities"
-          open={isModalOpen}
-          onOk={handleOk}
-          onCancel={handleCancel}
-        >
-          <Form initialValues={data} layout="vertical" onFinish={handleSubmit}>
-            <FormItem
-              name="name"
-              rules={rules.name}
-              placeholder="Enter your name here"
-            />
-          </Form>
-        </Modal>
-      </div>
-      <div className="flex justify-end">
-        <Button type="primary" onClick={showModal} className="flex">
-          Add Commodities
-        </Button>
-      </div>
-      <div className="tabled">
-        <Row gutter={[24, 0]}>
-          <Col xs="24" xl={24}>
-            <Card bordered={false}>
-              <div className="table-responsive">
-                <h1>Commodities</h1>
-                <Table columns={columns} dataSource={data} pagination={true} />
-              </div>
-            </Card>
-          </Col>
-        </Row>
-      </div>
-    </div>
+    <>
+      <Modal
+        title="Add Commodities"
+        open={isModalOpen}
+        onOk={handleOk}
+        onCancel={handleCancel}
+      >
+        <Form initialValues={data} layout="vertical" onFinish={handleSubmit}>
+          <FormItem
+            name="name"
+            rules={rules.name}
+            placeholder="Enter commodities"
+          />
+        </Form>
+      </Modal>
+      <Card
+        title="Commodities"
+        extra={
+          <Button type="primary" onClick={showModal}>
+            Add Commodities
+          </Button>
+        }
+      >
+        <div className="table-responsive">
+          <Table columns={columns} dataSource={data} pagination={true} />
+        </div>
+      </Card>
+    </>
   );
 }

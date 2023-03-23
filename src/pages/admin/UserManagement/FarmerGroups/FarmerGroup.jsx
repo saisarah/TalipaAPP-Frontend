@@ -1,5 +1,5 @@
 import { MenuOutlined, SearchOutlined } from "@ant-design/icons";
-import { Avatar, Button, Dropdown, Input, Space, Table, Tag } from "antd";
+import { Avatar, Button, Card, Dropdown, Input, Space, Table, Tag } from "antd";
 import { useRef, useState } from "react";
 import { Link } from "react-router-dom";
 //import Highlighter from "react-highlight-words";
@@ -8,14 +8,18 @@ export default function FarmerGroup() {
   const items = [
     {
       key: "1",
-      label: "Approved",
+      label: <Link to="/admin/farmer-groups/profile">View group</Link>,
     },
     {
       key: "2",
-      label: "Pending",
+      label: "Approved",
     },
     {
       key: "3",
+      label: "Pending",
+    },
+    {
+      key: "4",
       label: "Resubmit",
     },
   ];
@@ -163,11 +167,6 @@ export default function FarmerGroup() {
   });
   const columns = [
     {
-      dataIndex: "avatar",
-      key: "avatar",
-      render: (avatar) => <Avatar src={avatar} alt="avatar" />,
-    },
-    {
       title: "Group Name",
       dataIndex: "name",
       key: "name",
@@ -175,8 +174,11 @@ export default function FarmerGroup() {
       sorter: (a, b) => a.name.length - b.name.length,
       sortDirections: ["descend", "ascend"],
       ...getColumnSearchProps("name"),
-      render: (_, record) => (
-        <Link to="/admin/farmer-groups/profile">{record.name}</Link>
+      render: (avatar, record) => (
+        <div className="flex gap-2">
+          <Avatar src={avatar} alt="avatar" size="large" />
+          <Link to="/admin/farmer-groups/profile">{record.name}</Link>
+        </div>
       ),
     },
     {
@@ -249,14 +251,12 @@ export default function FarmerGroup() {
   ];
 
   return (
-    <div>
-      {/* <div className="flex grow justify-center rounded bg-primary p-5">
-        <img src="/assets/images/farmergroup.png" alt="" />
-      </div> */}
-      <h1>FARMER GROUPS MANAGEMENT</h1>
-      <div className="pt-2">
-        <Table columns={columns} dataSource={data} />;
-      </div>
-    </div>
+    <>
+      <Card title="Farmers groups">
+        <div className="table-responsive">
+          <Table columns={columns} dataSource={data} pagination={true} />
+        </div>
+      </Card>
+    </>
   );
 }

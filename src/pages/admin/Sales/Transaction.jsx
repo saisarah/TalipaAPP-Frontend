@@ -1,5 +1,5 @@
 import { MenuOutlined, SearchOutlined } from "@ant-design/icons";
-import { Avatar, Button, Dropdown, Input, Space, Table, Tag } from "antd";
+import { Avatar, Button, Card, Dropdown, Input, Space, Table, Tag } from "antd";
 import { useRef, useState } from "react";
 import { Link } from "react-router-dom";
 
@@ -266,14 +266,10 @@ export default function Transaction() {
   ];
 
   return (
-    <div>
-      {/* <div className="flex grow justify-center rounded bg-primary p-5">
-        <img src="/assets/images/manageVendor.png" alt="" />
-      </div> */}
-      <h1>TRANSACTION MANAGEMENT</h1>
-      <div className="pt-2">
-        <Table columns={columns} dataSource={data} />;
+    <Card title="Transaction">
+      <div className="table-responsive">
+        <Table columns={columns} dataSource={data} pagination={true} />
       </div>
-    </div>
+    </Card>
   );
 }
