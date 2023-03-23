@@ -1,5 +1,5 @@
 import { currentUserKey } from "@/apis/UserApi";
-import { setAuthorization } from "@/helpers/Http";
+import { clearAuthorization } from "@/helpers/Http";
 import { QuestionCircleTwoTone } from "@ant-design/icons";
 import { useQueryClient } from "@tanstack/react-query";
 import { Modal } from "antd";
@@ -11,7 +11,7 @@ export const useLogoutModal = () => {
       icon: <QuestionCircleTwoTone />,
       onOk() {
         localStorage.clear();
-        setAuthorization(undefined);
+        clearAuthorization()
         queryClient.setQueryData(currentUserKey, null);
       },
       content: "Are you sure to logout?",
