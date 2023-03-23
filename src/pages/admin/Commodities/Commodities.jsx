@@ -14,7 +14,7 @@ import {
 } from "antd";
 import React, { useState } from "react";
 import { rules } from "./rules";
-import { MenuOutlined, MoreOutlined, SearchOutlined } from "@ant-design/icons";
+import { MenuOutlined, MoreOutlined, PlusOutlined, SearchOutlined } from "@ant-design/icons";
 import { useRef } from "react";
 import { Link } from "react-router-dom";
 
@@ -275,7 +275,8 @@ export default function Commodities() {
         title="Commodities"
         extra={
           <Button type="primary" onClick={showModal}>
-            Add Commodities
+            <PlusOutlined />
+             Add Commodities
           </Button>
         }
       >
