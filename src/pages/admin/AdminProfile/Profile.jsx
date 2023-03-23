@@ -1,3 +1,4 @@
+import { EditOutlined } from "@ant-design/icons";
 import { Button, Card } from "antd";
 import { Link } from "react-router-dom";
 
@@ -9,7 +10,10 @@ export default function Profile() {
         title={<p className="font-bold uppercase">Account Information</p>}
         extra={
           <Button type="primary">
-            <Link to="/admin/farmer-groups/profile/update">Update information</Link>
+            <Link to="/admin/profile/update">
+              <EditOutlined />
+              Update information
+            </Link>
           </Button>
         }
       >
@@ -44,7 +48,7 @@ export default function Profile() {
               <p>Male</p>
               <p>January 23, 2000</p>
               <p>+63 976 140 1847</p>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+              <p>A. Bonifacio Ave. Brgy. Sto. Domingo Cainta Rizal</p>
               <p>July 23, 2019</p>
             </div>
           </div>
