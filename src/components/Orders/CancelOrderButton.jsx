@@ -1,6 +1,6 @@
 import { Button, Modal } from "antd";
 
-export const CancelOrderButton = () => {
+export const CancelOrderButton = ({ id }) => {
     const handleClick = () => {
       Modal.confirm({
         content: "Are you sure to cancel this order?",

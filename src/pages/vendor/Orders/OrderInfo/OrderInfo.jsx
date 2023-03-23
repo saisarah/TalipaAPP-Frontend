@@ -1,12 +1,11 @@
-import { OrderAction } from "@/components/Orders/OrderAction";
+import { CancelOrderButton } from "@/components/Orders/CancelOrderButton";
 import OrderDescriptions from "@/components/Orders/OrderDescriptions";
 import OrderProfile from "@/components/Orders/OrderProfile";
 import PostLink from "@/components/Orders/PostLink";
 import PageHeader from "@/components/PageHeader";
 import { useOrderQuery } from "@/query/queries/useOrdersQuery";
-import { Avatar, Button, Divider, Spin } from "antd";
-import moment from "moment";
-import { Link, useParams } from "react-router-dom";
+import { Divider, Spin } from "antd";
+import { useParams } from "react-router-dom";
 
 export default function OrderInfo() {
   const { id } = useParams();
@@ -38,7 +37,9 @@ export default function OrderInfo() {
             post={order.post}
           />
 
-          <OrderAction status={order.order_status} />
+          {order.order_status === "pending" && (
+            <CancelOrderButton />
+          )}
         </div>
       )}
     </div>

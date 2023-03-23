@@ -4,7 +4,7 @@ import { useTab } from "@/helpers/hooks";
 import OrderLists from '@/components/Orders/OrderLists';
 import OrderTabLinks from "@/components/Orders/OrderTabLinks";
 export default function Orders() {
-  const tabs = ["pending", "confirmed", "shipped", "cancelled", "completed"];
+  const tabs = ["pending", "processing", "shipped", "cancelled", "completed"];
   const { selected } = useTab(tabs);
 
   return (
