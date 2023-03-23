@@ -9,7 +9,7 @@ export default function Vendor() {
   const items = [
     {
       key: "1",
-      label: <Link to="/admin/vendor/profile1">View profile</Link>,
+      label: <Link to="/admin/vendors/profile">View profile</Link>,
     },
     {
       key: "2",
@@ -186,7 +186,7 @@ export default function Vendor() {
       render: (avatar, record) => (
         <div className="flex gap-2">
           <Avatar src={avatar} alt="avatar" size="large" />
-          <Link to="/admin/vendor/profile1">{record.name}</Link>
+          <Link to="/admin/vendors/profile">{record.name}</Link>
         </div>
       ),
     },

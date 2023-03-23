@@ -16,7 +16,7 @@ import Farmer from "@/pages/admin/UserManagement/Farmer/Farmer";
 import FarmerProfile from "@/pages/admin/UserManagement/Farmer/Profile";
 import FarmerGroup from "@/pages/admin/UserManagement/FarmerGroups/FarmerGroup";
 import FarmerGroupsProfile from "@/pages/admin/UserManagement/FarmerGroups/Profile";
-import Profile1 from "@/pages/admin/UserManagement/Vendor/Profile";
+import VendorProfile from "@/pages/admin/UserManagement/Vendor/Profile";
 import Vendor from "@/pages/admin/UserManagement/Vendor/Vendor";
 
 import { useRoutes } from "react-router-dom";
@@ -64,8 +64,8 @@ const routes = [
         element: <Vendor />,
       },
       {
-        path: "vendor/profile1",
-        element: <Profile1 />,
+        path: "vendors/profile",
+        element: <VendorProfile />,
       },
       {
         path: "change-password",

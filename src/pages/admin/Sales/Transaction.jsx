@@ -188,7 +188,7 @@ export default function Transaction() {
       sorter: (a, b) => a.name.length - b.name.length,
       sortDirections: ["descend", "ascend"],
       render: (_, record) => (
-        <Link to="/admin/vendor/profile1">{record.name}</Link>
+        <Link to="/admin/vendors/profile">{record.name}</Link>
       ),
     },
     {

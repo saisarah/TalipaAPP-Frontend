@@ -1,6 +1,6 @@
 import { Card, Col, Row } from "antd";
 
-export default function Profile1() {
+export default function Profile() {
   return (
     <>
       <div className="rounded bg-white p-4">
