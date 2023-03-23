@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 // import Highlighter from "react-highlight-words";
 
-export default function Vendor() {
+export default function Farmer() {
   const items = [
     {
       key: "1",
