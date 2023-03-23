@@ -14,7 +14,7 @@ export default function CropDemandsCard({ id, name, percentage, avatars, request
             </span>
           </div>
           <div className="px-6 pt-1 text-4xl font-bold text-black">
-            {percentage}%
+            {parseInt(percentage)}%
           </div>
         </div>
 
