@@ -15,11 +15,10 @@ import {
 import React, { useState } from "react";
 import { rules } from "./rules";
 import { MenuOutlined, SearchOutlined } from "@ant-design/icons";
-import { useRef} from "react";
+import { useRef } from "react";
 import { Link } from "react-router-dom";
 
 export default function Commodities() {
-
   const items = [
     {
       key: "1",
@@ -29,8 +28,8 @@ export default function Commodities() {
       key: "2",
       label: "Delete",
     },
-    ];
-    const data = [
+  ];
+  const data = [
     {
       key: "1",
       name: "Banana",
@@ -67,23 +66,23 @@ export default function Commodities() {
       isGroup: "80",
       product: "91",
     },
-    ];
-    
-    const [searchText, setSearchText] = useState("");
-    const [searchedColumn, setSearchedColumn] = useState("");
-    const searchInput = useRef(null);
-    const handleSearch = (selectedKeys, confirm, dataIndex) => {
+  ];
+
+  const [searchText, setSearchText] = useState("");
+  const [searchedColumn, setSearchedColumn] = useState("");
+  const searchInput = useRef(null);
+  const handleSearch = (selectedKeys, confirm, dataIndex) => {
     confirm();
     setSearchText(selectedKeys[0]);
     setSearchedColumn(dataIndex);
-    };
-    
-    const handleReset = (clearFilters) => {
+  };
+
+  const handleReset = (clearFilters) => {
     clearFilters();
     setSearchText("");
-    };
-    
-    const getColumnSearchProps = (dataIndex) => ({
+  };
+
+  const getColumnSearchProps = (dataIndex) => ({
     filterDropdown: ({
       setSelectedKeys,
       selectedKeys,
@@ -183,9 +182,8 @@ export default function Commodities() {
           // />
           null
         : text,
-    });
-    const columns = [
-    
+  });
+  const columns = [
     {
       title: "Commodities",
       dataIndex: "name",
@@ -194,9 +192,7 @@ export default function Commodities() {
       ...getColumnSearchProps("name"),
       sorter: (a, b) => a.name.length - b.name.length,
       sortDirections: ["descend", "ascend"],
-      render: (_, record) => (
-        <Link to="#">{record.name}</Link>
-      ),
+      render: (_, record) => <Link to="#">{record.name}</Link>,
     },
     {
       title: "Number of Posts",
@@ -228,6 +224,7 @@ export default function Commodities() {
                 menu={{
                   items,
                 }}
+                trigger={["click"]}
               >
                 <a>
                   <MenuOutlined />
@@ -238,8 +235,7 @@ export default function Commodities() {
         </div>
       ),
     },
-    ];
-    
+  ];
 
   const handleSubmit = (personalData) => {
     setData((data) => ({ ...data, ...personalData }));
@@ -279,24 +275,17 @@ export default function Commodities() {
         </Modal>
       </div>
       <div className="flex justify-end">
-        
         <Button type="primary" onClick={showModal} className="flex">
-                    Add Commodities
-                  </Button>
+          Add Commodities
+        </Button>
       </div>
       <div className="tabled">
         <Row gutter={[24, 0]}>
           <Col xs="24" xl={24}>
-            <Card
-              bordered={false}
-            >
+            <Card bordered={false}>
               <div className="table-responsive">
                 <h1>Commodities</h1>
-                <Table
-                  columns={columns}
-                  dataSource={data}
-                  pagination={true}
-                />
+                <Table columns={columns} dataSource={data} pagination={true} />
               </div>
             </Card>
           </Col>

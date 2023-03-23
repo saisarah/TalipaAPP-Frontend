@@ -245,6 +245,7 @@ export default function Vendor() {
                 menu={{
                   items,
                 }}
+                trigger={["click"]}
               >
                 <a>
                   <MenuOutlined />

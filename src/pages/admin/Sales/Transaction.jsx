@@ -252,6 +252,7 @@ export default function Transaction() {
                 menu={{
                   items,
                 }}
+                trigger={["click"]}
               >
                 <a>
                   <MenuOutlined />

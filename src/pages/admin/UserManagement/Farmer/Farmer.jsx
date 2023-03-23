@@ -245,6 +245,7 @@ export default function Farmer() {
                 menu={{
                   items,
                 }}
+                trigger={["click"]}
               >
                 <a>
                   <MenuOutlined />
