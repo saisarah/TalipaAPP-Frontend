@@ -317,7 +317,7 @@ function Sidenav({ color }) {
         <Menu.Item className="menu-item-header" key="8">
           Settings
         </Menu.Item>
-        <Menu.Item key="9">
+        {/* <Menu.Item key="9">
           <NavLink to="/admin/change-password">
             <span
               className="icon"
@@ -329,7 +329,7 @@ function Sidenav({ color }) {
             </span>
             <span className="label">Change password</span>
           </NavLink>
-        </Menu.Item>
+        </Menu.Item> */}
         <Menu.Item key="10">
           <NavLink to="/admin/FAQs">
             <span
