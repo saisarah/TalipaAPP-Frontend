@@ -6,10 +6,10 @@ import { CheckCircleFilled } from "@ant-design/icons";
 import { Link, useSearchParams } from "react-router-dom";
 
 
-export default function CashInSuccess() {
+export default function CashInResult({ type }) {
   const [params] = useSearchParams();
   const paymentIntentId = params.get("payment_intent_id")
-  const { data, isLoading } = useVerifyPayment(paymentIntentId)
+  const { data, isLoading } = useVerifyPayment(paymentIntentId, type)
 
   if (isLoading) {
     return <SplashScreen />;

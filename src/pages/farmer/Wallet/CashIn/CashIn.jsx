@@ -1,44 +1,34 @@
-import { cashIn, PAYMONGO_FEE } from "@/apis/WalletApi";
 import Page from "@/components/Page";
 import PageHeader from "@/components/PageHeader/PageHeader";
 import { getErrorMessage } from "@/helpers/Http";
 import { currency } from "@/helpers/utils";
-import { useMutation } from "@tanstack/react-query";
 import { Button, Input, notification } from "antd";
-import { useState } from "react";
-import gcashLogoImg from "./images/gcash_logo.png";
+import { Navigate, useLocation } from "react-router-dom";
+import useCashInMethod from "./hooks/useCashInMethod";
 
 export default function CashIn() {
-  const return_url = window.location.origin + "/farmer/wallet/cash-in/success";
-  const { mutate, isLoading } = useMutation(
-    (amount) => cashIn(return_url, amount),
-    {
-      onSuccess(data) {
-        window.location = data.redirect.url;
-      },
+  const { state: method } = useLocation();
+  const {
+    isInvalidMethod,
+    isLoading,
+    amount,
+    setAmount,
+    total,
+    handleSubmit,
+    fees,
+    logo,
+  } = useCashInMethod(method, {
+    onSuccess(data) {
+      window.location = data.redirect.url;
+    },
 
-      onError(err) {
-        notification.error({ message: getErrorMessage(err) });
-      },
-    }
-  );
+    onError(err) {
+      notification.error({ message: getErrorMessage(err) });
+    },
+  });
 
-  const [amount, setAmount] = useState(0);
-  const fee = amount * PAYMONGO_FEE;
-  const total = amount - fee;
-
-  const handleSubmit = () => {
-    if (amount < 500) {
-      notification.error({
-        message: "The minimum amount you can cash in is 500PHP",
-      });
-      return;
-    }
-
-    if (isLoading) return;
-
-    mutate(amount);
-  };
+  if (isInvalidMethod)
+    return <Navigate to="/farmer/wallet/cash-in-methods" replace />;
 
   return (
     <Page className="">
@@ -70,9 +60,9 @@ export default function CashIn() {
         <div className="mb-2">Payment</div>
         <div className=" flex items-center gap-4 text-black">
           <div>
-            <img src={gcashLogoImg} className="h-8 w-8 rounded" />
+            <img src={logo} className="h-8 w-8 rounded" />
           </div>
-          <div className="flex-grow text-lg">GCash</div>
+          <div className="flex-grow text-lg capitalize">{method}</div>
         </div>
       </div>
 
@@ -81,10 +71,12 @@ export default function CashIn() {
           <span className="text-sm text-slate-600">Cash In</span>
           <span>{currency(amount)}</span>
         </div>
-        <div className="flex justify-between">
-          <span className="text-sm text-slate-600">Fee</span>
-          <span>{currency(fee)}</span>
-        </div>
+        {fees.map((fee) => (
+          <div key={fee.label} className="flex justify-between">
+            <span className="text-sm text-slate-600">{fee.label}</span>
+            <span>{currency(fee.amount)}</span>
+          </div>
+        ))}
         <div className="flex justify-between text-base font-bold text-primary">
           <span className="">Total</span>
           <span>{currency(total)}</span>

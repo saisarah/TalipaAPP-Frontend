@@ -14,6 +14,7 @@ export default function ChooseMethod() {
         <Link
           to="/farmer/wallet/cash-in"
           className="flex items-center gap-4 border-b border-slate-100 bg-white p-4 text-black"
+          state="gcash"
         >
           <div>
             <img src={gcashLogoImg} className="h-8 w-8 rounded" />
