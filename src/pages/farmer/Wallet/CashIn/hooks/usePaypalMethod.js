@@ -1,31 +1,25 @@
-import { cashInPaymongo, PAYMONGO_FEE } from "@/apis/WalletApi";
+import { cashInPaypal } from "@/apis/WalletApi";
+import logo from "@/assets/paypal.svg";
 import { getErrorMessage } from "@/helpers/Http";
 import { useMutation } from "@tanstack/react-query";
 import { notification } from "antd";
-import { useState } from "react";
-import logo from "../images/gcash_logo.png";
 
-export default function useGcashMethod(amount)
-{
-  const return_url = window.location.origin + "/farmer/wallet/cash-in/result-paymongo";
+export default function usePaypalMethod(amount) {
+  const return_url =
+    window.location.origin + "/farmer/wallet/cash-in/result-paypal";
   const { mutate, isLoading } = useMutation(
-    (amount) => cashInPaymongo(return_url, amount),
+    (amount) => cashInPaypal(return_url, amount),
     {
       onSuccess(data) {
-        window.location = data.redirect.url;
+        window.location = data.links.find(link => link.rel == "approve").href;
       },
-  
+
       onError(err) {
         notification.error({ message: getErrorMessage(err) });
       },
     }
   );
-  const fee = amount * PAYMONGO_FEE;
-  const total = amount - fee;
-
-  const fees = [
-    {label: "Fee", amount: fee},
-  ]
+  const total = amount;
 
   const handleSubmit = () => {
     if (amount < 500) {
@@ -38,15 +32,15 @@ export default function useGcashMethod(amount)
     if (isLoading) return;
 
     mutate(amount);
-  }
+  };
 
   return {
     logo,
-    title: "Cash in with Gcash",
-    amount, 
-    fees,
+    title: "Cash in using PayPal",
+    amount,
+    fees: [],
     total,
     handleSubmit,
-    isLoading
-  }
+    isLoading,
+  };
 }

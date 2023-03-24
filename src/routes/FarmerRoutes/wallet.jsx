@@ -30,4 +30,8 @@ export const wallet = [
     path: "wallet/cash-in/result-paymongo",
     element: <CashInResult type="paymongo"/>,
   },
+  {
+    path: "wallet/cash-in/result-paypal",
+    element: <CashInResult type="paypal" />
+  }
 ];

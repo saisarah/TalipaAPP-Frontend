@@ -6,13 +6,13 @@ import { currency } from "@/helpers/utils";
 import { useState } from "react";
 import Http from "@/helpers/Http";
 import { useMutation } from "@tanstack/react-query";
-import { cashIn, PAYMONGO_FEE } from "@/apis/WalletApi";
+import { cashInPaymongo, PAYMONGO_FEE } from "@/apis/WalletApi";
 
 
 
 export default function CashIn() {
   const return_url = window.location.origin + "/wallet/cash-in/result";
-  const { mutate, isLoading } = useMutation((amount) => cashIn(return_url, amount), {
+  const { mutate, isLoading } = useMutation((amount) => cashInPaymongo(return_url, amount), {
     onSuccess(data) {
       window.location = data.redirect.url;
     },

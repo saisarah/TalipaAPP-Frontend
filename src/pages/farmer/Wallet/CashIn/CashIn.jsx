@@ -17,15 +17,7 @@ export default function CashIn() {
     handleSubmit,
     fees,
     logo,
-  } = useCashInMethod(method, {
-    onSuccess(data) {
-      window.location = data.redirect.url;
-    },
-
-    onError(err) {
-      notification.error({ message: getErrorMessage(err) });
-    },
-  });
+  } = useCashInMethod(method);
 
   if (isInvalidMethod)
     return <Navigate to="/farmer/wallet/cash-in-methods" replace />;
