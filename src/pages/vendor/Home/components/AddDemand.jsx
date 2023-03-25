@@ -2,14 +2,15 @@ import Page from "@/components/Page";
 import PageHeader from "@/components/PageHeader/PageHeader";
 import { useTitle } from "@/contexts/VendorContext";
 import { useCropOptions } from "@/query/queries/useCropsQuery";
+import { useCurrentUserQuery } from "@/query/queries/useCurrentUserQuery";
 import { Button, Form, Input, Select } from "antd";
 import TextArea from "antd/lib/input/TextArea";
 import { required } from "./rules";
 
 export default function AddDemand() {
-  const { data: crops, isLoading: fetchingCrops } = useCropOptions();
+  const { data: crop, isLoading: fetchingCrops } = useCurrentUserQuery();
   const handleSubmit = (data) => {
-    console.log(data)
+    console.log(data);
   };
 
   return (
@@ -37,7 +38,7 @@ export default function AddDemand() {
         >
           <Select
             placeholder="Please select the desired commodity "
-            options={crops}
+            options={crop.vendor.crops.map(({ name, id }) => ({ value: id, label: name }))}
             size="large"
             loading={fetchingCrops}
           />
@@ -61,7 +62,13 @@ export default function AddDemand() {
           <Input type="number" size="large" placeholder="₱ 10000" />
         </Form.Item>
 
-        <Button htmlType="submit" size="large" type="primary" className="mt-4 rounded" block>
+        <Button
+          htmlType="submit"
+          size="large"
+          type="primary"
+          className="mt-4 rounded"
+          block
+        >
           Submit Demand
         </Button>
       </Form>

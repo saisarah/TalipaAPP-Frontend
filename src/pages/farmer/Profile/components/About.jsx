@@ -75,7 +75,7 @@ export default function About() {
             <div className="my-2 flex items-center">
               <span className="mx-2 flex flex-grow">
                 {user.farmer.crops.map((crop) => (
-                  <Tag className="text-base">{crop.name}</Tag>
+                  <Tag key={crop.id} className="text-base">{crop.name}</Tag>
                 ))}
               </span>
             </div>
