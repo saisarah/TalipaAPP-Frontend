@@ -1,13 +1,20 @@
 import { cashInPaypal } from "@/apis/WalletApi";
+import { useAppContext } from "@/contexts/AppContext";
 import { getErrorMessage } from "@/helpers/Http";
 import { useMutation } from "@tanstack/react-query";
 import { notification } from "antd";
 
+export const useReturnUrl = () => {
+  const { context, getFullPath } = useAppContext()
+  if (context === "farmer")
+    return getFullPath(`/farmer/wallet/cash-in/result-paypal`);
+  return getFullPath(`/wallet/cash-in/result-paypal`);
+}
+
 export default function usePaypalMethod(amount) {
-  const return_url =
-    window.location.origin + "/farmer/wallet/cash-in/result-paypal";
+  const returnUrl = useReturnUrl()
   const { mutate, isLoading } = useMutation(
-    (amount) => cashInPaypal(return_url, amount),
+    (amount) => cashInPaypal(returnUrl, amount),
     {
       onSuccess(data) {
         window.location = data.links.find(link => link.rel == "approve").href;

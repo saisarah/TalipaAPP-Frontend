@@ -5,11 +5,11 @@ import { useMutation } from "@tanstack/react-query";
 import { notification } from "antd";
 
 const useReturnUrl = () => {
-  const { context } = useAppContext()
+  const { context, getFullPath } = useAppContext()
   if (context === "farmer")
-    return `${window.location.origin}/farmer/wallet/cash-in/result-paymongo`
+    return getFullPath(`/farmer/wallet/cash-in/result-paymongo`)
 
-  return `${window.location.origin}/wallet/cash-in/result-paymongo`
+  return getFullPath(`/wallet/cash-in/result-paymongo`)
 }
 
 export default function useGcashMethod(amount)

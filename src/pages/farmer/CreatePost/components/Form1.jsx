@@ -31,7 +31,7 @@ export default function Form1({ step, setStep, formData }) {
       >
         <Select
           placeholder="Select Commodity"
-          options={crops}
+          options={crops.map(({ name, id }) => ({ value: id, label: name }))}
           size="large"
           loading={fetchingCrops}
         />

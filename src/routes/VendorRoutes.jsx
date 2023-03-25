@@ -88,6 +88,10 @@ const routes = [
     path: "wallet/cash-in/result-paymongo",
     element: <CashInResultPage type="paymongo"/>,
   },
+  {
+    path: "wallet/cash-in/result-paypal",
+    element: <CashInResultPage type="paypal"/>,
+  },
   // settings
   {
     path: "settings/change-name",
