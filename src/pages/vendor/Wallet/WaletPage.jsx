@@ -5,7 +5,7 @@ import { DownloadOutlined, UnorderedListOutlined, UploadOutlined } from "@ant-de
 import { Button } from "antd";
 import { Link } from "react-router-dom";
 
-export default function Wallet() {
+export default function WalletPage() {
   useTitle("Wallet");
 
   return (

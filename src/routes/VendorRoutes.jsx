@@ -17,7 +17,7 @@ import Settings from "@/pages/vendor/Settings/Settings";
 import CashIn from "@/pages/vendor/Wallet/CashIn/CashIn";
 import CashInMethod from "@/pages/vendor/Wallet/CashIn/CashInMethod";
 import CashInResult from "@/pages/vendor/Wallet/CashIn/CashInResult";
-import Wallet from "@/pages/vendor/Wallet/Walet";
+import WalletPage from "@/pages/vendor/Wallet/WaletPage";
 
 import { useRoutes } from "react-router-dom";
 
@@ -52,7 +52,7 @@ const routes = [
       },
       {
         path: "wallet",
-        element: <Wallet />,
+        element: <WalletPage />,
       },
       {
         path: "settings",
