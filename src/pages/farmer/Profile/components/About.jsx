@@ -1,5 +1,6 @@
+import { useCurrentUserAddress, useCurrentUserQuery } from "@/query/queries/useCurrentUserQuery";
 import { StarFilled, StarOutlined } from "@ant-design/icons";
-import { Avatar, Button, Card, Tag } from "antd";
+import { Avatar, Button, Card, Spin, Tag } from "antd";
 import { Link } from "react-router-dom";
 
 function AboutInfo({ title, descriptions }) {
@@ -51,21 +52,31 @@ function Reviews({ user, ratings, comment }) {
 }
 
 export default function About() {
+  const { data: user } = useCurrentUserQuery();
+  const { data: address, isLoading } = useCurrentUserAddress();
+  if (isLoading) {
+    return (
+      <div className="flex justify-center py-16">
+        <Spin />
+      </div>
+    );
+  }
   return (
     <div>
       <div className="mx-auto min-h-screen max-w-md bg-white">
         <div>
-          <AboutInfo title={"Place lived"} descriptions={["Caloocan City"]} />
+          <AboutInfo title={"Place lived"} descriptions={[address.province]} />
         </div>
         <div>
           {/* <AboutInfo title={"Commodity"} descriptions ={[<Tag className="text-lg">Mango</Tag>,<Tag className="text-lg">Banana</Tag>]} /> */}
+
           <div className="mx-4 my-4">
             <h1 className="text-lg font-bold">Commodity</h1>
             <div className="my-2 flex items-center">
               <span className="mx-2 flex flex-grow">
-                <Tag className="text-base">Mango</Tag>
-                <Tag className="text-base">Banana</Tag>
-                <Tag className="text-base">Eggplant</Tag>
+                {user.farmer.crops.map((crop) => (
+                  <Tag key={crop.id} className="text-base">{crop.name}</Tag>
+                ))}
               </span>
             </div>
           </div>

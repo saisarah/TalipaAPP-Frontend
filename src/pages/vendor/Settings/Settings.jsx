@@ -1,16 +1,24 @@
 import Page from "@/components/Page";
 import { useTitle } from "@/contexts/VendorContext";
 import UserOutlined from "@/icons/heroicons/UserOutlined";
-import { useCurrentUserQuery } from "@/query/queries/useCurrentUserQuery";
+import { useCurrentUserCompleteAddresQuery, useCurrentUserQuery } from "@/query/queries/useCurrentUserQuery";
 import { CameraOutlined, RightOutlined } from "@ant-design/icons";
-import { Avatar, Button, Image, Input, Select } from "antd";
+import { Avatar, Button, Image, Input, Select, Spin } from "antd";
 import { Link } from "react-router-dom";
 import ChangeNames from "./Forms/form/ChangeName";
 
 export default function Settings() {
-  
   const { data: user } = useCurrentUserQuery();
+  const { data: address, isLoading } =useCurrentUserCompleteAddresQuery();
+
   useTitle("Settings");
+  if (isLoading) {
+    return (
+      <div className="flex justify-center py-16">
+        <Spin />
+      </div>
+    );
+  }
   return (
     <Page className="bg-white text-black">
       <div className="flex flex-col justify-center p-4 text-center">
@@ -127,7 +135,7 @@ export default function Settings() {
         >
           <div>
             Delivery Address
-            <div className="text-slate-400">Ph 1 Bagong Silang</div>
+            <div className="text-slate-400">{address}</div>
           </div>
           <div>
             <RightOutlined />
@@ -159,7 +167,9 @@ export default function Settings() {
         >
           <div>
             Commodity Interest
-            <div className="text-slate-400">Mango | Example only</div>
+            {user.vendor.crops.map((crop) => (
+              <div key={crop.id} className="text-slate-400">{crop.name}</div>
+            ))}
           </div>
           <div>
             <RightOutlined />

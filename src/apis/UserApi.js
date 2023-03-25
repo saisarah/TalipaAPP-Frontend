@@ -18,6 +18,11 @@ export const fetchCurrentUserCompleteAddress = async () => {
   const { data } = await Http.get("/user/address/complete");
   return data;
 };
+
+export const fetchCurrentUserAddress = async () => {
+  const { data } = await Http.get("/user/address");
+  return data;
+};
 export const currentUserCompleteAddressKey = ["user", "address", "complete"];
 
 export const fetchUser = async (id) => {
