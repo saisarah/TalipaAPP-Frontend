@@ -17,7 +17,7 @@ export default function CashInPage()
         back="/farmer/wallet/cash-in-methods"
         title={title}
       />
-      <CashIn title={label} method={method} logo={logo}/>
+      <CashIn label={label} method={method} logo={logo}/>
     </Page>
   )
 }

@@ -1,12 +1,8 @@
-import Page from "@/components/Page";
-import PageHeader from "@/components/PageHeader/PageHeader";
-import { getErrorMessage } from "@/helpers/Http";
 import { currency } from "@/helpers/utils";
-import { Button, Input, notification } from "antd";
-import { Navigate, useLocation } from "react-router-dom";
+import { Button, Input } from "antd";
 import useCashInMethod from "./hooks/useCashInMethod";
 
-export default function CashIn({ logo, method,...props }) {
+export default function CashIn({ logo, method, label,...props }) {
   const {
     isLoading,
     amount,
@@ -43,7 +39,7 @@ export default function CashIn({ logo, method,...props }) {
           <div>
             <img src={logo} className="h-8 w-8 rounded" />
           </div>
-          <div className="flex-grow text-lg capitalize">{method}</div>
+          <div className="flex-grow text-lg capitalize">{label}</div>
         </div>
       </div>
 
