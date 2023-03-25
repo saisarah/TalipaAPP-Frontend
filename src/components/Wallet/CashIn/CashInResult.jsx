@@ -12,7 +12,7 @@ const usePaymentId = (type) => {
   return params.get("token")
 }
 
-export default function CashInResult({ type }) {
+export default function CashInResult({ type, walletLink }) {
   const paymentIntentId = usePaymentId(type)
   const { data, isLoading } = useVerifyPayment(paymentIntentId, type)
 
@@ -34,7 +34,7 @@ export default function CashInResult({ type }) {
       </div>
 
       <Link
-        to="/farmer/wallet"
+        to={walletLink}
         replace
         className="mt-8 block rounded bg-white py-3 px-8 text-center"
       >

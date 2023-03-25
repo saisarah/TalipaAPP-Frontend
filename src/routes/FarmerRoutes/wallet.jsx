@@ -1,14 +1,14 @@
-import CashIn from "@/pages/farmer/Wallet/CashIn/CashIn";
-import CashInResult from "@/pages/farmer/Wallet/CashIn/CashInResult";
-import ChooseMethod from "@/pages/farmer/Wallet/CashIn/ChooseMethod";
+import CashIn from "@/components/Wallet/CashIn/CashIn";
+import CashInResultPage from "@/pages/farmer/Wallet/CashIn/CashInResultPage";
+import ChooseMethodPage from "@/pages/farmer/Wallet/CashIn/ChooseMethodPage";
 import ConfirmTransfer from "@/pages/farmer/Wallet/TransferMoney/ConfirmTransfer";
 import WalletTransferMoney from "@/pages/farmer/Wallet/TransferMoney/TransaferMoney";
-import Wallet from "@/pages/farmer/Wallet/Wallet";
+import WalletPage from "@/pages/farmer/Wallet/WalletPage";
 
 export const wallet = [
   {
     path: "wallet",
-    element: <Wallet />,
+    element: <WalletPage />,
   },
   {
     path: "wallet/transfer-money",
@@ -20,7 +20,7 @@ export const wallet = [
   },
   {
     path: "wallet/cash-in-methods",
-    element: <ChooseMethod />,
+    element: <ChooseMethodPage />,
   },
   {
     path: "wallet/cash-in",
@@ -28,10 +28,10 @@ export const wallet = [
   },
   {
     path: "wallet/cash-in/result-paymongo",
-    element: <CashInResult type="paymongo"/>,
+    element: <CashInResultPage type="paymongo"/>,
   },
   {
     path: "wallet/cash-in/result-paypal",
-    element: <CashInResult type="paypal" />
+    element: <CashInResultPage type="paypal" />
   }
 ];

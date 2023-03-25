@@ -8,6 +8,7 @@ import useCashInMethod from "./hooks/useCashInMethod";
 
 export default function CashIn() {
   const { state: method } = useLocation();
+
   const {
     isInvalidMethod,
     isLoading,
@@ -17,6 +18,7 @@ export default function CashIn() {
     handleSubmit,
     fees,
     logo,
+    title
   } = useCashInMethod(method);
 
   if (isInvalidMethod)
@@ -26,7 +28,7 @@ export default function CashIn() {
     <Page className="">
       <PageHeader
         back="/farmer/wallet/cash-in-methods"
-        title="Cash in with GCash"
+        title={title}
       />
 
       <div className="bg-white p-2 py-4">

@@ -1,5 +1,5 @@
 import { cashInPaypal } from "@/apis/WalletApi";
-import logo from "@/assets/paypal.svg";
+import logo from "../images/paypal.svg";
 import { getErrorMessage } from "@/helpers/Http";
 import { useMutation } from "@tanstack/react-query";
 import { notification } from "antd";
