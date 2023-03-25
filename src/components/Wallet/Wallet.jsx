@@ -1,15 +1,13 @@
-import { useTitle } from "@/contexts/VendorContext";
-import { Balance } from "@/pages/farmer/Wallet/components/Balance";
-import Transactions from "@/pages/farmer/Wallet/components/Transactions";
 import { DownloadOutlined, UnorderedListOutlined, UploadOutlined } from "@ant-design/icons";
 import { Button } from "antd";
 import { Link } from "react-router-dom";
+import { Balance } from "./components/Balance";
+import Transactions from "./components/Transactions";
 
-export default function Wallet() {
-  useTitle("Wallet");
+export default function Wallet({ ...props }) {
 
   return (
-    <div className="bg-white flex-grow h-full">
+    <div {...props}>
       <div className="h-auto w-full bg-slate-50 p-2">
         <Balance />
 
@@ -24,7 +22,7 @@ export default function Wallet() {
           </Button>
           {/* </Link> */}
 
-          <Link to="/wallet/cash-in-methods">
+          <Link to="cash-in-methods">
             <Button
               icon={<DownloadOutlined />}
               className="min-w-[100px] rounded border border-[#739559] text-[15px] text-[#739559]"

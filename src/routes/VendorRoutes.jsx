@@ -14,10 +14,10 @@ import ChangeEmail from "@/pages/vendor/Settings/Forms/form/ChangeEmail";
 import ChangeName from "@/pages/vendor/Settings/Forms/form/ChangeName";
 import ChangeNumber from "@/pages/vendor/Settings/Forms/form/ChangeNumber";
 import Settings from "@/pages/vendor/Settings/Settings";
-import CashIn from "@/pages/vendor/Wallet/CashIn/CashIn";
-import CashInMethod from "@/pages/vendor/Wallet/CashIn/CashInMethod";
-import CashInResult from "@/pages/vendor/Wallet/CashIn/CashInResult";
-import Wallet from "@/pages/vendor/Wallet/Walet";
+import CashInPage from "@/pages/vendor/Wallet/CashIn/CashInPage";
+import ChooseMethodPage from "@/pages/vendor/Wallet/CashIn/ChooseMethodPage";
+import CashInResultPage from "@/pages/vendor/Wallet/CashIn/CashInResultPage";
+import WalletPage from "@/pages/vendor/Wallet/WaletPage";
 
 import { useRoutes } from "react-router-dom";
 
@@ -52,7 +52,7 @@ const routes = [
       },
       {
         path: "wallet",
-        element: <Wallet />,
+        element: <WalletPage />,
       },
       {
         path: "settings",
@@ -78,15 +78,19 @@ const routes = [
   },
   {
     path: "wallet/cash-in-methods",
-    element: <CashInMethod />,
+    element: <ChooseMethodPage />,
   },
   {
     path: "wallet/cash-in",
-    element: <CashIn />,
+    element: <CashInPage />,
   },
   {
-    path: "wallet/cash-in/result",
-    element: <CashInResult />,
+    path: "wallet/cash-in/result-paymongo",
+    element: <CashInResultPage type="paymongo"/>,
+  },
+  {
+    path: "wallet/cash-in/result-paypal",
+    element: <CashInResultPage type="paypal"/>,
   },
   // settings
   {

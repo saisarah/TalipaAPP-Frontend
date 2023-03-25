@@ -5,11 +5,16 @@ import { useVerifyPayment } from "@/query/mutations/useVerifyPayment";
 import { CheckCircleFilled } from "@ant-design/icons";
 import { Link, useSearchParams } from "react-router-dom";
 
-
-export default function CashInSuccess() {
+const usePaymentId = (type) => {
   const [params] = useSearchParams();
-  const paymentIntentId = params.get("payment_intent_id")
-  const { data, isLoading } = useVerifyPayment(paymentIntentId)
+  if (type === "paymongo")
+    return params.get("payment_intent_id")
+  return params.get("token")
+}
+
+export default function CashInResult({ type, walletLink }) {
+  const paymentIntentId = usePaymentId(type)
+  const { data, isLoading } = useVerifyPayment(paymentIntentId, type)
 
   if (isLoading) {
     return <SplashScreen />;
@@ -29,7 +34,7 @@ export default function CashInSuccess() {
       </div>
 
       <Link
-        to="/farmer/wallet"
+        to={walletLink}
         replace
         className="mt-8 block rounded bg-white py-3 px-8 text-center"
       >

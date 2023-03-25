@@ -60,12 +60,17 @@ const useViewPort = () => {
   };
 };
 
-export function AppContextProvider({ children }) {
+export function AppContextProvider({ isAndroid, children }) {
   const [context, setContext] = useState("guest");
   const viewport = useViewPort();
 
+  const getFullPath = (path) => {
+    if (isAndroid) return `${window.location.origin}/#${path}`
+    return `${window.location.origin}${path}`
+  }
+
   return (
-    <AppContext.Provider value={{ context, setContext, viewport }}>
+    <AppContext.Provider value={{ getFullPath, isAndroid, context, setContext, viewport }}>
       {children}
     </AppContext.Provider>
   );
