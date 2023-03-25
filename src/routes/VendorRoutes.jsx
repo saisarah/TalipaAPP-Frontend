@@ -14,7 +14,7 @@ import ChangeEmail from "@/pages/vendor/Settings/Forms/form/ChangeEmail";
 import ChangeName from "@/pages/vendor/Settings/Forms/form/ChangeName";
 import ChangeNumber from "@/pages/vendor/Settings/Forms/form/ChangeNumber";
 import Settings from "@/pages/vendor/Settings/Settings";
-import CashIn from "@/pages/vendor/Wallet/CashIn/CashIn";
+import CashInPage from "@/pages/vendor/Wallet/CashIn/CashInPage";
 import ChooseMethodPage from "@/pages/vendor/Wallet/CashIn/ChooseMethodPage";
 import CashInResult from "@/pages/vendor/Wallet/CashIn/CashInResult";
 import WalletPage from "@/pages/vendor/Wallet/WaletPage";
@@ -82,7 +82,7 @@ const routes = [
   },
   {
     path: "wallet/cash-in",
-    element: <CashIn />,
+    element: <CashInPage />,
   },
   {
     path: "wallet/cash-in/result",

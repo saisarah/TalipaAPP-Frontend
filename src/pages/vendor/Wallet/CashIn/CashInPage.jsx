@@ -10,7 +10,7 @@ import { cashInPaymongo, PAYMONGO_FEE } from "@/apis/WalletApi";
 
 
 
-export default function CashIn() {
+export default function CashInPage() {
   const return_url = window.location.origin + "/wallet/cash-in/result";
   const { mutate, isLoading } = useMutation((amount) => cashInPaymongo(return_url, amount), {
     onSuccess(data) {
