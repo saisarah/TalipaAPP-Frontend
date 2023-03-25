@@ -2,7 +2,7 @@ import Page from "@/components/Page";
 import PageHeader from "@/components/PageHeader/PageHeader";
 import { useLogoutModal } from "@/hooks/useLogoutModal";
 import {
-  useCurrentUserCompleteAddresQuery,
+  useCurrentUserAddress,
   useCurrentUserQuery,
 } from "@/query/queries/useCurrentUserQuery";
 import { RightOutlined } from "@ant-design/icons";
@@ -13,7 +13,8 @@ import { Link } from "react-router-dom";
 export default function Settings() {
   const { confirmLogout } = useLogoutModal();
   const { data: user } = useCurrentUserQuery();
-  
+  const { data: address } = useCurrentUserAddress();
+
   return (
     <Page className="bg-white">
       <PageHeader title="Settings" back="/" />
@@ -73,9 +74,7 @@ export default function Settings() {
           >
             <div className="flex flex-col">
               <span>Delivery Address</span>
-              <span className="text-slate-400">
-                City of San Jose Del Monte Bulacan
-              </span>
+              <span className="text-slate-400">{address.house_number}</span>
             </div>
             <RightOutlined />
           </Link>
