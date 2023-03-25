@@ -168,7 +168,7 @@ export default function Settings() {
           <div>
             Commodity Interest
             {user.vendor.crops.map((crop) => (
-              <div className="text-slate-400">{crop.name}</div>
+              <div key={crop.id} className="text-slate-400">{crop.name}</div>
             ))}
           </div>
           <div>
