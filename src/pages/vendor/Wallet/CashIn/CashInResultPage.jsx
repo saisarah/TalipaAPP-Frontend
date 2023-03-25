@@ -6,7 +6,7 @@ import { CheckCircleFilled } from "@ant-design/icons";
 import { Link, useSearchParams } from "react-router-dom";
 
 
-export default function CashInResult() {
+export default function CashInResultPage() {
   const [params] = useSearchParams();
   const paymentIntentId= params.get("payment_intent_id")
 

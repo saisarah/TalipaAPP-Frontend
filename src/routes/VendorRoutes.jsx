@@ -16,7 +16,7 @@ import ChangeNumber from "@/pages/vendor/Settings/Forms/form/ChangeNumber";
 import Settings from "@/pages/vendor/Settings/Settings";
 import CashInPage from "@/pages/vendor/Wallet/CashIn/CashInPage";
 import ChooseMethodPage from "@/pages/vendor/Wallet/CashIn/ChooseMethodPage";
-import CashInResult from "@/pages/vendor/Wallet/CashIn/CashInResult";
+import CashInResultPage from "@/pages/vendor/Wallet/CashIn/CashInResultPage";
 import WalletPage from "@/pages/vendor/Wallet/WaletPage";
 
 import { useRoutes } from "react-router-dom";
@@ -85,8 +85,8 @@ const routes = [
     element: <CashInPage />,
   },
   {
-    path: "wallet/cash-in/result",
-    element: <CashInResult />,
+    path: "wallet/cash-in/result-paymongo",
+    element: <CashInResultPage />,
   },
   // settings
   {
