@@ -1,9 +1,10 @@
 import { useCropOptions } from "@/query/queries/useCropsQuery";
+import { useCurrentUserQuery } from "@/query/queries/useCurrentUserQuery";
 import { Button, Form, Input, Select } from "antd";
 import { required } from "../rules";
 
 export default function Form1({ step, setStep, formData }) {
-  const { data: crops, isLoading: fetchingCrops } = useCropOptions();
+  const {data: crop, isLoading: fetchingCrops} = useCurrentUserQuery();
 
   const handleSubmit = ({ crop_id, title, caption }) => {
     formData.crop_id = crop_id;
@@ -31,7 +32,7 @@ export default function Form1({ step, setStep, formData }) {
       >
         <Select
           placeholder="Select Commodity"
-          options={crops}
+          options={crop.farmer.crops.map(({ name, id }) => ({ value: id, label: name }))}
           size="large"
           loading={fetchingCrops}
         />
