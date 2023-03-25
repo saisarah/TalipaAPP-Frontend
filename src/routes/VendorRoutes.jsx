@@ -86,7 +86,7 @@ const routes = [
   },
   {
     path: "wallet/cash-in/result-paymongo",
-    element: <CashInResultPage />,
+    element: <CashInResultPage type="paymongo"/>,
   },
   // settings
   {

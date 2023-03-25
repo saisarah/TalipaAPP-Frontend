@@ -1,13 +1,22 @@
 import { cashInPaymongo, PAYMONGO_FEE } from "@/apis/WalletApi";
+import { useAppContext } from "@/contexts/AppContext";
 import { getErrorMessage } from "@/helpers/Http";
 import { useMutation } from "@tanstack/react-query";
 import { notification } from "antd";
 
+const useReturnUrl = () => {
+  const { context } = useAppContext()
+  if (context === "farmer")
+    return `${window.location.origin}/farmer/wallet/cash-in/result-paymongo`
+
+  return `${window.location.origin}/wallet/cash-in/result-paymongo`
+}
+
 export default function useGcashMethod(amount)
 {
-  const return_url = window.location.origin + "/farmer/wallet/cash-in/result-paymongo";
+  const returnUrl = useReturnUrl()
   const { mutate, isLoading } = useMutation(
-    (amount) => cashInPaymongo(return_url, amount),
+    (amount) => cashInPaymongo(returnUrl, amount),
     {
       onSuccess(data) {
         window.location = data.redirect.url;
