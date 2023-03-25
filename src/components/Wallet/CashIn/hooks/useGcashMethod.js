@@ -2,7 +2,6 @@ import { cashInPaymongo, PAYMONGO_FEE } from "@/apis/WalletApi";
 import { getErrorMessage } from "@/helpers/Http";
 import { useMutation } from "@tanstack/react-query";
 import { notification } from "antd";
-import logo from "../images/gcash.png";
 
 export default function useGcashMethod(amount)
 {
@@ -40,8 +39,6 @@ export default function useGcashMethod(amount)
   }
 
   return {
-    logo,
-    title: "Cash in with Gcash",
     amount, 
     fees,
     total,

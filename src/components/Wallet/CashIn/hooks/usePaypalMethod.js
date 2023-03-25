@@ -1,5 +1,4 @@
 import { cashInPaypal } from "@/apis/WalletApi";
-import logo from "../images/paypal.svg";
 import { getErrorMessage } from "@/helpers/Http";
 import { useMutation } from "@tanstack/react-query";
 import { notification } from "antd";
@@ -35,8 +34,6 @@ export default function usePaypalMethod(amount) {
   };
 
   return {
-    logo,
-    title: "Cash in using PayPal",
     amount,
     fees: [],
     total,

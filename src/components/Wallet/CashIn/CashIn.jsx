@@ -6,31 +6,18 @@ import { Button, Input, notification } from "antd";
 import { Navigate, useLocation } from "react-router-dom";
 import useCashInMethod from "./hooks/useCashInMethod";
 
-export default function CashIn() {
-  const { state: method } = useLocation();
-
+export default function CashIn({ logo, method,...props }) {
   const {
-    isInvalidMethod,
     isLoading,
     amount,
     setAmount,
     total,
     handleSubmit,
     fees,
-    logo,
-    title
   } = useCashInMethod(method);
 
-  if (isInvalidMethod)
-    return <Navigate to="/farmer/wallet/cash-in-methods" replace />;
-
   return (
-    <Page className="">
-      <PageHeader
-        back="/farmer/wallet/cash-in-methods"
-        title={title}
-      />
-
+    <div {...props}>
       <div className="bg-white p-2 py-4">
         <div className="mb-2">Input Amount</div>
         <div>
@@ -87,6 +74,6 @@ export default function CashIn() {
           Pay Now
         </Button>
       </div>
-    </Page>
+    </div>
   );
 }

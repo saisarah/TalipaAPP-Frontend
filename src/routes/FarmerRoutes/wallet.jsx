@@ -1,4 +1,4 @@
-import CashIn from "@/components/Wallet/CashIn/CashIn";
+import CashInPage from "@/pages/farmer/Wallet/CashIn/CashInPage";
 import CashInResultPage from "@/pages/farmer/Wallet/CashIn/CashInResultPage";
 import ChooseMethodPage from "@/pages/farmer/Wallet/CashIn/ChooseMethodPage";
 import ConfirmTransfer from "@/pages/farmer/Wallet/TransferMoney/ConfirmTransfer";
@@ -24,7 +24,7 @@ export const wallet = [
   },
   {
     path: "wallet/cash-in",
-    element: <CashIn />,
+    element: <CashInPage />,
   },
   {
     path: "wallet/cash-in/result-paymongo",

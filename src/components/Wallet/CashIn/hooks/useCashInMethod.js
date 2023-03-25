@@ -14,7 +14,5 @@ export default function useCashInMethod(type) {
   if (type === "paypal")
     return {...paypalMethod, setAmount}
 
-  return {
-    isInvalidMethod: true
-  }
+  throw new Error(`Invalid Cash in method: ${type}`)
 }
