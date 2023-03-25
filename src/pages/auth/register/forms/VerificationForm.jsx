@@ -4,7 +4,7 @@ import { useOtp } from "@/query/mutations/useOtp";
 import { useRegistration } from "@/query/mutations/useRegistration";
 import { Button, Form, notification } from "antd";
 import { toFormData } from "axios";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import FormItem from "../../../../components/FormItem";
 import TermsAndCondition from "./TermsAndCondition";
@@ -13,6 +13,7 @@ export const VerificationForm = () => {
   const navigate = useNavigate();
   const { data, setStep, accountType } = useRegistrationContext();
   const { sendOtp, isSending, throttle } = useOtp();
+  const [agree, setAgree] = useState(false)
   const { mutate: register, isLoading } = useRegistration(accountType, {
     onSuccess() {
       notification.success({
@@ -31,6 +32,9 @@ export const VerificationForm = () => {
 
   const handleSubmit = ({ code }) => {
     if (isLoading) return;
+
+    if (!agree)
+      return notification.error({ message: "You must read and agree to the terms and condition." })
 
     const formData = toFormData({ ...data, code });
 
@@ -80,7 +84,7 @@ export const VerificationForm = () => {
             ),
           }}
         />
-        <TermsAndCondition />
+        <TermsAndCondition agree={agree} setAgree={setAgree}/>
 
         <Button
           className="my-4"

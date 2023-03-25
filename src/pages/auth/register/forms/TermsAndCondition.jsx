@@ -1,5 +1,6 @@
+import { required } from "@/pages/farmer/CreatePost/rules";
 import { Button, Checkbox, Form, Modal, notification } from "antd";
-import { useState, useEffect, useRef, useCallback } from "react";
+import { useState, useEffect, useRef, useCallback, useLayoutEffect } from "react";
 
 const Terms = () => {
   return (
@@ -225,21 +226,20 @@ const Terms = () => {
   );
 };
 
-export default function TermsAndCondition() {
-  // const [terms, setTerms] = useState("unchecked");
-
-  // const [loading, setLoading] = useState(false);
+export default function TermsAndCondition({ agree, setAgree }) {
   const [open, setOpen] = useState(false);
   const [hasRead, setHasRead] = useState(false);
   const checkbox = useRef();
 
   const onScroll = useCallback(function (e) {
-    if (e.target.scrollTop + 10 >= e.target.scrollTopMax) {
+    let scrollMax = e.target.scrollHeight - e.target.clientHeight
+
+    if (e.target.scrollTop + 10 >= scrollMax) {
       setHasRead(true);
     }
   }, []);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const body = document.querySelector(".ant-modal-body");
 
     if (body) {
@@ -251,30 +251,33 @@ export default function TermsAndCondition() {
   });
 
   const handleOk = () => {
-    if (!hasRead) {
+    if (!hasRead) 
       return notification.warn({
         message: "You must read the whole terms and condition",
       });
-    }
-    checkbox.current.setState({ checked: true });
+    
+    setAgree(true)
     setOpen(false);
   };
 
   return (
     <>
-      <Checkbox ref={checkbox} disabled={!hasRead} className="text-justify">
-        By Clicking Submit, you agree to the TalipaAPP
-        <a href="#" onClick={() => setOpen(true)} className="ml-1 text-primary">
-          Terms and Privacy Policy
-        </a>
-        .
-      </Checkbox>
+        <Checkbox onChange={() => setAgree(false)} checked={agree} ref={checkbox} disabled={!hasRead} className="text-justify">
+          By Clicking Submit, you agree to the TalipaAPP
+          <a href="#" onClick={() => setOpen(true)} className="ml-1 text-primary">
+            Terms and Privacy Policy
+          </a>
+          .
+        </Checkbox>
 
       <Modal
         title="Terms and Conditions"
         open={open}
         onOk={handleOk}
-        onCancel={() => setOpen(false)}
+        onCancel={() => { 
+          setOpen(false);
+          setAgree(false)
+        }}
         centered
         bodyStyle={{ maxHeight: "70vh", overflowY: "auto" }}
       >
