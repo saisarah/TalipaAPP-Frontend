@@ -13,8 +13,15 @@ import { Link } from "react-router-dom";
 export default function Settings() {
   const { confirmLogout } = useLogoutModal();
   const { data: user } = useCurrentUserQuery();
-  const { data: address } = useCurrentUserAddress();
+  const { data: address, isLoading } = useCurrentUserAddress();
 
+  if (isLoading) {
+    return (
+      <div className="flex justify-center py-16">
+        <Spin />
+      </div>
+    );
+  }
   return (
     <Page className="bg-white">
       <PageHeader title="Settings" back="/" />
