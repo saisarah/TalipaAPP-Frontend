@@ -1,16 +1,21 @@
+import { postDemand } from "@/apis/DemandApi";
 import Page from "@/components/Page";
 import PageHeader from "@/components/PageHeader/PageHeader";
 import { useTitle } from "@/contexts/VendorContext";
+import { usePostDemand } from "@/query/mutations/usePostDemand";
 import { useCropOptions } from "@/query/queries/useCropsQuery";
 import { useCurrentUserQuery } from "@/query/queries/useCurrentUserQuery";
 import { Button, Form, Input, Select } from "antd";
 import TextArea from "antd/lib/input/TextArea";
 import { required } from "./rules";
 
+
 export default function AddDemand() {
   const { data: crop, isLoading: fetchingCrops } = useCurrentUserQuery();
+  const { mutate, isLoading, isSuccess  } = usePostDemand();
+
   const handleSubmit = (data) => {
-    console.log(data);
+    mutate(data)
   };
 
   return (
@@ -63,6 +68,7 @@ export default function AddDemand() {
         </Form.Item>
 
         <Button
+          loading={isLoading}
           htmlType="submit"
           size="large"
           type="primary"
