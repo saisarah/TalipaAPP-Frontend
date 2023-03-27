@@ -10,7 +10,6 @@ import {
   message,
 } from "antd";
 import { SaveOutlined, PlusOutlined, LoadingOutlined } from "@ant-design/icons";
-import FormItem from "@/components/FormItem";
 import TextArea from "antd/lib/input/TextArea";
 
 import { useState } from "react";
@@ -89,7 +88,7 @@ export default function ProfileUpdate() {
             uploadButton
           )}
         </Upload> */}
-        <Form>
+        <Form className="">
           <div className="flex justify-center rounded-full">
             <Upload
               name="avatar"
@@ -102,6 +101,7 @@ export default function ProfileUpdate() {
             >
               {imageUrl ? (
                 <img
+                  className="h-24 w-24 rounded"
                   src={imageUrl}
                   alt="avatar"
                   style={{
@@ -128,23 +128,6 @@ export default function ProfileUpdate() {
           <p className="font-bold uppercase">Update Account Information</p>
         }
       >
-        {/* <div className="my-3 grid grid-cols-3 gap-4 border-b-2">
-            <div>
-              <img
-                src="https://via.placeholder.com/200"
-                className="mb-3 rounded-full"
-              />
-            </div>
-            <div className="col-span-2">
-              <p className="text-lg font-bold uppercase">joshua villanueva</p>
-              <p>
-                <span className="text-primary">
-                  villanuevajoshua27@gmail.com
-                </span>
-                <span> - Administrator</span>
-              </p>
-            </div>
-          </div> */}
         <Form layout="vertical" className="grid grid-rows-2">
           <div className="my-3 grid grid-cols-3 gap-4 pb-3">
             <div className="col-span-1 space-y-4">
