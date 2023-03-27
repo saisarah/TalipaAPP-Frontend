@@ -11,14 +11,20 @@ const FarmerRoutes = lazy(() => import("./FarmerRoutes/FarmerRoutes"));
 const AdminRoutes = lazy(() => import("./AdminRoutes"));
 const VendorRoutes = lazy(() => import("./VendorRoutes"));
 
+const wrapSuspense = (element) => {
+  return (
+    <Suspense fallback={<LoadingScreen />}>{element}</Suspense>
+  )
+}
+
 export const routes = [
   {
     path: "/*",
-    element: <VendorGate element={<VendorRoutes />} />,
+    element: wrapSuspense(<VendorGate element={<VendorRoutes />} />),
   },
   {
     path: "/farmer/*",
-    element: <FarmerGate element={<FarmerRoutes />} />,
+    element: wrapSuspense(<FarmerGate element={<FarmerRoutes />} />),
   },
   {
     element: <GuestGate />,
@@ -26,11 +32,10 @@ export const routes = [
   },
   {
     path: "/admin/*",
-    element: <AdminRoutes />,
+    element: wrapSuspense(<AdminRoutes />),
   },
 ];
 
 export default function MainRoutes() {
-  const mainRoutes = useRoutes(routes);
-  return <Suspense fallback={<LoadingScreen />}>{mainRoutes}</Suspense>;
+  return useRoutes(routes)
 }
