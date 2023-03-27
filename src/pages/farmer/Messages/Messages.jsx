@@ -1,4 +1,4 @@
-import MessageItem from "@/components/MessageItem";
+import MessageItem from "@/components/messages/MessageItem";
 import Conversation from "@/components/messages/Conversation";
 import SendMessage from "@/components/messages/SendMessage";
 import Page from "@/components/Page";

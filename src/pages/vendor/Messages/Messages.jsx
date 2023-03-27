@@ -1,4 +1,4 @@
-import MessageItem from "@/components/MessageItem";
+import MessageItem from "@/components/messages/MessageItem";
 import { useTitle } from "@/contexts/VendorContext";
 import { useMessagesQuery } from "@/query/queries/useMessagesQuery";
 import { Spin } from "antd";
