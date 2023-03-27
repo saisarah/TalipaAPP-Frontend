@@ -31,6 +31,10 @@ const routes = [
         element: <Home />,
       },
       {
+        path: "/posts/:id",
+        element: <PostDetails />,
+      },
+      {
         path: "messages",
         element: <Messages />,
       },
@@ -63,10 +67,6 @@ const routes = [
   {
     path: "demands/create",
     element: <AddDemand />,
-  },
-  {
-    path: "/posts/:id",
-    element: <PostDetails />,
   },
   {
     path: "/messages/:id",
