@@ -5,10 +5,22 @@ import quantity from "./icons/input-symbol-for-numbers.svg";
 
 import { Link } from "react-router-dom";
 import { useDemandsQuery } from "@/query/queries/useDemandsQuery";
-import { Button, Divider, Spin } from "antd";
+import { Button, Divider, Modal, Spin } from "antd";
+import AddDemand from "./components/AddDemand";
+import { useAppContext } from "@/contexts/AppContext";
+import { useState } from "react";
 
 export const Demands = () => {
   const { data, isLoading } = useDemandsQuery();
+  const [open, setOpen] = useState(false)
+  const { viewport } = useAppContext()
+
+  const handleClick = (e) => {
+    if (viewport.isMedium) {
+      e.preventDefault()
+      setOpen(true)
+    }
+  }
 
   if (isLoading) {
     return (
@@ -26,7 +38,7 @@ export const Demands = () => {
           submitted per month)
         </div>
         <div className="">
-          <Link to="/demands/create">
+          <Link to="/demands/create" onClick={handleClick}>
             <Button shape="round" size="large" color="green">
               New
             </Button>
@@ -76,6 +88,17 @@ export const Demands = () => {
           </div>
         ))}
       </div>
+
+      <Modal
+        open={open}
+        centered
+        bodyStyle={{ padding: 0, overflowY: 'auto' }}
+        title="Post Demand"
+        footer={null}
+        onCancel={() => setOpen(false)}
+        >
+          <AddDemand />
+      </Modal>
     </div>
   );
 };
