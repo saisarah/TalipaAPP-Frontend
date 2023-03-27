@@ -9,7 +9,7 @@ export default function Page({ children, className = "", ...props }) {
 
   if (viewport.isMedium)
     return (
-      <div className="min-h-screen" {...props}>
+      <div {...props}>
         {children}
       </div>
     );
