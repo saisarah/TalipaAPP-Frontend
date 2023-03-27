@@ -3,7 +3,7 @@ import { VendorContextProvider } from "@/contexts/VendorContext";
 import { useCurrentUserQuery } from "@/query/queries/useCurrentUserQuery";
 import { Navigate } from "react-router-dom";
 
-export default function VendorGate({ children }) {
+export default function VendorGate({ element }) {
   const { isLoading, isError, data: user } = useCurrentUserQuery();
 
   if (isLoading) {
@@ -14,5 +14,5 @@ export default function VendorGate({ children }) {
     return <Navigate to="/login" />;
   }
 
-  return <VendorContextProvider user={user}>{children}</VendorContextProvider>;
+  return <VendorContextProvider user={user}>{element}</VendorContextProvider>;
 }

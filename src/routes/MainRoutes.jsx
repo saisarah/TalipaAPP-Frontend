@@ -7,27 +7,18 @@ import LoadingScreen from "@/components/LoadingScreen/LoadingScreen";
 import { lazy, Suspense } from "react";
 import { useRoutes } from "react-router-dom";
 
-const FarmerRoutes = () => import("./FarmerRoutes/FarmerRoutes");
-const AdminRoutes = () => import("./AdminRoutes");
-const VendorRoutes = () => import("./VendorRoutes");
-
-const lazyLoadRoutes = (routes) => {
-  const LazyElement = lazy(routes);
-  return (
-    <Suspense fallback={<LoadingScreen />}>
-      <LazyElement />
-    </Suspense>
-  );
-};
+const FarmerRoutes = lazy(() => import("./FarmerRoutes/FarmerRoutes"));
+const AdminRoutes = lazy(() => import("./AdminRoutes"));
+const VendorRoutes = lazy(() => import("./VendorRoutes"));
 
 export const routes = [
   {
     path: "/*",
-    element: <VendorGate>{lazyLoadRoutes(VendorRoutes)}</VendorGate>,
+    element: <VendorGate element={<VendorRoutes />} />,
   },
   {
     path: "/farmer/*",
-    element: <FarmerGate>{lazyLoadRoutes(FarmerRoutes)}</FarmerGate>,
+    element: <FarmerGate element={<FarmerRoutes />} />,
   },
   {
     element: <GuestGate />,
@@ -35,10 +26,11 @@ export const routes = [
   },
   {
     path: "/admin/*",
-    element: lazyLoadRoutes(AdminRoutes),
+    element: <AdminRoutes />,
   },
 ];
 
 export default function MainRoutes() {
-  return useRoutes(routes);
+  const mainRoutes = useRoutes(routes);
+  return <Suspense fallback={<LoadingScreen />}>{mainRoutes}</Suspense>;
 }
