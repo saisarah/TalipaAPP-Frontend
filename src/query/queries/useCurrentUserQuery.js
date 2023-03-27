@@ -3,6 +3,7 @@ import {
   currentUserCompleteAddressKey,
   currentUserKey,
   fetchCurrentUser,
+  fetchCurrentUserAddress,
   fetchCurrentUserBalance,
   fetchCurrentUserCompleteAddress,
 } from "@/apis/UserApi";
@@ -19,6 +20,10 @@ export const useCurrentUserCompleteAddresQuery = () => {
     currentUserCompleteAddressKey,
     fetchCurrentUserCompleteAddress
   );
+};
+
+export const useCurrentUserAddress = () => {
+  return useQuery(["user/address"], fetchCurrentUserAddress);
 };
 
 export const useCurrentUserQuery = () => {

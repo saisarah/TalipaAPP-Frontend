@@ -15,7 +15,7 @@ export default function PostCard({ post, to }) {
   } = post;
 
   return (
-    <div className="mb-2 flex h-full break-inside-avoid flex-col border border-slate-200 bg-white shadow-sm">
+    <div className="flex h-full break-inside-avoid flex-col border border-slate-200 bg-white shadow-sm">
       <div className="absolute mt-1 items-center bg-white p-1 text-[12px] opacity-50">
         <span className=" whitespace-nowrap text-black ">
           {moment(created_at).fromNow()}

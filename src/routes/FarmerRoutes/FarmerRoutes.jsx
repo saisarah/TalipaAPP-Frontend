@@ -1,7 +1,9 @@
 import CreatePost from "@/pages/farmer/CreatePost/CreatePost";
 import Help from "@/pages/farmer/Help/help";
-import Commodities from "@/pages/farmer/Home/demand/Commodities";
-import Region from "@/pages/farmer/Home/demand/Region";
+import CreateInfo from "@/pages/farmer/Home/CreateInfo";
+import { CropsDemands } from "@/pages/farmer/Demands/CropsDemands";
+import Demands from "@/pages/farmer/Demands/Demands";
+import ForSale from "@/pages/farmer/Home/ForSale";
 import Home from "@/pages/farmer/Home/Home";
 import MainMenu from "@/pages/farmer/MainMenu/MainMenu";
 import Chat from "@/pages/farmer/Messages/Chat";
@@ -16,6 +18,7 @@ import { useRoutes } from "react-router-dom";
 import { groups } from "./groups";
 import { settings } from "./settings";
 import { wallet } from "./wallet";
+import FarmerLayout from "@/components/FarmerLayout/FarmerLayout";
 
 /**
  * All of the path is under farmer route
@@ -30,15 +33,19 @@ const routes = [
   },
   {
     path: "home",
-    element: <Home />,
+    element: (
+      <Home 
+        route={{
+          demands: { element: <CropsDemands />, title: "Demands" },
+          sale: { element: <ForSale />, title: "For Sale" },
+          create: { element: <CreateInfo />, title: "Create Post" }
+        }}
+      />
+    ),
   },
   {
-    path: "home/commodities/banana",
-    element: <Commodities />,
-  },
-  {
-    path: "home/commodities/Banana/Region I (Ilocos Region)",
-    element: <Region />,
+    path: "demands",
+    element: <Demands />,
   },
 
   {
@@ -87,5 +94,6 @@ const routes = [
 ];
 
 export default function FarmerRoutes() {
-  return useRoutes(routes);
+  const farmerRoutes = useRoutes(routes);
+  return <FarmerLayout>{farmerRoutes}</FarmerLayout>
 }

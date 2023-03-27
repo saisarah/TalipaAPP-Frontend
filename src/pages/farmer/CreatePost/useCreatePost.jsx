@@ -2,7 +2,7 @@ import { useMutation } from "@tanstack/react-query";
 import { Modal } from "antd";
 import { toFormData } from "axios";
 import { useNavigate } from "react-router-dom";
-import { createPost } from "../../../apis/Post";
+import { createPost } from "../../../apis/PostApi";
 import { getErrorMessage } from "../../../helpers/Http";
 
 const SUCCESS_REDIRECT = "/farmer/home?feed=sale";

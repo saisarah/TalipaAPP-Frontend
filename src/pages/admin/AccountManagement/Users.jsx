@@ -1,6 +1,7 @@
-import { MenuOutlined, PlusOutlined } from "@ant-design/icons";
+import { MenuOutlined, MoreOutlined, PlusOutlined } from "@ant-design/icons";
 import {
   Button,
+  Card,
   Dropdown,
   Form,
   Input,
@@ -89,12 +90,13 @@ export default function Users() {
           <div className="flex grow">
             <Space size="middle">
               <Dropdown
-                items={{
+                menu={{
                   items,
                 }}
+                trigger={["click"]}
               >
                 <a>
-                  <MenuOutlined />
+                  <MoreOutlined />
                 </a>
               </Dropdown>
             </Space>
@@ -141,67 +143,65 @@ export default function Users() {
   ];
 
   return (
-    <div>
-      <div className="">
-        <div className="flex justify-between">
-          <h1>USERS MANAGEMENT</h1>
-          <Button
-            size="small"
-            type="primary"
-            onClick={() => setModal1Open(true)}
-          >
+    <>
+      <Card
+        title="Account management"
+        extra={
+          <Button type="primary" onClick={() => setModal1Open(true)}>
             <PlusOutlined />
             Add new user
           </Button>
-          <Modal
-            title="Add user"
+        }
+      >
+        <div className="table-responsive">
+          <Table columns={columns} dataSource={data} pagination={true} />
+        </div>
+      </Card>
+
+      <Modal
+        title="Add user"
+        style={{
+          top: 20,
+        }}
+        open={modal1Open}
+        onOk={() => setModal1Open(false)}
+        onCancel={() => setModal1Open(false)}
+      >
+        <Form className="space-y-4">
+          <Input placeholder="E-mail" />
+          <Input placeholder="Lastname" />
+          <Input placeholder="Firstname" />
+          <Input placeholder="Contact" />
+          <Input placeholder="Age" />
+          <Input placeholder="Address" />
+          <Select
+            defaultValue="Select status"
             style={{
-              top: 20,
+              width: 120,
             }}
-            open={modal1Open}
-            onOk={() => setModal1Open(false)}
-            onCancel={() => setModal1Open(false)}
-          >
-            <Form className="space-y-4">
-              <Input placeholder="E-mail" />
-              <Input placeholder="Lastname" />
-              <Input placeholder="Firstname" />
-              <Input placeholder="Contact" />
-              <Input placeholder="Age" />
-              <Input placeholder="Address" />
-              <Select
-                defaultValue="Select status"
-                style={{
-                  width: 120,
-                }}
-                onChange={handleChange}
-                options={[
-                  {
-                    value: "Select status",
-                    label: "Select status",
-                    disabled: true,
-                  },
-                  {
-                    value: "Active",
-                    label: "Active",
-                  },
-                  {
-                    value: "Inactive",
-                    label: "Inactive",
-                  },
-                  {
-                    value: "Resubmit",
-                    label: "Resubmit",
-                  },
-                ]}
-              />
-            </Form>
-          </Modal>
-        </div>
-        <div className="pt-2">
-          <Table className="rounded" columns={columns} dataSource={data} />
-        </div>
-      </div>
-    </div>
+            onChange={handleChange}
+            options={[
+              {
+                value: "Select status",
+                label: "Select status",
+                disabled: true,
+              },
+              {
+                value: "Active",
+                label: "Active",
+              },
+              {
+                value: "Inactive",
+                label: "Inactive",
+              },
+              {
+                value: "Resubmit",
+                label: "Resubmit",
+              },
+            ]}
+          />
+        </Form>
+      </Modal>
+    </>
   );
 }

@@ -1,15 +1,18 @@
 import Page from "@/components/Page";
-import PageHeader from "@/components/PageHeader";
+import PageHeader from "@/components/PageHeader/PageHeader";
+import { useCurrentUserQuery } from "@/query/queries/useCurrentUserQuery";
 import { Button, Input, Space } from "antd";
 import { Link } from "react-router-dom";
 
 export default function ChangeEmail() {
+  const { data: user } = useCurrentUserQuery();
+
   return (
     <Page className="bg-white">
       <PageHeader title="Change E-mail" back="/farmer/settings" />
 
       <Space direction="vertical flex p-4">
-        <Input placeholder="Enter new E-mail" />
+        <Input placeholder="Enter new E-mail" defaultValue={user.email} />
       </Space>
       <div className="flex justify-end px-4">
         <Link

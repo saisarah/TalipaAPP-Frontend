@@ -1,5 +1,6 @@
 import { VendorLayout } from "@/pages/vendor/components/VendorLayout/VendorLayout";
 import Help from "@/pages/vendor/Help/help";
+import AddDemand from "@/pages/vendor/Home/components/AddDemand";
 import { Home } from "@/pages/vendor/Home/Home";
 import Chat from "@/pages/vendor/Messages/Chat";
 import Messages from "@/pages/vendor/Messages/Messages";
@@ -7,11 +8,16 @@ import Notifications from "@/pages/vendor/Notifications/Notifications";
 import OrderInfo from "@/pages/vendor/Orders/OrderInfo/OrderInfo";
 import Orders from "@/pages/vendor/Orders/Orders";
 import { PostDetails } from "@/pages/vendor/PostDetails/PostDetails";
+import Posting from "@/pages/vendor/PostDetails/Posting";
 import Profile from "@/pages/vendor/Profile/Profile";
-import CashIn from "@/pages/vendor/Wallet/CashIn/CashIn";
-import CashInMethod from "@/pages/vendor/Wallet/CashIn/CashInMethod";
-import CashInResult from "@/pages/vendor/Wallet/CashIn/CashInResult";
-import Wallet from "@/pages/vendor/Wallet/Walet";
+import ChangeEmail from "@/pages/vendor/Settings/Forms/form/ChangeEmail";
+import ChangeName from "@/pages/vendor/Settings/Forms/form/ChangeName";
+import ChangeNumber from "@/pages/vendor/Settings/Forms/form/ChangeNumber";
+import Settings from "@/pages/vendor/Settings/Settings";
+import CashInPage from "@/pages/vendor/Wallet/CashIn/CashInPage";
+import ChooseMethodPage from "@/pages/vendor/Wallet/CashIn/ChooseMethodPage";
+import CashInResultPage from "@/pages/vendor/Wallet/CashIn/CashInResultPage";
+import WalletPage from "@/pages/vendor/Wallet/WaletPage";
 
 import { useRoutes } from "react-router-dom";
 
@@ -46,9 +52,17 @@ const routes = [
       },
       {
         path: "wallet",
-        element: <Wallet />
-      }
+        element: <WalletPage />,
+      },
+      {
+        path: "settings",
+        element: <Settings />,
+      },
     ],
+  },
+  {
+    path: "demands/create",
+    element: <AddDemand />,
   },
   {
     path: "/posts/:id",
@@ -64,16 +78,35 @@ const routes = [
   },
   {
     path: "wallet/cash-in-methods",
-    element: <CashInMethod />
+    element: <ChooseMethodPage />,
   },
   {
     path: "wallet/cash-in",
-    element: <CashIn />
+    element: <CashInPage />,
   },
   {
-    path: "wallet/cash-in/result",
-    element: <CashInResult />
-  }
+    path: "wallet/cash-in/result-paymongo",
+    element: <CashInResultPage type="paymongo"/>,
+  },
+  {
+    path: "wallet/cash-in/result-paypal",
+    element: <CashInResultPage type="paypal"/>,
+  },
+  // settings
+  {
+    path: "settings/change-name",
+    element: <ChangeName />,
+  },
+
+  {
+    path: "settings/change-number",
+    element: <ChangeNumber />,
+  },
+
+  {
+    path: "settings/change-email",
+    element: <ChangeEmail />,
+  },
 ];
 
 export default function VendorRoutes() {

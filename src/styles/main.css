@@ -19,6 +19,21 @@
     max-height: 100vh;
     max-height: 100dvh;
   }
+
+  .talipaapp-scrollbar {
+    scrollbar-color: rgb(179, 179, 179) #f1f1f1; /* thumb and track color */
+    scrollbar-width: thin;
+  }
+  
+  .talipaapp-scrollbar::-webkit-scrollbar {
+    width: 5px;
+  }
+  .talipaapp-scrollbar::-webkit-scrollbar-track {
+    background-color: #f1f1f1;
+  }
+  .talipaapp-scrollbar::-webkit-scrollbar-thumb {
+    background-color: rgb(179, 179, 179);
+  }
 }
 
 body {
@@ -140,3 +155,7 @@ a {
 .chat-cre {
   @apply h-8;
 } */
+
+.ant-modal-body {
+  @apply talipaapp-scrollbar;
+}

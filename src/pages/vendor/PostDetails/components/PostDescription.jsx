@@ -44,18 +44,20 @@ export const PostDescription = ({
           bordered
           column={1}
         >
-          <Descriptions.Item label="Large">
-            {currency(120)} / {unit}
-          </Descriptions.Item>
-          <Descriptions.Item label="Extra Large">
-            {currency(155)} / {unit}
-          </Descriptions.Item>
+          {prices.map((price) => (
+            <Descriptions.Item key={price.id} label={price.variant}>
+              {currency(price.value)} / {unit}
+            </Descriptions.Item>
+          ))}
         </Descriptions>
       )}
 
-      <Divider />
 
-      <p className="whitespace-pre-line">{caption}</p>
+      <Descriptions className="mt-4" title="Description" size="small">
+        <p className="whitespace-pre-line">{caption}</p>
+      </Descriptions>
+
+      <Divider />
     </>
   );
 };

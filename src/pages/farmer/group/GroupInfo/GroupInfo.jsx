@@ -1,24 +1,16 @@
-import PageHeader from "@/components/PageHeader";
+import PageHeader from "@/components/PageHeader/PageHeader";
 import { TabLinks } from "@/components/TabLink";
 import { useTabAdvance } from "@/helpers/hooks";
-import Http from "@/helpers/Http";
-import { useQuery } from "@tanstack/react-query";
+import { useFarmerGroupQuery } from "@/query/queries/useFarmerGroupsQuery";
 import { Button, Spin } from "antd";
 import { useParams } from "react-router-dom";
 import Forum from "../components/Forum";
 import Join from "../components/Join";
 
-const fetchGroup = async (id) => {
-  const { data } = await Http.get(`/farmer-groups/${id}`);
-  return data;
-};
-
 export default function GroupInfo() {
   const { id } = useParams();
 
-  const { data, isLoading } = useQuery(["farmer-groups", id], () =>
-    fetchGroup(id)
-  );
+  const { data, isLoading } = useFarmerGroupQuery(id);
 
   const { outlet, tabs } = useTabAdvance({
     join: {

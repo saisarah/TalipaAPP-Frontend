@@ -1,4 +1,4 @@
-import PageHeader from "@/components/PageHeader";
+import PageHeader from "@/components/PageHeader/PageHeader";
 import { CloseCircleOutlined, SearchOutlined } from "@ant-design/icons";
 import { Avatar, Button } from "antd";
 import { useState } from "react";

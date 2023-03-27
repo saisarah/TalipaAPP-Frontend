@@ -21,7 +21,10 @@ export default function Form3({ step, onSubmit, formData }) {
 
   return (
     <Form
-      style={{ transform: `translateX(${-step * 100}%)` }}
+      style={{
+        transform: `translateX(${-step * 100}%)`,
+        height: step !== 2 ? 0 : "auto",
+      }}
       className="w-full flex-shrink-0 flex-grow-0 p-4  transition"
       layout="vertical"
       onFinish={handleSubmit}

@@ -1,28 +1,22 @@
-import TabLink from "@/components/TabLink";
+import OrderLists from "@/components/Orders/OrderLists";
+import OrderTabLinks from "@/components/Orders/OrderTabLinks";
 import { useTitle } from "@/contexts/VendorContext";
 import { useTab } from "@/helpers/hooks";
-import OrderLists from "./components/OrderLists";
 
 export default function Orders() {
-  const tabs = ["pending", "confirmed", "shipped", "cancelled", "completed"];
+  const tabs = ["pending", "processing", "shipped", "cancelled", "completed"];
   const { selected } = useTab(tabs);
 
   useTitle("Orders");
 
   return (
     <div>
-      <div className="no-scrollbar sticky top-0 z-10 flex  flex-nowrap overflow-x-auto bg-white text-lg shadow-md">
-        {tabs.map((tab) => (
-          <TabLink
-            key={tab}
-            tab={tab}
-            className="flex items-center justify-center p-4 capitalize"
-            activeClassName="border-b border-primary text-primary"
-          />
-        ))}
-      </div>
-
-      <OrderLists status={selected} />
+      <OrderTabLinks tabs={tabs} />
+      <OrderLists 
+        className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-2 p-2"
+        status={selected} 
+        cardLink={id => `/orders/${id}`}
+      />
     </div>
   );
 }

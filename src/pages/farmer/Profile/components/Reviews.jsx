@@ -1,5 +1,5 @@
 import Page from "@/components/Page";
-import PageHeader from "@/components/PageHeader";
+import PageHeader from "@/components/PageHeader/PageHeader";
 import { StarFilled, StarOutlined } from "@ant-design/icons";
 import { Avatar, Card } from "antd";
 

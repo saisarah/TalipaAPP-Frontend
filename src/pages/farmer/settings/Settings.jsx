@@ -1,21 +1,31 @@
 import Page from "@/components/Page";
-import PageHeader from "@/components/PageHeader";
+import PageHeader from "@/components/PageHeader/PageHeader";
 import { useLogoutModal } from "@/hooks/useLogoutModal";
+import {
+  useCurrentUserAddress,
+  useCurrentUserQuery,
+} from "@/query/queries/useCurrentUserQuery";
 import { RightOutlined } from "@ant-design/icons";
+import { Spin } from "antd";
 import Search from "antd/lib/transfer/search";
 import { Link } from "react-router-dom";
 
 export default function Settings() {
   const { confirmLogout } = useLogoutModal();
+  const { data: user } = useCurrentUserQuery();
+  const { data: address, isLoading } = useCurrentUserAddress();
 
+  if (isLoading) {
+    return (
+      <div className="flex justify-center py-16">
+        <Spin />
+      </div>
+    );
+  }
   return (
     <Page className="bg-white">
       <PageHeader title="Settings" back="/" />
       <div className="p-4">
-        <div className="mb-2">
-          <Search placeholder="Search Settings" />
-        </div>
-
         <div className="mb-2 flex flex-col gap-2">
           <span className="font-bold">Personal Information</span>
 
@@ -25,7 +35,7 @@ export default function Settings() {
           >
             <div className="flex flex-col">
               <span>Fullname</span>
-              <span className="text-slate-400">Joshua Villanueva</span>
+              <span className="text-slate-400">{user.fullname}</span>
             </div>
 
             <RightOutlined />
@@ -37,7 +47,7 @@ export default function Settings() {
           >
             <div className="flex flex-col">
               <span>Username</span>
-              <span className="text-slate-400">koykoy027</span>
+              <span className="text-slate-400">{user.username}</span>
             </div>
             <RightOutlined />
           </Link>
@@ -47,7 +57,7 @@ export default function Settings() {
           >
             <div className="flex flex-col">
               <span>Number</span>
-              <span className="text-slate-400">+63 976 140 1847</span>
+              <span className="text-slate-400">{user.contact_number}</span>
             </div>
             <RightOutlined />
           </Link>
@@ -57,9 +67,7 @@ export default function Settings() {
           >
             <div className="flex flex-col">
               <span>E-mail Address</span>
-              <span className="text-slate-400">
-                villanuevajoshua27@gmail.com
-              </span>
+              <span className="text-slate-400">{user.email}</span>
             </div>
             <RightOutlined />
           </Link>
@@ -73,9 +81,7 @@ export default function Settings() {
           >
             <div className="flex flex-col">
               <span>Delivery Address</span>
-              <span className="text-slate-400">
-                City of San Jose Del Monte Bulacan
-              </span>
+              <span className="text-slate-400">{address.house_number}</span>
             </div>
             <RightOutlined />
           </Link>

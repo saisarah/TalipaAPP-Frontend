@@ -312,9 +312,8 @@ export default function Dashboard() {
                 <table className="width-100">
                   <thead>
                     <tr>
-                      <th>COMMODITY</th>
-
                       <th>REGION</th>
+                      <th>COMMODITY</th>
                       <th>PERCENTAGE</th>
                     </tr>
                   </thead>
@@ -322,12 +321,13 @@ export default function Dashboard() {
                     {list.map((d, index) => (
                       <tr key={index}>
                         <td>
-                          <h6>{d.Title}</h6>
-                        </td>
-
-                        <td>
                           <span className="font-weight-bold text-xs">
                             {d.region}{" "}
+                          </span>
+                        </td>
+                        <td>
+                          <span className="font-weight-bold text-xs">
+                            {d.Title}
                           </span>
                         </td>
                         <td>
@@ -355,6 +355,8 @@ export default function Dashboard() {
             <Card bordered={false} className="criclebox h-full">
               <div className="timeline-box">
                 <Title level={5}>Notifications</Title>
+                <br />
+                
                 {/* <Paragraph className="lastweek" style={{ marginBottom: 24 }}>
                   this month <span className="bnb2">20%</span>
                 </Paragraph> */}
@@ -371,13 +373,13 @@ export default function Dashboard() {
                     </Timeline.Item>
                   ))}
                 </Timeline>
-                <Button
+                {/* <Button
                   type="primary"
                   className="width-100"
                   onClick={() => setReverse(!reverse)}
                 >
                   VIEW ALL NOTIFICATIONS
-                </Button>
+                </Button> */}
               </div>
             </Card>
           </Col>

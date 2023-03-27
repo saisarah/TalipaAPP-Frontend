@@ -1,20 +1,16 @@
-import { EditOutlined, UserOutlined } from "@ant-design/icons";
-import { Avatar, Spin } from "antd";
-import { Button } from "antd";
-import { useQuery } from "@tanstack/react-query";
-import { fetchUserPosts } from "@/apis/Post";
-import PostCard from "@/components/PostCard";
-import PageHeader from "@/components/PageHeader";
 import Page from "@/components/Page";
+import PageHeader from "@/components/PageHeader/PageHeader";
+import PostCard from "@/components/PostCard";
 import { useTab } from "@/helpers/hooks";
+import { useCurrentUserQuery } from "@/query/queries/useCurrentUserQuery";
+import { useUserPostsQuery } from "@/query/queries/usePostsQuery";
+import { EditOutlined, UserOutlined } from "@ant-design/icons";
+import { Avatar, Button, Spin } from "antd";
 import { Link } from "react-router-dom";
 import About from "./components/About";
-import { useCurrentUserQuery } from "@/query/queries/useCurrentUserQuery";
 
 const UserPosts = ({ id }) => {
-  const { data: posts, isLoading } = useQuery(["users", id, "posts"], () =>
-    fetchUserPosts(id)
-  );
+  const { data: posts, isLoading } = useUserPostsQuery(id)
 
   if (isLoading)
     return (
