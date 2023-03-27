@@ -21,3 +21,8 @@ export const acceptOrder = async (id) => {
   const { data } = await Http.post(`/orders/${id}`)
   return data
 }
+
+export const cancelOrder = async (id) => {
+  const { data } = await Http.delete(`/orders/${id}`)
+  return data;
+}

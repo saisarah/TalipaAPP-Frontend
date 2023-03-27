@@ -38,7 +38,7 @@ export default function OrderInfo() {
           />
 
           {order.order_status === "pending" && (
-            <CancelOrderButton />
+            <CancelOrderButton id={id} />
           )}
         </div>
       )}
