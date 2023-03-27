@@ -13,7 +13,10 @@ export const CropsDemands = () => {
     );
   }
 
-  const total = data.reduce((acm, crop) => acm + parseFloat(crop.demands_sum_budget), 0)
+  const total = data.reduce(
+    (acm, crop) => acm + parseFloat(crop.demands_sum_budget ?? 0),
+    0
+  );
 
   return (
     <div className="bg-white p-2">
@@ -24,16 +27,20 @@ export const CropsDemands = () => {
         closable
       />
 
-      {data.map((crop) => (
-        <CropDemandsCard
-          key={crop.id}
-          id={crop.id}
-          name={crop.name}
-          percentage={crop.demands_sum_budget*100/total}
-          request_count={crop.demands.length}
-          avatars={crop.demands.map(demand => demand.author.profile_picture)}
-        />
-      ))}
+      {data.map((crop) =>
+        crop.demands.length ? (
+          <CropDemandsCard
+            key={crop.id}
+            id={crop.id}
+            name={crop.name}
+            percentage={total && (crop.demands_sum_budget * 100) / total}
+            request_count={crop.demands.length}
+            avatars={crop.demands.map(
+              (demand) => demand.author.profile_picture
+            )}
+          />
+        ) : null
+      )}
     </div>
   );
 };
