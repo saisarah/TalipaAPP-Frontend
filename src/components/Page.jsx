@@ -9,7 +9,7 @@ export default function Page({ children, className = "", ...props }) {
 
   if (viewport.isMedium)
     return (
-      <div {...props}>
+      <div className={className} {...props}>
         {children}
       </div>
     );
