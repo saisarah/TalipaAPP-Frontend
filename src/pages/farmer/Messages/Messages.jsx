@@ -1,33 +1,27 @@
 import MessageItem from "@/components/messages/MessageItem";
-import Conversation from "@/components/messages/Conversation";
-import SendMessage from "@/components/messages/SendMessage";
 import Page from "@/components/Page";
 import FarmerPageHeader from "@/components/PageHeader/FarmerPageHeader";
 import PageHeader from "@/components/PageHeader/PageHeader";
 import { useMessagesQuery } from "@/query/queries/useMessagesQuery";
-import { useUserQuery } from "@/query/queries/useUsersQuery";
 import { Spin } from "antd";
-import SkeletonInput from "antd/lib/skeleton/Input";
-import { useParams } from "react-router-dom";
+import Chat from './Chat';
 import ReactLogo from "./img/mobile.svg";
-// import Chat from './Chat'
 
-const Chat = ({ id }) => {
-  const { data: user, isLoading: isUserLoading } = useUserQuery(id);
+// const Chat = ({ id }) => {
+//   const { data: user, isLoading: isUserLoading } = useUserQuery(id);
 
-  return (
-    <Page className="flex overflow-y-auto flex-col absolute inset-0 bg-white flex-grow">
-      <PageHeader
-        title={isUserLoading ? <SkeletonInput /> : user.fullname}
-      />
-      <Conversation id={id} avatar={user?.profile_picture} />
-      <SendMessage id={id} />
-    </Page>
-  );
-};
+//   return (
+//     <Page className="flex overflow-y-auto flex-col absolute inset-0 bg-white flex-grow">
+//       <PageHeader
+//         title={isUserLoading ? <SkeletonInput /> : user.fullname}
+//       />
+//       <Conversation id={id} avatar={user?.profile_picture} />
+//       <SendMessage id={id} />
+//     </Page>
+//   );
+// };
 
-export default function Messages() {
-  const { id } = useParams();
+export default function Messages({ chat }) {
   const { data, isLoading } = useMessagesQuery();
 
   if (isLoading)
@@ -72,7 +66,7 @@ export default function Messages() {
           ))}
         </div>
         <div className="hidden md:block flex-grow relative">
-        {id && <Chat id={id} />}
+        {chat && <Chat {...chat} />}
         </div>
       </div>
     </Page>
