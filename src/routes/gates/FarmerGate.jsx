@@ -3,7 +3,7 @@ import { FarmerContextProvider } from "@/contexts/FarmerContext";
 import { useCurrentUserQuery } from "@/query/queries/useCurrentUserQuery";
 import { Navigate } from "react-router-dom";
 
-export default function FarmerGate({ children }) {
+export default function FarmerGate({ element }) {
   const { isLoading, isError, data: user } = useCurrentUserQuery();
 
   if (isLoading) {
@@ -14,5 +14,5 @@ export default function FarmerGate({ children }) {
     return <Navigate to="/login" />;
   }
 
-  return <FarmerContextProvider user={user}>{children}</FarmerContextProvider>;
+  return <FarmerContextProvider user={user}>{element}</FarmerContextProvider>;
 }

@@ -1,5 +1,6 @@
 import { createPost } from "@/apis/PostApi";
 import Page from "@/components/Page";
+import FarmerPageHeader from "@/components/PageHeader/FarmerPageHeader";
 import PageHeader from "@/components/PageHeader/PageHeader";
 import { getErrorMessage } from "@/helpers/Http";
 import { QuestionCircleTwoTone } from "@ant-design/icons";
@@ -47,7 +48,7 @@ export default function CreatePost() {
 
   return (
     <Page className="bg-white">
-      <PageHeader back="/farmer/home?tab=create" title="Create Post" />
+      <FarmerPageHeader back="/farmer/home?tab=create" title="Create Post" />
 
       <div className="border-b">
         <Steps
@@ -65,7 +66,7 @@ export default function CreatePost() {
         />
       </div>
 
-      <div className="max-w-screen flex overflow-x-hidden">
+      <div className="max-w-screen flex overflow-x-hidden md:overflow-hidden">
         <Form1 step={step} setStep={setStep} formData={formData.current} />
         <Form2 step={step} setStep={setStep} formData={formData.current} />
         <Form3

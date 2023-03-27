@@ -13,7 +13,7 @@ export default function ForSale() {
     );
 
   return (
-    <div className=" columns-2 gap-2 px-1 py-4">
+    <div className=" columns-2 gap-2 px-1 py-4 sm:columns-auto sm:grid sm:grid-cols-3 md:pt-0 md:px-4 lg:grid-cols-4">
       {posts.map((post) => (
         <PostCard key={post.id} post={post} to={`/farmer/posts/${post.id}`} />
       ))}

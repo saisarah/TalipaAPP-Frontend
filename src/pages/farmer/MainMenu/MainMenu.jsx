@@ -1,4 +1,6 @@
 import PageHeader from "@/components/PageHeader/PageHeader";
+import { useAppContext } from "@/contexts/AppContext";
+import { Navigate } from "react-router-dom";
 import { MenuButton } from "./components/MenuButton";
 
 //assets
@@ -14,8 +16,13 @@ import walletImg from "./images/wallet.svg";
 
 export default function MainMenu() {
 
+  const { viewport } = useAppContext()
+
+  if (viewport.isMedium)
+    return <Navigate to="/farmer/home" replace/>
+
   return (
-    <div className="app-size bg-white">
+    <div className="bg-white">
       <PageHeader
         left={<img src="/assets/talipaapp.svg" className="h-12" />}
         title="TalipaAPP"

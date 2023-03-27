@@ -2,13 +2,19 @@ import Conversation from "@/components/messages/Conversation";
 import SendMessage from "@/components/messages/SendMessage";
 import Page from "@/components/Page";
 import PageHeader from "@/components/PageHeader/PageHeader";
+import { useAppContext } from "@/contexts/AppContext";
 import { useUserQuery } from "@/query/queries/useUsersQuery";
 import SkeletonInput from "antd/lib/skeleton/Input";
 import { useParams } from "react-router";
+import Messages from "./Messages";
 
 export default function Chat() {
+  const { viewport } = useAppContext()
   const { id } = useParams();
   const { data: user, isLoading: isUserLoading } = useUserQuery(id);
+
+  if (viewport.isMedium)
+    return <Messages />
 
   return (
     <Page className="flex h-full max-h-screen flex-col bg-white">

@@ -18,6 +18,7 @@ import { useRoutes } from "react-router-dom";
 import { groups } from "./groups";
 import { settings } from "./settings";
 import { wallet } from "./wallet";
+import FarmerLayout from "@/components/FarmerLayout/FarmerLayout";
 
 /**
  * All of the path is under farmer route
@@ -93,5 +94,6 @@ const routes = [
 ];
 
 export default function FarmerRoutes() {
-  return useRoutes(routes);
+  const farmerRoutes = useRoutes(routes);
+  return <FarmerLayout>{farmerRoutes}</FarmerLayout>
 }
