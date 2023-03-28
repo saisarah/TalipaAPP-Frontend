@@ -140,7 +140,7 @@ export default function FarmerGroup() {
     filterIcon: (filtered) => (
       <SearchOutlined
         style={{
-          color: filtered ? "#1890ff" : undefined,
+          color: filtered ? "#739559" : undefined,
         }}
       />
     ),

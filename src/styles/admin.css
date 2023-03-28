@@ -172,7 +172,7 @@ body {
   .ant-menu-item
   .active
   .icon {
-  background-color: #1890ff;
+  background-color: #739559;
 }
 .layout-dashboard
   .ant-layout-sider.sider-primary
@@ -190,7 +190,7 @@ body {
   .ant-menu-submenu
   .active
   .icon {
-  background-color: #1890ff;
+  background-color: #739559;
 }
 
 .layout-dashboard .ant-layout-sider.sider-primary .ant-menu-item .icon,
@@ -272,7 +272,7 @@ body {
 .layout-dashboard
   .ant-layout-sider.sider-primary.ant-layout-sider-primary
   .footer-box {
-  background-color: #1890ff;
+  background-color: #739559;
   color: #fff;
   box-shadow: none;
 }
@@ -300,7 +300,7 @@ body {
   justify-content: center;
   align-items: center;
   margin-bottom: 15px;
-  background-color: #1890ff;
+  background-color: #739559;
 }
 
 .layout-dashboard
@@ -721,7 +721,7 @@ ul.ant-menu.ant-menu-root.ant-menu-inline.ant-menu-light.left-nav
 ul.ant-menu.ant-menu-root.ant-menu-inline.ant-menu-light.left-nav
   li.ant-menu-item-selected
   span.anticon {
-  background: #1890ff;
+  background: #739559;
   color: #fff;
 }
 
@@ -736,7 +736,7 @@ ul.ant-menu.ant-menu-root.ant-menu-inline.ant-menu-light.left-nav
 ul.ant-menu.ant-menu-root.ant-menu-inline.ant-menu-light.left-nav
   li:hover
   span.anticon {
-  background: #1890ff;
+  background: #739559;
   color: #fff;
 } */
 
@@ -765,7 +765,7 @@ ul.ant-menu.ant-menu-root.ant-menu-inline.ant-menu-light.left-nav
   box-shadow: 0px 4px 6px #0000001f;
   border-radius: 6px;
   font-size: 19px;
-  background: #1890ff;
+  background: #739559;
   color: #fff;
   direction: ltr;
   margin-bottom: 15px;
@@ -966,7 +966,7 @@ button.ant-btn.bell strong {
   width: 48px;
   height: 48px;
   text-align: center;
-  background: #1890ff;
+  background: #739559;
   color: #fff;
   border-radius: 0.5rem;
   margin-left: auto;
@@ -1034,7 +1034,7 @@ button.ant-btn.bell strong {
 }
 
 .sales ul li:last-child span.anticon {
-  color: #1890ff;
+  color: #739559;
 }
 .sales ul li {
   color: #8c8c8c;
@@ -1052,7 +1052,7 @@ button.ant-btn.bell strong {
 
 span.blue {
   margin-left: 5px;
-  color: #1890ff;
+  color: #739559;
   font-weight: 600;
 }
 .project-ant h5 {
@@ -1063,7 +1063,7 @@ span.blue {
 
 span.blue {
   margin-left: 5px;
-  color: #1890ff;
+  color: #739559;
   font-weight: 600;
 }
 .project-ant {
@@ -1091,12 +1091,12 @@ span.blue {
 }
 
 .antd-pro-pages-dashboard-analysis-style-salesExtra a:hover {
-  color: #1890ff;
-  border: 1px solid #1890ff;
+  color: #739559;
+  border: 1px solid #739559;
 }
 .antd-pro-pages-dashboard-analysis-style-salesExtra a.active {
-  color: #1890ff;
-  border: 1px solid #1890ff;
+  color: #739559;
+  border: 1px solid #739559;
 }
 
 .ant-list-box th {
@@ -1245,7 +1245,7 @@ img {
   margin-left: 2px;
 }
 .icon-move-right {
-  color: #1890ff;
+  color: #739559;
 
   display: block;
 }
@@ -2011,7 +2011,7 @@ body {
   vertical-align: middle;
 }
 .layout-default .ant-layout-footer .menu-nav-social a:hover svg {
-  fill: #1890ff;
+  fill: #739559;
 }
 .layout-default .ant-layout-footer .copyright a {
   color: inherit;
@@ -2333,7 +2333,7 @@ section.ant-layout.layout-content .ant-layout-content.content-ant {
   width: 64px;
   height: 64px;
   margin: auto;
-  background-color: #1890ff;
+  background-color: #739559;
   border-radius: 8px;
   box-shadow: 0 4px 6px rgb(0 0 0 / 12%);
   display: flex;
