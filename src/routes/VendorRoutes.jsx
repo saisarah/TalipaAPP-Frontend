@@ -27,7 +27,7 @@ const routes = [
     element: <VendorLayout />,
     children: [
       {
-        path: "",
+        path: "home",
         element: <Home />,
       },
       {

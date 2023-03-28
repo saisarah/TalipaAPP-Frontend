@@ -67,7 +67,7 @@ export default function Sidebar({ sideNavOpen, setSideNavOpen }) {
         <Divider />
 
         <div className="flex flex-col pr-4">
-          <SideBarLink to="/" icon={<HomeFilled />} label="Home" isActive />
+          <SideBarLink to="/home" icon={<HomeFilled />} label="Home" isActive />
           <SideBarLink
             to="/notifications"
             icon={<BellFilled />}

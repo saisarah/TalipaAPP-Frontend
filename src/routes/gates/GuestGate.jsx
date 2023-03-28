@@ -13,7 +13,7 @@ export default function GuestGate() {
 
   if (user.user_type === "farmer") return <Navigate to="/farmer" />;
 
-  if (user.user_type === "vendor") return <Navigate to="/" />;
+  if (user.user_type === "vendor") return <Navigate to="/home" />;
 
   throw "Unknown user type";
 }

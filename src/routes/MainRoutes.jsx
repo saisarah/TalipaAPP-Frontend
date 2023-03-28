@@ -36,10 +36,6 @@ export const routes = [
     path: "/admin/*",
     element: wrapSuspense(<AdminRoutes />),
   },
-  {
-    path: "/welcome",
-    element: <LandingPage />,
-  },
 ];
 
 export default function MainRoutes() {
