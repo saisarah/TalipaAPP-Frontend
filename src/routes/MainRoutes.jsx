@@ -3,6 +3,8 @@ import GuestGate from "./gates/GuestGate";
 import VendorGate from "./gates/VendorGate";
 import guestRoutes from "./guestRoutes";
 
+import { LoadingSkeleton } from "@/components/LoadingSkeleton";
+import LandingPage from "@/pages/LandingPage/LandingPage";
 import LoadingScreen from "@/components/LoadingScreen/LoadingScreen";
 import { lazy, Suspense } from "react";
 import { useRoutes } from "react-router-dom";
