@@ -8,18 +8,27 @@ import SkeletonInput from "antd/lib/skeleton/Input";
 import { useParams } from "react-router";
 import Messages from "./Messages";
 
-export default function Chat() {
+
+export const ChatPage = () => {
   const { viewport } = useAppContext()
   const { id } = useParams();
   const { data: user, isLoading: isUserLoading } = useUserQuery(id);
 
-  if (viewport.isMedium)
-    return <Messages />
+  const chat = {id, user, isUserLoading}
+
+  if (viewport.isMedium) 
+    return <Messages chat={chat} />
+  return <Chat {...chat} />
+}
+
+export default function Chat({ id, user, isUserLoading }) {
+
+  const { viewport } = useAppContext()
 
   return (
-    <Page className="flex h-full max-h-screen flex-col bg-white">
+    <Page className="flex absolute inset-0 flex-col bg-white">
       <PageHeader
-        back="/farmer/messages"
+        back={viewport.isMedium ? null : "/farmer/messages"}
         title={isUserLoading ? <SkeletonInput /> : user.fullname}
       />
       <Conversation id={id} avatar={user?.profile_picture} />

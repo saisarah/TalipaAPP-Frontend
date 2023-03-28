@@ -1,6 +1,7 @@
 import { postDemand } from "@/apis/DemandApi";
 import Page from "@/components/Page";
 import PageHeader from "@/components/PageHeader/PageHeader";
+import VendorPageHeader from "@/components/PageHeader/VendorPageHeader";
 import { useTitle } from "@/contexts/VendorContext";
 import { usePostDemand } from "@/query/mutations/usePostDemand";
 import { useCropOptions } from "@/query/queries/useCropsQuery";
@@ -20,7 +21,7 @@ export default function AddDemand() {
 
   return (
     <Page className="bg-white">
-      <PageHeader back="/?tab=demands" title="Post Demand" />
+      <VendorPageHeader back="/?tab=demands" title="Post Demand" />
       <Form
         className="min-w-full flex-shrink-0  p-4 transition"
         layout="vertical"

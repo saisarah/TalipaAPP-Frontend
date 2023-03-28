@@ -6,7 +6,7 @@ import Demands from "@/pages/farmer/Demands/Demands";
 import ForSale from "@/pages/farmer/Home/ForSale";
 import Home from "@/pages/farmer/Home/Home";
 import MainMenu from "@/pages/farmer/MainMenu/MainMenu";
-import Chat from "@/pages/farmer/Messages/Chat";
+import Chat, { ChatPage } from "@/pages/farmer/Messages/Chat";
 import Messages from "@/pages/farmer/Messages/Messages";
 import Notifications from "@/pages/farmer/notifications/Notifications";
 import OrderInfo from "@/pages/farmer/orders/OrderInfo/OrderInfo";
@@ -78,7 +78,7 @@ const routes = [
   },
   {
     path: "messages/:id",
-    element: <Chat />,
+    element: <ChatPage />,
   },
   {
     path: "notifications",
