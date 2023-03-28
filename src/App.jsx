@@ -10,7 +10,7 @@ ConfigProvider.config({
   },
 });
 
-const isAndroid = import.meta.env.VITE_PLATFLORM;
+const isAndroid = import.meta.env.VITE_PLATFORM === "android";
 
 function App() {
   return (
