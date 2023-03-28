@@ -239,6 +239,8 @@ export default function Commodities() {
   const handleSubmit = (personalData) => {
     setData((data) => ({ ...data, ...personalData }));
     setStep((step) => step + 1);
+
+    
   };
 
   const [isModalOpen, setIsModalOpen] = useState(false);

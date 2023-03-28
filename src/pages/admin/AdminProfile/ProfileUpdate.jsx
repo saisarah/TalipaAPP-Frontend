@@ -2,7 +2,6 @@ import {
   Button,
   Card,
   DatePicker,
-  Dropdown,
   Form,
   Input,
   Select,
@@ -10,10 +9,10 @@ import {
   message,
 } from "antd";
 import { SaveOutlined, PlusOutlined, LoadingOutlined } from "@ant-design/icons";
-import FormItem from "@/components/FormItem";
 import TextArea from "antd/lib/input/TextArea";
-
+import { rules } from "./rules";
 import { useState } from "react";
+import FormItem from "@/components/FormItem";
 const getBase64 = (img, callback) => {
   const reader = new FileReader();
   reader.addEventListener("load", () => callback(reader.result));
@@ -102,6 +101,7 @@ export default function ProfileUpdate() {
             >
               {imageUrl ? (
                 <img
+                  className="h-24 w-24 rounded"
                   src={imageUrl}
                   alt="avatar"
                   style={{
@@ -128,35 +128,19 @@ export default function ProfileUpdate() {
           <p className="font-bold uppercase">Update Account Information</p>
         }
       >
-        {/* <div className="my-3 grid grid-cols-3 gap-4 border-b-2">
-            <div>
-              <img
-                src="https://via.placeholder.com/200"
-                className="mb-3 rounded-full"
-              />
-            </div>
-            <div className="col-span-2">
-              <p className="text-lg font-bold uppercase">joshua villanueva</p>
-              <p>
-                <span className="text-primary">
-                  villanuevajoshua27@gmail.com
-                </span>
-                <span> - Administrator</span>
-              </p>
-            </div>
-          </div> */}
         <Form layout="vertical" className="grid grid-rows-2">
           <div className="my-3 grid grid-cols-3 gap-4 pb-3">
             <div className="col-span-1 space-y-4">
               <p className="font-bold uppercase">Role</p>
             </div>
             <div className="col-span-2 space-y-4">
-              {/* <Input placeholder="Email address" value="Administrator" /> */}
-              <Select defaultValue="Admin" disabled="true">
-                <option value="Chat support">Chat support</option>
-                <option value="Moderator">Moderator</option>
-                <option value="Account manager">Account manager</option>
-              </Select>
+              <FormItem>
+                <Select defaultValue="Admin" disabled="true" size="large">
+                  <option value="Chat support">Chat support</option>
+                  <option value="Moderator">Moderator</option>
+                  <option value="Account manager">Account manager</option>
+                </Select>
+              </FormItem>
             </div>
           </div>
           <div className="my-3 grid grid-cols-3 gap-4 pb-3">
@@ -164,28 +148,52 @@ export default function ProfileUpdate() {
               <p className="font-bold uppercase">Email</p>
             </div>
             <div className="col-span-2 space-y-4">
-              <Input
-                placeholder="Email address"
-                value="villanuevajoshua27@gmail.com"
-              />
+              <FormItem name="email" rules={rules.email}>
+                <Input
+                  placeholder="Email address"
+                  defaultValue="villanuevajoshua27@gmail.com"
+                  size="small"
+                  readOnly
+                />
+              </FormItem>
             </div>
           </div>
-
           <div className="my-3 grid grid-cols-3 gap-4 pb-3">
             <div className="col-span-1 space-y-4">
               <p className="font-bold uppercase">Lastname</p>
             </div>
             <div className="col-span-2 space-y-4">
-              <Input placeholder="Lastname" defaultValue="Villanueva" />
+              <FormItem name="lastname" rules={rules.lastname}>
+                <Input placeholder="Lastname" defaultValue="" size="small" />
+              </FormItem>
             </div>
           </div>
-
           <div className="my-3 grid grid-cols-3 gap-4 pb-3">
             <div className="col-span-1 space-y-4">
               <p className="font-bold uppercase">Firstname</p>
             </div>
             <div className="col-span-2 space-y-4">
-              <Input placeholder="Firstname" defaultValue="Joshua" />
+              <FormItem name="firstname" rules={rules.firstname}>
+                <Input
+                  placeholder="Firstname"
+                  defaultValue="Joshua"
+                  size="small"
+                />
+              </FormItem>
+            </div>
+          </div>
+          <div className="my-3 grid grid-cols-3 gap-4 pb-3">
+            <div className="col-span-1 space-y-4">
+              <p className="font-bold uppercase">Middlename</p>
+            </div>
+            <div className="col-span-2 space-y-4">
+              <FormItem name="middlename" rules={rules.middlename}>
+                <Input
+                  placeholder="Middlename"
+                  defaultValue="Joshua"
+                  size="small"
+                />
+              </FormItem>
             </div>
           </div>
           <div className="my-3 grid grid-cols-3 gap-4 pb-3">
@@ -193,10 +201,12 @@ export default function ProfileUpdate() {
               <p className="font-bold uppercase">Gender</p>
             </div>
             <div className="col-span-2 space-y-4">
-              <Select defaultValue="Male">
-                <option value="Male">Male</option>
-                <option value="Female">Female</option>
-              </Select>
+              <FormItem name="gender" rules={rules.gender}>
+                <Select defaultValue="Male" size="large">
+                  <option value="Male">Male</option>
+                  <option value="Female">Female</option>
+                </Select>
+              </FormItem>
             </div>
           </div>
           <div className="my-3 grid grid-cols-3 gap-4 pb-3">
@@ -204,7 +214,9 @@ export default function ProfileUpdate() {
               <p className="font-bold uppercase">Birthday</p>
             </div>
             <div className="col-span-2 space-y-4">
-              <DatePicker onChange={onChange} />
+              <FormItem name="birthday" rules={rules.birthday}>
+                <DatePicker onChange={onChange} size="large" />
+              </FormItem>
             </div>
           </div>
           <div className="my-3 grid grid-cols-3 gap-4 pb-3">
@@ -212,10 +224,14 @@ export default function ProfileUpdate() {
               <p className="font-bold uppercase">Contact number</p>
             </div>
             <div className="col-span-2 space-y-4">
-              <Input
-                placeholder="Contact number"
-                defaultValue="+639 140 1847"
-              />
+              <FormItem name="phone" rules={rules.phone}>
+                <Input
+                  placeholder="Contact number"
+                  defaultValue="+639 140 1847"
+                  size="small"
+                  type="number"
+                />
+              </FormItem>
             </div>
           </div>
           <div className="my-3 grid grid-cols-3 gap-4 pb-3">
@@ -223,10 +239,12 @@ export default function ProfileUpdate() {
               <p className="font-bold uppercase">Address</p>
             </div>
             <div className="col-span-2 space-y-4">
-              <TextArea
-                placeholder="Address"
-                defaultValue="A. Bonifacio Ave. Brgy. Sto. Domingo Cainta Rizal"
-              />
+              <FormItem name="address" rules={rules.address}>
+                <TextArea
+                  placeholder="Address"
+                  defaultValue="A. Bonifacio Ave. Brgy. Sto. Domingo Cainta Rizal"
+                />
+              </FormItem>
             </div>
           </div>
 
@@ -249,7 +267,9 @@ export default function ProfileUpdate() {
               <p className="font-bold uppercase">Old password</p>
             </div>
             <div className="col-span-2 space-y-4">
-              <Input.Password />
+              <FormItem name="old_password" rules={rules.old_password}>
+                <Input.Password size="small" />
+              </FormItem>
             </div>
           </div>
           <div className="my-3 grid grid-cols-3 gap-4 pb-3">
@@ -257,7 +277,9 @@ export default function ProfileUpdate() {
               <p className="font-bold uppercase">New password</p>
             </div>
             <div className="col-span-2 space-y-4">
-              <Input.Password />
+              <FormItem name="password" rules={rules.password}>
+                <Input.Password size="small" />
+              </FormItem>
             </div>
           </div>
           <div className="my-3 grid grid-cols-3 gap-4 pb-3">
@@ -265,7 +287,12 @@ export default function ProfileUpdate() {
               <p className="font-bold uppercase">Confirm password</p>
             </div>
             <div className="col-span-2 space-y-4">
-              <Input.Password />
+              <FormItem
+                name="password_confirmation"
+                rules={rules.password_confirmation}
+              >
+                <Input.Password size="small" />
+              </FormItem>
             </div>
           </div>
 
