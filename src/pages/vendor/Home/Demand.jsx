@@ -3,24 +3,25 @@ import { ArrowUpOutlined } from "@ant-design/icons";
 import peso from "./icons/peso-solid.svg";
 import quantity from "./icons/input-symbol-for-numbers.svg";
 
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useDemandsQuery } from "@/query/queries/useDemandsQuery";
-import { Button, Divider, Modal, Spin } from "antd";
-import AddDemand from "./components/AddDemand";
+import { Button, Divider, Form, Modal, Spin } from "antd";
+import AddDemand, { AddDemandModal } from "./components/AddDemand";
 import { useAppContext } from "@/contexts/AppContext";
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 export const Demands = () => {
+  const { state } = useLocation();
   const { data, isLoading } = useDemandsQuery();
-  const [open, setOpen] = useState(false)
-  const { viewport } = useAppContext()
+  const [open, setOpen] = useState(state?.from === "/demands/create");
+  const { viewport } = useAppContext();
 
   const handleClick = (e) => {
-    if (viewport.isMedium) {
-      e.preventDefault()
-      setOpen(true)
+    if (viewport.isLarge) {
+      e.preventDefault();
+      setOpen(true);
     }
-  }
+  };
 
   if (isLoading) {
     return (
@@ -39,66 +40,57 @@ export const Demands = () => {
         </div>
         <div className="">
           <Link to="/demands/create" onClick={handleClick}>
-            <Button shape="round" size="large" color="green">
+            <Button shape="round" size="large">
               New
             </Button>
-            {/* <button className="p w-full rounded border border-emerald-700">
-              New
-            </button> */}
           </Link>
         </div>
       </div>
 
       <Divider />
 
-      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-2">
+      <div className="grid grid-cols-1 gap-2 md:grid-cols-2 xl:grid-cols-3">
         {data.map((demand) => (
-          <div
-            key={demand.id}
-            className="w-full rounded border border-slate-200 bg-white p-4 "
-          >
-            <div className="text-xl font-bold leading-[20px] text-black">
-              {demand.crop.name}
-              <br />
-              <span className="text-sm font-thin text-slate-500">
-                Commodity interest
-              </span>
-            </div>
-
-            <div className="text-justify text-sm font-normal text-black">
-              {demand.description}
-            </div>
-
-            <div className="flex justify-between">
-              <div className=" flex justify-start gap-2 pt-2 ">
-                <img className="h-7 w-7" src={peso} alt="" />
-                <div className="flex flex-col">
-                  <div className="text-xl">{demand.budget}</div>
-                  <div className="pl-1 text-xs text-slate-500">Budget</div>
-                </div>
-              </div>
-              <div className=" flex justify-start gap-2 pt-2 ">
-                <img className="h-7 w-7" src={quantity} alt="" />
-                <div className="flex flex-col">
-                  <div className="text-xl">{demand.quantity}</div>
-                  <div className="pl-1 text-xs text-slate-500">Quanity</div>
-                </div>
-              </div>
-            </div>
-          </div>
+          <DemandCard demand={demand} key={demand.id} />
         ))}
       </div>
 
-      <Modal
-        open={open}
-        centered
-        bodyStyle={{ padding: 0, overflowY: 'auto' }}
-        title="Post Demand"
-        footer={null}
-        onCancel={() => setOpen(false)}
-        >
-          <AddDemand />
-      </Modal>
+      <AddDemandModal open={open} setOpen={setOpen} />
+    </div>
+  );
+};
+
+const DemandCard = ({ demand }) => {
+  return (
+    <div className="w-full rounded border border-slate-200 bg-white p-4 ">
+      <div className="text-xl font-bold leading-[20px] text-black">
+        {demand.crop.name}
+        <br />
+        <span className="text-sm font-thin text-slate-500">
+          Commodity interest
+        </span>
+      </div>
+
+      <div className="text-justify text-sm font-normal text-black">
+        {demand.description}
+      </div>
+
+      <div className="flex justify-between">
+        <div className=" flex justify-start gap-2 pt-2 ">
+          <img className="h-7 w-7" src={peso} alt="" />
+          <div className="flex flex-col">
+            <div className="text-xl">{demand.budget}</div>
+            <div className="pl-1 text-xs text-slate-500">Budget</div>
+          </div>
+        </div>
+        <div className=" flex justify-start gap-2 pt-2 ">
+          <img className="h-7 w-7" src={quantity} alt="" />
+          <div className="flex flex-col">
+            <div className="text-xl">{demand.quantity}</div>
+            <div className="pl-1 text-xs text-slate-500">Quanity</div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
