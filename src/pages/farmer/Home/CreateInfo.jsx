@@ -45,7 +45,7 @@ export default function CreateInfo() {
       <Modal 
         open={open}
         centered
-        bodyStyle={{ overflowY: "auto", padding:0 }}
+        bodyStyle={{ maxHeight: '80vh',overflowY: "auto", padding:0 }}
         title="Create Post"
         footer={null}
         onCancel={onClose}

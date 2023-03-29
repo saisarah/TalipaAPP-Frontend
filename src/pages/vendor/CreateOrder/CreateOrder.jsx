@@ -1,4 +1,4 @@
-import { DELIVERY_FEE, TRANSACTION_FEE } from "@/apis/OrderApi";
+import { TRANSACTION_FEE } from "@/apis/OrderApi";
 import Page from "@/components/Page";
 import PageHeader from "@/components/PageHeader/PageHeader";
 import Http, { getErrorMessage } from "@/helpers/Http";
@@ -6,7 +6,6 @@ import { currency } from "@/helpers/utils";
 import MapPinOutline from "@/icons/heroicons/MapPinOutline";
 import {
   useCurrentUserBalanceQuery,
-  useCurrentUserCompleteAddresQuery,
   useCurrentUserQuery,
 } from "@/query/queries/useCurrentUserQuery";
 import { ArrowLeftOutlined, WalletOutlined } from "@ant-design/icons";
@@ -14,31 +13,17 @@ import { useMutation } from "@tanstack/react-query";
 import { Avatar, Button, notification } from "antd";
 import { useMemo } from "react";
 import { useNavigate } from "react-router-dom";
+import { totalReducer } from "../PostDetails/components/SetQuantityModal/SetQuantityModal";
 import tranportifyImg from "./images/transportify.png";
 
-const submitOrder = async (id, quantities) => {
-  const { data } = await Http.post(`/posts/${id}/order`, {
-    quantities,
-  });
+const submitOrder = async (id, orderData) => {
+  const { data } = await Http.post(`/posts/${id}/order`, orderData);
   return data;
 };
 
-export default function CreateOrder({ id, setQuantities, prices, quantities }) {
+const useSubmitOrder = (id) => {
   const navigate = useNavigate();
-  const { data: user } = useCurrentUserQuery();
-  const { data: balance, isLoading: fetchingBalance } =
-    useCurrentUserBalanceQuery();
-  const { data: address, isLoading: fetchingAddress } =
-    useCurrentUserCompleteAddresQuery();
-  const subtotal = useMemo(() => {
-    return quantities.reduce((acm, { quantity, variant }) => {
-      const price = prices.find((price) => price.variant === variant);
-      return acm + price.value * quantity;
-    }, 0);
-  }, [quantities]);
-  const transaction_fee = subtotal * TRANSACTION_FEE;
-  const total = subtotal + transaction_fee + DELIVERY_FEE;
-  const { mutate, isLoading } = useMutation(() => submitOrder(id, quantities), {
+  return useMutation((data) => submitOrder(id, data), {
     onError(error) {
       notification.error({ message: getErrorMessage(error) });
     },
@@ -47,10 +32,46 @@ export default function CreateOrder({ id, setQuantities, prices, quantities }) {
       navigate(`/orders/${data.id}`);
     },
   });
+};
+
+const useOrderTotal = (quantities, delivery_fee) => {
+  const subtotal = useMemo(
+    () => quantities.reduce(totalReducer, 0),
+    quantities
+  );
+  const transaction_fee = subtotal * TRANSACTION_FEE;
+  const total = subtotal + transaction_fee + delivery_fee;
+
+  return {
+    subtotal,
+    transaction_fee,
+    total,
+  };
+};
+
+export default function CreateOrder({ order }) {
+  const { quantities, post_id, address, address_note, quote } = order;
+
+  const { data: user } = useCurrentUserQuery();
+
+  const { data: balance, isLoading: fetchingBalance } =
+    useCurrentUserBalanceQuery();
+
+  const { total, subtotal, transaction_fee } = useOrderTotal(
+    quantities,
+    quote.total_fees
+  );
+
+  const { mutate, isLoading } = useSubmitOrder(post_id);
 
   const handleSubmit = () => {
     if (isLoading) return;
-    mutate();
+    mutate({
+      quantities,
+      address,
+      address_note,
+      vehicle_id: quote.vehicle_type.id
+    });
   };
 
   return (
@@ -58,7 +79,7 @@ export default function CreateOrder({ id, setQuantities, prices, quantities }) {
       <PageHeader
         left={
           <Button
-            onClick={() => setQuantities([])}
+            // onClick={() => setQuantities([])}
             type="link"
             icon={<ArrowLeftOutlined style={{ fontSize: "16px" }} />}
           />
@@ -88,9 +109,7 @@ export default function CreateOrder({ id, setQuantities, prices, quantities }) {
             className="flex-shrink-0 text-primary"
             style={{ fontSize: "24px" }}
           />
-          <div className="text-sm leading-5 text-slate-600">
-            {fetchingAddress ? <i>Fetching Address</i> : address}
-          </div>
+          <div className="text-sm leading-5 text-slate-600">{address}</div>
         </div>
       </div>
 
@@ -121,7 +140,7 @@ export default function CreateOrder({ id, setQuantities, prices, quantities }) {
           <Avatar src={tranportifyImg} shape="square" className="h-6 w-6" />
           <div className="flex flex-col">
             <div className="font-semibold leading-3">Transportify</div>
-            <div className="text-sm text-slate-600">Get by January 23-25</div>
+            <div className="text-sm text-slate-600">{quote.vehicle_type.name}</div>
           </div>
         </div>
       </div>
@@ -133,7 +152,7 @@ export default function CreateOrder({ id, setQuantities, prices, quantities }) {
         </div>
         <div className="flex justify-between">
           <div>Delivery Charge:</div>
-          <div>{currency(DELIVERY_FEE)}</div>
+          <div>{currency(quote.total_fees)}</div>
         </div>
         <div className="flex justify-between">
           <div>Transaction fee:</div>

@@ -22,8 +22,8 @@ export const useCurrentUserCompleteAddresQuery = () => {
   );
 };
 
-export const useCurrentUserAddress = () => {
-  return useQuery(["user/address"], fetchCurrentUserAddress);
+export const useCurrentUserAddress = (option) => {
+  return useQuery(["user", "address"], fetchCurrentUserAddress, option);
 };
 
 export const useCurrentUserQuery = () => {
