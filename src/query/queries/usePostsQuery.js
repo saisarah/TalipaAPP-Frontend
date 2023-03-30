@@ -5,8 +5,8 @@ export const usePostQuery = (post_id) => {
   return useQuery(["posts", post_id], () => fetchPost(post_id));
 };
 
-export const usePostsQuery = () => {
-  return useQuery(["posts"], fetchPosts);
+export const usePostsQuery = (crop_ids) => {
+  return useQuery(["posts", {crop_ids}], () => fetchPosts(crop_ids));
 };
 
 export const useUserPostsQuery = (user_id) => {

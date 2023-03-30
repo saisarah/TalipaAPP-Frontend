@@ -1,9 +1,12 @@
 import PostCard from "@/components/PostCard";
+import { useCurrentUserQuery } from "@/query/queries/useCurrentUserQuery";
 import { usePostsQuery } from "@/query/queries/usePostsQuery";
 import { Spin } from "antd";
 
 export default function ForSale() {
-  const { data: posts, isLoading } = usePostsQuery()
+  const { data } = useCurrentUserQuery()
+  const crop_ids = data.farmer.crops.map(crop => crop.id)
+  const { data: posts, isLoading } = usePostsQuery(crop_ids.join());
 
   if (isLoading)
     return (
