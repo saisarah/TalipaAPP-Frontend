@@ -1,4 +1,7 @@
 import sell from "../images/sell.png";
+import truck from "../images/truck.png";
+import search from "../images/search.png";
+import demands from "../images/demands.png";
 export default function Services() {
   return (
     <section
@@ -8,29 +11,23 @@ export default function Services() {
       <div className="text-xl font-bold text-black">Platform Features</div>
       <div className=" grid grid-flow-row items-center gap-4 p-4 sm:grid-flow-col">
         <div className="grid grid-flow-row grid-rows-1 items-center justify-center gap-4 sm:grid-flow-col sm:grid-rows-2 ">
-          <div className="">
-            <div>
-              <img src={sell} alt="" />
-            </div>
+          <div className="flex flex-col text-center ">
+            <img width="250px" height="250px" src={sell} alt="" />
             <div className=" text-sm text-black">Post Commidty Online</div>
           </div>
-          <div className="">
-            <div>
-              <img src={sell} alt="" />
-            </div>
+          <div className="flex flex-col text-center">
+            <img width="250px" height="250px" src={demands} alt="" />
 
             <div className=" text-sm text-black">Add your Demands</div>
           </div>
-          <div className="">
-            <div>
-              <img src={sell} alt="" />
-            </div>
+          <div className="flex flex-col text-center">
+            <img width="250px" height="250px" src={search} alt="" />
+
             <div className=" text-sm text-black">Search for Commodities</div>
           </div>
-          <div className="">
-            <div>
-              <img src={sell} alt="" />
-            </div>
+          <div className="flex flex-col text-center">
+            <img width="250px" height="250px" src={truck} alt="" />
+
             <div className=" text-sm text-black">Powered by Transportify</div>
           </div>
         </div>
