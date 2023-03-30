@@ -8,7 +8,7 @@ export default function Wallet({ ...props }) {
 
   return (
     <div {...props}>
-      <div className="h-auto w-full bg-slate-50 p-2">
+      <div className="h-auto w-full bg-slate-50 p-2 lg:py-8">
         <Balance />
 
         <div className="inline-flex w-full justify-center gap-6 p-2 text-center">
