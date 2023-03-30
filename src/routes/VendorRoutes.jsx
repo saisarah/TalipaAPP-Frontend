@@ -67,6 +67,14 @@ const routes = [
         element: <WalletPage />,
       },
       {
+        path: "wallet/cash-in-methods",
+        element: <ChooseMethodPage />,
+      },
+      {
+        path: "wallet/cash-in",
+        element: <CashInPage />,
+      },
+      {
         path: "settings",
         element: <Settings />,
       },
@@ -75,14 +83,6 @@ const routes = [
   {
     path: "demands/create",
     element: <AddDemand />,
-  },
-  {
-    path: "wallet/cash-in-methods",
-    element: <ChooseMethodPage />,
-  },
-  {
-    path: "wallet/cash-in",
-    element: <CashInPage />,
   },
   {
     path: "wallet/cash-in/result-paymongo",
