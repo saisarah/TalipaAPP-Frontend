@@ -264,7 +264,14 @@ export default function TermsAndCondition({ agree, setAgree }) {
     <>
         <Checkbox onChange={() => setAgree(false)} checked={agree} ref={checkbox} disabled={!hasRead} className="text-justify">
           By Clicking Submit, you agree to the TalipaAPP
-          <a href="#" onClick={() => setOpen(true)} className="ml-1 text-primary">
+          <a 
+            href="#" 
+            onClick={(e) => {
+              e.preventDefault();
+              setOpen(true)
+            }} 
+            className="ml-1 text-primary"
+            >
             Terms and Privacy Policy
           </a>
           .
