@@ -33,5 +33,9 @@ export const wallet = [
   {
     path: "wallet/cash-in/result-paypal",
     element: <CashInResultPage type="paypal" />
+  },
+  {
+    path: "wallet/cash-in/result-bux/:id",
+    element: <CashInResultPage type="bux" />
   }
 ];

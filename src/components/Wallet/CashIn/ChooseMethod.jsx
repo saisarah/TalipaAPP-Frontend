@@ -2,8 +2,10 @@ import { RightOutlined } from "@ant-design/icons";
 import { Link } from "react-router-dom";
 import gcashLogoImg from "./images/gcash.png";
 import paypalImg from "./images/paypal.svg";
+import buxImg from "./images/bux.png"
 
 const methods = [
+  { logo: buxImg, method: "bux", label: "Bux", title: "Cash In using Bux" },
   { logo: gcashLogoImg, method: "gcash", label: "GCash", title: "Cash In using GCash" },
   { logo: paypalImg, method: "paypal", label: "PayPal", title: "Cash In using PayPal" },
 ];

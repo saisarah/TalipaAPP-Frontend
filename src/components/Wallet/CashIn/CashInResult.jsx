@@ -3,12 +3,16 @@ import SplashScreen from "@/components/SplashScreen/SplashScreen";
 import { currency } from "@/helpers/utils";
 import { useVerifyPayment } from "@/query/mutations/useVerifyPayment";
 import { CheckCircleFilled } from "@ant-design/icons";
-import { Link, useSearchParams } from "react-router-dom";
+import { Link, useParams, useSearchParams } from "react-router-dom";
 
 const usePaymentId = (type) => {
   const [params] = useSearchParams();
+  const { id } = useParams()
   if (type === "paymongo")
     return params.get("payment_intent_id")
+  if (type === "bux")
+    return id
+
   return params.get("token")
 }
 

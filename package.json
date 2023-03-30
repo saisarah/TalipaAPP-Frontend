@@ -28,7 +28,8 @@
     "react-router-dom": "^6.4.3",
     "react-router-prompt": "^0.5.2",
     "react-scroll-to-bottom": "^4.2.0",
-    "styled-components": "^5.3.6"
+    "styled-components": "^5.3.6",
+    "uuid": "^9.0.0"
   },
   "devDependencies": {
     "@tanstack/react-query-devtools": "^4.19.0",
