@@ -26,7 +26,7 @@ export const PostDetails = () => {
   const { attachments, author } = post;
 
   if (order) {
-    return <CreateOrder order={order} />;
+    return <CreateOrder order={order} setOrder={setOrder} />;
   }
 
   return (

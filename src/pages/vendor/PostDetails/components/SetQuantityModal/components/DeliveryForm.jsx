@@ -83,7 +83,7 @@ export const DeliveryForm = ({ form, setModalProps, post_id, onNext }) => {
         </Select>
       </Form.Item>
 
-      <Form.Item label="Choose Vehicles" name="vehicle_id">
+      <Form.Item label="Choose Vehicle" name="vehicle_id">
         <Select size="large" loading={fetchingVehicles}>
           {vehicles &&
             vehicles.map((vehicle) => (

@@ -4,13 +4,14 @@ import { useEffect } from "react";
 import { totalQuantityReducer, totalReducer } from "../SetQuantityModal";
 
 
-export const ConfirmationForm = ({ prices, delivery, setModalProps, setOrder, post_id }) => {
+export const ConfirmationForm = ({ prices, delivery, setModalProps, setOrder, setOpen, post_id }) => {
 
   useEffect(() => {
     setModalProps(() => ({
       okText: "Proceed",
       cancelText: "Back",
       onOk() {
+        setOpen(false)
         setOrder({
           quantities: prices, 
           post_id: post_id, 

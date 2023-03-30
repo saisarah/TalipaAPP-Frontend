@@ -83,6 +83,7 @@ export const SetQuantityModal = ({ open, setOpen, post, setOrder }) => {
           delivery={delivery}
           setModalProps={setModalProps}
           setOrder={setOrder}
+          setOpen={setOpen}
           post_id={post.id}
         />
       )}
