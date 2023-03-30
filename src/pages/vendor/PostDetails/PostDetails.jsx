@@ -64,6 +64,7 @@ export const PostDetails = () => {
           unit={post.unit}
           prices={post.prices}
           caption={post.caption}
+          address={`${author.address.municipality} ${author.address.province}`}
         />
 
         <Button
