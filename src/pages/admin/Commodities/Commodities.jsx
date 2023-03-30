@@ -14,7 +14,12 @@ import {
 } from "antd";
 import React, { useState } from "react";
 import { rules } from "./rules";
-import { MenuOutlined, MoreOutlined, PlusOutlined, SearchOutlined } from "@ant-design/icons";
+import {
+  MenuOutlined,
+  MoreOutlined,
+  PlusOutlined,
+  SearchOutlined,
+} from "@ant-design/icons";
 import { useRef } from "react";
 import { Link } from "react-router-dom";
 
@@ -169,26 +174,13 @@ export default function Commodities() {
         setTimeout(() => searchInput.current?.select(), 100);
       }
     },
-    render: (text) =>
-      searchedColumn === dataIndex
-        ? // <Highlighter
-          //   highlightStyle={{
-          //     backgroundColor: "#ffc069",
-          //     padding: 0,
-          //   }}
-          //   searchWords={[searchText]}
-          //   autoEscape
-          //   textToHighlight={text ? text.toString() : ""}
-          // />
-          null
-        : text,
+    render: (text) => (searchedColumn === dataIndex ? null : text),
   });
   const columns = [
     {
       title: "Commodities",
       dataIndex: "name",
       key: "name",
-      // width: "30%",
       ...getColumnSearchProps("name"),
       sorter: (a, b) => a.name.length - b.name.length,
       sortDirections: ["descend", "ascend"],
@@ -198,8 +190,6 @@ export default function Commodities() {
       title: "Number of Posts",
       dataIndex: "numberOfPosts",
       key: "numberOfPosts",
-      // width: "30%",
-      // ...getColumnSearchProps("numberOfPosts"),
       sorter: (a, b) => a.numberOfPosts.length - b.numberOfPosts.length,
       sortDirections: ["descend", "ascend"],
     },
@@ -207,8 +197,6 @@ export default function Commodities() {
       title: "Number of Demands",
       dataIndex: "numberOfDemands",
       key: "numberOfDemands",
-      // width: "20%",
-      // ...getColumnSearchProps("numberOfDemands"),
       sorter: (a, b) => a.numberOfDemands.length - b.numberOfDemands.length,
       sortDirections: ["descend", "ascend"],
     },
@@ -239,8 +227,6 @@ export default function Commodities() {
   const handleSubmit = (personalData) => {
     setData((data) => ({ ...data, ...personalData }));
     setStep((step) => step + 1);
-
-    
   };
 
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -278,7 +264,7 @@ export default function Commodities() {
         extra={
           <Button type="primary" onClick={showModal}>
             <PlusOutlined />
-             Add Commodities
+            Add Commodities
           </Button>
         }
       >

@@ -2,29 +2,13 @@ import UserOutlined from "@/icons/heroicons/UserOutlined";
 import {
   AudioOutlined,
   ClockCircleOutlined,
-  DeleteOutlined,
-  EllipsisOutlined,
   SendOutlined,
-  ShoppingCartOutlined,
 } from "@ant-design/icons";
 import { Avatar, Badge, Button, Card, Input, Space } from "antd";
-import Meta from "antd/lib/card/Meta";
-import Search from "antd/lib/transfer/search";
 import React from "react";
 
 function User({ name, chat, email, time }) {
-  return (
-    <>
-      {/* <div className="flex">
-        <Avatar className="h-10 w-10" />
-        <div className="ml-2 flex flex-col">
-          <span className="font-bold">{name}</span>
-          <span className="leading-tight text-slate-400">{email}</span>
-          <span className="whitespace-nowrap">{chat}</span>
-        </div>
-      </div> */}
-    </>
-  );
+  return <></>;
 }
 
 export default function ChatSupport() {
@@ -152,19 +136,12 @@ export default function ChatSupport() {
               style={{
                 width: 250,
               }}
-              cover={<img alt="example" src="/assets/images/garlic.png" />}
-              actions={[
-                // <ShoppingCartOutlined key="ShoppingCart" />,
-                // <DeleteOutlined key="Delete" />,
-                // <EllipsisOutlined key="ellipsis" />,
-              ]}
-            >
-              {/* <Meta title="Garlic" description="Price: 750.00 Pesos" /> */}
-            </Card>
+              cover={<img alt="example" src="/assets/images/product.png" />}
+            ></Card>
           </div>
           <div className="row-end-1 flex justify-end p-4">
             <Card
-              className="row-end-1 shadow-sm"
+              className="row-end-1 shadow-sm md:w-32"
               style={{
                 width: 300,
               }}
@@ -225,55 +202,5 @@ export default function ChatSupport() {
         </Card>
       </div>
     </div>
-    // <div className="flex">
-    //   <div className="flex flex-none">
-    //     <Card>
-    //       <div className=" border-slate-400">
-    //         <div className="m-2 w-auto">
-    //           <Search
-    //             placeholder="input search text"
-    //             onSearch={onSearch}
-    //             style={{ width: 200 }}
-    //           />
-    //         </div>
-    //         <div className="px-2">
-    //           <User
-    //             name={"Ericka"}
-    //             email={"ericka@gmail.com"}
-    //             chat={"Lorem ipsum dolor sit amet, consectetur adipiscing elit"}
-    //           />
-    //           <User
-    //             name={"Ericka"}
-    //             email={"ericka@gmail.com"}
-    //             chat={"Lorem ipsum dolor sit amet, consectetur adipiscing elit"}
-    //           />
-    //           <User
-    //             name={"Ericka"}
-    //             email={"ericka@gmail.com"}
-    //             chat={"Lorem ipsum dolor sit amet, consectetur adipiscing elit"}
-    //           />
-    //         </div>
-    //       </div>
-    //     </Card>
-    //   </div>
-    /* <div className="ml-2 flex w-full grow border-slate-400">
-        <Card>
-          <div className="my-2 ">
-            <span className="border-b-2 pb-2 text-lg font-bold">
-              Juan Paolo Ortega
-            </span>
-          </div>
-          <div className="my-2 items-center">
-            <Avatar className="mt-2 h-10 w-10" />
-            <span className="mx-2 items-center"> Hello there brother!</span>
-          </div>
-          <div className="flex flex-row-reverse items-center">
-            <Avatar className="mt-2 h-10 w-10" />
-            <span className="mx-2 items-center"> Hello there brother!</span>
-          </div>
-        </Card>
-      </div> */
-
-    // </div>
   );
 }
