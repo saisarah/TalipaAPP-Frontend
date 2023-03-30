@@ -1,6 +1,6 @@
 import { TabLinks } from "../TabLink";
 
-export default function OrderTabLinks({ tabs }) {
+export default function OrderTabLinks({ tabs, className='' }) {
   const orderTabs = tabs.map(tab => ({
     tab,
     key: tab,
@@ -9,7 +9,7 @@ export default function OrderTabLinks({ tabs }) {
   return (
     <TabLinks
       tabs={orderTabs}
-      className="no-scrollbar sticky top-0 z-10 flex  flex-nowrap overflow-x-auto bg-white text-lg shadow-md"
+      className={`no-scrollbar sticky top-0 z-10 flex  flex-nowrap overflow-x-auto bg-white text-lg shadow-md ${className}`}
       defaultClassName="flex items-center justify-center p-4 capitalize"
       activeClassName="border-b border-primary text-primary"
     />
