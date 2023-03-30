@@ -17,14 +17,17 @@ export default function Services() {
           </div>
           <div className="flex flex-col text-center">
             <img width="250px" height="250px" src={demands} alt="" />
+
             <div className=" text-sm text-black">Add your Demands</div>
           </div>
           <div className="flex flex-col text-center">
             <img width="250px" height="250px" src={search} alt="" />
+
             <div className=" text-sm text-black">Search for Commodities</div>
           </div>
           <div className="flex flex-col text-center">
             <img width="250px" height="250px" src={truck} alt="" />
+
             <div className=" text-sm text-black">Powered by Transportify</div>
           </div>
         </div>
