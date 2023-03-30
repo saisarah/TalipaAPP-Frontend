@@ -4,13 +4,28 @@ import PostCard from "@/components/PostCard";
 import { useTab } from "@/helpers/hooks";
 import { useCurrentUserQuery } from "@/query/queries/useCurrentUserQuery";
 import { useUserPostsQuery } from "@/query/queries/usePostsQuery";
-import { EditOutlined, UserOutlined } from "@ant-design/icons";
-import { Avatar, Button, Spin } from "antd";
+import {
+  EditOutlined,
+  InboxOutlined,
+  PlusOutlined,
+  UserOutlined,
+} from "@ant-design/icons";
+import {
+  Avatar,
+  Button,
+  Form,
+  message,
+  Modal,
+  notification,
+  Spin,
+  Upload,
+} from "antd";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import About from "./components/About";
 
 const UserPosts = ({ id }) => {
-  const { data: posts, isLoading } = useUserPostsQuery(id)
+  const { data: posts, isLoading } = useUserPostsQuery(id);
 
   if (isLoading)
     return (
@@ -28,9 +43,23 @@ const UserPosts = ({ id }) => {
   );
 };
 
-export default function Profile() {
+export default function Profile(formData, onSubmit) {
   const { data: user } = useCurrentUserQuery();
   const { isActive, selected } = useTab(["posts", "about"], "posts");
+
+  // Modal
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const showModal = () => {
+    setIsModalOpen(true);
+  };
+  const handleOk = () => {
+    setIsModalOpen(false);
+  };
+  const handleCancel = () => {
+    setIsModalOpen(false);
+  };
+
+  // end of modal const
 
   return (
     <Page className="bg-slate-50">
@@ -48,9 +77,19 @@ export default function Profile() {
           {user.firstname} {user.lastname}
         </span>
 
-        <Button shape="round" icon={<EditOutlined />}>
+        <Button onClick={showModal} shape="round" icon={<EditOutlined />}>
           Edit Profile
         </Button>
+
+        <Modal
+          title="Edit Photos"
+          open={isModalOpen}
+          onOk={handleOk}
+          onCancel={handleCancel}
+          okText="Save"
+        >
+          {/* upload profile picture */}
+        </Modal>
       </div>
       <div className="no-scrollbar sticky top-0 z-30 grid grid-cols-2 items-center justify-center overflow-x-auto bg-white text-lg shadow-md ">
         <TabLink tab="posts" isActive={isActive}>
