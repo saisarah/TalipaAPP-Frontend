@@ -1,9 +1,10 @@
 import { useAppContext } from "@/contexts/AppContext";
+import { getErrorMessage } from "@/helpers/Http";
 import { useCancelOrder } from "@/query/mutations/useCancelOrder";
-import { Button, Modal } from "antd";
+import { Button, Modal, notification } from "antd";
 import { useNavigate } from "react-router-dom";
 
-export const CancelOrderButton = ({ id }) => {
+export const CancelOrderButton = ({ id, className }) => {
   const navigate = useNavigate();
   const { context } = useAppContext();
   const { mutate, isLoading } = useCancelOrder(id, {
@@ -26,11 +27,12 @@ export const CancelOrderButton = ({ id }) => {
       onOk() {
         mutate();
       },
+      okButtonProps: { loading: isLoading }
     });
   };
 
   return (
-    <Button loading={isLoading} onClick={handleClick} danger size="large" block>
+    <Button className={className} loading={isLoading} onClick={handleClick} danger size="large" block>
       Cancel Order
     </Button>
   );

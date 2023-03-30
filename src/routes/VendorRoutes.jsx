@@ -51,6 +51,10 @@ const routes = [
         element: <Orders />,
       },
       {
+        path: "orders/:id",
+        element: <OrderInfo />,
+      },
+      {
         path: "help",
         element: <Help />,
       },
@@ -71,10 +75,6 @@ const routes = [
   {
     path: "demands/create",
     element: <AddDemand />,
-  },
-  {
-    path: "orders/:id",
-    element: <OrderInfo />,
   },
   {
     path: "wallet/cash-in-methods",
