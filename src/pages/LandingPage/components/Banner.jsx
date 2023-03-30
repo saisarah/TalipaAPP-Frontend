@@ -2,7 +2,8 @@ import banner from "../images/bannerUpscaled.png";
 import playstore from "../images/playstore.png";
 export default function Banner() {
   return (
-    <section id="Home"
+    <section
+      id="Home"
       className="relative z-20 h-screen w-screen"
       style={{
         backgroundImage: `url(${banner})`,
