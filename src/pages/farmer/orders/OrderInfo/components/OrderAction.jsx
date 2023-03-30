@@ -16,7 +16,7 @@ export const OrderAction = ({ order, refetch }) => {
 
   if (order_status === "processing" && order.delivery_id === null)
       return (
-        <BookVehicleButton id={id}/>
+        <BookVehicleButton id={id} refetch={refetch}/>
       )
 
   return null;
