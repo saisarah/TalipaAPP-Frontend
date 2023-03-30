@@ -1,4 +1,4 @@
-import { DELIVERY_FEE, TRANSACTION_FEE } from "@/apis/OrderApi";
+import { TRANSACTION_FEE } from "@/apis/OrderApi";
 import { currency } from "@/helpers/utils";
 import { Descriptions } from "antd";
 
@@ -33,11 +33,11 @@ export default function OrderDescriptions({ order, ...props }) {
               {currency(order.total.price * TRANSACTION_FEE)}
             </Descriptions.Item>
             <Descriptions.Item className="font-semibold" label="Delivery Fee">
-              {currency(DELIVERY_FEE)}
+              {currency(order.delivery_option.total_fees)}
             </Descriptions.Item>
             <Descriptions.Item className="font-semibold" label="Total Price">
               {currency(
-                DELIVERY_FEE + order.total.price * (1 + TRANSACTION_FEE)
+                order.delivery_option.total_fees + order.total.price * (1 + TRANSACTION_FEE)
               )}
             </Descriptions.Item>
           </>
@@ -65,10 +65,10 @@ export default function OrderDescriptions({ order, ...props }) {
             {currency(order.total.price * TRANSACTION_FEE)}
           </Descriptions.Item>
           <Descriptions.Item className="font-semibold" label="Delivery Fee">
-            {currency(DELIVERY_FEE)}
+            {currency(order.delivery_option.total_fees)}
           </Descriptions.Item>
           <Descriptions.Item className="font-semibold" label="Total Price">
-            {currency(DELIVERY_FEE + order.total.price * (1 + TRANSACTION_FEE))}
+            {currency(order.delivery_option.total_fees + order.total.price * (1 + TRANSACTION_FEE))}
           </Descriptions.Item>
         </Descriptions>
       )}

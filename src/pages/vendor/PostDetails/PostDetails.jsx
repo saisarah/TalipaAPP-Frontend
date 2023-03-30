@@ -7,14 +7,13 @@ import { useParams } from "react-router-dom";
 import CreateOrder from "../CreateOrder/CreateOrder";
 import { PostDescription } from "./components/PostDescription";
 import { PostDetailsLayout } from "./components/PostDetailsLayout";
-import SetQuantityNotStraight from "./components/SetQuantityNotStraight";
-import { SetQuantityStraight } from "./components/SetQuantityStraight";
+import { SetQuantityModal } from "./components/SetQuantityModal/SetQuantityModal";
 
 export const PostDetails = () => {
   const { id } = useParams();
   const { data: post, isLoading } = usePostQuery(id);
   const [isOpen, setIsOpen] = useState(false);
-  const [orderQuantities, setOrderQuantities] = useState([]);
+  const [order, setOrder] = useState(null);
 
   if (isLoading) {
     return (
@@ -24,26 +23,19 @@ export const PostDetails = () => {
     );
   }
 
-  const { attachments, author, prices } = post;
+  const { attachments, author } = post;
 
-  if (orderQuantities.length > 0) {
-    return (
-      <CreateOrder
-        id={id}
-        quantities={orderQuantities}
-        setQuantities={setOrderQuantities}
-        prices={prices}
-      />
-    );
+  if (order) {
+    return <CreateOrder order={order} setOrder={setOrder} />;
   }
 
   return (
     <PostDetailsLayout>
-      <div className="flex overflow-x-auto snap-mandatory snap-x talipaapp-scrollbar">
+      <div className="talipaapp-scrollbar flex snap-x snap-mandatory overflow-x-auto">
         {attachments.map((img) => (
           <img
             key={img.id}
-            className="aspect-video w-full object-cover flex-shrink-0 snap-start"
+            className="aspect-video w-full flex-shrink-0 snap-start object-cover"
             src={img.source}
           />
         ))}
@@ -85,26 +77,12 @@ export const PostDetails = () => {
         </Button>
       </div>
 
-      <SetQuantityStraight
-        unit={post.unit}
-        caption={post.caption}
-        title={post.title}
-        price={post.prices[0]}
-        isOpen={isOpen && post.is_straight}
-        setIsOpen={setIsOpen}
-        setOrderQuantities={setOrderQuantities}
+      <SetQuantityModal
+        open={isOpen}
+        setOpen={setIsOpen}
+        post={post}
+        setOrder={setOrder}
       />
-
-      <SetQuantityNotStraight 
-        title={post.title} 
-        caption={post.caption}
-        unit={post.unit}
-        setOrderQuantities={setOrderQuantities}
-        prices={post.prices}
-        isOpen={isOpen && !post.is_straight}
-        setIsOpen={setIsOpen}
-      />
-
     </PostDetailsLayout>
   );
 };
