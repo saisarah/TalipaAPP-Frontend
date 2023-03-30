@@ -5,8 +5,8 @@ export const createPost = async (_data) => {
   return data;
 };
 
-export const fetchPosts = async () => {
-  const { data } = await Http.get("/posts");
+export const fetchPosts = async (crop_ids) => {
+  const { data } = await Http.get("/posts", { params: {crop_ids} });
   return data;
 };
 
