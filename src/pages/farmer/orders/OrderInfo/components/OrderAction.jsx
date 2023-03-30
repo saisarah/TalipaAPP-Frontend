@@ -3,8 +3,7 @@ import AcceptOrderButton from "./AcceptOrderButton";
 import BookVehicleButton from "./BookVehicleButton";
 
 export const OrderAction = ({ order, refetch }) => {
-
-  const { order_status, id } = order
+  const { order_status, id } = order;
 
   if (order_status === "pending")
     return (
@@ -14,10 +13,13 @@ export const OrderAction = ({ order, refetch }) => {
       </div>
     );
 
-  if (order_status === "processing" && order.delivery_id === null)
-      return (
-        <BookVehicleButton id={id} refetch={refetch}/>
-      )
+  if (order_status === "processing") {
+    if (
+      order.delivery_status === null ||
+      order.delivery_status.status === "canceled"
+    )
+      return <BookVehicleButton id={id} refetch={refetch} />;
+  }
 
   return null;
 };
