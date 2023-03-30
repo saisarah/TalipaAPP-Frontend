@@ -8,6 +8,7 @@ export const PostDescription = ({
   prices,
   unit,
   caption,
+  address
 }) => {
   return (
     <>
@@ -19,7 +20,7 @@ export const PostDescription = ({
         column={1}
       >
         <Descriptions.Item label="Location">
-          Sta. Rosa City Laguna
+          {address}
         </Descriptions.Item>
         <Descriptions.Item label="Payment Method">
           {paymentOption}

@@ -30,7 +30,8 @@ export default function useBuxMethod(amount)
     (amount) => cashInBux(returnUrl, amount, id),
     {
       onSuccess(data) {
-        window.location = data.checkout_url
+        // window.location = data.checkout_url
+        window.open(data.checkout_url, '_self')
       },
   
       onError(err) {

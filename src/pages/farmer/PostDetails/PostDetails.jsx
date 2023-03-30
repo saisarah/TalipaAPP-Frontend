@@ -2,6 +2,7 @@ import { LoadingSkeleton } from "@/components/LoadingSkeleton";
 import Page from "@/components/Page";
 import PageHeader from "@/components/PageHeader/PageHeader";
 import { currency } from "@/helpers/utils";
+import { PostDescription } from "@/pages/vendor/PostDetails/components/PostDescription";
 import { usePostQuery } from "@/query/queries/usePostsQuery";
 import { Avatar, Button, Descriptions, Rate } from "antd";
 import { useParams } from "react-router-dom";
@@ -28,27 +29,21 @@ function PostInformation({ post }) {
 
   return (
     <>
-      <div>
-        <img
-          className="aspect-video w-full object-cover"
-          src={attachments[0].source}
-        />
+      <div className="talipaapp-scrollbar flex snap-x snap-mandatory overflow-x-auto">
+        {attachments.map((img) => (
+          <img
+            key={img.id}
+            className="aspect-video w-full flex-shrink-0 snap-start object-cover"
+            src={img.source}
+          />
+        ))}
       </div>
       <div className="p-4">
-        <div className="flex justify-between">
-          <h1 className="text-xl font-semibold">{caption}</h1>
-          <span className="text-lg">
-            {currency(display_price)} / {unit}
+        <div className="flex justify-between gap-2">
+          <h1 className="text-xl font-semibold">{post.title}</h1>
+          <span className="whitespace-nowrap text-lg">
+            {currency(post.display_price)} / {post.unit}
           </span>
-        </div>
-        <div>
-          <div>Available Sizes</div>
-          <div className="flex gap-2">
-            <Button shape="round">S</Button>
-            <Button shape="round">M</Button>
-            <Button shape="round">L</Button>
-            <Button shape="round">XL</Button>
-          </div>
         </div>
 
         <div className="mt-4 flex items-center border-y py-2">
@@ -60,27 +55,16 @@ function PostInformation({ post }) {
           </span>
         </div>
 
-        <div className="mt-4">
-          <Descriptions
-            title="Product Details"
-            size="small"
-            bordered
-            column={1}
-          >
-            <Descriptions.Item label="Location">
-              Sta. Rosa City Laguna
-            </Descriptions.Item>
-            <Descriptions.Item label="Payment Method">Gcash</Descriptions.Item>
-            <Descriptions.Item label="Delivery Method">
-              Transportify
-            </Descriptions.Item>
-            <Descriptions.Item label="Available">1000kg</Descriptions.Item>
-            <Descriptions.Item label="Sizes">
-              <div>XL - 155.00 / kg</div>
-              <div>L - 120.00 / kg</div>
-            </Descriptions.Item>
-          </Descriptions>
-        </div>
+        <PostDescription
+          paymentOption={"TalipaAPP Wallet"}
+          isStraight={post.is_straight}
+          deliveryOption={"Transportify"}
+          unit={post.unit}
+          address={`${author.address.municipality} ${author.address.province}`}
+          prices={post.prices}
+          caption={post.caption}
+        />
+
       </div>
     </>
   );
