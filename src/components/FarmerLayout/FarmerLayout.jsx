@@ -97,7 +97,7 @@ const Navbar = () => {
           <NavLink to="/farmer/home">Home</NavLink>
           <NavLink to="/farmer/messages">Messages</NavLink>
           <NavLink to="/farmer/notifications">Notifications</NavLink>
-          <NavLink to="/farmer/farmer-groups">Group</NavLink>
+          <NavLink to="/farmer/groups">Group</NavLink>
           <NavLink to="/farmer/orders">Orders</NavLink>
           <NavLink to="/farmer/wallet">Wallet</NavLink>
         </div>

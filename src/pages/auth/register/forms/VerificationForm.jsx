@@ -19,7 +19,7 @@ export const VerificationForm = () => {
       notification.success({
         message: "Your account has been successfully registered.",
       });
-      navigate("/", { replace: true });
+      navigate("/login", { replace: true,  });
     },
     onError(e) {
       notification.error({ message: getErrorMessage(e) });
