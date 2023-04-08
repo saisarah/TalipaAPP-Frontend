@@ -19,7 +19,7 @@ export default function ThreadsPage() {
   }
 
   if (isSuccess) {
-    return <Navigate to={`/messages/${data.id}`} replace/>
+    return <Navigate state={{thread: data}} to={`/messages/${data.id}`} replace/>
   }
 
   return (

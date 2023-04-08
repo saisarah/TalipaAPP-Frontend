@@ -10,7 +10,7 @@ export default function ThreadsPage() {
   const user_id = params.get("user_id")
   const { data, isLoading, isSuccess } = useUserThread(user_id)
 
-  if (isLoading) {
+  if (user_id && isLoading) {
     return (
       <div className="absolute inset-0 md:static flex-grow flex flex-col bg-white">
         <Spinner tip="Fetching messages" />
@@ -19,7 +19,7 @@ export default function ThreadsPage() {
   }
 
   if (isSuccess) {
-    return <Navigate to={`/farmer/messages/${data.id}`} replace/>
+    return <Navigate state={{thread: data}} to={`/farmer/messages/${data.id}`} replace/>
   }
 
   return (

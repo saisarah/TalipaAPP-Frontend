@@ -9,10 +9,11 @@ export const useThreadsQuery = () => {
   )
 }
 
-export const useThreadQuery = (thread_id) => {
+export const useThreadQuery = (thread_id, option) => {
   return useQuery(
     ['threads', thread_id],
-    () => fetchThread(thread_id)
+    () => fetchThread(thread_id),
+    option
   )
 }
 
