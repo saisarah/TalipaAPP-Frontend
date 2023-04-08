@@ -1,9 +1,11 @@
 import { useThreadsQuery } from "@/query/queries/useThreadsQuery";
+import { MessageOutlined } from "@ant-design/icons";
+import { Button } from "antd";
 import PageHeader from "../PageHeader/PageHeader";
 import Spinner from "../Spinner";
-import MessageItem from "./MessageItem";
+import ThreadItem from "./ThreadItem";
 
-export default function Threads({ children, className = "" }) {
+export default function Threads({ children, threadLink, className = "" }) {
   const { data: threads, isLoading } = useThreadsQuery();
 
   return (
@@ -19,9 +21,9 @@ export default function Threads({ children, className = "" }) {
         ) : (
           <div className="flex flex-col">
             {threads.map((thread) => (
-              <MessageItem
+              <ThreadItem
                 key={thread.id}
-                to={`/farmer/messages/${thread.id}`}
+                to={threadLink(thread.id)}
                 thread={thread}
               />
             ))}
@@ -29,9 +31,9 @@ export default function Threads({ children, className = "" }) {
         )}
       </div>
 
-      <div className="relative hidden flex-grow flex-col md:flex">
-        {children}
-      </div>
+      {/* <div className="relative hidden flex-grow flex-col md:flex"> */}
+      {children}
+      {/* </div> */}
     </div>
   );
 }

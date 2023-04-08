@@ -1,7 +1,6 @@
 import { MessageOutlined } from "@ant-design/icons";
 import { Button } from "antd";
 
-
 export default function ThreadsPage() {
   return (
     <div className="hidden md:flex flex-grow flex-col items-center justify-center text-gray-400">

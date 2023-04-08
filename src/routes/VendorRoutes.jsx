@@ -20,6 +20,9 @@ import CashInResultPage from "@/pages/vendor/Wallet/CashIn/CashInResultPage";
 import WalletPage from "@/pages/vendor/Wallet/WaletPage";
 
 import { useRoutes } from "react-router-dom";
+import ThreadsPage from "@/pages/vendor/Messages/ThreadsPage";
+import ConversationPage from "@/pages/vendor/Messages/ConversationPage";
+import Messages from "@/pages/vendor/Messages/Messages";
 
 const routes = [
   {
@@ -31,17 +34,23 @@ const routes = [
         element: <Home />,
       },
       {
-        path: "/posts/:id",
+        path: "posts/:id",
         element: <PostDetails />,
       },
-      // {
-      //   path: "messages",
-      //   element: <Messages />,
-      // },
-      // {
-      //   path: "/messages/:id",
-      //   element: <ChatPage />,
-      // },
+      {
+        path: "messages",
+        element: <Messages />,
+        children: [
+          {
+            path: "",
+            element: <ThreadsPage />
+          },
+          {
+            path: ":id",
+            element: <ConversationPage />,
+          },
+        ]
+      },
       {
         path: "notifications",
         element: <Notifications />,

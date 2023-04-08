@@ -6,7 +6,7 @@ import Demands from "@/pages/farmer/Demands/Demands";
 import ForSale from "@/pages/farmer/Home/ForSale";
 import Home from "@/pages/farmer/Home/Home";
 import MainMenu from "@/pages/farmer/MainMenu/MainMenu";
-import { ConversationPage } from "@/pages/farmer/Messages/ConversationPage";
+import ConversationPage from "@/pages/farmer/Messages/ConversationPage";
 import ThreadsPage from "@/pages/farmer/Messages/ThreadsPage";
 import Notifications from "@/pages/farmer/notifications/Notifications";
 import OrderInfo from "@/pages/farmer/orders/OrderInfo/OrderInfo";
@@ -19,6 +19,7 @@ import { groups } from "./groups";
 import { settings } from "./settings";
 import { wallet } from "./wallet";
 import FarmerLayout from "@/components/FarmerLayout/FarmerLayout";
+import Messages from "@/pages/farmer/Messages/Messages";
 
 /**
  * All of the path is under farmer route
@@ -74,11 +75,17 @@ const routes = [
   },
   {
     path: "messages",
-    element: <ThreadsPage />,
-  },
-  {
-    path: "messages/:id",
-    element: <ConversationPage />,
+    element: <Messages />,
+    children: [
+      {
+        path: "",
+        element: <ThreadsPage />
+      },
+      {
+        path: ":id",
+        element: <ConversationPage />
+      },
+    ]
   },
   {
     path: "notifications",
