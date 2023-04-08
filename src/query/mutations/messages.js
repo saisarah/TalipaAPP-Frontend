@@ -8,7 +8,7 @@ export const usePushMessage = () => {
   const push = (conversation_id, message) => {
     queryClient.setQueryData(
       fetchThreadMessages.key(conversation_id),
-      (messages) => [...messages, message]
+      (messages) => [message, ...messages]
     )
     // const queryClient = useQ
     // queryClient.setQueryData(

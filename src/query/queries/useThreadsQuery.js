@@ -20,10 +20,7 @@ export const useThreadQuery = (thread_id, option) => {
 export const useThreadMessagesQuery = (thread_id) => {
   return useQuery(
     fetchThreadMessages.key(thread_id),
-    () => fetchThreadMessages(thread_id),
-    {
-      select: (messages) => messages.reverse()
-    }
+    () => fetchThreadMessages(thread_id)
   )
 }
 

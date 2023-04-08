@@ -24,7 +24,7 @@ export default function SendMessage({ id }) {
   };
 
   return (
-    <div className="bg-white p-2 shadow">
+    <div className="bg-white p-2 shadow flex-shrink-0">
       <div className="bg-[#EFF3F4] flex overflow-hidden rounded-full border pl-2">
         <Input
           value={message}

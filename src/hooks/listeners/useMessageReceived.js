@@ -8,7 +8,7 @@ export const useMessageReceived = (user_id) => {
     channel: `users.${user_id}`,
     listener: ({ message }) => {
       // console.log({ message });
-      // push(message.sender_id, message);
+      push(message.thread_id, message);
     },
     event: "MessageReceived",
   });
