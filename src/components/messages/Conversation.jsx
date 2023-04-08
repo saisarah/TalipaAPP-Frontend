@@ -35,10 +35,9 @@ export default function Conversation({ id, avatar = null }) {
       {messages.map((item, i) => (
         <ChatItem
           key={item.id}
-          avatar={avatar}
-          id={id}
           message={item}
-          next_message={messages[i + 1]}
+          nextMessage={messages[i + 1]}
+          prevMessage={messages[i - 1]}
         />
       ))}
     </ScrollToBottom>
