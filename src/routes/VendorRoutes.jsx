@@ -2,8 +2,8 @@ import { VendorLayout } from "@/pages/vendor/components/VendorLayout/VendorLayou
 import Help from "@/pages/vendor/Help/help";
 import AddDemand from "@/pages/vendor/Home/components/AddDemand";
 import { Home } from "@/pages/vendor/Home/Home";
-import Chat, { ChatPage } from "@/pages/vendor/Messages/Chat";
-import Messages from "@/pages/vendor/Messages/Messages";
+// import Chat, { ChatPage } from "@/pages/vendor/Messages/Chat";
+// import Messages from "@/pages/vendor/Messages/Messages";
 import Notifications from "@/pages/vendor/Notifications/Notifications";
 import OrderInfo from "@/pages/vendor/Orders/OrderInfo/OrderInfo";
 import Orders from "@/pages/vendor/Orders/Orders";
@@ -34,14 +34,14 @@ const routes = [
         path: "/posts/:id",
         element: <PostDetails />,
       },
-      {
-        path: "messages",
-        element: <Messages />,
-      },
-      {
-        path: "/messages/:id",
-        element: <ChatPage />,
-      },
+      // {
+      //   path: "messages",
+      //   element: <Messages />,
+      // },
+      // {
+      //   path: "/messages/:id",
+      //   element: <ChatPage />,
+      // },
       {
         path: "notifications",
         element: <Notifications />,

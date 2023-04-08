@@ -1,8 +1,8 @@
 import { useAppContext } from "@/contexts/AppContext";
 
-export const ReceivedChat = ({ avatar, content, hasAvatar }) => {
+export const ReceivedChat = ({ content }) => {
   return (
-    <div className="max-w-[300px] self-start rounded-3xl bg-[#F0F4F5] p-4 py-3 text-[15px] text-[#0F141A]">
+    <div className="max-w-[300px] self-start rounded-3xl bg-[#F0F4F5] p-4 py-3 text-md text-[#0F141A]">
       <span>{content}</span>
     </div>
   );

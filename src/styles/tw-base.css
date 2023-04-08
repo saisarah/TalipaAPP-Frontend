@@ -1,15 +1,10 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,300&display=swap");
 @tailwind base;
 
 @layer base {
 
     :root {
       --color-primary: 22 162 73;
-    }
-  
-    * {
-      min-height: 0;
-      min-width: 0;
     }
   
     body {

@@ -40,7 +40,7 @@ export default function SendMessage({ id }) {
           onClick={handleSubmit}
           icon={!isLoading && <SendOutlined className="text-primary" />}
           className="border-none"
-          type="text"
+          type="link"
           size="large"
         />
       </div>
