@@ -155,7 +155,7 @@ export default function Demands() {
             </div>
             <div className="mt-2 flex  justify-between gap-5">
               <Link
-                to={"/farmer/messages/" + item.author.id}
+                to={"/farmer/messages?user_id=" + item.author.id}
                 className="flex-grow rounded bg-[#739559] p-1  text-center font-bold text-white"
               >
                 <LinkOutlined className="mr-4" />
