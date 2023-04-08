@@ -4,11 +4,14 @@ import PageHeader from "@/components/PageHeader/PageHeader";
 import { useThreadInfo } from "@/hooks/useThreadInfo";
 import { useThreadQuery } from "@/query/queries/useThreadsQuery";
 import SkeletonInput from "antd/lib/skeleton/Input";
-import { useParams } from "react-router";
+import { useLocation, useParams } from "react-router";
 
 export default function ConversationPage() {
   const { id } = useParams();
-  const { data: thread, isLoading: isThreadLoading } = useThreadQuery(id);
+  const { state } = useLocation()
+  const { data: thread, isLoading: isThreadLoading } = useThreadQuery(id, {
+    initialData: state?.thread
+  });
   const { avatar, name } = useThreadInfo(thread);
 
   return (

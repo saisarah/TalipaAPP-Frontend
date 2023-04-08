@@ -30,15 +30,14 @@ export default function Conversation({ id, avatar = null }) {
   return (
     <ScrollToBottom
       dependency={messages}
-      className="conversations talipaapp-scrollbar flex flex-grow flex-col overflow-y-auto px-2 py-4"
+      className="conversations talipaapp-scrollbar flex flex-grow flex-col-reverse overflow-y-auto px-2 py-4"
     >
       {messages.map((item, i) => (
         <ChatItem
           key={item.id}
-          avatar={avatar}
-          id={id}
           message={item}
-          next_message={messages[i + 1]}
+          nextMessage={messages[i + 1]}
+          prevMessage={messages[i - 1]}
         />
       ))}
     </ScrollToBottom>

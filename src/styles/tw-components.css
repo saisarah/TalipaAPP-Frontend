@@ -101,12 +101,32 @@
   }
 }
 
-.chat-sent {
-  @apply mt-1 max-w-[300px] self-end rounded-3xl bg-blue-500 p-4 py-2 text-md text-white shadow-sm;
+.chat {
+  @apply mt-1 max-w-xs rounded-3xl px-3 py-2 text-md flex-shrink-0;
 }
 
-.chat-sent + .chat-sent {
-  @apply mt-[1px];
+.chat.chat-sent {
+  @apply bg-blue-500 self-end text-white;
+}
+
+.chat.chat-received.chat-hasnext {
+  @apply rounded-bl;
+}
+
+.chat.chat-received.chat-hasprev {
+  @apply rounded-tl;
+}
+
+.chat.chat-sent.chat-hasnext {
+  @apply rounded-br;
+}
+
+.chat.chat-sent.chat-hasprev {
+  @apply rounded-tr;
+}
+
+.chat.chat-received {
+  @apply bg-[#F0F4F5] self-start text-black;
 }
 
 .ant-modal-body {

@@ -114,7 +114,7 @@ export default function FarmerLayout({ children }) {
 
   if (viewport.isMedium)
     return (
-      <div className="flex min-h-screen flex-col pt-16">
+      <div className="flex h-screen flex-col pt-16">
         <Navbar />
         <div className="mx-auto flex w-full max-w-screen-lg flex-grow flex-col">
           {children}

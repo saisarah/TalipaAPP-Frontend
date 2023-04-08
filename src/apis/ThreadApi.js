@@ -14,6 +14,7 @@ export const fetchThreadMessages = async(thread_id) => {
   const { data } = await Http.get(`/threads/${thread_id}/messages`)
   return data
 }
+fetchThreadMessages.key = (thread_id) => ['threads', parseInt(thread_id), 'messages']
 
 export const sendMessage = async (thread_id, content) => {
   const  { data } = await Http.post(`/threads/${thread_id}/messages`, { content })

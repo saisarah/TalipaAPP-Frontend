@@ -6,7 +6,12 @@
     :root {
       --color-primary: 22 162 73;
     }
-  
+
+    * {
+      min-height: 0;
+      min-width: 0;
+    }
+
     body {
       @apply overflow-x-hidden bg-slate-100 font-sans text-slate-700;
     }
@@ -25,6 +30,10 @@
 
     button, [type="button"], [type="reset"], [type="submit"] {
         background-color: inherit;
+    }
+
+    .ReactQueryDevtools * {
+      min-height: auto;
     }
 
   }

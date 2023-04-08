@@ -30,10 +30,7 @@ export default function Threads({ children, threadLink, className = "" }) {
           </div>
         )}
       </div>
-
-      {/* <div className="relative hidden flex-grow flex-col md:flex"> */}
       {children}
-      {/* </div> */}
     </div>
   );
 }

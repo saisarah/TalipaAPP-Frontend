@@ -1,3 +1,4 @@
+import { usePushMessage } from "@/query/mutations/messages";
 import { useSendMessageMutation } from "@/query/queries/useThreadsQuery";
 import { SendOutlined } from "@ant-design/icons";
 import { Button, Input } from "antd";
@@ -5,10 +6,12 @@ import { useState } from "react";
 
 export default function SendMessage({ id }) {
   const [message, setMessage] = useState("");
+  const { push } = usePushMessage()
 
   const { mutate, isLoading } = useSendMessageMutation({
-    onSuccess() {
+    onSuccess(data) {
       setMessage("");
+      push(id, data)
     },
   });
 
@@ -21,7 +24,7 @@ export default function SendMessage({ id }) {
   };
 
   return (
-    <div className="bg-white p-2 shadow">
+    <div className="bg-white p-2 shadow flex-shrink-0">
       <div className="bg-[#EFF3F4] flex overflow-hidden rounded-full border pl-2">
         <Input
           value={message}
