@@ -1,15 +1,9 @@
+import { useAppContext } from "@/contexts/AppContext";
+
 export const ReceivedChat = ({ avatar, content, hasAvatar }) => {
   return (
-    <div className={`mt-[1px] first:mt-auto flex items-end justify-start gap-2`}>
-      <img
-        className={`${
-          avatar && hasAvatar ? "h-8" : "h-0"
-        } avatar w-8 rounded-full bg-[#545753]`}
-        src={avatar}
-      />
-      <div className="max-w-[300px] rounded-3xl border border-[#e5e7eb] p-4 py-2 text-base shadow-sm">
-        <span>{content}</span>
-      </div>
+    <div className="max-w-[300px] self-start rounded-3xl bg-[#F0F4F5] p-4 py-3 text-[15px] text-[#0F141A]">
+      <span>{content}</span>
     </div>
   );
 };
@@ -22,8 +16,10 @@ export const SentChat = ({ content }) => {
   );
 };
 
-export default function ChatItem({ message, id, next_message, avatar}) {
-  if (id == message.receiver_id)
+export default function ChatItem({ message, id, next_message, avatar }) {
+  const { userID } = useAppContext();
+
+  if (userID == message.sender_id)
     return <SentChat content={message.content} />;
 
   return (

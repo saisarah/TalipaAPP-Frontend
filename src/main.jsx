@@ -6,7 +6,7 @@ import config from "./config";
 import Cache from "./helpers/Cache";
 import Http from "./helpers/Http";
 import { queryClient } from "./query/ReactQueryProvider";
-import "./styles/main.css";
+import "./styles/main.less";
 
 window.Http = Http;
 window.queryClient = queryClient;

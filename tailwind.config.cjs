@@ -20,6 +20,9 @@ module.exports = {
         'primary-accent-3': '#739559',
         'primary-accent-4': '#94BF73',
         'primary-accent-5': '#B5EA8C',
+      },
+      fontSize: {
+        "md": "calc(1rem - 1px)"
       }
     },
   },

@@ -1,4 +1,5 @@
 import { useConversationsQuery } from "@/query/queries/useMessagesQuery";
+import { useThreadMessagesQuery } from "@/query/queries/useThreadsQuery";
 import { Spin } from "antd";
 import { useEffect, useRef } from "react";
 import ChatItem from "./ChatItem";
@@ -22,16 +23,7 @@ const ScrollToBottom = ({ children, dependency, ...props }) => {
 }
 
 export default function Conversation({ id, avatar = null }) {
-  const { data: messages, isLoading } = useConversationsQuery(id);
-  const conversations = useRef();
-
-  // useEffect(() => {
-  //   if (messages)
-  //     conversations.current.scroll({
-  //       top: conversations.current.scrollTopMax,
-  //       behavior: "smooth",
-  //     });
-  // }, [messages]);
+  const { data:messages, isLoading } = useThreadMessagesQuery(id)
 
   if (isLoading)
     return (

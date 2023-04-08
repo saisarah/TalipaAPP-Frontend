@@ -1,26 +1,12 @@
-import { sendMessage } from "@/apis/MessageApi";
-import { usePushMessage } from "@/query/mutations/messages";
+import { useSendMessageMutation } from "@/query/queries/useThreadsQuery";
 import { SendOutlined } from "@ant-design/icons";
-import { useMutation } from "@tanstack/react-query";
 import { Button, Input } from "antd";
 import { useState } from "react";
-
-const useSendMessage = (id, { onSuccess }) => {
-  const { push } = usePushMessage();
-
-  return useMutation((message) => sendMessage(id, message), {
-    onSuccess(data) {
-      push(id, data);
-
-      if (onSuccess) onSuccess(data);
-    },
-  });
-};
 
 export default function SendMessage({ id }) {
   const [message, setMessage] = useState("");
 
-  const { mutate, isLoading } = useSendMessage(id, {
+  const { mutate, isLoading } = useSendMessageMutation({
     onSuccess() {
       setMessage("");
     },
@@ -28,16 +14,19 @@ export default function SendMessage({ id }) {
 
   const handleSubmit = () => {
     if (message.length === 0 || isLoading) return;
-    mutate(message);
+    mutate({
+      thread_id: id,
+      content: message
+    });
   };
 
   return (
     <div className="bg-white p-2 shadow">
-      <div className="flex overflow-hidden rounded-full border">
+      <div className="bg-[#EFF3F4] flex overflow-hidden rounded-full border pl-2">
         <Input
           value={message}
           onChange={(e) => setMessage(e.target.value)}
-          className=""
+          className="placeholder:text-[#536471] text-[#0F141A] text-base"
           bordered={false}
           size="large"
           style={{
@@ -51,6 +40,7 @@ export default function SendMessage({ id }) {
           onClick={handleSubmit}
           icon={!isLoading && <SendOutlined className="text-primary" />}
           className="border-none"
+          type="text"
           size="large"
         />
       </div>

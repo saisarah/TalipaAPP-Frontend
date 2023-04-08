@@ -1,0 +1,116 @@
+@tailwind components;
+
+@layer components {
+    .ant-rate-star:not(:last-child) {
+      margin-right: 2px;
+    }
+    
+    .anticon svg {
+      vertical-align: baseline;
+    }
+    
+    .talipaapp-input-1,
+    .talipaapp-input-1 input {
+      @apply bg-[#C2CFA0] text-sm text-[#424b27] placeholder:text-[#606C38];
+      accent-color: #424b27;
+    }
+    
+    .talipaapp-input-1,
+    .talipaapp-input-1.ant-input-affix-wrapper:not(.ant-input-affix-wrapper-disabled) {
+      @apply hover:border-[#606C38] focus:border-[#606C38] focus:shadow-sm;
+    }
+    .talipaapp-input-1.ant-input-affix-wrapper-focused {
+      @apply border-[#606C38] shadow-sm;
+    }
+    
+    .talipaapp-button-1 {
+      @apply block rounded bg-[#606C38] py-2.5 px-4 text-center text-white hover:bg-[#606C38]/90;
+    }
+    
+    .talipaapp-scrollbar {
+      scrollbar-color: rgb(179, 179, 179) #f1f1f1; /* thumb and track color */
+      scrollbar-width: thin;
+    }
+    
+    .talipaapp-scrollbar::-webkit-scrollbar {
+      width: 5px;
+    }
+    .talipaapp-scrollbar::-webkit-scrollbar-track {
+      background-color: #f1f1f1;
+    }
+    .talipaapp-scrollbar::-webkit-scrollbar-thumb {
+      background-color: rgb(179, 179, 179);
+    }
+    
+    .app-size {
+      @apply mx-auto max-w-md;
+      min-height: 100vh;
+      min-height: 100dvh;
+    }
+    
+    .animate-slide-in,
+    .animate-slide-out,
+    .animate-slide-left,
+    .animate-slide-right {
+      animation-duration: 200ms;
+      animation-timing-function: ease-in;
+    }
+    
+    .animate-slide-in,
+    .animate-slide-right {
+      animation-name: slide-in;
+      opacity: 1;
+    }
+    
+    .animate-slide-out {
+      @apply transition-opacity delay-[200ms];
+      animation-name: slide-out;
+      animation-fill-mode: forwards;
+      opacity: 0;
+    }
+    
+    .animate-slide-left {
+      animation-name: slide-left;
+    }
+  }
+  
+  
+  @keyframes slide-in {
+    from {
+      transform: translateX(-100%);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+  
+  @keyframes slide-out {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-100%);
+    }
+  }
+  
+  @keyframes slide-left {
+    from {
+      transform: translateX(100%);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+  
+  .chat-sent {
+    @apply mt-1 max-w-[300px] self-end rounded-3xl bg-blue-500 p-4 py-2 text-base text-white shadow-sm;
+  }
+  
+  .chat-sent + .chat-sent {
+    @apply mt-[1px];
+  }
+  
+  
+  .ant-modal-body {
+    @apply talipaapp-scrollbar;
+  }

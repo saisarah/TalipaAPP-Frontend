@@ -3,7 +3,7 @@ import { ArrowLeftOutlined } from "@ant-design/icons";
 import { Button } from "antd";
 import { Link, useNavigate } from "react-router-dom";
 
-export function BackLink({ to, onBack }) {
+export function BackLink({ to, onBack, ...props }) {
   const navigate = useNavigate();
   const historyStack = useHistoryStack();
 
@@ -22,7 +22,7 @@ export function BackLink({ to, onBack }) {
   };
 
   return (
-    <Link to={to} replace onClick={handleClick}>
+    <Link to={to} replace onClick={handleClick} {...props}>
       <Button
         type="link"
         className="text-black"

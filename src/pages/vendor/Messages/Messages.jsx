@@ -4,7 +4,7 @@ import PageHeader from "@/components/PageHeader/PageHeader";
 import VendorPageHeader from "@/components/PageHeader/VendorPageHeader";
 import VendorPage from "@/components/VendorPage";
 import { useTitle } from "@/contexts/VendorContext";
-import Chat from "@/pages/farmer/Messages/Chat";
+import Chat from "@/pages/farmer/Messages/ConversationPage";
 import { useMessagesQuery } from "@/query/queries/useMessagesQuery";
 import { Spin } from "antd";
 import ReactLogo from "./svg/mobile.svg";
