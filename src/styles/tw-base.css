@@ -1,0 +1,30 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,300&display=swap");
+@tailwind base;
+
+@layer base {
+
+    :root {
+      --color-primary: 22 162 73;
+    }
+  
+    body {
+      @apply overflow-x-hidden bg-slate-100 font-sans text-slate-700;
+    }
+  
+    input[type="number"]::-webkit-outer-spin-button,
+    input[type="number"]::-webkit-inner-spin-button,
+    input[type="number"] {
+      -webkit-appearance: none;
+      margin: 0;
+      -moz-appearance: textfield !important;
+    }
+
+    img, svg, video, canvas, audio, iframe, embed, object {
+        vertical-align: baseline;
+    }
+
+    button, [type="button"], [type="reset"], [type="submit"] {
+        background-color: inherit;
+    }
+
+  }

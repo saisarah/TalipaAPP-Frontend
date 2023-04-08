@@ -6,13 +6,15 @@ export const VendorContext = createContext({});
 
 export const VendorContextProvider = ({ children, user }) => {
   const [title, setTitle] = useState("TalipaAPP");
-  const { setContext } = useAppContext()
+  const { setContext, setUserID } = useAppContext()
 
   useMessageReceived(user.id);
   useEffect(() => {
     setContext("vendor")
+    setUserID(user.id)
     return () => {
       setContext("guest")
+      setUserID(null)
     }
   }, [])
 

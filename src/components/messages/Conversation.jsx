@@ -1,45 +1,31 @@
 import { useConversationsQuery } from "@/query/queries/useMessagesQuery";
+import { useThreadMessagesQuery } from "@/query/queries/useThreadsQuery";
 import { Spin } from "antd";
 import { useEffect, useRef } from "react";
+import Spinner from "../Spinner";
 import ChatItem from "./ChatItem";
 
 const ScrollToBottom = ({ children, dependency, ...props }) => {
-
-  const container = useRef()
+  const container = useRef();
 
   useEffect(() => {
     container.current.scroll({
       top: container.current.scrollTopMax,
       behavior: "smooth",
     });
-  }, [dependency])
+  }, [dependency]);
 
   return (
     <div ref={container} {...props}>
       {children}
     </div>
-  )
-}
+  );
+};
 
 export default function Conversation({ id, avatar = null }) {
-  const { data: messages, isLoading } = useConversationsQuery(id);
-  const conversations = useRef();
+  const { data: messages, isLoading } = useThreadMessagesQuery(id);
 
-  // useEffect(() => {
-  //   if (messages)
-  //     conversations.current.scroll({
-  //       top: conversations.current.scrollTopMax,
-  //       behavior: "smooth",
-  //     });
-  // }, [messages]);
-
-  if (isLoading)
-    return (
-      <Spin
-        className="flex flex-grow flex-col items-center justify-center"
-        tip="Fetching messages"
-      />
-    );
+  if (isLoading) return <Spinner className="flex-grow" tip="Fetching messages" />;
 
   return (
     <ScrollToBottom
