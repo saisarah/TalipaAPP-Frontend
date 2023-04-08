@@ -2,7 +2,7 @@ import { useAppContext } from "@/contexts/AppContext";
 
 export const ReceivedChat = ({ content }) => {
   return (
-    <div className="max-w-[300px] self-start rounded-3xl bg-[#F0F4F5] p-4 py-3 text-md text-[#0F141A]">
+    <div className="max-w-[300px] flex-shrink-0 self-start rounded-3xl bg-[#F0F4F5] p-4 py-3 text-md text-[#0F141A]">
       <span>{content}</span>
     </div>
   );
@@ -10,7 +10,7 @@ export const ReceivedChat = ({ content }) => {
 
 export const SentChat = ({ content }) => {
   return (
-    <div className="chat-sent first:mt-auto">
+    <div className="chat-sent first:mt-auto flex-shrink-0">
       <span>{content}</span>
     </div>
   );

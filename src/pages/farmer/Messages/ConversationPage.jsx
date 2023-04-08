@@ -14,8 +14,6 @@ export default function ConversationPage() {
   });
   const { avatar, name } = useThreadInfo(thread);
 
-  console.log({ state, thread })
-
   return (
     <div className="absolute inset-0 md:static flex-grow flex flex-col bg-white">
       <PageHeader

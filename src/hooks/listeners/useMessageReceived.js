@@ -7,8 +7,8 @@ export const useMessageReceived = (user_id) => {
   useSocket({
     channel: `users.${user_id}`,
     listener: ({ message }) => {
-      console.log({ message });
-      push(message.sender_id, message);
+      // console.log({ message });
+      // push(message.sender_id, message);
     },
     event: "MessageReceived",
   });
