@@ -31,7 +31,7 @@ export default function Farmer() {
       isGroup: "Not in Group",
       product: "Apple , Banana",
       address: "New York No. 1 Lake Park",
-      status: ["approved"],
+      status: ["Active"],
     },
     {
       key: "2",
@@ -47,7 +47,7 @@ export default function Farmer() {
       isGroup: "In Group",
       product: "Apple, Banana, Onion",
       address: "Sydney No. 1 Lake Park",
-      status: ["pending"],
+      status: ["Active"],
     },
     {
       key: "4",
@@ -55,7 +55,7 @@ export default function Farmer() {
       isGroup: "In Group",
       product: "Garlic",
       address: "London No. 2 Lake Park",
-      status: ["resubmit"],
+      status: ["Inactive"],
     },
   ];
 
@@ -223,8 +223,8 @@ export default function Farmer() {
       render: (_, { status }) => (
         <>
           {status.map((tag) => {
-            let color = tag.length > 7 ? "green" : "geekblue";
-            if (tag === "resubmit") {
+            let color = tag.length > 6 ? "geekblue" : "green";
+            if (tag === "Inactive") {
               color = "volcano";
             }
             return (

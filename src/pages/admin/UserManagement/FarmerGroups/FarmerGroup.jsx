@@ -30,7 +30,7 @@ export default function FarmerGroup() {
       type: "Association",
       members: 21,
       address: "682 Elcano Street Binondo 1000",
-      tags: ["approved"],
+      tags: ["Active"],
     },
     {
       key: "2",
@@ -46,7 +46,7 @@ export default function FarmerGroup() {
       type: "Association",
       members: 30,
       address: "San Felipe, West Feria",
-      tags: ["resubmit"],
+      tags: ["Inactive"],
     },
   ];
 
@@ -213,8 +213,8 @@ export default function FarmerGroup() {
       render: (_, { tags }) => (
         <>
           {tags.map((tag) => {
-            let color = tag.length > 7 ? "green" : "geekblue";
-            if (tag === "resubmit") {
+            let color = tag.length > 6 ? "geekblue" : "green";
+            if (tag === "Inactive") {
               color = "volcano";
             }
             return (
