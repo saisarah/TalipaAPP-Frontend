@@ -1,4 +1,7 @@
 import sample from "../images/sample picture1.png";
+import sample1 from "../images/sample picture2.png";
+import sample2 from "../images/sample picture3.png";
+import sample3 from "../images/sample picture4.png";
 import cardbg from "../images/cardbg.png";
 import gcash from "../images/gcash.png";
 import trans from "../images/transportify.png";
@@ -42,7 +45,9 @@ export default function Services() {
               </div>
 
               <div className="p-2">
-                <h2 className="text-lg font-medium">Post Commodity Online</h2>
+                <h2 className="text-lg font-medium text-black dark:text-white">
+                  Post Commodity Online
+                </h2>
                 <p className="mt-5 text-gray-400">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce
                   faucibus justo eu felis tincidunt, a hendrerit lorem volutpat.
@@ -69,11 +74,13 @@ export default function Services() {
               }}
             >
               <div className="w-full">
-                <img src={sample} alt="" className="h-full w-full" />
+                <img src={sample1} alt="" className="h-full w-full" />
               </div>
 
               <div className="p-2">
-                <h2 className="text-lg font-medium">Post Commodity Online</h2>
+                <h2 className="text-lg font-medium text-black dark:text-white">
+                  Search for Commodities
+                </h2>
                 <p className="mt-5 text-gray-400">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce
                   faucibus justo eu felis tincidunt, a hendrerit lorem volutpat.
@@ -100,11 +107,13 @@ export default function Services() {
               }}
             >
               <div className="w-full">
-                <img src={sample} alt="" className="h-full w-full" />
+                <img src={sample2} alt="" className="h-full w-full" />
               </div>
 
               <div className="p-2">
-                <h2 className="text-lg font-medium">Post Commodity Online</h2>
+                <h2 className="text-lg font-medium text-black dark:text-white">
+                  Add your Demands
+                </h2>
                 <p className="mt-5 text-gray-400">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce
                   faucibus justo eu felis tincidunt, a hendrerit lorem volutpat.
@@ -131,11 +140,13 @@ export default function Services() {
               }}
             >
               <div className="w-full">
-                <img src={sample} alt="" className="h-full w-full" />
+                <img src={sample3} alt="" className="h-full w-full" />
               </div>
 
               <div className="p-2">
-                <h2 className="text-lg font-medium">Post Commodity Online</h2>
+                <h2 className="text-lg font-medium text-black dark:text-white ">
+                  Transportify as our delivery service
+                </h2>
                 <p className="mt-5 text-gray-400">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce
                   faucibus justo eu felis tincidunt, a hendrerit lorem volutpat.
@@ -148,7 +159,7 @@ export default function Services() {
             </div>
           </div>
         </div>
-        <div className="mt-10 flex flex-row justify-center gap-28 align-middle">
+        <div className="mt-10 flex flex-row justify-center gap-4 align-middle md:gap-28">
           <div>
             <img src={gcash} alt="" className="h-auto w-12" />
           </div>

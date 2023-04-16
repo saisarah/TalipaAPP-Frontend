@@ -4,13 +4,16 @@ import { Fragment, useEffect, useState } from "react";
 import { Navigate } from "react-router-dom";
 import About from "./components/About";
 import Banner from "./components/Banner";
-import Contact from "./components/Contact";
 import Services from "./components/Services";
 import darkbg from "./images/Banner.svg";
 import lightbg from "./images/light.svg";
 import logo from "./images/tree.png";
 import Link from "antd/es/typography/Link";
 import FAQ from "./components/FAQ";
+import Developers from "./components/Developers";
+import Footer from "./components/Footer";
+
+import footerBg from "./images/footerBg.png";
 
 export default function LandingPage() {
   const { data: user } = useCurrentUserQuery();
@@ -87,7 +90,7 @@ export default function LandingPage() {
 
   return (
     <>
-      <div className="font-inter min-h-screen overflow-hidden bg-white text-stone-900 dark:bg-[#212529] dark:text-stone-300">
+      <div className="font-inter relative min-h-screen overflow-hidden bg-white text-stone-900 dark:bg-[#212529] dark:text-stone-300">
         <section
           style={{
             backgroundImage: `url(${theme === "dark" ? darkbg : lightbg})`,
@@ -123,7 +126,11 @@ export default function LandingPage() {
         <About />
         <Services />
         <FAQ />
-        <Contact />
+        <Developers />
+        <Footer />
+        <div className="absolute right-0 -bottom-80 z-0 md:-bottom-[700px] ">
+          <img src={footerBg} alt="" />
+        </div>
       </div>
     </>
   );

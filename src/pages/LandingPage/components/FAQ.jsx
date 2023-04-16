@@ -15,7 +15,7 @@ export default function FAQ() {
         Here are some of the most frequent questions we get asked. Got more
         questions? Visit out Help centre.
       </div>
-      <div className="flex flex-col justify-center gap-10 p-20 ">
+      <div className="flex flex-col justify-center gap-10 px-2 py-20 md:p-20 ">
         <div className="w-full rounded-lg bg-opacity-30  bg-gradient-to-r from-[#d8f3dc56]  p-0.5 shadow-lg">
           <div
             className={`h-full w-full rounded-lg p-4 transition-all duration-300 ${
