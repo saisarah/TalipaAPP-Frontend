@@ -1,7 +1,7 @@
 import Page from "@/components/Page";
 import PageHeader from "@/components/PageHeader";
 
-export default function help1() {
+export default function Help1() {
   return (
     <Page>
       <PageHeader title="Welcome To TalipaAPP: A new guide for buyers.">
