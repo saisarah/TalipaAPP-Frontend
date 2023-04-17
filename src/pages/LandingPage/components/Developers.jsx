@@ -8,12 +8,12 @@ import lhatz from "../images/lhatz.jpg";
 import josh from "../images/josh.jpg";
 import lenard from "../images/lenard.jpg";
 
-import { LinkedinOutlined } from "@ant-design/icons";
+import { LinkedinFilled, LinkedinOutlined } from "@ant-design/icons";
 
 export default function Developers() {
   return (
     <section className="mx-auto h-auto w-11/12 max-w-6xl">
-      <div className="mb-4 w-full text-center text-5xl font-bold text-black dark:text-white">
+      <div className="mb-4 w-full text-center font-poppins text-5xl font-bold text-black dark:text-white">
         Who's behind
       </div>
       <div
@@ -31,9 +31,9 @@ export default function Developers() {
         >
           <div className="flex justify-between rounded-md bg-white p-2 ">
             <div className="flex gap-4">
-              <Avatar size={60} src={sai} />
-              <div className="text-xl font-bold  leading-5 text-black">
-                Sarah Grace Oben
+              <Avatar size={60} src={sai} className="min-w-max" />
+              <div className="text-lg font-bold leading-[20px] text-black  md:text-xl md:leading-[20px]">
+                Sarah Grace Arlyn Oben
                 <br />{" "}
                 <span className="text-sm font-thin text-gray-600">
                   Project Manager/Backend
@@ -41,7 +41,7 @@ export default function Developers() {
               </div>
             </div>
             <div className="flex flex-col justify-center">
-              <LinkedinOutlined className="justify-center text-xl text-[#0077B5]" />
+              <LinkedinFilled className="justify-center text-xl text-[#0077B5]" />
               <div className="text-xs text-black underline">Follow</div>
             </div>
           </div>
@@ -54,8 +54,8 @@ export default function Developers() {
         >
           <div className="flex justify-between rounded-md bg-white p-2 ">
             <div className="flex gap-4">
-              <Avatar size={60} src={lenard} />
-              <div className="text-xl font-bold  leading-5 text-black">
+              <Avatar size={60} src={lenard} className="min-w-max" />
+              <div className="text-lg font-bold leading-[20px] text-black  md:text-xl md:leading-[20px]">
                 Lenard Mangay Ayam
                 <br />
                 <span className="text-sm font-thin text-gray-600">
@@ -64,7 +64,7 @@ export default function Developers() {
               </div>
             </div>
             <div className="flex flex-col justify-center">
-              <LinkedinOutlined className="justify-center text-xl text-[#0077B5]" />
+              <LinkedinFilled className="justify-center text-xl text-[#0077B5]" />
               <div className="text-xs text-black underline">Follow</div>
             </div>
           </div>
@@ -77,8 +77,8 @@ export default function Developers() {
         >
           <div className="flex justify-between rounded-md bg-white p-2 ">
             <div className="flex gap-4">
-              <Avatar size={60} src={uno} />
-              <div className="text-xl font-bold  leading-5 text-black">
+              <Avatar size={60} src={uno} className="min-w-max" />
+              <div className="text-lg font-bold leading-[20px] text-black  md:text-xl md:leading-[20px]">
                 Juan Paolo Ortega
                 <br />
                 <span className="text-sm font-thin text-gray-600">
@@ -87,7 +87,7 @@ export default function Developers() {
               </div>
             </div>
             <div className="flex flex-col justify-center">
-              <LinkedinOutlined className="justify-center text-xl text-[#0077B5]" />
+              <LinkedinFilled className="justify-center text-xl text-[#0077B5]" />
               <div className="text-xs text-black underline">Follow</div>
             </div>
           </div>
@@ -100,8 +100,8 @@ export default function Developers() {
         >
           <div className="flex justify-between rounded-md bg-white p-2 ">
             <div className="flex gap-4">
-              <Avatar size={60} src={josh} />
-              <div className="text-xl font-bold  leading-5 text-black">
+              <Avatar size={60} src={josh} className="min-w-max" />
+              <div className="text-lg font-bold leading-[20px] text-black  md:text-xl md:leading-[20px]">
                 Joshua Villanueva
                 <br />
                 <span className="text-sm font-thin text-gray-600">
@@ -110,7 +110,7 @@ export default function Developers() {
               </div>
             </div>
             <div className="flex flex-col justify-center">
-              <LinkedinOutlined className="justify-center text-xl text-[#0077B5]" />
+              <LinkedinFilled className="justify-center text-xl text-[#0077B5]" />
               <div className="text-xs text-black underline">Follow</div>
             </div>
           </div>
@@ -123,8 +123,8 @@ export default function Developers() {
         >
           <div className="flex justify-between rounded-md bg-white p-2 ">
             <div className="flex gap-4">
-              <Avatar size={60} src={ruel} />
-              <div className="text-xl font-bold  leading-5 text-black">
+              <Avatar size={60} src={ruel} className="min-w-max" />
+              <div className="text-lg font-bold leading-[20px] text-black  md:text-xl md:leading-[20px]">
                 Ruel Almonia
                 <br />{" "}
                 <span className="text-sm font-thin text-gray-600">
@@ -133,7 +133,7 @@ export default function Developers() {
               </div>
             </div>
             <div className="flex flex-col justify-center">
-              <LinkedinOutlined className="justify-center text-xl text-[#0077B5]" />
+              <LinkedinFilled className="justify-center text-xl text-[#0077B5]" />
               <div className="text-xs text-black underline">Follow</div>
             </div>
           </div>
@@ -146,17 +146,17 @@ export default function Developers() {
         >
           <div className="flex justify-between rounded-md bg-white p-2 ">
             <div className="flex gap-4">
-              <Avatar size={60} src={lhatz} />
-              <div className="text-xl font-bold  leading-5 text-black">
+              <Avatar size={60} src={lhatz} className="min-w-max" />
+              <div className="text-lg font-bold leading-[20px] text-black md:text-xl md:leading-[20px]">
                 Jhunriz Lalata
                 <br />{" "}
                 <span className="text-sm font-thin text-gray-600">
-                  Fron-end Developer
+                  Front-end Developer
                 </span>
               </div>
             </div>
             <div className="flex flex-col justify-center">
-              <LinkedinOutlined className="justify-center text-xl text-[#0077B5]" />
+              <LinkedinFilled className="justify-center text-xl text-[#0077B5]" />
               <div className="text-xs text-black underline">Follow</div>
             </div>
           </div>
@@ -170,8 +170,8 @@ export default function Developers() {
         >
           <div className="flex justify-between rounded-md bg-white p-2 ">
             <div className="flex gap-4">
-              <Avatar size={60} src={rei} />
-              <div className="text-xl font-bold  leading-5 text-black">
+              <Avatar size={60} src={rei} className="min-w-max" />
+              <div className="text-lg font-bold leading-5  text-black md:text-xl md:leading-5">
                 Reilly Rubante
                 <br />{" "}
                 <span className="text-sm font-thin text-gray-600">
@@ -180,7 +180,7 @@ export default function Developers() {
               </div>
             </div>
             <div className="flex flex-col justify-center">
-              <LinkedinOutlined className="justify-center text-xl text-[#0077B5]" />
+              <LinkedinFilled className="justify-center text-xl text-[#0077B5]" />
               <div className="text-xs text-black underline">Follow</div>
             </div>
           </div>

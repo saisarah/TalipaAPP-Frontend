@@ -3,11 +3,11 @@ import bg2 from "../images/Component2.svg";
 export default function About() {
   return (
     <>
-      <section className="mx-auto mt-28 h-auto w-11/12 max-w-6xl md:mt-0">
-        <div className="text-5xl font-bold text-black dark:text-white">
+      <section className="mx-auto mt-44 h-auto w-11/12 max-w-6xl md:mt-0">
+        <div className="font-poppins text-5xl font-bold text-black dark:text-white">
           About
         </div>
-        <div className="text-7xl font-bold text-black dark:text-white">
+        <div className="font-poppins text-5xl font-bold text-black dark:text-white md:text-7xl">
           <span className="text-[#86BF88]">Talipa</span>
           <span className="text-black dark:text-white">App</span>
         </div>

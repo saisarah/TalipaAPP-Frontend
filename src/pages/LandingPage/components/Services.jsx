@@ -16,7 +16,7 @@ export default function Services() {
     <>
       <section className="max-w-6xls mx-auto h-auto w-11/12">
         <div className="mt-16 flex flex-col items-center gap-2 text-center">
-          <div className="text-5xl font-bold text-black dark:text-white">
+          <div className="font-poppins text-5xl font-bold text-black dark:text-white">
             Platform Features
           </div>
           <div className="max-w-lg">

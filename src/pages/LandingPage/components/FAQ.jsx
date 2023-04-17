@@ -1,10 +1,20 @@
 import { useState } from "react";
 
 export default function FAQ() {
-  const [expanded, setExpanded] = useState(false);
+  const [expanded, setExpanded] = useState();
+  const [expanded1, setExpanded1] = useState();
+  const [expanded2, setExpanded2] = useState();
 
   const toggleExpand = () => {
     setExpanded(!expanded);
+  };
+
+  const toggleExpand1 = () => {
+    setExpanded1(!expanded1);
+  };
+
+  const toggleExpand2 = () => {
+    setExpanded2(!expanded2);
   };
   return (
     <section className="mx-auto mt-28 h-auto w-11/12 max-w-6xl">
@@ -70,15 +80,15 @@ export default function FAQ() {
         <div className="w-full rounded-lg bg-opacity-30  bg-gradient-to-r from-[#d8f3dc56]  p-0.5 shadow-lg">
           <div
             className={`h-full w-full rounded-lg p-4 transition-all duration-300 ${
-              expanded ? "bg-transparent" : "bg-white dark:bg-[#212529]"
+              expanded1 ? "bg-transparent" : "bg-white dark:bg-[#212529]"
             }`}
           >
             <div className="flex flex-row items-center justify-between align-middle  ">
               <h2 className="text-lg font-medium  text-black dark:text-white">
                 Can i choose the courier who will deliver my order?
               </h2>
-              <button className="focus:outline-none" onClick={toggleExpand}>
-                {expanded ? (
+              <button className="focus:outline-none" onClick={toggleExpand1}>
+                {expanded1 ? (
                   <svg
                     className="h-5 w-5 fill-current text-[#B7E4C7]"
                     viewBox="0 0 24 24"
@@ -105,7 +115,7 @@ export default function FAQ() {
             </div>
             <div
               className={`mt-2 max-h-0 overflow-hidden  transition-all duration-300   ${
-                expanded ? "max-h-screen" : ""
+                expanded1 ? "max-h-screen" : ""
               }`}
             >
               <p className="leading-relaxed ">
@@ -121,15 +131,15 @@ export default function FAQ() {
         <div className="w-full rounded-lg bg-opacity-30  bg-gradient-to-r from-[#d8f3dc56]  p-0.5 shadow-lg">
           <div
             className={`h-full w-full rounded-lg p-4 transition-all duration-300 ${
-              expanded ? "bg-transparent" : "bg-white dark:bg-[#212529]"
+              expanded2 ? "bg-transparent" : "bg-white dark:bg-[#212529]"
             }`}
           >
             <div className="flex flex-row items-center justify-between align-middle  ">
               <h2 className="text-lg font-medium  text-black dark:text-white">
                 How do I buy commodity?
               </h2>
-              <button className="focus:outline-none" onClick={toggleExpand}>
-                {expanded ? (
+              <button className="focus:outline-none" onClick={toggleExpand2}>
+                {expanded2 ? (
                   <svg
                     className="h-5 w-5 fill-current text-[#B7E4C7]"
                     viewBox="0 0 24 24"
@@ -156,7 +166,7 @@ export default function FAQ() {
             </div>
             <div
               className={`mt-2 max-h-0 overflow-hidden  transition-all duration-300   ${
-                expanded ? "max-h-screen" : ""
+                expanded2 ? "max-h-screen" : ""
               }`}
             >
               <p className="leading-relaxed ">
