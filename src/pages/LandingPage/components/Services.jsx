@@ -33,7 +33,7 @@ export default function Services() {
             className="duration-500 ease-in"
           >
             <div
-              className="relative z-10 h-[480px] rounded-md p-2 duration-300 ease-in hover:scale-105"
+              className="relative z-10 h-auto rounded-md p-2 duration-300 ease-in hover:scale-105 md:h-[480px]"
               style={{
                 backgroundImage: `url(${cardbg})`,
                 backgroundSize: "cover",
@@ -49,9 +49,11 @@ export default function Services() {
                   Post Commodity Online
                 </h2>
                 <p className="mt-5 text-gray-400">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce
-                  faucibus justo eu felis tincidunt, a hendrerit lorem volutpat.
-                  Proin ultrices quam libero, a posuere est facilisis sed.
+                  TalipaAPP provides farmers with an online marketplace to
+                  showcase and sell their agricultural products. Through the
+                  app, farmers can connect with potential buyers, manage
+                  transactions seamlessly, and reach a wider audience for their
+                  products.
                 </p>
               </div>
               {isHovered && (
@@ -66,7 +68,7 @@ export default function Services() {
             className="duration-500 ease-in"
           >
             <div
-              className="relative z-10 h-[480px] rounded-md p-2 duration-300 ease-in hover:scale-105"
+              className="relative z-10 h-auto rounded-md p-2 duration-300 ease-in hover:scale-105 md:h-[480px]"
               style={{
                 backgroundImage: `url(${cardbg})`,
                 backgroundSize: "cover",
@@ -82,9 +84,10 @@ export default function Services() {
                   Search for Commodities
                 </h2>
                 <p className="mt-5 text-gray-400">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce
-                  faucibus justo eu felis tincidunt, a hendrerit lorem volutpat.
-                  Proin ultrices quam libero, a posuere est facilisis sed.
+                  TalipaApp also offers commodity search functionality for
+                  vendors. Vendors can search for specific commodities based on
+                  their needs and preferences, and easily connect with farmers
+                  to negotiate prices and quantities.
                 </p>
               </div>
               {isHovered1 && (
@@ -99,7 +102,7 @@ export default function Services() {
             className="duration-500 ease-in"
           >
             <div
-              className="relative z-10 h-[480px] rounded-md p-2 duration-300 ease-in hover:scale-105"
+              className="relative z-10 h-auto rounded-md p-2 duration-300 ease-in hover:scale-105 md:h-[480px]"
               style={{
                 backgroundImage: `url(${cardbg})`,
                 backgroundSize: "cover",
@@ -115,9 +118,12 @@ export default function Services() {
                   Add your Demands
                 </h2>
                 <p className="mt-5 text-gray-400">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce
-                  faucibus justo eu felis tincidunt, a hendrerit lorem volutpat.
-                  Proin ultrices quam libero, a posuere est facilisis sed.
+                  TalipaAPP is a platform that enables market vendors to post
+                  their product demands in their respective locations. This
+                  information is made available to farmers, who can easily
+                  connect with the market vendors and negotiate the commodity,
+                  price, and quantity of the product based on the demand in a
+                  particular area.
                 </p>
               </div>
               {isHovered2 && (
@@ -132,7 +138,7 @@ export default function Services() {
             className="duration-500 ease-in"
           >
             <div
-              className="relative z-10 h-[480px] rounded-md p-2 duration-300 ease-in hover:scale-105"
+              className="relative z-10 h-auto rounded-md p-2 duration-300 ease-in hover:scale-105 md:h-[480px]"
               style={{
                 backgroundImage: `url(${cardbg})`,
                 backgroundSize: "cover",
@@ -148,9 +154,10 @@ export default function Services() {
                   Transportify as our delivery service
                 </h2>
                 <p className="mt-5 text-gray-400">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce
-                  faucibus justo eu felis tincidunt, a hendrerit lorem volutpat.
-                  Proin ultrices quam libero, a posuere est facilisis sed.
+                  TalipaAPP handles agriculture-based vendor orders while
+                  Transportify offers diverse delivery vehicles for businesses
+                  at affordable rates, providing peace of mind for farmers'
+                  delivery needs.
                 </p>
               </div>
               {isHovered3 && (

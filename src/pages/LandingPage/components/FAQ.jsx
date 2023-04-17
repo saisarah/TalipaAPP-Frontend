@@ -68,10 +68,13 @@ export default function FAQ() {
               }`}
             >
               <p className="leading-relaxed ">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
-                aliquam mauris sit amet orci faucibus, non suscipit quam
-                consectetur. Nulla laoreet velit velit, vel tincidunt felis
-                imperdiet eget. Fusce eleifend massa et interdum faucibus.
+                To create a TalipaAPP account, open the app on your device,
+                click "here" on the lower side of the app, select whether you
+                are a Vendor or a Farmer, provide the necessary information and
+                documents, wait for confirmation sent to your mobile number,
+                enter the 4-digit code on the verification page, read the terms
+                and conditions, and click the submit button to complete the
+                process and successfully create your account.
               </p>
             </div>
           </div>
@@ -119,10 +122,15 @@ export default function FAQ() {
               }`}
             >
               <p className="leading-relaxed ">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
-                aliquam mauris sit amet orci faucibus, non suscipit quam
-                consectetur. Nulla laoreet velit velit, vel tincidunt felis
-                imperdiet eget. Fusce eleifend massa et interdum faucibus.
+                TalipaAPP utilizes Transportify's API to offer farmers and
+                vendors reliable and efficient transportation services. By
+                integrating with Transportify's trucking logistics app,
+                TalipaAPP users can easily book a diverse range of delivery
+                vehicles at affordable rates, including L300, vans, and trucks,
+                to transport their agricultural products to their desired
+                locations. Through this partnership, TalipaAPP ensures that
+                farmers and vendors can access high-quality transportation
+                services to help grow their businesses.
               </p>
             </div>
           </div>
@@ -170,10 +178,11 @@ export default function FAQ() {
               }`}
             >
               <p className="leading-relaxed ">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
-                aliquam mauris sit amet orci faucibus, non suscipit quam
-                consectetur. Nulla laoreet velit velit, vel tincidunt felis
-                imperdiet eget. Fusce eleifend massa et interdum faucibus.
+                To place an order on TalipaAPP, log in to your account, go to
+                the "For Sale" tab and select the desired commodity, choose the
+                quantity, fill out the delivery address and preferred delivery
+                option, and wait for confirmation. Once confirmed, your order
+                will be delivered to the specified address. 
               </p>
             </div>
           </div>
