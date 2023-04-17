@@ -49,7 +49,7 @@ export default function Faq() {
           key="3"
           className="bg-white"
         >
-          <span>TalipaAPP only accepts cash on delivery and GCash</span>
+          <span>TalipaAPP only accepts cash on delivery and GCash.</span>
         </Panel>
 
         <Panel
@@ -61,7 +61,7 @@ export default function Faq() {
         </Panel>
 
         <Panel
-          header="Can i cancel an order that is already shipped?"
+          header="Can I cancel an order that is already shipped?"
           key="5"
           className="bg-white"
         >
@@ -75,7 +75,7 @@ export default function Faq() {
         </Panel>
 
         <Panel
-          header="Can i receive a call before delivery?"
+          header="Can I receive a call before delivery?"
           key="6"
           className="bg-white"
         >
@@ -114,7 +114,7 @@ export default function Faq() {
         </Panel>
 
         <Panel
-          header="Can i choose the courier who will deliver my order?"
+          header="Can I choose the courier who will deliver my order?"
           key="9"
           className="bg-white"
         >

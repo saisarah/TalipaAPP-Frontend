@@ -16,19 +16,23 @@ export default function Help() {
           <div className="text-xl font-bold">
             <p>Self-Service</p>
           </div>
- 
-          <div className="flex-cols-2 mx-4 flex items-center gap-4 pb-4 font-bold">
-            <SearchOutlined className="text-4xl"/>
-            <div>Track Order</div>
-            <LockOutlined className="pl-20 text-4xl mx-1"/>
-            <div>Change Password</div>
+
+          <div className="flex-cols-2 mx-auto -ml-0.5 flex items-center gap-4 pb-4 font-bold">
+            <SearchOutlined className="text-4xl" />
+            <button>Track Order</button>
+            <LockOutlined className="mx-1 -ml-1.5 pl-20 text-4xl" />
+            <button>Change Password</button>
           </div>
 
-          <div className="flex-cols-2 mx-4 flex items-center gap-4 font-bold">
-            <PhoneOutlined className="text-4xl"/>
-            <div>Change Phone Number</div>
-            <UserDeleteOutlined className="text-4xl mx-1"/>
-            <div>Delete Account</div>
+          <div className="flex-cols-2 mx-auto -ml-0.5 flex items-center gap-4 font-bold">
+            <PhoneOutlined className="text-4xl" />
+            <button className="text-left">
+              Change Phone
+              <br />
+              Number
+            </button>
+            <UserDeleteOutlined className="mx-1 ml-14 text-4xl " />
+            <button className="">Delete Account</button>
           </div>
         </div>
       </div>
@@ -39,32 +43,32 @@ export default function Help() {
         </div>
 
         <div className="mx-4 pb-2">
-          <div className="pt-2">
-            <p>Welcome To TalipaAPP: A new guide for buyers.</p>
+          <div className="pt-2 pb-2">
+            <button>Welcome To TalipaAPP: A new guide for buyers.</button>
           </div>
 
-          <div className="">
-            <p>How do i track my order?</p>
+          <div className="pb-2">
+            <button>How do i track my order?</button>
           </div>
 
-          <div className="">
-            <p>Why can't i return my order?</p>
+          <div className="pb-2">
+            <button>Why can't i return my order?</button>
           </div>
 
-          <div className="">
-            <p>What is the order received button?</p>
+          <div className="pb-2">
+            <button>What is the order received button?</button>
           </div>
 
-          <div className="">
-            <p>Why can't i change my mobile number?</p>
+          <div className="pb-2">
+            <button>Why can't i change my mobile number?</button>
           </div>
 
-          <div className="">
-            <p>TalipaAPP Money Back Guarantee</p>
+          <div className="pb-2">
+            <button>TalipaAPP Money Back Guarantee</button>
           </div>
 
-          <div className="">
-            <p>I need help with my order</p>
+          <div className="pb-2">
+            <button>I need help with my order</button>
           </div>
         </div>
       </div>
@@ -77,7 +81,7 @@ export default function Help() {
         <div className="flex">
           <div className="flex items-center justify-center overflow-hidden rounded-full">
             <img src="/assets/images/chat.png" className="w-13 h-12 p-3.5" />
-            <div>Chat</div>
+            <button>Chat</button>
           </div>
         </div>
       </div>
