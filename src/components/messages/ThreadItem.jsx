@@ -14,7 +14,11 @@ export default function ThreadItem({ to, thread }) {
           <div className="mx-1">·</div>
           <div className="text-gray-500">{moment(thread.updated_at).fromNow()}</div>
         </div>
-        <div className="text-gray-500">No unread messages</div>
+        {thread.unread_messages_count ? (
+          <div className="font-bold">{thread.unread_messages_count} unread messages.</div>
+        ) : (
+          <div className="text-gray-500 italic">No unread messages</div>
+        )}
       </div>
     </Link>
   );

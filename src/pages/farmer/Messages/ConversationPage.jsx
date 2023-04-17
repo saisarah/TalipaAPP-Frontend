@@ -2,6 +2,7 @@ import Conversation from "@/components/messages/Conversation";
 import SendMessage from "@/components/messages/SendMessage";
 import PageHeader from "@/components/PageHeader/PageHeader";
 import { useThreadInfo } from "@/hooks/useThreadInfo";
+import useReadThread from "@/query/mutations/useReadThread";
 import { useThreadQuery } from "@/query/queries/useThreadsQuery";
 import SkeletonInput from "antd/lib/skeleton/Input";
 import { useLocation, useParams } from "react-router";
@@ -13,6 +14,7 @@ export default function ConversationPage() {
     initialData: state?.thread
   });
   const { avatar, name } = useThreadInfo(thread);
+  useReadThread(id)
 
   return (
     <div className="absolute inset-0 md:static flex-grow flex flex-col bg-white">

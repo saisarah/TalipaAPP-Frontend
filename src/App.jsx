@@ -13,9 +13,9 @@ function App() {
       theme={{
         token: {
           colorPrimary: "#739559",
-          colorLink: "currentColor",
-          colorLinkHover: "#739559",
-          colorLinkActive: "#314026",
+          colorLink: "inherit",
+          colorLinkHover: "inherit",
+          colorLinkActive: "inherit",
         },
       }}
     >
@@ -25,7 +25,7 @@ function App() {
             <AppContextProvider isAndroid={isAndroid}>
               <Router />
             </AppContextProvider>
-            <ReactQueryDevtools initialIsOpen={false} position="top-right"/>
+            <ReactQueryDevtools initialIsOpen={false} />
           </ReactQueryProvider>
         </AntdApp>
       </StyleProvider>
