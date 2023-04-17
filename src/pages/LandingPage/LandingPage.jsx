@@ -5,7 +5,7 @@ import { Navigate } from "react-router-dom";
 import About from "./components/About";
 import Banner from "./components/Banner";
 import Services from "./components/Services";
-import darkbg from "./images/Banner.svg";
+import darkbg from "./images/Banner.png";
 import lightbg from "./images/light.svg";
 import logo from "./images/tree.png";
 import Link from "antd/es/typography/Link";
