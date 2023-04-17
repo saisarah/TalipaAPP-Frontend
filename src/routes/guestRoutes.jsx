@@ -26,11 +26,7 @@ export default [
     element: <Help />,
   },
   {
-    path: "/help1",
+    path: "/help/item/help1",
     element: <help1 />,
-  },  
-  {
-    path: "/item/help2",
-    element: <help2 />,
   },  
 ];
