@@ -66,8 +66,8 @@ export default function Users() {
       render: (_, { tags }) => (
         <>
           {tags.map((tag) => {
-            let color = tag.length > 6 ? "green" : "";
-            if (tag === "resubmit") {
+            let color = tag.length > 6 ? "geeblue" : "green";
+            if (tag === "Inactive") {
               color = "volcano";
             }
             if (tag === "pending") {
@@ -112,7 +112,7 @@ export default function Users() {
       contact: "09123456789",
       email: "email@gmail.com",
       roles: "Super admin",
-      tags: ["approve"],
+      tags: ["Active"],
     },
     {
       key: "2",
@@ -128,7 +128,7 @@ export default function Users() {
       contact: "09123456789",
       email: "email@gmail.com",
       roles: "Moderator",
-      tags: ["resubmit"],
+      tags: ["Inactive"],
     },
   ];
   const items1 = [

@@ -68,7 +68,7 @@ export default function Roles() {
     {
       key: "1",
       roles: "Admin",
-      permissions: ["chat support", "moderator", "Account Manager"],
+      permissions: ["chat support", "moderator", "Super Admin"],
       action: "",
       tags: ["Active"],
     },
@@ -85,13 +85,6 @@ export default function Roles() {
       permissions: ["moderator"],
       action: "",
       tags: ["Inactive"],
-    },
-    {
-      key: "4",
-      roles: "Account Manager",
-      permissions: ["Account Manager"],
-      action: "",
-      tags: ["Active"],
     },
   ];
 
