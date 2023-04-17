@@ -14,9 +14,6 @@ export default function Help1() {
       />
       <div className="my-2 bg-white">
         <div className="mx-4 flex grow flex-col p-2">
-          <div className="text-xl font-bold">
-            <p>Welcome To TalipaAPP: A new guide for buyers</p>
-          </div>
           <div className="">
             <h3 className="font-bold">Welcome to TalipaAPP!</h3>
             <p>This is the start of your shopping journey in TalipaAPP.</p>

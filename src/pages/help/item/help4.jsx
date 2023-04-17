@@ -16,7 +16,7 @@ export default function Help4() {
       <PageHeader title="What is the order received button?" back="/" />
       <div className="my-2 bg-white">
         <div className="mx-4 flex grow flex-col p-2">
-          <div className="text-xl font-bold">
+          
             <p>
               The Order Received button allows you, our buyers, to confirm that
               you have received your orders and that it is as advertised and in
@@ -24,7 +24,7 @@ export default function Help4() {
               bad shopping experiences for you; allowing you to fully enjoy our
               Money Back Guarantee!
             </p>
-          </div>
+          
           <div className="">
             <p>On this Page</p>
             <p>
