@@ -1,4 +1,5 @@
-import { MenuOutlined, MoreOutlined, PlusOutlined } from "@ant-design/icons";
+import { EyeInvisibleOutlined, EyeTwoTone, MenuOutlined, MoreOutlined, PlusOutlined } from "@ant-design/icons";
+import { rules } from "./rules";
 import {
   Button,
   Card,
@@ -13,6 +14,7 @@ import {
 } from "antd";
 
 import { useState } from "react";
+import FormItem from "@/components/FormItem";
 
 export default function Users() {
   const onSearch = (value) => console.log(value);
@@ -20,6 +22,14 @@ export default function Users() {
   const [modal2Open, setModal2Open] = useState(false);
   const handleChange = (value) => {
     console.log(`selected ${value}`);
+  };
+  const handleSubmit = (personalData) => {
+    setData((data) => ({
+      ...data,
+      ...personalData,
+      region: accountType === "vendor" && "National Capital Region (NCR)",
+    }));
+    setStep((step) => step + 1);
   };
   const items = [
     {
@@ -167,17 +177,94 @@ export default function Users() {
         onOk={() => setModal1Open(false)}
         onCancel={() => setModal1Open(false)}
       >
-        <Form className="space-y-4">
-          <Input placeholder="E-mail" />
-          <Input placeholder="Lastname" />
-          <Input placeholder="Firstname" />
-          <Input placeholder="Contact" />
+        <Form
+          className="space-y-4"
+          initialValues={data}
+          layout="vertical"
+          onFinish={handleSubmit}
+        >
+          {/* <Input placeholder="E-mail"/>
+          <Input placeholder="Lastname"/>
+          <Input placeholder="Firstname"/>
+          <Input placeholder="Contact"/>
           <Input placeholder="Age" />
           <Input placeholder="Address" />
+          <Input placeholder="Password"
+                /> */}
+          <FormItem
+            name="email"
+            placeholder="Enter your email here"
+            rules={rules.email}
+            requiredMark="optional"
+            type="email"
+            label="Email"
+            validateFirst
+          />
+
+          <FormItem
+            name="lastname"
+            rules={rules.lastname}
+            label="Lastname"
+            placeholder="Enter your lastname here"
+          />
+
+          <FormItem
+            name="firstname"
+            rules={rules.firstname}
+            label="Firstname"
+            placeholder="Enter your firstname here"
+          />
+
+          <FormItem
+            name="contact_number"
+            rules={rules.phone}
+            label="Phone"
+            placeholder="912 3456 789"
+            inputProps={{ prefix: "+63" }}
+            type="number"
+            validateFirst
+            max={10}
+          />
+          <FormItem
+            name="age"
+            rules={rules.age}
+            label="Age"
+            placeholder="Enter your age here"
+            type="number"
+            validateFirst
+            max={3}
+          />
+          <FormItem
+            name="address"
+            label="Address"
+            placeholder="Enter your address here"
+          />
+          <FormItem
+            name="password"
+            label="Password"
+            rules={rules.password}
+            tooltip={
+              <span>
+                - Must be atleast 8 characters
+                <br />
+                - Must Contain Letters and Numbers
+                <br />- Must contain Uppercase and Lowecase letter
+              </span>
+            }
+          >
+            <Input.Password
+              required
+              placeholder="Enter your password here"
+              size="large"
+              className="rounded"
+            />
+          </FormItem>
           <Select
+            size="large"
+            className="rounded"
             defaultValue="Select status"
             style={{
-              width: 120,
+              width: 130,
             }}
             onChange={handleChange}
             options={[

@@ -282,7 +282,7 @@ function Sidenav({ color }) {
             >
               {recordsReports}
             </span>
-            <span className="label">Group Lists</span>
+            <span className="label">Groups</span>
           </NavLink>
         </Menu.Item>
         <Menu.Item className="menu-item-header" key="16">

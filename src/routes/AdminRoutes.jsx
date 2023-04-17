@@ -3,7 +3,7 @@ import User from "@/pages/admin/AccountManagement/Users";
 import AdminLayout from "@/pages/admin/AdminLayout/AdminLayout";
 import AdminProfile from "@/pages/admin/AdminProfile/Profile";
 import ProfileUpdate from "@/pages/admin/AdminProfile/ProfileUpdate";
-import ChatSupport from "@/pages/admin/ChatSupport/ChatSupport";
+import ChatSupport from "@/pages/admin/Messages/ChatSupport";
 import Commodities from "@/pages/admin/Commodities/Commodities";
 import Dashboard from "@/pages/admin/Dashboard/Dashboard";
 import Faq from "@/pages/admin/FAQ/Faq";
@@ -91,6 +91,7 @@ const routes = [
         path: "chat-support",
         element: <ChatSupport />,
       },
+      
       {
         path: "transaction",
         element: <Transaction />,
