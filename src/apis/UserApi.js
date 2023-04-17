@@ -32,3 +32,9 @@ export const fetchUser = async (id) => {
 fetchUser.key = (id) => ["users", id];
 fetchUser.fetcher = (id) => () => fetchUser(id);
 //test
+
+
+export const fetchUserThread = async(user_id) => {
+  const { data } = await Http.get(`/users/${user_id}/thread`)
+  return data
+}

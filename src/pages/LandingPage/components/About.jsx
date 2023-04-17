@@ -1,86 +1,42 @@
-import vector2 from "../images/vector2.png";
-import React, { useState, useEffect } from "react";
+import image2 from "../images/image2.png";
+import bg2 from "../images/Component2.svg";
 export default function About() {
-  const [isSmallScreen, setIsSmallScreen] = useState(false);
-
-  useEffect(() => {
-    function handleResize() {
-      setIsSmallScreen(window.innerWidth < 768);
-    }
-
-    window.addEventListener("resize", handleResize);
-
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
   return (
-    <section
-      id="About"
-      className="mx-auto  flex h-screen w-screen
-     max-w-7xl items-start overflow-hidden  px-4 text-center  sm:items-center "
-    >
-      <div>
-        {isSmallScreen ? (
-          <div className="h-full">
-            <div className="relative mt-10">
-              <div className="absolute z-20 p-4 text-3xl font-bold text-black">
-                A Brief History of Our App's Origin: From Idea to Launch.
-                <div className="mt-10  text-justify text-sm font-normal">
-                  Discover the fascinating story of how our app comes to life!
-                  It all starts with an idea: to address the issue of middlemen
-                  tripling the prices of commodities sold in the market. Our
-                  team set out to create an app that connects local farmers and
-                  vendors directly with consumers, cutting out the middleman and
-                  making goods more affordable for everyone. Over months of hard
-                  work and dedication, our team of developers, designers, and
-                  researchers collaborates tirelessly to bring our idea to
-                  fruition. We face challenges along the way, but our passion
-                  and commitment to the cause keep us going. Finally, the day
-                  arrives when we are ready to launch TalipaApp to the world. We
-                  are thrilled to see the positive impact it has on both
-                  consumers and local farmers alike. Today, we are proud to say
-                  that TalipaApp continues to grow and thrive, connecting local
-                  farmers and vendors directly with consumers and providing
-                  affordable, high-quality goods while supporting our local
-                  communities.
-                </div>
-              </div>
+    <>
+      <section className="mx-auto h-auto w-11/12 max-w-6xl md:mt-0">
+        <div className="font-poppins text-5xl font-bold text-black dark:text-white">
+          About
+        </div>
+        <div className="font-poppins text-5xl font-bold text-black dark:text-white md:text-7xl">
+          <span className="text-[#86BF88]">Talipa</span>
+          <span className="text-black dark:text-white">App</span>
+        </div>
 
-              <div className="z-0 ml-[125px] mt-[-50px] w-full  opacity-50">
-                <img src={vector2} alt="" className=" h-[389px] w-[408px] " />
-              </div>
-            </div>
+        <div className="flex flex-col gap-4 text-center  md:flex-row">
+          <div className="mt-10 w-full  p-4  md:w-1/2">
+            <img src={image2} alt="" className="h-auto w-56" />
           </div>
-        ) : (
-          <div className="grid grid-flow-col ">
-            <div>
-              <img src={vector2} alt="" />
-            </div>
-            <div>
-              <div className="text-right text-4xl font-bold text-black ">
-                A Brief History of Our App's Origin: From Idea to Launch.
+          <div className="mt-10 w-full p-4  md:w-1/2">
+            <div className="flex flex-col gap-3 md:gap-14">
+              <div className="text-dark  text-2xl font-medium dark:text-white">
+                "TalipaApp is a marketplace for fresh produce and goods,
+                inspired by the concept of talipapa markets found in residential
+                areas of the Philippines."
               </div>
-              <div className=" mt-10 text-right">
-                Discover the fascinating story of how our app comes to life! It
-                all starts with an idea: to address the issue of middlemen
+              <div className=" text-base font-normal text-black dark:text-white">
+                It all starts with an idea: to address the issue of middlemen
                 tripling the prices of commodities sold in the market. Our team
                 set out to create an app that connects local farmers and vendors
                 directly with consumers, cutting out the middleman and making
-                goods more affordable for everyone. Over months of hard work and
-                dedication, our team of developers, designers, and researchers
-                collaborates tirelessly to bring our idea to fruition. We face
-                challenges along the way, but our passion and commitment to the
-                cause keep us going. Finally, the day arrives when we are ready
-                to launch TalipaApp to the world. We are thrilled to see the
-                positive impact it has on both consumers and local farmers
-                alike. Today, we are proud to say that TalipaApp continues to
-                grow and thrive, connecting local farmers and vendors directly
-                with consumers and providing affordable, high-quality goods
-                while supporting our local communities.
+                goods more affordable for everyone.
               </div>
             </div>
           </div>
-        )}
+        </div>
+      </section>
+      <div>
+        <img src={bg2} alt="" />
       </div>
-    </section>
+    </>
   );
 }

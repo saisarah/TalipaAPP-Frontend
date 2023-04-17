@@ -31,7 +31,7 @@ export default function Vendor() {
       isGroup: "Not in Group",
       product: "Apple , Banana",
       address: "Level 3 Metropolis Mall Alabang Junction Alabang 1770",
-      status: ["approved"],
+      status: ["Active"],
     },
     {
       key: "2",
@@ -39,7 +39,7 @@ export default function Vendor() {
       isGroup: "Not in Group",
       product: "Apple, Banana",
       address: "CAP Building, McArthur Highway, San Sebastian Village",
-      status: ["pending"],
+      status: ["Active"],
     },
     {
       key: "3",
@@ -55,7 +55,7 @@ export default function Vendor() {
       isGroup: "In Group",
       product: "Garlic",
       address: "Psp Compound, 7105 San Anselmo Street, Olympia",
-      status: ["resubmit"],
+      status: ["Inactive"],
     },
   ];
 
@@ -223,8 +223,8 @@ export default function Vendor() {
       render: (_, { status }) => (
         <>
           {status.map((tag) => {
-            let color = tag.length > 7 ? "green" : "geekblue";
-            if (tag === "resubmit") {
+            let color = tag.length > 6 ? "geekblue" : "green";
+            if (tag === "Inactive") {
               color = "volcano";
             }
             return (

@@ -14,20 +14,18 @@ function useChannel(channel) {
 }
 
 export function listen(callback, channel, event) {
-  console.log(`Listening to ${event}`);
   channel.listen(event, callback);
 
   return function cleanUp() {
-    console.log(`Remove listener for ${event}`);
     channel.stopListening(event);
   };
 }
 
-const useSocket = ({ channel, listener, event }) => {
+const useSocket = ({ channel, listener, event}, dependencies = []) => {
   const { channel: channelInstance } = useChannel(channel);
 
   useEffect(() => {
     return listen(listener, channelInstance, event);
-  }, []);
+  }, dependencies);
 };
 export default useSocket;

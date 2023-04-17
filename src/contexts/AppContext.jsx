@@ -38,6 +38,7 @@ const useViewPort = () => {
 
 export function AppContextProvider({ isAndroid, children }) {
   const [context, setContext] = useState("guest");
+  const [userID, setUserID] = useState(null)
   const viewport = useViewPort();
 
   const getFullPath = (path) => {
@@ -46,7 +47,7 @@ export function AppContextProvider({ isAndroid, children }) {
   }
 
   return (
-    <AppContext.Provider value={{ getFullPath, isAndroid, context, setContext, viewport }}>
+    <AppContext.Provider value={{ getFullPath, isAndroid, context, setContext, viewport, userID, setUserID }}>
       {children}
     </AppContext.Provider>
   );

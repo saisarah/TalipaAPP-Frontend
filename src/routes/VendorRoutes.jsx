@@ -2,8 +2,8 @@ import { VendorLayout } from "@/pages/vendor/components/VendorLayout/VendorLayou
 import Help from "@/pages/vendor/Help/help";
 import AddDemand from "@/pages/vendor/Home/components/AddDemand";
 import { Home } from "@/pages/vendor/Home/Home";
-import Chat, { ChatPage } from "@/pages/vendor/Messages/Chat";
-import Messages from "@/pages/vendor/Messages/Messages";
+// import Chat, { ChatPage } from "@/pages/vendor/Messages/Chat";
+// import Messages from "@/pages/vendor/Messages/Messages";
 import Notifications from "@/pages/vendor/Notifications/Notifications";
 import OrderInfo from "@/pages/vendor/Orders/OrderInfo/OrderInfo";
 import Orders from "@/pages/vendor/Orders/Orders";
@@ -20,6 +20,9 @@ import CashInResultPage from "@/pages/vendor/Wallet/CashIn/CashInResultPage";
 import WalletPage from "@/pages/vendor/Wallet/WaletPage";
 
 import { useRoutes } from "react-router-dom";
+import ThreadsPage from "@/pages/vendor/Messages/ThreadsPage";
+import ConversationPage from "@/pages/vendor/Messages/ConversationPage";
+import Messages from "@/pages/vendor/Messages/Messages";
 
 const routes = [
   {
@@ -31,16 +34,22 @@ const routes = [
         element: <Home />,
       },
       {
-        path: "/posts/:id",
+        path: "posts/:id",
         element: <PostDetails />,
       },
       {
         path: "messages",
         element: <Messages />,
-      },
-      {
-        path: "/messages/:id",
-        element: <ChatPage />,
+        children: [
+          {
+            path: "",
+            element: <ThreadsPage />
+          },
+          {
+            path: ":id",
+            element: <ConversationPage />,
+          },
+        ]
       },
       {
         path: "notifications",

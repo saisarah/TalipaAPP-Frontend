@@ -5,12 +5,14 @@ import { useAppContext } from "./AppContext";
 export const FarmerContent = createContext({});
 
 export const FarmerContextProvider = ({ children, user }) => {
-  const { setContext } = useAppContext()
+  const { setContext, setUserID } = useAppContext()
   useMessageReceived(user.id);
   useEffect(() => {
     setContext("farmer")
+    setUserID(user.id)
     return () => {
       setContext("guest")
+      setUserID(null)
     }
   }, [])
 

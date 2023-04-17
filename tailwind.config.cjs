@@ -2,11 +2,14 @@ const defaultTheme = require('tailwindcss/defaultTheme')
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  important: true,
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
+  darkMode: 'class',
   theme: {
     extend: {
       fontFamily: {
-        'sans': ['Segoe UI', ...defaultTheme.fontFamily.sans]
+        'sans': ["'Open Sans'", ...defaultTheme.fontFamily.sans],
+        'poppins': ['Poppins', 'sans-serif'],
       },
       colors: {
         /**
@@ -20,6 +23,10 @@ module.exports = {
         'primary-accent-3': '#739559',
         'primary-accent-4': '#94BF73',
         'primary-accent-5': '#B5EA8C',
+        'black': '#0F141A',
+      },
+      fontSize: {
+        "md": "calc(1rem - 1px)"
       }
     },
   },
