@@ -356,19 +356,6 @@ function Sidenav({ color }) {
             <span className="label">Terms & Conditions</span>
           </NavLink>
         </Menu.Item>
-        <Menu.Item key="11">
-          <NavLink to="/admin/login">
-            <span
-              className="icon"
-              style={{
-                background: page === "" ? color : "",
-              }}
-            >
-              {recordsReports}
-            </span>
-            <span className="label">Logout</span>
-          </NavLink>
-        </Menu.Item>
       </Menu>
       {/* <div className="aside-footer">
         <div
