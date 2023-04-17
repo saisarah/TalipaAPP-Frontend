@@ -23,7 +23,7 @@ export default function GroupInfo() {
   const { id } = useParams();
   const { mutate, isLoading: isJoining } = useJoinGroup(id, {
     onSuccess() {
-      navigate("/farmer/groups")
+      navigate("/farmer/groups/pending-request", { replace:true })
     },
     onError(err) {
       notification.error({ message: getErrorMessage(err) })

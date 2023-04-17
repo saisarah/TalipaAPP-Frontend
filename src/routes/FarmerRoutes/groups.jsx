@@ -1,7 +1,8 @@
 import GroupPosts from "@/pages/farmer/group/components/GroupPosts";
+import SuggestedGroups from "@/pages/farmer/group/components/SuggestedGroups";
 import CreateDiscussion from "@/pages/farmer/group/CreateDiscussion/CreateDiscussion";
 import CreateGroup from "@/pages/farmer/group/CreateGroup/CreateGroup";
-import Group from "@/pages/farmer/group/Group";
+import Group, { GroupInvitations, PendingRequest } from "@/pages/farmer/group/Group";
 import GroupInfo from "@/pages/farmer/group/GroupInfo/GroupInfo";
 import { PostDetails } from "@/pages/farmer/group/PostDetails/PostDetails";
 
@@ -9,6 +10,18 @@ export const groups = [
   {
     path: "groups",
     element: <Group />,
+  },
+  {
+    path: "groups/suggested",
+    element: <SuggestedGroups />
+  },
+  {
+    path: "groups/pending-request",
+    element: <PendingRequest />
+  },
+  {
+    path: "groups/invitations",
+    element: <GroupInvitations />,
   },
   {
     path: "groups/:id",
