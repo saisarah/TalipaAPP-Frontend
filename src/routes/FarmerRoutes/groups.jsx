@@ -2,8 +2,9 @@ import GroupPosts from "@/pages/farmer/group/components/GroupPosts";
 import SuggestedGroups from "@/pages/farmer/group/components/SuggestedGroups";
 import CreateDiscussion from "@/pages/farmer/group/CreateDiscussion/CreateDiscussion";
 import CreateGroup from "@/pages/farmer/group/CreateGroup/CreateGroup";
-import Group, { GroupInvitations, PendingRequest } from "@/pages/farmer/group/Group";
+import Group, { GroupInvitations } from "@/pages/farmer/group/Group";
 import GroupInfo from "@/pages/farmer/group/GroupInfo/GroupInfo";
+import { PendingRequest } from "@/pages/farmer/group/PendingRequest/PendingRequest";
 import { PostDetails } from "@/pages/farmer/group/PostDetails/PostDetails";
 
 export const groups = [
