@@ -1,5 +1,5 @@
 import { fetchThread, fetchThreadMessages, fetchThreads, sendMessage } from "@/apis/ThreadApi"
-import { useMutation, useQuery } from "@tanstack/react-query"
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query"
 
 
 export const useThreadsQuery = () => {
@@ -10,8 +10,9 @@ export const useThreadsQuery = () => {
 }
 
 export const useThreadQuery = (thread_id, option) => {
+  const queryClient = useQueryClient()
   return useQuery(
-    ['threads', thread_id],
+    fetchThread.key(thread_id),
     () => fetchThread(thread_id),
     option
   )
