@@ -2,6 +2,7 @@ import {
   ContainerOutlined,
   DeleteOutlined,
   EditOutlined,
+  PlusOutlined,
 } from "@ant-design/icons";
 import { Button, Collapse, Input, Modal, Space } from "antd";
 import { useState } from "react";
@@ -28,14 +29,15 @@ export default function Faq() {
   return (
     <div>
       <div className="flex">
-        <div className="flex grow justify-center pt-10 text-5xl font-bold">
+        <div className="flex grow justify-center p-10 pt-10 text-xl font-bold sm:text-center md:text-center ">
           <h1>Frequently Asked Questions</h1>
         </div>
       </div>
-      <div className="flex justify-end gap-y-20 px-20">
+      <div className="flex justify-end gap-y-20 px-20 sm:text-sm pt-3">
         <div>
-          <Button id="modal" type="primary" onClick={showModal} size="large">
-            <ContainerOutlined /> Add
+          <Button id="modal" type="primary" onClick={showModal} size="medium">
+            <PlusOutlined />
+            Add
           </Button>
           <Modal
             title="Add FAQ"
@@ -50,15 +52,14 @@ export default function Faq() {
           </Modal>
         </div>
       </div>
-      <div className="flex">
+      <div className="flex lg:text-center">
         <div className="flex grow px-20">
-          <Space direction="vertical w-full py-10 border-none">
+          <Space direction="vertical w-full py-10 border-none sm: text-xs h-90 w-90 md: text-lg lg:text-2xl">
             <Collapse>
               <Panel
-                className="text-2xl shadow-sm"
+                className="text-xl shadow-sm"
                 header="Which courier will deliver my ordered items?"
-                key="1"
-                id="response"
+                key="2"
               >
                 <p>
                   As of now, TalipaAPP only offers Transpotify as the only
@@ -79,7 +80,7 @@ export default function Faq() {
 
             <Collapse>
               <Panel
-                className="text-2xl shadow-sm"
+                className="text-xl shadow-sm"
                 header="Deos TalipaAPP offers voucher to its customers?"
                 key="2"
               >
@@ -99,7 +100,7 @@ export default function Faq() {
 
             <Collapse>
               <Panel
-                className="text-2xl shadow-sm"
+                className="text-xl shadow-sm"
                 header="What payment methods do you accept?"
                 key="3"
               >
@@ -119,7 +120,7 @@ export default function Faq() {
 
             <Collapse>
               <Panel
-                className="text-2xl shadow-sm"
+                className="text-xl shadow-sm"
                 header="How long will my order take to get to me?"
                 key="4"
               >
@@ -139,7 +140,7 @@ export default function Faq() {
 
             <Collapse>
               <Panel
-                className="text-2xl shadow-sm"
+                className="text-xl shadow-sm"
                 header="Can i cancel an order that is already shipped?"
                 key="5"
               >
@@ -165,7 +166,7 @@ export default function Faq() {
 
             <Collapse>
               <Panel
-                className="text-2xl shadow-sm"
+                className="text-xl shadow-sm"
                 header="Can i receive a call before delivery?"
                 key="6"
               >
@@ -191,7 +192,7 @@ export default function Faq() {
 
             <Collapse>
               <Panel
-                className="text-2xl shadow-sm"
+                className="text-xl shadow-sm"
                 header="What if i'm not available when my order arrives?"
                 key="7"
               >
@@ -214,7 +215,7 @@ export default function Faq() {
 
             <Collapse>
               <Panel
-                className="text-2xl shadow-sm"
+                className="text-xl shadow-sm"
                 header="Can i change my delivery address after placing my order?"
                 key="8"
               >
@@ -241,7 +242,7 @@ export default function Faq() {
 
             <Collapse>
               <Panel
-                className="text-2xl shadow-sm"
+                className="text-xl shadow-sm"
                 header="Can i choose the courier who will deliver my order?"
                 key="9"
               >
@@ -268,7 +269,7 @@ export default function Faq() {
 
             <Collapse>
               <Panel
-                className="text-2xl shadow-sm"
+                className="text-xl shadow-sm"
                 header="Can i select the vehicle that will be use to ship my order?"
                 key="10"
               >
