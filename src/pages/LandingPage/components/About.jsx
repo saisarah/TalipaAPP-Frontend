@@ -3,7 +3,7 @@ import bg2 from "../images/Component2.svg";
 export default function About() {
   return (
     <>
-      <section className="mx-auto mt-44 h-auto w-11/12 max-w-6xl md:mt-0">
+      <section className="mx-auto h-auto w-11/12 max-w-6xl md:mt-0">
         <div className="font-poppins text-5xl font-bold text-black dark:text-white">
           About
         </div>
