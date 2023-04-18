@@ -35,14 +35,14 @@ export const PostDetails = () => {
         {attachments.map((img) => (
           <img
             key={img.id}
-            className="aspect-video w-full flex-shrink-0 snap-start object-cover"
+            className="aspect-video h-full w-full flex-shrink-0 snap-start object-cover md:h-1/2"
             src={img.source}
           />
         ))}
       </div>
       <div className="p-4">
         <div className="flex justify-between gap-2">
-          <h1 className="text-xl font-semibold">{post.title}</h1>
+          <h1 className="text-xl font-semibold ">{post.title}</h1>
           <span className="whitespace-nowrap text-lg">
             {currency(post.display_price)} / {post.unit}
           </span>
