@@ -1,11 +1,14 @@
-import { DownloadOutlined, UnorderedListOutlined, UploadOutlined } from "@ant-design/icons";
+import {
+  DownloadOutlined,
+  UnorderedListOutlined,
+  UploadOutlined,
+} from "@ant-design/icons";
 import { Button } from "antd";
 import { Link } from "react-router-dom";
 import { Balance } from "./components/Balance";
 import Transactions from "./components/Transactions";
 
 export default function Wallet({ ...props }) {
-
   return (
     <div {...props}>
       <div className="h-auto w-full bg-slate-50 p-2 lg:py-8">
