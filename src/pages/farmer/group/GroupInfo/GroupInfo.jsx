@@ -3,7 +3,7 @@ import { TabLinks } from "@/components/TabLink";
 import { useTabAdvance } from "@/helpers/hooks";
 import Http, { getErrorMessage } from "@/helpers/Http";
 import { useFarmerGroupQuery } from "@/query/queries/useFarmerGroupsQuery";
-import { useMutation } from "@tanstack/react-query";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { Button, notification, Spin } from "antd";
 import { useNavigate, useParams } from "react-router-dom";
 import Forum from "../components/Forum";
@@ -21,8 +21,10 @@ const useJoinGroup = (id, option) => {
 export default function GroupInfo() {
   const navigate = useNavigate()
   const { id } = useParams();
+  const queryClient = useQueryClient()
   const { mutate, isLoading: isJoining } = useJoinGroup(id, {
     onSuccess() {
+      queryClient.resetQueries(["farmer-group", "pending"])
       navigate("/farmer/groups/pending-request", { replace:true })
     },
     onError(err) {
@@ -53,7 +55,7 @@ export default function GroupInfo() {
 
   return (
     <div className="app-size bg-white">
-      <PageHeader back="/farmer/groups" title="Group" />
+      <PageHeader back="/farmer/groups/suggested" title="Group" />
 
       <div className="h-[80px] w-[100%] max-w-md flex-shrink-0 bg-slate-300"></div>
       <img

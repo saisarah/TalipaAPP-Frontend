@@ -25,7 +25,7 @@ function App() {
             <AppContextProvider isAndroid={isAndroid}>
               <Router />
             </AppContextProvider>
-            <ReactQueryDevtools initialIsOpen={false} />
+            {/* <ReactQueryDevtools initialIsOpen={false} /> */}
           </ReactQueryProvider>
         </AntdApp>
       </StyleProvider>
