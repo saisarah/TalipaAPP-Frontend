@@ -40,7 +40,9 @@ export default function Posts() {
       ) : posts.length === 0 ? (
         <EmptyGroupPosts />
       ) : (
-        posts.map((post) => <GroupPostCard key={post.id} {...post} />)
+        <div className="flex flex-col gap-3 mt-3">
+          {posts.map((post) => <GroupPostCard key={post.id} {...post} />)}
+        </div>
       )}
     </>
   );

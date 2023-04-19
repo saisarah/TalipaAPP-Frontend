@@ -5,7 +5,7 @@ import GroupInfo from "@/pages/farmer/group/GroupInfo/GroupInfo";
 import InviteMember from "@/pages/farmer/group/InviteMember/InviteMember";
 import ManageGroup from "@/pages/farmer/group/ManageGroup/ManageGroup";
 import PendingInvitations from "@/pages/farmer/group/PendingInvitations/PendingInvitations";
-import { PostDetails } from "@/pages/farmer/group/PostDetails/PostDetails";
+import PostDetails from "@/pages/farmer/group/Posts/PostDetails/PostDetails";
 import Requests from "@/pages/farmer/group/Requests/Requests";
 
 export const groups = [
@@ -38,7 +38,7 @@ export const groups = [
     element: <CreateDiscussion />
   },
   {
-    path: "groups/posts/1",
+    path: "groups/posts/:id",
     element: <PostDetails />,
   },
   {
