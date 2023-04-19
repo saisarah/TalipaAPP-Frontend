@@ -7,11 +7,11 @@ import { NotificationCard } from "./components/NotificationCard";
 export default function Notifications() {
   const { data, isLoading } = useNotificationsQuery();
 
-  console.log(data)
+  console.log(data);
 
   return (
     <Page className="bg-white">
-      <PageHeader back="/" title="Notifications" />
+      <PageHeader className="block md:hidden" back="/" title="Notifications" />
       {isLoading ? (
         <div className="flex justify-center py-16">
           <Spin tip="Fetching notifications..." />

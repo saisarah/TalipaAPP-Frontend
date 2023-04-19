@@ -22,7 +22,7 @@ export default function Transactions() {
     );
 
   return (
-    <div className="divide-y">
+    <div className="divide-y bg-white">
       {data.map((transaction) => {
         switch (transaction.type) {
           case "cash in":
