@@ -5,7 +5,7 @@ import Wallet from "@/components/Wallet/Wallet";
 export default function WalletPage() {
   return (
     <Page className="bg-white">
-      <PageHeader back="/farmer" title="Wallet" />
+      <PageHeader className="block md:hidden" back="/farmer" title="Wallet" />
       <Wallet />
     </Page>
   );
