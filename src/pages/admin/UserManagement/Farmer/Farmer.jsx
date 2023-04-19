@@ -28,7 +28,7 @@ export default function Farmer() {
     {
       key: "1",
       name: "John Brown",
-      isGroup: "Not in Group",
+      groupName: "Maharlika Organic Food Producers and Farmers Association",
       product: "Apple , Banana",
       address: "New York No. 1 Lake Park",
       status: ["Active"],
@@ -36,7 +36,7 @@ export default function Farmer() {
     {
       key: "2",
       name: "Joe Black",
-      isGroup: "Not in Group",
+      groupName: "Not in Group",
       product: "Apple, Banana",
       address: "London No. 1 Lake Park",
       status: ["pending"],
@@ -44,7 +44,7 @@ export default function Farmer() {
     {
       key: "3",
       name: "Jim Green",
-      isGroup: "In Group",
+      groupName: "Totong Lipay Farmers Association",
       product: "Apple, Banana, Onion",
       address: "Sydney No. 1 Lake Park",
       status: ["Active"],
@@ -52,7 +52,7 @@ export default function Farmer() {
     {
       key: "4",
       name: "Jim Red",
-      isGroup: "In Group",
+      groupName: "Federation of Free Farmers",
       product: "Garlic",
       address: "London No. 2 Lake Park",
       status: ["Inactive"],
@@ -191,12 +191,12 @@ export default function Farmer() {
       ),
     },
     {
-      title: "isGroup",
-      dataIndex: "isGroup",
-      key: "isGroup",
+      title: "Group Name",
+      dataIndex: "groupName",
+      key: "groupName",
       // width: "30%",
-      // ...getColumnSearchProps("isGroup"),
-      sorter: (a, b) => a.isGroup.length - b.isGroup.length,
+      // ...getColumnSearchProps("groupName"),
+      sorter: (a, b) => a.groupName.length - b.groupName.length,
       sortDirections: ["descend", "ascend"],
     },
     {
