@@ -1,5 +1,4 @@
 import GroupPosts from "@/pages/farmer/group/components/GroupPosts";
-import SuggestedGroups from "@/pages/farmer/group/components/SuggestedGroups";
 import CreateDiscussion from "@/pages/farmer/group/CreateDiscussion/CreateDiscussion";
 import CreateGroup from "@/pages/farmer/group/CreateGroup/CreateGroup";
 import Group from "@/pages/farmer/group/Group";
@@ -9,6 +8,7 @@ import Manage from "@/pages/farmer/group/Manage/Manage";
 import { PendingRequest } from "@/pages/farmer/group/PendingRequest/PendingRequest";
 import { PostDetails } from "@/pages/farmer/group/PostDetails/PostDetails";
 import Requests from "@/pages/farmer/group/Requests/Requests";
+import SuggestedGroups from "@/pages/farmer/group/SuggestedGroups/SuggestedGroups";
 
 export const groups = [
   {
