@@ -14,8 +14,12 @@ export default function OrderInfo() {
 
   return (
     <div className="p-4">
-      <VendorPage className="bg-white lg:max-w-lg lg:rounded-lg lg:shadow">
-        <PageHeader back="/orders?tab=pending" title="Order" />
+      <VendorPage className="w-full bg-white  lg:rounded-lg lg:shadow ">
+        <PageHeader
+          className="block md:hidden"
+          back="/orders?tab=pending"
+          title="Order"
+        />
 
         {isLoading ? (
           <div className="flex items-center justify-center py-16">
@@ -33,13 +37,10 @@ export default function OrderInfo() {
 
             <Divider />
 
-            <PostLink
-              to={`/posts/${order.post_id}`}
-              post={order.post}
-            />
+            <PostLink to={`/posts/${order.post_id}`} post={order.post} />
 
             {order.order_status === "pending" && (
-              <CancelOrderButton className="mt-4" id={id} />
+              <CancelOrderButton className="mt-4 " id={id} />
             )}
           </div>
         )}
