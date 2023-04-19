@@ -1,85 +1,47 @@
-import { DownOutlined } from "@ant-design/icons";
-import { Dropdown, Space } from "antd";
-import { useState } from "react";
-import { useParams } from "react-router-dom";
-// import { About } from "../components/About";
-import PageHeader from "@/components/PageHeader/PageHeader";
-// import MemberPosts from "../components/MembersPosts";
-import MembersPosts from "../components/MembersPosts";
-import groupIllustrationImg from "../images/group_illustration.png";
-// import { items } from "./post-data";
+import Http from "@/helpers/Http";
+import { useCurrentUserQuery } from "@/query/queries/useCurrentUserQuery";
+import { LikeOutlined, MessageOutlined } from "@ant-design/icons";
+import { useQuery } from "@tanstack/react-query";
+import { Button } from "antd";
+import { Link } from "react-router-dom";
+import EmptyGroupPosts from "./components/EmptyGroupPosts";
+import { GroupPostCard } from "./components/GroupPostCard";
+import LoadingGroupPosts from "./components/LoadingGroupPosts";
 
-export const Posts = () => {
-  const [active, setActive] = useState("forum");
-  const { id } = useParams();
+const fetchGroupPosts = async () => {
+  const { data } = await Http.get("/farmer-group/posts");
+  return data;
+};
+
+const useGroupPostsQuery = () => {
+  return useQuery(["farmer-group", "posts"], fetchGroupPosts);
+};
+
+export default function Posts() {
+  const { data } = useCurrentUserQuery();
+  const { data: posts, isLoading } = useGroupPostsQuery();
 
   return (
-    <div className="app-size">
-      <PageHeader back="/farmer/groups" title="Group" />
-
-      {/* {isLoading ? (
-        <div className="flex items-center justify-center py-16">
-          <Spin tip="Fetching group informations" />
-        </div>
-      ) : ( */}
-      <>
-        <div className="sticky top-0 grid h-16 grid-cols-2 bg-white text-lg shadow-md">
-          <button
-            onClick={() => setActive("forum")}
-            className={`flex items-center justify-center ${
-              active === "forum" ? "border-b border-primary text-primary" : ""
-            }`}
-          >
-            Forum
-          </button>
-
-          <button
-            onClick={() => setActive("about")}
-            className={`flex items-center justify-center ${
-              active === "about" ? "border-b border-primary text-primary" : ""
-            }`}
-          >
-            About
-          </button>
-        </div>
-
-        <input
-          className="my-4 w-[100%] flex-grow p-4 focus:outline-none"
-          type="search"
-          placeholder="Start a discussion"
+    <>
+      <div className="mt-3 flex bg-white p-3">
+        <img
+          className="aspect-square w-10 rounded-full"
+          src={data.profile_picture}
         />
-        <div className="pb-4 text-center">
-          <Dropdown menu={[]} trigger={["click"]}>
-            <a onClick={(e) => e.preventDefault()}>
-              <Space>
-                Showing:
-                <b>
-                  <DownOutlined />
-                </b>
-              </Space>
-            </a>
-          </Dropdown>
-        </div>
-
-        {active === "forum" ? (
-          <MembersPosts />
-        ) : (
-          <div className="flex flex-col items-center gap-4 bg-slate-100 py-16">
-            <img src={groupIllustrationImg} />
-            <span className="text-lg font-bold">Create Group</span>
-            <span className="px-2 text-center">
-              Farmer groups are group of individual farmers, an association,
-              cooperative or any legal entity with a common farming interest.
-            </span>
-            <button className="rounded" size="large">
-              Create
-            </button>
-          </div>
-        )}
-
-        {active === "about" && null}
-      </>
-      {/* )} */}
-    </div>
+        <Link
+          to="/farmer/groups/posts/create"
+          className="ml-3 flex flex-grow items-center rounded-3xl border border-slate-300 px-4"
+        >
+          Write something...
+        </Link>
+      </div>
+      {isLoading ? (
+        <LoadingGroupPosts />
+      ) : posts.length === 0 ? (
+        <EmptyGroupPosts />
+      ) : (
+        posts.map((post) => <GroupPostCard key={post.id} {...post} />)
+      )}
+    </>
   );
-};
+}

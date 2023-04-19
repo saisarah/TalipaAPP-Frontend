@@ -36,7 +36,7 @@ export const rules = {
     { max: 3, message: "Please enter correct age number" },
   ],
   email: [
-    { type: "email", message: "Please enter a valid email address" },
+    { required: true, type: "email", message: "Please enter a valid email address" },
     {
       max: 255,
       message: "Your email should be maximun of 255 characters only",
@@ -57,5 +57,16 @@ export const rules = {
       pattern: /^(?=.*?[A-Z]).{0,}$/,
       message: "Password must contain an uppercase letter.",
     }, //Must have letter and number
+  ],
+  password_confirmation: [
+    { required: true, message: "Please confirm your password." },
+    ({ getFieldValue }) => ({
+      validator: async (_, value) => {
+        if (!value || getFieldValue("password") === value) {
+          return;
+        }
+        throw new Error("The two password you entered does not match");
+      },
+    }),
   ],
 }

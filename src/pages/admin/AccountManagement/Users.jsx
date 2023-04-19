@@ -23,14 +23,7 @@ export default function Users() {
   const handleChange = (value) => {
     console.log(`selected ${value}`);
   };
-  const handleSubmit = (personalData) => {
-    setData((data) => ({
-      ...data,
-      ...personalData,
-      region: accountType === "vendor" && "National Capital Region (NCR)",
-    }));
-    setStep((step) => step + 1);
-  };
+  
   const items = [
     {
       key: "1",
@@ -179,9 +172,7 @@ export default function Users() {
       >
         <Form
           className="space-y-4"
-          initialValues={data}
           layout="vertical"
-          onFinish={handleSubmit}
         >
           {/* <Input placeholder="E-mail"/>
           <Input placeholder="Lastname"/>
@@ -195,7 +186,6 @@ export default function Users() {
             name="email"
             placeholder="Enter your email here"
             rules={rules.email}
-            requiredMark="optional"
             type="email"
             label="Email"
             validateFirst
@@ -239,7 +229,7 @@ export default function Users() {
             label="Address"
             placeholder="Enter your address here"
           />
-          <FormItem
+          {/* <FormItem
             name="password"
             label="Password"
             rules={rules.password}
@@ -258,7 +248,7 @@ export default function Users() {
               size="large"
               className="rounded"
             />
-          </FormItem>
+          </FormItem> */}
           <Select
             size="large"
             className="rounded"

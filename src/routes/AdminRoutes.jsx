@@ -20,6 +20,7 @@ import VendorProfile from "@/pages/admin/UserManagement/Vendor/Profile";
 import Vendor from "@/pages/admin/UserManagement/Vendor/Vendor";
 
 import { useRoutes } from "react-router-dom";
+import VerificationUser from "@/pages/admin/AccountManagement/VerificationUser";
 
 const routes = [
   {
@@ -95,6 +96,10 @@ const routes = [
       {
         path: "transaction",
         element: <Transaction />,
+      },
+      {
+        path: "verification-user",
+        element: <VerificationUser />,
       },
     ],
   },
