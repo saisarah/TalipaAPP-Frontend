@@ -2,22 +2,15 @@ import FarmerPageHeader from "@/components/PageHeader/FarmerPageHeader";
 import { TabLinks } from "@/components/TabLink";
 import Http from "@/helpers/Http";
 import { useTabAdvance } from "@/helpers/hooks";
-import { CaretRightOutlined } from "@ant-design/icons";
+import { CaretRightOutlined, SettingOutlined } from "@ant-design/icons";
 import { useQuery } from "@tanstack/react-query";
-import { Navigate } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import Posts from "./Posts/Posts";
-
-const fetchCurrentGroup = async () => {
-  const { data } = await Http.get("/farmer-group");
-  return data;
-};
-
-const useCurrentGroup = () => {
-  return useQuery(["farmer-group"], fetchCurrentGroup);
-};
+import { useCurrentGroup } from "@/query/queries/useCurrentGroup";
+import { Badge } from "antd";
 
 export default function Group() {
-  const { data:group, isLoading } = useCurrentGroup();
+  const { data: group, isLoading } = useCurrentGroup();
   const { outlet, tabs } = useTabAdvance({
     forum: {
       title: "Forum",
@@ -37,13 +30,15 @@ export default function Group() {
     <div className="pb-4">
       <FarmerPageHeader back="/farmer" />
       <div className="relative aspect-video w-full bg-gray-500">
-        <div className="absolute bottom-0 flex w-full items-center justify-between p-3 text-white">
+        <Link
+          to="/farmer/groups/manage"
+          className="absolute bottom-0 flex w-full items-center justify-between p-3 text-white"
+        >
           <div>
             <div className="text-lg font-bold">{group.name}</div>
             <div className="text-xs">{group.type}</div>
           </div>
-          <CaretRightOutlined />
-        </div>
+        </Link>
       </div>
       <TabLinks
         activeClassName="border-b border-primary text-primary"
@@ -51,6 +46,16 @@ export default function Group() {
         className="sticky top-0 grid h-16 grid-cols-2 bg-white text-lg shadow-sm"
         tabs={tabs}
       />
+      {group.pivot.role === "president" && group.pendings_count > 0 && (
+        <Link
+          to="/farmer/groups/requests"
+          className="flex items-center bg-white p-3"
+        >
+          <SettingOutlined />
+          <div className="ml-2 flex-grow">Member Requests</div>
+          <Badge count={group.pendings_count}/>
+        </Link>
+      )}
 
       {outlet}
     </div>
