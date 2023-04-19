@@ -74,6 +74,14 @@
   }
 }
 
+.ant-steps.ant-steps-navigation .ant-steps-item {
+  flex: 1 0 auto;
+}
+
+.ant-steps.ant-steps-navigation .ant-steps-item::after {
+  margin-left: 8px;
+}
+
 @keyframes slide-in {
   from {
     transform: translateX(-100%);
