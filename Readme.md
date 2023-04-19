@@ -13,6 +13,16 @@
 ```
 git clone https://github.com/saisarah/App-con
 ```
+### Delete all merged branches
+
+```bash
+# delete merged local branch
+git branch --merged| egrep -v "(^\*|master|main|development)" | xargs git branch -d
+
+#delete merge remote branch
+git remote prune 
+
+```
 
 ## Setting up and Running the Application
 - Once you have cloned the repository

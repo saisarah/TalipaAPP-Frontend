@@ -2,6 +2,7 @@ import CreateDiscussion from "@/pages/farmer/group/CreateDiscussion/CreateDiscus
 import CreateGroup from "@/pages/farmer/group/CreateGroup/CreateGroup";
 import Group from "@/pages/farmer/group/Group";
 import GroupInfo from "@/pages/farmer/group/GroupInfo/GroupInfo";
+import InviteMember from "@/pages/farmer/group/InviteMember/InviteMember";
 import ManageGroup from "@/pages/farmer/group/ManageGroup/ManageGroup";
 import PendingInvitations from "@/pages/farmer/group/PendingInvitations/PendingInvitations";
 import { PostDetails } from "@/pages/farmer/group/PostDetails/PostDetails";
@@ -23,6 +24,10 @@ export const groups = [
   {
     path: "groups/invitations",
     element: <PendingInvitations />
+  },
+  {
+    path: "groups/invite",
+    element: <InviteMember />
   },
   {
     path: "groups/:id",

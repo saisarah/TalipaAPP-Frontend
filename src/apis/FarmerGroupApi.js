@@ -16,3 +16,9 @@ export const fetchPendingMembers = async () => {
   return data;
 };
 fetchPendingMembers.key = () => ['farmer-groups', 'pending-members']
+
+export const fetchPendingInvitations = async () => {
+  const { data } = await Http.get("/farmer-groups/invited-members");
+  return data;
+};
+fetchPendingInvitations.key = () => ['farmer-groups', 'invited-members']

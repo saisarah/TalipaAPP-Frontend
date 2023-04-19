@@ -17,10 +17,10 @@ export default function ManageGroup() {
           Pending Requests
           <RightOutlined />
         </Link>
-        <div className="flex justify-between bg-white p-3">
+        <Link to="/farmer/groups/invitations" className="flex justify-between bg-white p-3">
           Invited Members
           <RightOutlined />
-        </div>
+        </Link>
         <div className="flex justify-between bg-white p-3">
           Members
           <RightOutlined />
