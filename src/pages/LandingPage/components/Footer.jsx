@@ -67,8 +67,8 @@ export default function Footer() {
           </div>
         </div>
         <div className="col-span-5">
-          Copyright © <span className="text-[#86BF88]">Talipa</span>App2023 All
-          rights reserved
+          © <span className="text-[#86BF88]">Talipa</span>App2023 All rights
+          reserved
         </div>
       </div>
     </section>
