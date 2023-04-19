@@ -1,13 +1,12 @@
 import FarmerPageHeader from "@/components/PageHeader/FarmerPageHeader";
 import { TabLinks } from "@/components/TabLink";
-import Http from "@/helpers/Http";
 import { useTabAdvance } from "@/helpers/hooks";
-import { CaretRightOutlined, SettingOutlined } from "@ant-design/icons";
-import { useQuery } from "@tanstack/react-query";
-import { Link, Navigate } from "react-router-dom";
-import Posts from "./Posts/Posts";
 import { useCurrentGroup } from "@/query/queries/useCurrentGroup";
+import { SettingOutlined } from "@ant-design/icons";
 import { Badge } from "antd";
+import { Link } from "react-router-dom";
+import { GroupInvitations } from "./GroupInvitations/GroupInvitations";
+import Posts from "./Posts/Posts";
 
 export default function Group() {
   const { data: group, isLoading } = useCurrentGroup();
@@ -24,7 +23,7 @@ export default function Group() {
 
   if (isLoading) return "Loading";
 
-  if (!group) return <Navigate to="/farmer/groups/invitations" replace />;
+  if (!group) return <GroupInvitations />;
 
   return (
     <div className="pb-4">
