@@ -30,7 +30,7 @@ export default function Roles() {
       render: (_, { permissions }) => (
         <>
           {permissions.map((tag) => {
-            let color = tag.length > 10 ? "geekblue" : "green";
+            let color = tag.length > 10 ? "green" : "green";
             if (permissions === "moderator") {
               color = "volcano";
             }
@@ -67,22 +67,45 @@ export default function Roles() {
   const data = [
     {
       key: "1",
-      roles: "Admin",
-      permissions: ["chat support", "moderator", "Super Admin"],
+      roles: "Super Admin",
+      permissions: [
+        "Management",
+        "Records and Reports",
+        "User Management",
+        "Account Management",
+        "Settings",
+      ],
       action: "",
       tags: ["Active"],
     },
     {
       key: "2",
-      roles: "Chat Support",
-      permissions: ["chat support"],
+      roles: "Admin",
+      permissions: [
+        "Management",
+        "Records and Reports",
+        "User Management",
+        "Settings",
+      ],
       action: "",
       tags: ["Active"],
     },
     {
       key: "3",
       roles: "Moderator",
-      permissions: ["moderator"],
+      permissions: [
+        "Management",
+        "Records and Reports",
+        "Account Management",
+        "Settings",
+      ],
+      action: "",
+      tags: ["Inactive"],
+    },
+    {
+      key: "4",
+      roles: "Chat Support",
+      permissions: ["Chat support"],
       action: "",
       tags: ["Inactive"],
     },
