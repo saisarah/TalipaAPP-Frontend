@@ -20,18 +20,6 @@ export const groups = [
     element: <Requests />,
   },
   {
-    path: "groups/suggested",
-    element: <SuggestedGroups />
-  },
-  {
-    path: "groups/pending-request",
-    element: <PendingRequest />
-  },
-  {
-    path: "groups/invitations",
-    element: <GroupInvitations />,
-  },
-  {
     path: "groups/:id",
     element: <GroupInfo />,
   },
