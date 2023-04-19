@@ -4,6 +4,9 @@ import { LikeOutlined, MessageOutlined } from "@ant-design/icons";
 import { useQuery } from "@tanstack/react-query";
 import { Button } from "antd";
 import { Link } from "react-router-dom";
+import EmptyGroupPosts from "./components/EmptyGroupPosts";
+import { GroupPostCard } from "./components/GroupPostCard";
+import LoadingGroupPosts from "./components/LoadingGroupPosts";
 
 const fetchGroupPosts = async () => {
   const { data } = await Http.get("/farmer-group/posts");
@@ -12,36 +15,6 @@ const fetchGroupPosts = async () => {
 
 const useGroupPostsQuery = () => {
   return useQuery(["farmer-group", "posts"], fetchGroupPosts);
-};
-
-const GroupPostCard = ({ post }) => {
-  return (
-    <div className="mt-3 border-y border-slate-300 bg-white p-3 pb-0">
-      <div className="flex">
-        <img
-          className="aspect-square w-10 rounded-full"
-          src={
-            "https://res.cloudinary.com/djasbri35/image/upload/v1652630937/alspace/avatar/aqimrjzjjaylycobq9sr.jpg"
-          }
-        />
-        <div className="ml-3">
-          <div className="text-sm font-bold">Lenard Mangay-ayam</div>
-          <div className="text-xs text-slate-500">2 mins ago</div>
-        </div>
-      </div>
-      <div className="border-b border-slate-400 py-3 text-sm">
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sequi labore
-        rem magni ut quis. Voluptas neque perferendis beatae doloribus dolorem
-        veritatis, soluta maxime, repudiandae sed distinctio amet facilis?
-        Aliquam, incidunt?
-        <div className="mt-3">5 likes</div>
-      </div>
-      <div>
-        <Button size="large" type="link" icon={<LikeOutlined />} />
-        <Button size="large" type="link" icon={<MessageOutlined />} />
-      </div>
-    </div>
-  );
 };
 
 export default function Posts() {
@@ -55,13 +28,20 @@ export default function Posts() {
           className="aspect-square w-10 rounded-full"
           src={data.profile_picture}
         />
-        <Link to="/farmer/groups/posts/create" className="ml-3 flex flex-grow items-center rounded-3xl border border-slate-300 px-4">
+        <Link
+          to="/farmer/groups/posts/create"
+          className="ml-3 flex flex-grow items-center rounded-3xl border border-slate-300 px-4"
+        >
           Write something...
         </Link>
       </div>
-      <GroupPostCard />
-      <GroupPostCard />
-      <GroupPostCard />
+      {isLoading ? (
+        <LoadingGroupPosts />
+      ) : posts.length === 0 ? (
+        <EmptyGroupPosts />
+      ) : (
+        posts.map((post) => <GroupPostCard key={post.id} {...post} />)
+      )}
     </>
   );
 }
