@@ -13,15 +13,15 @@ export default function Vendor() {
     },
     {
       key: "2",
-      label: "Approved",
+      label: "Set as Active",
     },
     {
       key: "3",
-      label: "Pending",
+      label: "Set as Inactive",
     },
     {
       key: "4",
-      label: "Resubmit",
+      label: "Resend Email Verification",
     },
   ];
   const data = [
