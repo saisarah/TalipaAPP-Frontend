@@ -21,6 +21,9 @@ import Vendor from "@/pages/admin/UserManagement/Vendor/Vendor";
 
 import { useRoutes } from "react-router-dom";
 import VerificationUser from "@/pages/admin/AccountManagement/VerificationUser";
+import Messages from "@/pages/farmer/Messages/Messages";
+import ThreadsPage from "@/pages/farmer/Messages/ThreadsPage";
+import ConversationPage from "@/pages/farmer/Messages/ConversationPage";
 
 const routes = [
   {
@@ -88,9 +91,23 @@ const routes = [
         path: "profile/update",
         element: <ProfileUpdate />,
       },
+      // {
+      //   path: "chat-support",
+      //   element: <ChatSupport />,
+      // },
       {
-        path: "chat-support",
-        element: <ChatSupport />,
+        path: "messages",
+        element: <Messages />,
+        children: [
+          {
+            path: "",
+            element: <ThreadsPage />
+          },
+          {
+            path: ":id",
+            element: <ConversationPage />,
+          },
+        ]
       },
       
       {
@@ -101,9 +118,10 @@ const routes = [
         path: "verification-user",
         element: <VerificationUser />,
       },
+      
     ],
   },
-
+  
   {
     path: "login",
     element: <Login />,

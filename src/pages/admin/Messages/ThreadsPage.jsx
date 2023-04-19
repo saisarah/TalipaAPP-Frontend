@@ -27,9 +27,9 @@ export default function ThreadsPage() {
       <span className="text-6xl">
         <MessageOutlined />
       </span>
-      <span className="mt-4 text-xl h-screen">Your Messages</span>
+      <span className="mt-4 text-xl">Your Messages</span>
       <span>Send a private message to others.</span>
-      <Button shape="round" type="primary" className="my-4">
+      <Button shape="round" type="primary" className="mt-4">
         Send Message
       </Button>
     </div>
