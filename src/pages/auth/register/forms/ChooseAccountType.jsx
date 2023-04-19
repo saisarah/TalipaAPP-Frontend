@@ -6,24 +6,18 @@ import farmerImg from "../images/farmer.png";
 import vendorImg from "../images/vendor.png";
 
 export default function ChooseAccountType({ setAccountType }) {
-  const [buttonClicked, setButtonClicked] = React.useState(false);
+  const [selected, setSelected] = React.useState("");
 
   function handleButtonClick() {
-    setButtonClicked(true);
-    const farmerBtn = document.getElementById("farmer-button");
-    if (farmerBtn) {
-      farmerBtn.style.display = "none";
-    }
+    setSelected("vendor");
+
     setTimeout(() => {
       setAccountType("vendor");
     }, 1500);
   }
   function handleFarmerButtonClick() {
-    setButtonClicked(true);
-    const vendorBtn = document.getElementById("vendor-button");
-    if (vendorBtn) {
-      vendorBtn.style.display = "none";
-    }
+    setSelected("farmer");
+
     setTimeout(() => {
       setAccountType("farmer");
     }, 1500);
@@ -38,11 +32,10 @@ export default function ChooseAccountType({ setAccountType }) {
         />
       </Link>
       <button
-        id="vendor-button"
         onClick={handleButtonClick}
         className={`relative grid flex-shrink-0 ${
-          buttonClicked ? "h-full" : "h-[50%]"
-        } place-content-center transition-all duration-700 ease-in-out`}
+          selected === "vendor" ? "h-screen" : selected === "" ? "h-[50%]" : "h-0"
+        } place-content-center transition-all duration-700 ease-in-out overflow-hidden`}
       >
         <img
           className="absolute inset-0 h-full w-full  object-cover  "
@@ -54,11 +47,10 @@ export default function ChooseAccountType({ setAccountType }) {
         </span>
       </button>
       <button
-        id="farmer-button"
         onClick={handleFarmerButtonClick}
         className={`relative grid flex-shrink-0 ${
-          buttonClicked ? "h-screen" : "h-[50%] "
-        } place-content-center transition-all duration-700 ease-in-out`}
+          selected === "farmer" ? "h-screen" : selected === "" ? "h-[50%]" : "h-0"
+        } place-content-center transition-all duration-700 ease-in-out overflow-hidden`}
       >
         <img
           className="absolute inset-0 h-full w-full object-cover"
