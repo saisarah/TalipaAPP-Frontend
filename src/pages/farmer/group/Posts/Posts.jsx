@@ -3,6 +3,7 @@ import { useCurrentUserQuery } from "@/query/queries/useCurrentUserQuery";
 import { LikeOutlined, MessageOutlined } from "@ant-design/icons";
 import { useQuery } from "@tanstack/react-query";
 import { Button } from "antd";
+import { Link } from "react-router-dom";
 
 const fetchGroupPosts = async () => {
   const { data } = await Http.get("/farmer-group/posts");
@@ -54,9 +55,9 @@ export default function Posts() {
           className="aspect-square w-10 rounded-full"
           src={data.profile_picture}
         />
-        <div className="ml-3 flex flex-grow items-center rounded-3xl border border-slate-300 px-4">
+        <Link to="/farmer/groups/posts/create" className="ml-3 flex flex-grow items-center rounded-3xl border border-slate-300 px-4">
           Write something...
-        </div>
+        </Link>
       </div>
       <GroupPostCard />
       <GroupPostCard />

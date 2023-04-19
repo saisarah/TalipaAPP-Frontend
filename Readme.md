@@ -20,7 +20,7 @@ git clone https://github.com/saisarah/App-con
 git branch --merged| egrep -v "(^\*|master|main|development)" | xargs git branch -d
 
 #delete merge remote branch
-git remote prune 
+git remote prune origin
 
 ```
 
