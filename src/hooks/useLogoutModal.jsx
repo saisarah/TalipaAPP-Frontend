@@ -13,6 +13,7 @@ export const useLogoutModal = () => {
       onOk() {
         localStorage.clear();
         clearAuthorization()
+        queryClient.resetQueries([])
         queryClient.setQueryData(currentUserKey, null);
       },
       content: "Are you sure to logout?",
