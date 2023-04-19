@@ -7,6 +7,7 @@ import Join from "../components/Join";
 import { useTabAdvance } from "@/helpers/hooks";
 import Http from "@/helpers/Http";
 import { useQuery } from "@tanstack/react-query";
+import SuggestedGroups from "../SuggestedGroups/SuggestedGroups";
 
 const fetchPendingGroup = async () => {
   const { data } = await Http.get("/farmer-group/pending");
@@ -33,7 +34,7 @@ export const PendingRequest = () => {
 
   if (isLoading) return "Fetching Loading group";
 
-  if (!data) return <Navigate to="/farmer/groups/suggested" replace />;
+  if (!data) return <SuggestedGroups />;
 
   return (
     <div className="app-size bg-white">

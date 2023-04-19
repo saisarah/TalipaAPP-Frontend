@@ -25,7 +25,7 @@ export default function GroupInfo() {
   const { mutate, isLoading: isJoining } = useJoinGroup(id, {
     onSuccess() {
       queryClient.resetQueries(["farmer-group", "pending"])
-      navigate("/farmer/groups/pending-request", { replace:true })
+      navigate("/farmer/groups", { replace:true })
     },
     onError(err) {
       notification.error({ message: getErrorMessage(err) })
@@ -55,7 +55,7 @@ export default function GroupInfo() {
 
   return (
     <div className="app-size bg-white">
-      <PageHeader back="/farmer/groups/suggested" title="Group" />
+      <PageHeader back="/farmer/groups" title="Group" />
 
       <div className="h-[80px] w-[100%] max-w-md flex-shrink-0 bg-slate-300"></div>
       <img
