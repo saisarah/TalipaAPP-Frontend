@@ -1,4 +1,10 @@
-import { EyeInvisibleOutlined, EyeTwoTone, MenuOutlined, MoreOutlined, PlusOutlined } from "@ant-design/icons";
+import {
+  EyeInvisibleOutlined,
+  EyeTwoTone,
+  MenuOutlined,
+  MoreOutlined,
+  PlusOutlined,
+} from "@ant-design/icons";
 import { rules } from "./rules";
 import {
   Button,
@@ -23,19 +29,19 @@ export default function Users() {
   const handleChange = (value) => {
     console.log(`selected ${value}`);
   };
-  
+
   const items = [
     {
       key: "1",
-      label: "approve",
+      label: "Set as Active",
     },
     {
       key: "2",
-      label: "pending",
+      label: "Set as Inactive",
     },
     {
       key: "3",
-      label: "Resubmit",
+      label: "Resend Email Verification",
     },
   ];
 
@@ -112,24 +118,24 @@ export default function Users() {
     {
       key: "1",
       name: "John Brown",
-      contact: "09123456789",
-      email: "email@gmail.com",
+      contact: "+63 976 114 2584",
+      email: "johnbr0wn@gmail.com",
       roles: "Super admin",
       tags: ["Active"],
     },
     {
       key: "2",
       name: "Jim Green",
-      contact: "09123456789",
-      email: "email@gmail.com",
+      contact: "+63 936 478 5479",
+      email: "jim.green76@mailinator.com",
       roles: "Chat support",
       tags: ["pending"],
     },
     {
       key: "3",
       name: "Joe Black",
-      contact: "09123456789",
-      email: "email@gmail.com",
+      contact: "+63 976 589 1473",
+      email: "black.john.09@yahoo.com",
       roles: "Moderator",
       tags: ["Inactive"],
     },
@@ -170,10 +176,7 @@ export default function Users() {
         onOk={() => setModal1Open(false)}
         onCancel={() => setModal1Open(false)}
       >
-        <Form
-          className="space-y-4"
-          layout="vertical"
-        >
+        <Form className="space-y-4" layout="vertical">
           {/* <Input placeholder="E-mail"/>
           <Input placeholder="Lastname"/>
           <Input placeholder="Firstname"/>
