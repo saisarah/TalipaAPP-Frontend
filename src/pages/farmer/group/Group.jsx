@@ -11,8 +11,8 @@ import Posts from "./Posts/Posts";
 export default function Group() {
   const { data: group, isLoading } = useCurrentGroup();
   const { outlet, tabs } = useTabAdvance({
-    forum: {
-      title: "Forum",
+    home: {
+      title: "Home",
       element: <Posts />,
     },
     join: {
