@@ -1,74 +1,63 @@
-import Page from "@/components/Page";
-import PageHeader from "@/components/PageHeader/PageHeader";
+import FarmerPageHeader from "@/components/PageHeader/FarmerPageHeader";
+import { TabLinks } from "@/components/TabLink";
+import Http from "@/helpers/Http";
 import { useTabAdvance } from "@/helpers/hooks";
-import { Button } from "antd";
-import { Link } from "react-router-dom";
-import SuggestedGroups from "./components/SuggestedGroups";
-import GroupInvitation from "./GroupInvitation";
-import groupIllustrationImg from "./images/group_illustration.png";
-
-const HAS_INVITATION = false;
-
-const CreateGroup = () => {
-  return (
-    <div className="flex flex-col items-center gap-4 bg-slate-100 py-16">
-      <img src={groupIllustrationImg} />
-      <span className="text-lg font-bold">Create Group</span>
-      <span className="px-2 text-center">
-        Farmer groups are group of individual farmers, an association,
-        cooperative or any legal entity with a common farming interest.
-      </span>
-      <Link to="/farmer/groups/new">
-        <Button className="rounded" size="large">
-          Create
-        </Button>
-      </Link>
-    </div>
-  );
-};
+import { CaretRightOutlined, SettingOutlined } from "@ant-design/icons";
+import { useQuery } from "@tanstack/react-query";
+import { Link, Navigate } from "react-router-dom";
+import Posts from "./Posts/Posts";
+import { useCurrentGroup } from "@/query/queries/useCurrentGroup";
+import { Badge } from "antd";
 
 export default function Group() {
-  // const [active, setActive] = useState("join");
-  const { tabs, outlet } = useTabAdvance({
-    join: {
-      element: <SuggestedGroups />,
-      title: "Join",
+  const { data: group, isLoading } = useCurrentGroup();
+  const { outlet, tabs } = useTabAdvance({
+    forum: {
+      title: "Forum",
+      element: <Posts />,
     },
-    create: {
-      element: <CreateGroup />,
-      title: "Create",
+    join: {
+      title: "About",
+      element: null,
     },
   });
 
-  if (HAS_INVITATION) return <GroupInvitation />;
+  if (isLoading) return "Loading";
+
+  if (!group) return <Navigate to="/farmer/groups/invitations" replace />;
 
   return (
-    <Page className="bg-white">
-      <PageHeader back="/farmer" title="Farmer Groups" />
-
-      {/* <TabLinks
-        className="sticky top-0 z-10 grid h-16 grid-cols-2 bg-white text-lg shadow-md"
-        activeClassName="border-b border-primary text-primary"
-        defaultClassName="flex items-center justify-center"
-        tabs={tabs}
-      /> */}
-
-      <div className="shadow-xs border-b bg-white p-4">
-        <div className="text-lg font-bold">Create</div>
-        <div className="mt-2 text-center">
-          Farmer groups are group of individual farmers, an association,
-          cooperative or any legal entity with a common farming interest.
-        </div>
-        <Link to="/farmer/groups/new" className="mt-6 flex justify-center">
-          <Button className="rounded" type="primary">
-            Create
-          </Button>
+    <div className="pb-4">
+      <FarmerPageHeader back="/farmer" />
+      <div className="relative aspect-video w-full bg-gray-500">
+        <Link
+          to="/farmer/groups/manage"
+          className="absolute bottom-0 flex w-full items-center justify-between p-3 text-white"
+        >
+          <div>
+            <div className="text-lg font-bold">{group.name}</div>
+            <div className="text-xs">{group.type}</div>
+          </div>
         </Link>
       </div>
+      <TabLinks
+        activeClassName="border-b border-primary text-primary"
+        defaultClassName="flex items-center justify-center"
+        className="sticky top-0 grid h-16 grid-cols-2 bg-white text-lg shadow-sm"
+        tabs={tabs}
+      />
+      {group.pivot.role === "president" && group.pendings_count > 0 && (
+        <Link
+          to="/farmer/groups/requests"
+          className="flex items-center bg-white p-3"
+        >
+          <SettingOutlined />
+          <div className="ml-2 flex-grow">Member Requests</div>
+          <Badge count={group.pendings_count}/>
+        </Link>
+      )}
 
-      <div className="p-4 text-lg font-bold ">Suggested Groups</div>
-
-      <SuggestedGroups />
-    </Page>
+      {outlet}
+    </div>
   );
 }

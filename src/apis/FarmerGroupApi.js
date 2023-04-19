@@ -10,3 +10,9 @@ export const fetchGroup = async (id) => {
   const { data } = await Http.get(`/farmer-groups/${id}`);
   return data;
 };
+
+export const fetchPendingMembers = async () => {
+  const { data } = await Http.get("/farmer-groups/pending-members");
+  return data;
+};
+fetchPendingMembers.key = () => ['farmer-groups', 'pending-members']

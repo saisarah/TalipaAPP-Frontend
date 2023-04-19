@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-export default function GroupItem({ id, name, membersCount, type }) {
+export default function GroupItem({ id, name, members_count, type }) {
   return (
     <div>
       <div className="flex gap-4 bg-white p-4 py-2">
@@ -10,7 +10,7 @@ export default function GroupItem({ id, name, membersCount, type }) {
             {name}
           </Link>
           <span>{type}</span>
-          <span className="text-slate-500">{membersCount} Members</span>
+          <span className="text-slate-500">{members_count} Members</span>
         </div>
       </div>
       <div className="mx-4 h-[1px] bg-slate-100"></div>

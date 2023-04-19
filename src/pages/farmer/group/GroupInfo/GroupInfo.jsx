@@ -1,14 +1,36 @@
 import PageHeader from "@/components/PageHeader/PageHeader";
 import { TabLinks } from "@/components/TabLink";
 import { useTabAdvance } from "@/helpers/hooks";
+import Http, { getErrorMessage } from "@/helpers/Http";
 import { useFarmerGroupQuery } from "@/query/queries/useFarmerGroupsQuery";
-import { Button, Spin } from "antd";
-import { useParams } from "react-router-dom";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { Button, notification, Spin } from "antd";
+import { useNavigate, useParams } from "react-router-dom";
 import Forum from "../components/Forum";
 import Join from "../components/Join";
 
+const joinGroup = async(id) => {
+  const { data } = await Http.post(`/farmer-groups/${id}/join`)
+  return data
+}
+
+const useJoinGroup = (id, option) => {
+  return useMutation(() => joinGroup(id), option)
+}
+
 export default function GroupInfo() {
+  const navigate = useNavigate()
   const { id } = useParams();
+  const queryClient = useQueryClient()
+  const { mutate, isLoading: isJoining } = useJoinGroup(id, {
+    onSuccess() {
+      queryClient.resetQueries(["farmer-group", "pending"])
+      navigate("/farmer/groups/pending-request", { replace:true })
+    },
+    onError(err) {
+      notification.error({ message: getErrorMessage(err) })
+    }
+  })
 
   const { data, isLoading } = useFarmerGroupQuery(id);
 
@@ -33,7 +55,7 @@ export default function GroupInfo() {
 
   return (
     <div className="app-size bg-white">
-      <PageHeader back="/farmer/groups" title="Group" />
+      <PageHeader back="/farmer/groups/suggested" title="Group" />
 
       <div className="h-[80px] w-[100%] max-w-md flex-shrink-0 bg-slate-300"></div>
       <img
@@ -44,7 +66,7 @@ export default function GroupInfo() {
         <h1>{data.name}</h1>
         <h1>{data.type}</h1>
         <p>Members</p>
-        <Button type="primary" className="mx-auto">
+        <Button loading={isJoining} onClick={() => mutate()} type="primary" className="mx-auto">
           Join
         </Button>
       </div>

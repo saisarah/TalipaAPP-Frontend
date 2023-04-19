@@ -1,14 +1,13 @@
 import { useAppContext } from "@/contexts/AppContext";
 import { useCurrentUserQuery } from "@/query/queries/useCurrentUserQuery";
 import { Fragment, useEffect, useState } from "react";
-import { Navigate } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import About from "./components/About";
 import Banner from "./components/Banner";
 import Services from "./components/Services";
 import darkbg from "./images/Banner.png";
 import lightbg from "./images/light.svg";
 import logo from "./images/tree.png";
-import Link from "antd/es/typography/Link";
 import FAQ from "./components/FAQ";
 import Developers from "./components/Developers";
 import Footer from "./components/Footer";
@@ -107,11 +106,11 @@ export default function LandingPage() {
                 </Link>
 
                 <div className="flex justify-between gap-10">
-                  <a href="/login">
+                  <Link to="/login">
                     <button className="font-sm px-4 text-md text-[#AFAFAF] duration-75 ease-in hover:font-bold hover:text-black dark:hover:text-white">
                       Log in
                     </button>
-                  </a>
+                  </Link>
 
                   <button type="button" onClick={handleThemeSwitch}>
                     {theme === "dark" ? sun : moon}
