@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 export const GroupPostCard = ({ author, created_at, description, id }) => {
   return (
-    <div className="mt-3 border-y border-slate-300 bg-white p-3 pb-0">
+    <div className="border-y border-slate-300 bg-white p-3 pb-0">
       <div className="flex">
         <img
           className="aspect-square w-10 rounded-full"
@@ -18,7 +18,7 @@ export const GroupPostCard = ({ author, created_at, description, id }) => {
           </div>
         </div>
       </div>
-      <div className="border-b border-slate-400 py-3 text-sm">
+      <div className="border-b border-slate-200 py-3 text-sm">
         {description}
         <div className="mt-3 hidden">5 likes</div>
       </div>
