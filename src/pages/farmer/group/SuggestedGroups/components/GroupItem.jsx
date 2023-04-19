@@ -1,10 +1,11 @@
 import { Link } from "react-router-dom";
 
-export default function GroupItem({ id, name, members_count, type }) {
+export default function GroupItem({ id, name, members_count, type, image_url }) {
   return (
     <div>
       <div className="flex gap-4 bg-white p-4 py-2">
-        <div className="h-[72px] w-[72px] flex-shrink-0 rounded bg-slate-300"></div>
+        {/* <div className="h-[72px] w-[72px] flex-shrink-0 rounded bg-slate-300"></div> */}
+        <img src={image_url} className="h-16 aspect-square flex-shrink-0"/>
         <div className="flex flex-grow flex-col">
           <Link to={`/farmer/groups/${id}`} className="font-bold">
             {name}
