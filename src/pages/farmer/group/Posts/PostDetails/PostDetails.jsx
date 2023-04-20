@@ -1,12 +1,40 @@
 import FarmerPageHeader from "@/components/PageHeader/FarmerPageHeader";
-import { SendOutlined } from "@ant-design/icons";
-import { Avatar, Button, Input } from "antd";
+import Http from "@/helpers/Http";
+import { useQuery } from "@tanstack/react-query";
+import { useParams } from "react-router-dom";
 import { GroupPostCard } from "../components/GroupPostCard";
 import CommentItem from "./components/CommentItem";
 import LoadingPost from "./components/LoadingPost";
 import WriteComment from "./components/WriteComment";
 
+const fetchGroupPost = async(post_id) => {
+  const { data } = await Http.get(`/farmer-group/posts/${post_id}`)
+  return data
+}
+
+const fetchGroupPostComments = async (post_id) => {
+  const { data } = await Http.get(`/farmer-group/posts/${post_id}/comments`)
+  return data
+}
+
+const useGroupPost = (post_id, option) => {
+  return useQuery(
+    ["farmer-group", "posts", post_id],
+    () => fetchGroupPost(post_id),
+    option
+  )
+}
+
+const useGroupPostComments = (post_id, option) => {
+  return useQuery(
+    ["farmer-group", "posts", post_id, "comments"],
+    () => fetchGroupPostComments(post_id),
+    option
+  )
+}
+
 export default function PostDetails() {
+  const { id } = useParams()
   const isLoading = false;
 
   return (
@@ -21,7 +49,7 @@ export default function PostDetails() {
               fullname: "Lenard Mangay-ayam",
               profile_picture:
                 "https://avatars.dicebear.com/api/initials/john+doe.svg",
-            }}
+            }}c
             created_at={Date()}
             description="lorem ipsum"
             id={1}
@@ -31,7 +59,7 @@ export default function PostDetails() {
             <CommentItem />
             <CommentItem />
           </div>
-          <WriteComment />
+          <WriteComment post_id={id}/>
         </div>
       )}
     </div>
