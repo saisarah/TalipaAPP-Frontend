@@ -13,53 +13,31 @@ export default function ChooseAccountType({ setAccountType }) {
 
     setTimeout(() => {
       setAccountType("vendor");
-    }, 1500);
+    }, 100);
   }
   function handleFarmerButtonClick() {
     setSelected("farmer");
 
     setTimeout(() => {
       setAccountType("farmer");
-    }, 1500);
+    }, 100);
   }
   return (
-    <div className="flex h-screen flex-col">
-      <Link to="/login">
-        <Button
-          type="link"
-          className="absolute z-20 text-white hover:text-black"
-          icon={<LeftOutlined style={{ fontSize: "24px" }} />}
-        />
-      </Link>
+    <div className="flex flex-col gap-4">
       <button
         onClick={handleButtonClick}
-        className={`relative grid flex-shrink-0 ${
-          selected === "vendor" ? "h-screen" : selected === "" ? "h-[50%]" : "h-0"
-        } place-content-center transition-all duration-700 ease-in-out overflow-hidden`}
+        className="rounded border border-[#739559] p-5 font-bold  text-black duration-300 ease-in hover:border-none hover:bg-[#739559] hover:text-white"
+        selected={selected === "farmer"}
       >
-        <img
-          className="absolute inset-0 h-full w-full  object-cover  "
-          src={vendorImg}
-        />
-        <div className="absolute inset-0 bg-gradient-to-br from-[#739559] to-transparent duration-500 hover:opacity-0"></div>
-        <span className="relative z-10 text-3xl font-bold text-white">
-          Vendor
-        </span>
+        Vendor
       </button>
+
       <button
         onClick={handleFarmerButtonClick}
-        className={`relative grid flex-shrink-0 ${
-          selected === "farmer" ? "h-screen" : selected === "" ? "h-[50%]" : "h-0"
-        } place-content-center transition-all duration-700 ease-in-out overflow-hidden`}
+        className="ease rounded bg-[#739559] p-5  font-bold text-white duration-300 hover:border hover:border-[#739559] hover:bg-transparent hover:text-black"
+        selected={selected === "farmer"}
       >
-        <img
-          className="absolute inset-0 h-full w-full object-cover"
-          src={farmerImg}
-        />
-        <div className="absolute inset-0 bg-gradient-to-br from-transparent to-[#739559] duration-500 hover:opacity-0"></div>
-        <span className="relative z-10 text-3xl font-bold text-white">
-          Farmer
-        </span>
+        Farmer
       </button>
     </div>
   );
