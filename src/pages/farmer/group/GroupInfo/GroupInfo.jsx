@@ -8,6 +8,7 @@ import { Button, notification, Spin } from "antd";
 import { useNavigate, useParams } from "react-router-dom";
 import Forum from "../components/Forum";
 import Join from "../components/Join";
+import { BackLink } from "@/components/PageHeader/components/BackLink";
 
 const joinGroup = async (id) => {
   const { data } = await Http.post(`/farmer-groups/${id}/join`);
@@ -47,20 +48,25 @@ export default function GroupInfo() {
 
   if (isLoading) {
     return (
-      <div className="flex flex-col items-center py-16">
-        <Spin />
+      <div className="flex justify-center py-16">
+        <Spin tip="Fetching group info" />
       </div>
     );
   }
 
   return (
-    <div className="app-size bg-white">
-      <PageHeader back="/farmer/groups" title="Group" />
+    <div className="w-full bg-white">
+      <PageHeader
+        className="sticky md:static"
+        back="/farmer/groups"
+        title="Group"
+      />
 
       <img
-        className="h-[80px] w-[100%] max-w-md flex-shrink-0 bg-slate-300 object-cover"
+        className="aspect-video sm:h-32 lg:h-48 w-[100%] flex-shrink-0 bg-slate-300 object-cover"
         src={data.image_url}
       />
+
       <div className="my-6 text-center">
         <h1>{data.name}</h1>
         <h1>{data.type}</h1>

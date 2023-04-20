@@ -3,7 +3,7 @@ import { TabLinks } from "@/components/TabLink";
 import { useTabAdvance } from "@/helpers/hooks";
 import { useCurrentGroup } from "@/query/queries/useCurrentGroup";
 import { SettingOutlined } from "@ant-design/icons";
-import { Badge } from "antd";
+import { Badge, Spin } from "antd";
 import { Link } from "react-router-dom";
 import { GroupInvitations } from "./GroupInvitations/GroupInvitations";
 import Posts from "./Posts/Posts";
@@ -21,14 +21,19 @@ export default function Group() {
     },
   });
 
-  if (isLoading) return "Loading";
+  if (isLoading)
+    return (
+      <div className="flex justify-center py-16">
+        <Spin tip="Please wait" />
+      </div>
+    );
 
   if (!group) return <GroupInvitations />;
 
   return (
     <div className="pb-4">
       <FarmerPageHeader back="/farmer" />
-      <div className="relative aspect-video md:aspect-auto md:h-56 w-full bg-gray-500">
+      <div className="relative aspect-video w-full bg-gray-500 md:aspect-auto md:h-56">
         <Link
           to="/farmer/groups/manage"
           className="absolute bottom-0 flex w-full items-center justify-between p-3 text-white"
@@ -52,7 +57,7 @@ export default function Group() {
         >
           <SettingOutlined />
           <div className="ml-2 flex-grow">Member Requests</div>
-          <Badge count={group.pendings_count}/>
+          <Badge count={group.pendings_count} />
         </Link>
       )}
 

@@ -4,6 +4,7 @@ import PageHeader from "@/components/PageHeader/PageHeader";
 import { useFarmerGroupsQuery } from "@/query/queries/useFarmerGroupsQuery";
 import GroupItem from "./components/GroupItem";
 import LoadingGroups from "./components/LoadingGroups";
+import { Spin } from "antd";
 
 export default function SuggestedGroups() {
   const { data, isLoading } = useFarmerGroupsQuery();

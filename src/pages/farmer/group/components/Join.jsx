@@ -6,7 +6,7 @@ import {
 
 export default function Join({ data }) {
   return (
-    <div className="p-6">
+    <div className="h-auto bg-white p-6">
       <h1 className="text-xl font-bold">Description</h1>
       <p>{data.group_description}</p>
       <h1 className="text-xl font-bold">Contact Information</h1>

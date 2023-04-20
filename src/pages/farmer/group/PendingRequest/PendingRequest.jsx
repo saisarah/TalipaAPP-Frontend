@@ -1,10 +1,10 @@
 import { fetchCurrentGroup } from "@/apis/GroupApi";
 import PageHeader from "@/components/PageHeader/PageHeader";
 import { TabLinks } from "@/components/TabLink";
+import { Button, Spin, App } from "antd";
 import { useTabAdvance } from "@/helpers/hooks";
 import Http, { getErrorMessage } from "@/helpers/Http";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import { App, Button } from "antd";
 import Forum from "../components/Forum";
 import Join from "../components/Join";
 import SuggestedGroups from "../SuggestedGroups/SuggestedGroups";
@@ -64,7 +64,12 @@ export const PendingRequest = () => {
     },
   });
 
-  if (isLoading) return "Fetching Loading group";
+  if (isLoading)
+    return (
+      <div className="flex justify-center py-16">
+        <Spin tip="Fetching Pending Requests" />
+      </div>
+    );
 
   if (!data) return <SuggestedGroups />;
 
