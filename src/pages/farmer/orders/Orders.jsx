@@ -12,9 +12,12 @@ export default function Orders() {
       <FarmerPageHeader back="/farmer" title="Orders" />
 
       <div className="md:fixed md:inset-x-0 md:top-16 md:z-10 md:bg-white md:shadow-md">
-        <OrderTabLinks tabs={tabs} className="max-w-screen-lg mx-auto md:shadow-none"/>
+        <OrderTabLinks
+          tabs={tabs}
+          className="mx-auto max-w-screen-lg md:shadow-none"
+        />
       </div>
-      
+
       <OrderLists
         className="flex flex-col gap-2 p-2"
         cardLink={(id) => `/farmer/orders/${id}`}
