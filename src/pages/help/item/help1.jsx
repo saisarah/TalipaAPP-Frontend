@@ -12,69 +12,78 @@ export default function Help1() {
         title="Welcome To TalipaAPP: A new guide for buyers"
         back="/"
       />
-      <div className="my-2 bg-white">
-        <div className="mx-4 flex grow flex-col p-2">
-          <div className="">
-            <h3 className="font-bold">Welcome to TalipaAPP!</h3>
-            <p>This is the start of your shopping journey in TalipaAPP.</p>
+      <div className="my-2 bg-white text-black">
+        <div className="mx-4 flex flex-grow flex-col p-2">
+          <div className="text-black">
+            <h3 className="text-center text-lg font-semibold text-[#739559]">
+              Welcome to TalipaAPP!
+            </h3>
             <p>
-              We want to give you the best possible online shopping experience
-              so we've prepared everything that you need to know.
+              This is the start of your shopping journey on TalipaAPP! <br></br>
+              We want to give you the best possible online shopping experience,
+              so we've prepared everything you need to know.
             </p>
           </div>
-
-          <div className="">
-            <h3 className="font-bold">2 Reasons to Checkout from TalipaAPP</h3>
+          <br></br>
+          <div>
+            <h3 className="font-semibold text-[#739559]">
+              2 Reasons to Checkout from TalipaAPP
+            </h3>
             <p>
               Aside from the guaranteed safe and enjoyable online shopping,
-              below are the more reasons to trust TalipaAPP.
+              below are more reasons to trust TalipaAPP.
             </p>
           </div>
-
+          <br></br>
           <div className="">
-            <p>Fast Shipping</p>
+            <p className="font-medium">Fast Shipping</p>
+            <img src="/assets/images/transportify.png" className="" />
+            <p>
+              Since TalipaAPP is powered by Transportify, expect a fast delivery
+              experience. Its goal is to lower the costs of traditional delivery
+              logistics methods, which includes first to last-mile delivery, of
+              enterprises, while still providing an exemplary quality of
+              service.
+            </p>
           </div>
-
-          <div className="">
-            <p>Money Back Guarantee</p>
+          <br></br>
+          <div>
+            <p className="font-medium">Money Back Guarantee</p>
+            <img src="/assets/images/mbg.png" className="" />
             <p>
               Be refunded if you don't receive the item you ordered or if there
               is a problem with the condition of the item you received.
             </p>
           </div>
-
-          <div className="">
-            <h3 className="font-bold">Shop and Save</h3>
+          <br></br>
+          <div>
+            <h3 className="text font-bold">Shop and Save</h3>
+            <img src="/assets/images/sas.png" className="" />
             <p>
               Shop and save, at the same time, through TalipaAPP's valuable
-              items posted directly through the farmer.
+              items posted directly by the farmer.
             </p>
           </div>
 
-          <div className="">
-            <h3 className="font-bold">Your online shopping is safe with us.</h3>
-            <p>
-              Here are articles that will help you learn about safe shopping in
-              TalipaAPP.
-            </p>
-          </div>
-
-          <div className="">
-            <h3 className="font-bold">Be constantly updated.</h3>
+          <br></br>
+          <div>
+            <h3 className="flex font-bold">Be constantly updated.</h3>
+            <img src="/assets/images/bcu.png" className="" />
             <p>
               Know where your orders are and when you'll get them with our
               real-time order tracking feature.
             </p>
           </div>
-
+          <br></br>
           <div className="font-bold">
-            <h4>Have other concerns?</h4>
+            <h3>Have other concerns?</h3>
           </div>
 
-          <div className="">
+          <div>
             <p>
               For other related concerns, click on the button below to connect
-              with our Customare Care Service.
+              with our{" "}
+              <span className="text-blue-400">Customer Care Service .</span>
             </p>
           </div>
         </div>
