@@ -5,6 +5,7 @@ import { useNotificationsQuery } from "@/query/queries/useNotificationsQuery";
 import { Avatar, Empty } from "antd";
 
 export default function Notifications() {
+  useTitle("Notifications");
   const { data, isLoading } = useNotificationsQuery();
 
   if (isLoading)
@@ -29,24 +30,6 @@ export default function Notifications() {
           created_at={notification.created_at}
         />
       ))}
-    </div>
-  );
-}
-
-function Notif({ name, date, description, update, img }) {
-  useTitle("Notifications");
-  return (
-    <div className="mx-5 flex flex-row gap-8 border-b-2 py-2 px-2">
-      <div>
-        <Avatar size="large" src={img} alt="Avatar" />
-      </div>
-      <div>
-        <span className="font-bold">{name}</span>
-        <br />
-        <span className="text-xsm text-slate-400">{description}</span>
-        <br />
-        <span> {date}</span>
-      </div>
     </div>
   );
 }
