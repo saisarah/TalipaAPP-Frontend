@@ -252,7 +252,7 @@ function Sidenav({ color }) {
           </NavLink>
         </Menu.Item>
         <Menu.Item key="5">
-          <NavLink to="/admin/chat-support">
+          <NavLink to="/admin/messages">
             <span
               className="icon"
               style={{
