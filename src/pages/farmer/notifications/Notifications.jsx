@@ -18,7 +18,7 @@ export default function Notifications() {
         </div>
       ) : (
         <div>
-          <h1 className="font-bold text-2xl px-4 pt-4">Notifications</h1>
+          <h1 className="font-bold text-2xl px-4 pt-4 hidden md:block">Notifications</h1>
           <h4 className="px-4 pt-4">Recent</h4>
           {data.map((notification) => (
             <NotificationCard
