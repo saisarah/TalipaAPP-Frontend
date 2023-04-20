@@ -35,7 +35,7 @@ export default function About() {
         </div>
       </section>
       <div>
-        <img src={bg2} alt="" />
+        <img src={bg2} alt="" className="w-full" />
       </div>
     </>
   );
