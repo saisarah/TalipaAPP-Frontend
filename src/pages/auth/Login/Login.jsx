@@ -3,7 +3,7 @@ import { getErrorMessage } from "@/helpers/Http";
 import { useLogin } from "@/query/mutations/useLogin";
 import { Button, Form, Input, notification } from "antd";
 import { Link } from "react-router-dom";
-import logo from "./images/logo.svg";
+import logo from "./images/tali.svg";
 import forlogin from "./images/forlogin.png";
 import { useEffect, useState } from "react";
 
@@ -40,8 +40,8 @@ export default function Login() {
 
         <div className="relative col-span-1 bg-white px-4 py-10 text-center md:px-10">
           <div className="flex flex-col p-4 px-8  text-center">
-            <img className="mx-auto ml-1" src={logo} alt="" />
-            <p className="mt-4 text-left font-poppins text-lg font-semibold">
+            <img className="mx-auto " src={logo} alt="" />
+            <p className="mt-10 text-left font-poppins text-lg font-semibold">
               Hello! Welcome Back 👋🏻
             </p>
             <div className="mt-14 flex-grow">
@@ -92,11 +92,6 @@ export default function Login() {
             <Link to={"/"} className="">
               Help Center
             </Link>
-          </div>
-
-          <div className="absolute bottom-0 right-0 left-0">
-            © <span className="text-[#86BF88]">Talipa</span>App2023 All rights
-            reserved
           </div>
         </div>
       </div>

@@ -44,7 +44,7 @@ export default function Footer() {
           </div>
 
           <div className="mt-4">
-            <div>0929 770 9043 </div>
+            <div>+63 929 770 9043 </div>
             <div> talipaapp@gmail.com</div>
           </div>
         </div>

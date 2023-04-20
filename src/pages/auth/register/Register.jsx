@@ -5,7 +5,7 @@ import RegistrationForm from "./RegistrationForm";
 import { Button } from "antd";
 import { ArrowLeftOutlined, LeftOutlined } from "@ant-design/icons";
 import forlogin from "./images/forlogin.png";
-import logo from "./images/logo.svg";
+import logo from "./images/tali.svg";
 import farmer from "./images/farmer.png";
 import vendor from "./images/vendor.png";
 import { Link } from "react-router-dom";
