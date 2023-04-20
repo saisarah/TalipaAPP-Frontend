@@ -1,28 +1,25 @@
 import { VendorLayout } from "@/pages/vendor/components/VendorLayout/VendorLayout";
-import Help from "@/pages/vendor/Help/help";
+import Help from "@/pages/vendor/Help/Help";
 import AddDemand from "@/pages/vendor/Home/components/AddDemand";
 import { Home } from "@/pages/vendor/Home/Home";
-// import Chat, { ChatPage } from "@/pages/vendor/Messages/Chat";
-// import Messages from "@/pages/vendor/Messages/Messages";
 import Notifications from "@/pages/vendor/Notifications/Notifications";
 import OrderInfo from "@/pages/vendor/Orders/OrderInfo/OrderInfo";
 import Orders from "@/pages/vendor/Orders/Orders";
 import { PostDetails } from "@/pages/vendor/PostDetails/PostDetails";
-import Posting from "@/pages/vendor/PostDetails/Posting";
 import Profile from "@/pages/vendor/Profile/Profile";
 import ChangeEmail from "@/pages/vendor/Settings/Forms/form/ChangeEmail";
 import ChangeName from "@/pages/vendor/Settings/Forms/form/ChangeName";
 import ChangeNumber from "@/pages/vendor/Settings/Forms/form/ChangeNumber";
 import Settings from "@/pages/vendor/Settings/Settings";
 import CashInPage from "@/pages/vendor/Wallet/CashIn/CashInPage";
-import ChooseMethodPage from "@/pages/vendor/Wallet/CashIn/ChooseMethodPage";
 import CashInResultPage from "@/pages/vendor/Wallet/CashIn/CashInResultPage";
+import ChooseMethodPage from "@/pages/vendor/Wallet/CashIn/ChooseMethodPage";
 import WalletPage from "@/pages/vendor/Wallet/WaletPage";
 
-import { useRoutes } from "react-router-dom";
-import ThreadsPage from "@/pages/vendor/Messages/ThreadsPage";
 import ConversationPage from "@/pages/vendor/Messages/ConversationPage";
 import Messages from "@/pages/vendor/Messages/Messages";
+import ThreadsPage from "@/pages/vendor/Messages/ThreadsPage";
+import { useRoutes } from "react-router-dom";
 
 const routes = [
   {
