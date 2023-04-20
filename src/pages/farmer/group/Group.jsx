@@ -5,6 +5,7 @@ import { useCurrentGroup } from "@/query/queries/useCurrentGroup";
 import { SettingOutlined } from "@ant-design/icons";
 import { Badge, Spin } from "antd";
 import { Link } from "react-router-dom";
+import Join from "./components/Join";
 import { GroupInvitations } from "./GroupInvitations/GroupInvitations";
 import Posts from "./Posts/Posts";
 
@@ -17,7 +18,7 @@ export default function Group() {
     },
     join: {
       title: "About",
-      element: null,
+      element: <Join data={group} />,
     },
   });
 

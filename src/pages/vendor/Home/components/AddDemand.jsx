@@ -1,15 +1,10 @@
-import { postDemand } from "@/apis/DemandApi";
 import Page from "@/components/Page";
-import PageHeader from "@/components/PageHeader/PageHeader";
 import VendorPageHeader from "@/components/PageHeader/VendorPageHeader";
 import { useAppContext } from "@/contexts/AppContext";
-import { useTitle } from "@/contexts/VendorContext";
 import { getErrorMessage } from "@/helpers/Http";
 import { usePostDemand } from "@/query/mutations/usePostDemand";
-import { useCropOptions } from "@/query/queries/useCropsQuery";
 import { useCurrentUserQuery } from "@/query/queries/useCurrentUserQuery";
-import { Button, Form, Input, Modal, notification, Select } from "antd";
-import { useForm } from "antd/lib/form/Form";
+import { App, Button, Form, Input, Modal, Select } from "antd";
 import TextArea from "antd/lib/input/TextArea";
 import { useEffect, useState } from "react";
 import { Navigate, useLocation, useNavigate } from "react-router-dom";
@@ -20,6 +15,7 @@ export default function AddDemand({  form, setIsLoading, onSuccess }) {
   const { data: crop, isLoading: fetchingCrops } = useCurrentUserQuery();
   const { viewport } = useAppContext();
   const { pathname } = useLocation();
+  const { notification } = App.useApp()
   // const [form] = useForm()
   const { mutate, isLoading } = usePostDemand({
     onError(err) {
