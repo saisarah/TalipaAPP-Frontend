@@ -63,7 +63,7 @@ export default function About() {
   }
   return (
     <div>
-      <div className="mx-auto min-h-screen max-w-md bg-white">
+      <div className="mx-auto w-full min-h-screen bg-white py-3">
         <div>
           <AboutInfo title={"Place lived"} descriptions={[address.province]} />
         </div>
