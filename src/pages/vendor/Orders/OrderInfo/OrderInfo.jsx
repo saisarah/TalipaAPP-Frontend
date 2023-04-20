@@ -28,7 +28,7 @@ export default function OrderInfo() {
         ) : (
           <div className="w-full bg-white p-4">
             <OrderProfile
-              messageLink={`/messages/${order.post.author_id}`}
+              messageLink={`/messages?user_id=${order.post.author_id}`}
               user={order.post.author}
               label="Seller"
             />
