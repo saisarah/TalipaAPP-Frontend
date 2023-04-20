@@ -24,9 +24,9 @@ export default function Login() {
 
   return (
     <>
-      <div className=" grid h-screen grid-cols-1 md:grid-cols-3 ">
+      <div className="flex min-h-screen">
         <div
-          className="relative col-span-2 hidden overflow-hidden p-10 md:block "
+          className="relative flex-grow hidden overflow-hidden p-10 md:block "
           style={{
             backgroundImage: `url(${forlogin})`,
             backgroundSize: "cover",
@@ -38,13 +38,13 @@ export default function Login() {
           </div>
         </div>
 
-        <div className="relative col-span-1 bg-white px-4 py-10 text-center md:px-10">
-          <div className="flex flex-col p-4 px-8  text-center">
-            <img className="mx-auto " src={logo} alt="" />
-            <p className="mt-10 text-left font-poppins text-lg font-semibold">
+        <div className="relative flex-shrink-0 w-full max-w-[410px] bg-white px-4 py-10 mx-auto sm:my-4 md:my-0 md:shadow-none md:py-0 sm:shadow text-center md:px-8 flex flex-col justify-center">
+          <div className="flex flex-col text-center">
+            <img className="mx-auto w-56" src={logo} alt="" />
+            <p className="mt-4 text-center font-poppins text-lg font-semibold">
               Hello! Welcome Back 👋🏻
             </p>
-            <div className="mt-14 flex-grow">
+            <div className="mt-8 flex-grow">
               <Form layout="vertical text-center" onFinish={handleSubmit}>
                 <FormItem
                   label="Mobile Number"
@@ -67,7 +67,7 @@ export default function Login() {
                   <Link to="/forgot-password">Forgot Password?</Link>
                 </div>
 
-                <div className="my-12 mb-6 flex flex-col">
+                <div className="mt-4 mb-6 flex flex-col">
                   <Button
                     className="rounded"
                     block

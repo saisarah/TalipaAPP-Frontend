@@ -1,10 +1,11 @@
 import { useAppContext } from "@/contexts/AppContext";
 import { getErrorMessage } from "@/helpers/Http";
 import { useCancelOrder } from "@/query/mutations/useCancelOrder";
-import { Button, Modal, notification } from "antd";
+import { App, Button } from "antd";
 import { useNavigate } from "react-router-dom";
 
 export const CancelOrderButton = ({ id, className }) => {
+  const { modal, notification } = App.useApp()
   const navigate = useNavigate();
   const { context } = useAppContext();
   const { mutate, isLoading } = useCancelOrder(id, {
@@ -22,7 +23,7 @@ export const CancelOrderButton = ({ id, className }) => {
   });
 
   const handleClick = () => {
-    Modal.confirm({
+    modal.confirm({
       content: "Are you sure to cancel this order?",
       onOk() {
         mutate();

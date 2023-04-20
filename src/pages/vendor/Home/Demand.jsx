@@ -1,14 +1,11 @@
-import Page from "@/components/Page";
-import { ArrowUpOutlined } from "@ant-design/icons";
 import peso from "./icons/peso-solid.svg";
-import quantity from "./icons/input-symbol-for-numbers.svg";
 
-import { Link, useLocation } from "react-router-dom";
-import { useDemandsQuery } from "@/query/queries/useDemandsQuery";
-import { Button, Divider, Form, Modal, Spin } from "antd";
-import AddDemand, { AddDemandModal } from "./components/AddDemand";
 import { useAppContext } from "@/contexts/AppContext";
-import { useRef, useState } from "react";
+import { useDemandsQuery } from "@/query/queries/useDemandsQuery";
+import { Button, Divider, Spin } from "antd";
+import { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { AddDemandModal } from "./components/AddDemand";
 
 export const Demands = () => {
   const { state } = useLocation();

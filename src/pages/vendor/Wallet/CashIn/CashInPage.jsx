@@ -12,7 +12,7 @@ export default function CashInPage() {
 
   return (
     <div className="p-4 flex-grow">
-      <VendorPage className="lg:max-w-lg lg:rounded-lg lg:shadow">
+      <VendorPage className="lg:rounded-lg lg:shadow">
         <PageHeader back="/wallet/cash-in-methods" title={title} />
         <CashIn method={method} label={label} logo={logo} />
       </VendorPage>

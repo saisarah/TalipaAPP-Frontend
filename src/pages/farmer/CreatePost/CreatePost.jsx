@@ -5,7 +5,7 @@ import PageHeader from "@/components/PageHeader/PageHeader";
 import { getErrorMessage } from "@/helpers/Http";
 import { QuestionCircleTwoTone } from "@ant-design/icons";
 import { useMutation } from "@tanstack/react-query";
-import { Modal, notification, Steps } from "antd";
+import { App, Steps } from "antd";
 import { toFormData } from "axios";
 import { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -14,6 +14,7 @@ import Form2 from "./components/Form2";
 import Form3 from "./components/Form3";
 
 export default function CreatePost() {
+  const { modal, notification } = App.useApp()
   const navigate = useNavigate();
 
   const { mutateAsync } = useMutation(createPost, {
@@ -36,7 +37,7 @@ export default function CreatePost() {
   });
 
   const handleSubmit = () => {
-    Modal.confirm({
+    modal.confirm({
       icon: <QuestionCircleTwoTone />,
       title: "Are all the details you entered is correct?",
       async onOk() {

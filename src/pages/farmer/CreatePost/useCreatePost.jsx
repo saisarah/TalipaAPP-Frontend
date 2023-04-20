@@ -1,5 +1,5 @@
 import { useMutation } from "@tanstack/react-query";
-import { Modal } from "antd";
+import { App } from "antd";
 import { toFormData } from "axios";
 import { useNavigate } from "react-router-dom";
 import { createPost } from "../../../apis/PostApi";
@@ -9,16 +9,15 @@ const SUCCESS_REDIRECT = "/farmer/home?feed=sale";
 
 const useCreatePostMutation = () => {
   const navigate = useNavigate();
+  const { modal } = App.useApp()
 
   return useMutation(createPost, {
     onSuccess(data) {
-      console.log(data);
-      Modal.success({ content: "Post created successfully" });
+      modal.success({ content: "Post created successfully" });
       navigate(SUCCESS_REDIRECT);
     },
     onError(error) {
-      Modal.error({ content: getErrorMessage(error) });
-      console.log(error);
+      modal.error({ content: getErrorMessage(error) });
     },
   });
 };

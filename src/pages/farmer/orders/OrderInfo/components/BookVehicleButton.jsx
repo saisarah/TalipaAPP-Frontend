@@ -1,6 +1,6 @@
 import Http, { getErrorMessage } from "@/helpers/Http";
 import { useMutation } from "@tanstack/react-query";
-import { Button, Modal, notification } from "antd"
+import { App, Button } from "antd";
 
 const bookVehicle = async(id) => {
   const { data } = await Http.post(`/orders/${id}/book-vehicle`)
@@ -15,6 +15,7 @@ const useBookVehicle = (id, option) => {
 }
 
 export default function BookVehicleButton ({ id, refetch }) {
+  const { modal, notification } = App.useApp()
   const { mutateAsync } = useBookVehicle(id, {
     onSuccess() {
       refetch()
@@ -25,7 +26,7 @@ export default function BookVehicleButton ({ id, refetch }) {
   })
 
   const handleClick = () => {
-    Modal.confirm({
+    modal.confirm({
       content: "Book vehicle now?",
       async onOk() {
         await mutateAsync()

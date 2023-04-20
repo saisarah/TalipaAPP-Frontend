@@ -6,7 +6,7 @@ const { Panel } = Collapse;
 export default function Help() {
   useTitle("Help Center");
   return (
-    <Page className="mb-4 bg-white">
+    <Page className="bg-white lg:m-4 lg:shadow max-w-screen-md">
       <div className="p-4">
         <p className="text-justify text-2xl  text-black">
           We're here to help you with anything and everything on TalipaApp

@@ -1,13 +1,13 @@
 import PageHeader from "@/components/PageHeader/PageHeader";
 import { useAppContext } from "@/contexts/AppContext";
-import { Button, Modal } from "antd";
+import { App, Button, Modal } from "antd";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import CreatePost from "../CreatePost/CreatePost";
 import blogPostImg from "./images/blog-post.png";
 
 export default function CreateInfo() {
-
+  const { modal } = App.useApp()
   const { viewport } = useAppContext()
   const [open, setOpen] = useState(false)
  
@@ -19,7 +19,7 @@ export default function CreateInfo() {
   }
 
   const onClose = () => {
-    Modal.confirm({
+    modal.confirm({
       content: "Are you sure to discard?",
       centered: true,
       onOk() {
