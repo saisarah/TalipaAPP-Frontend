@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 export const GroupPostCard = ({ author, created_at, description, id }) => {
   return (
-    <div className="border-y border-slate-300 bg-white p-3 pb-0">
+    <div className="border-y border-slate-300 bg-white p-3 pb-0 sm:border-x">
       <div className="flex">
         <img
           className="aspect-square w-10 rounded-full"

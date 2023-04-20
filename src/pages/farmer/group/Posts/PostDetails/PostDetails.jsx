@@ -15,7 +15,7 @@ export default function PostDetails() {
       {isLoading ? (
         <LoadingPost />
       ) : (
-        <div>
+        <div className="sm:p-3">
           <GroupPostCard
             author={{
               fullname: "Lenard Mangay-ayam",
@@ -26,7 +26,7 @@ export default function PostDetails() {
             description="lorem ipsum"
             id={1}
           />
-          <div className="flex flex-col bg-white gap-3 py-3">
+          <div className="flex flex-col bg-white gap-3 py-3 sm:border sm:border-slate-300 sm:border-t-0">
             <CommentItem />
             <CommentItem />
             <CommentItem />
