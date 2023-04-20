@@ -20,7 +20,7 @@ export default function Settings() {
     );
   }
   return (
-    <Page className="bg-white text-black">
+    <Page className="bg-white text-black md:m-3 md:shadow">
       <div className="flex flex-col justify-center p-4 text-center">
         <div className="flex justify-center text-center">
           <div className="relative">

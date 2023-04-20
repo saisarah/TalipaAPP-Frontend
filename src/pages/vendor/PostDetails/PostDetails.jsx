@@ -35,7 +35,7 @@ export const PostDetails = () => {
         {attachments.map((img) => (
           <img
             key={img.id}
-            className="aspect-video h-full w-full flex-shrink-0 snap-start object-cover md:h-1/2"
+            className="aspect-video h-full w-full flex-shrink-0 snap-start object-cover sm:aspect-auto sm:h-56"
             src={img.source}
           />
         ))}

@@ -13,7 +13,7 @@ export default function Notifications() {
 
   if (data.length === 0)
     return (
-      <div className="flex-grow bg-white">
+      <div className="flex-grow bg-white m-3 shadow">
         <div className="py-16">
           <Empty description="You have no notifications" />
         </div>

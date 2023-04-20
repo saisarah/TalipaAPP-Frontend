@@ -41,7 +41,7 @@ export const VendorLayout = () => {
 
   return (
     <div className="relative">
-      <div className="flex h-screen lg:pl-[300px]">
+      <div className="flex min-h-screen lg:pl-[300px]">
         <Sidebar
           sideNavOpen={sideNavOpen || viewport.isLarge}
           setSideNavOpen={setSideNavOpen}
