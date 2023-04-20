@@ -23,7 +23,7 @@ export default function Posts() {
 
   return (
     <>
-      <div className="mt-3 flex bg-white p-3">
+      <div className="mt-3 flex bg-white p-3 sm:mx-3 sm:border-slate-300 sm:border">
         <img
           className="aspect-square w-10 rounded-full"
           src={data.profile_picture}
@@ -40,7 +40,7 @@ export default function Posts() {
       ) : posts.length === 0 ? (
         <EmptyGroupPosts />
       ) : (
-        <div className="flex flex-col gap-3 mt-3">
+        <div className="flex flex-col gap-3 mt-3 sm:px-3">
           {posts.map((post) => <GroupPostCard key={post.id} {...post} />)}
         </div>
       )}

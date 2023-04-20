@@ -28,7 +28,7 @@ export default function Group() {
   return (
     <div className="pb-4">
       <FarmerPageHeader back="/farmer" />
-      <div className="relative aspect-video w-full bg-gray-500">
+      <div className="relative aspect-video md:aspect-auto md:h-56 w-full bg-gray-500">
         <Link
           to="/farmer/groups/manage"
           className="absolute bottom-0 flex w-full items-center justify-between p-3 text-white"
