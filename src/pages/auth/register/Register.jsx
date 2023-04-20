@@ -31,7 +31,11 @@ export default function Register() {
           }}
         >
           <div className="mt-20 max-w-xl font-poppins text-4xl font-semibold text-white">
-            Digital Platform Connecting Farmers and Vendors
+            {accountType === "farmer"
+              ? "Welcome, Farmer! Our platform makes it easy to sell your local commodities with ease."
+              : accountType === "vendor"
+              ? "Welcome, Vendor! Browse commodities easily and enjoy prompt delivery."
+              : "Digital Platform Connecting Farmers and Vendors"}
           </div>
         </div>
 

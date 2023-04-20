@@ -3,14 +3,20 @@ import { useTransactions } from "@/query/queries/useTransactions";
 import { CreditCardOutlined } from "@ant-design/icons";
 import { Spin } from "antd";
 import moment from "moment";
+import emptyTransaction from "./emptytransaction.svg";
 
 export default function Transactions() {
   const { data, isLoading } = useTransactions();
 
   if (isLoading)
     return (
-      <div className="flex justify-center py-16">
-        <Spin tip="Fetching transactions" />
+      <div className="mt-10 grid justify-center text-center">
+        <div>
+          <img src={emptyTransaction} alt="" className="h-[200px] w-auto" />
+        </div>
+        <div className="text-lg  text-slate-500">
+          You have no transaction history
+        </div>
       </div>
     );
 

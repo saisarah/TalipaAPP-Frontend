@@ -1,6 +1,6 @@
 import PageHeader from "@/components/PageHeader/PageHeader";
 import { TabLinks } from "@/components/TabLink";
-import { Button } from "antd";
+import { Button, Spin } from "antd";
 import { Navigate } from "react-router-dom";
 import Forum from "../components/Forum";
 import Join from "../components/Join";
@@ -32,7 +32,12 @@ export const PendingRequest = () => {
     },
   });
 
-  if (isLoading) return "Fetching Loading group";
+  if (isLoading)
+    return (
+      <div className="flex justify-center py-16">
+        <Spin tip="Fetching Pending Requests" />
+      </div>
+    );
 
   if (!data) return <SuggestedGroups />;
 
