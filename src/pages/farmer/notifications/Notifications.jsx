@@ -10,7 +10,7 @@ export default function Notifications() {
   console.log(data);
 
   return (
-    <Page className="bg-white">
+    <Page className="bg-white w-full max-w-screen-md mx-auto lg:my-4 lg:rounded-lg lg:border lg:border-slate-300 overflow-hidden lg:flex-grow">
       <PageHeader className="block md:hidden" back="/" title="Notifications" />
       {isLoading ? (
         <div className="flex justify-center py-16">
@@ -18,7 +18,8 @@ export default function Notifications() {
         </div>
       ) : (
         <div>
-          <h1 className="px-4 pt-4">Recent</h1>
+          <h1 className="font-bold text-2xl px-4 pt-4 hidden md:block">Notifications</h1>
+          <h4 className="px-4 pt-4">Recent</h4>
           {data.map((notification) => (
             <NotificationCard
               key={notification.id}
@@ -30,20 +31,5 @@ export default function Notifications() {
         </div>
       )}
     </Page>
-  );
-}
-
-function Notif({ name, date, description }) {
-  return (
-    <div className="mx-4 flex flex-row gap-2 border-b-2 py-2 px-2">
-      <Avatar size="large" />
-      <div>
-        <span className="font-bold">{name}</span>
-        <span> {description}</span>
-
-        <br />
-        <span className="text-xsm text-slate-400">{date}</span>
-      </div>
-    </div>
   );
 }
