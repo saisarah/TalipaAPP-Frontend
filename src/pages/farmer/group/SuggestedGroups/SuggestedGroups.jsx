@@ -1,4 +1,5 @@
 import Page from "@/components/Page";
+import FarmerPageHeader from "@/components/PageHeader/FarmerPageHeader";
 import PageHeader from "@/components/PageHeader/PageHeader";
 import { useFarmerGroupsQuery } from "@/query/queries/useFarmerGroupsQuery";
 import GroupItem from "./components/GroupItem";
@@ -9,8 +10,10 @@ export default function SuggestedGroups() {
   const { data, isLoading } = useFarmerGroupsQuery();
 
   return (
-    <Page>
-      <PageHeader className="block md:hidden" back="/farmer" title="Group" />
+    <div className="bg-white lg:m-3 lg:border border-slate-300 lg:rounded-md overflow-hidden">
+      <h1 className="hidden md:block text-2xl font-bold p-4">Suggested Groups</h1>
+      <hr/>
+      <FarmerPageHeader back="/farmer" title="Group" />
       {isLoading ? (
         <LoadingGroups />
       ) : (
@@ -20,6 +23,6 @@ export default function SuggestedGroups() {
           ))}
         </div>
       )}
-    </Page>
+    </div>
   );
 }

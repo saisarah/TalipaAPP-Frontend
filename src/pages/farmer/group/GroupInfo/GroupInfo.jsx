@@ -62,15 +62,9 @@ export default function GroupInfo() {
         title="Group"
       />
 
-      <div className="h-[150px] w-full flex-shrink-0 bg-slate-300"></div>
       <img
-        className="mx-auto h-[75px] w-[75px] max-w-md flex-shrink-0 rounded-full  ring"
-        style={{
-          backgroundImage: `${data.image_url}`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          marginTop: "-45px",
-        }}
+        className="aspect-video sm:h-32 lg:h-48 w-[100%] flex-shrink-0 bg-slate-300 object-cover"
+        src={data.image_url}
       />
 
       <div className="my-6 text-center">

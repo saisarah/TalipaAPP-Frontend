@@ -1,12 +1,12 @@
+import { fetchCurrentGroup } from "@/apis/GroupApi";
 import PageHeader from "@/components/PageHeader/PageHeader";
 import { TabLinks } from "@/components/TabLink";
-import { Button, Spin } from "antd";
-import { Navigate } from "react-router-dom";
+import { Button, Spin, App } from "antd";
+import { useTabAdvance } from "@/helpers/hooks";
+import Http, { getErrorMessage } from "@/helpers/Http";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import Forum from "../components/Forum";
 import Join from "../components/Join";
-import { useTabAdvance } from "@/helpers/hooks";
-import Http from "@/helpers/Http";
-import { useQuery } from "@tanstack/react-query";
 import SuggestedGroups from "../SuggestedGroups/SuggestedGroups";
 
 const fetchPendingGroup = async () => {
@@ -18,8 +18,40 @@ const usePendingGroup = () => {
   return useQuery(["farmer-group", "pending"], fetchPendingGroup);
 };
 
+const cancelRequest = async (farmer_group_id) => {
+  const { data } = await Http.delete(`/farmer-groups/${farmer_group_id}/cancel`)
+  return data
+}
+
+const useCancelRequest = (option = {}) => {
+  const queryClient = useQueryClient()
+  return useMutation(cancelRequest, {
+    ...option,
+    onSuccess() {
+      queryClient.resetQueries(fetchCurrentGroup.key());
+      option?.onSuccess()
+    }
+  })
+}
+
 export const PendingRequest = () => {
+  const { modal, notification } = App.useApp()
   const { data, isLoading } = usePendingGroup();
+  const { mutateAsync: cancelRequest } = useCancelRequest({
+    onSuccess() {},
+    onError(err) {
+      notification.error({ message: getErrorMessage(err) })
+    }
+  })
+
+  const handleCancelRequest = () => {
+    modal.confirm({
+      content: "Are you sure to cancel request in this group?",
+      async onOk() {
+        await cancelRequest(data.id)
+      }
+    })
+  }
 
   const { outlet, tabs } = useTabAdvance({
     join: {
@@ -45,16 +77,15 @@ export const PendingRequest = () => {
     <div className="app-size bg-white">
       <PageHeader back="/farmer" title="Pending Request" />
 
-      <div className="h-[80px] w-[100%] max-w-md flex-shrink-0 bg-slate-300"></div>
       <img
-        className="mx-auto h-[75px] w-[75px] max-w-md flex-shrink-0 rounded-full bg-slate-300 ring"
-        style={{ marginTop: "-45px" }}
+        className="h-[80px] w-[100%] max-w-md flex-shrink-0 bg-slate-300 object-cover"
+        src={data.image_url}
       />
       <div className="my-6 text-center">
         <h1>{data.name}</h1>
         <h1>{data.type}</h1>
         <p>Members</p>
-        <Button className="mx-auto">Cancel Request</Button>
+        <Button onClick={handleCancelRequest} className="mx-auto">Cancel Request</Button>
       </div>
 
       <TabLinks
