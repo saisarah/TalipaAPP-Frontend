@@ -7,6 +7,7 @@ import VendorPage from "@/components/VendorPage";
 import { useOrderQuery } from "@/query/queries/useOrdersQuery";
 import { Divider, Spin } from "antd";
 import { useParams } from "react-router-dom";
+import RateFarmerButton from "./components/RateFarmerButton";
 
 export default function OrderInfo() {
   const { id } = useParams();
@@ -41,6 +42,10 @@ export default function OrderInfo() {
 
             {order.order_status === "pending" && (
               <CancelOrderButton className="mt-4 " id={id} />
+            )}
+
+            {order.order_status === "completed" && (
+              <RateFarmerButton />
             )}
           </div>
         )}
