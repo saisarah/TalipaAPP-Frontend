@@ -4,11 +4,11 @@ import ChooseAccountType from "./forms/ChooseAccountType";
 import RegistrationForm from "./RegistrationForm";
 import { Button } from "antd";
 import { ArrowLeftOutlined, LeftOutlined } from "@ant-design/icons";
-import Link from "antd/es/typography/Link";
 import forlogin from "./images/forlogin.png";
 import logo from "./images/logo.svg";
 import farmer from "./images/farmer.png";
 import vendor from "./images/vendor.png";
+import { Link } from "react-router-dom";
 
 export default function Register() {
   const [accountType, setAccountType] = useState(null);
