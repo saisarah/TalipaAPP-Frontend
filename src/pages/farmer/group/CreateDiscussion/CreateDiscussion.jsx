@@ -2,7 +2,8 @@ import FarmerPageHeader from "@/components/PageHeader/FarmerPageHeader";
 import Http, { getErrorMessage } from "@/helpers/Http";
 import { FileImageOutlined } from "@ant-design/icons";
 import { useMutation } from "@tanstack/react-query";
-import { App, Button, Form, Input } from "antd";
+import { App, Button, Form, Input, Upload } from "antd";
+import { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const submitGroupPost = async (data) => {
@@ -15,20 +16,25 @@ const useSubmitGroupPost = (option) => {
 };
 
 export default function CreateDiscussion() {
-  const { notification } = App.useApp()
-  const navigate = useNavigate()
+  const { notification } = App.useApp();
+  const navigate = useNavigate();
+  const uploader = useRef();
+  const [images, setImages] = useState([]);
   const { mutate, isLoading } = useSubmitGroupPost({
     onSuccess() {
-      notification.success({ message: "Posted Successfully" })
+      notification.success({ message: "Posted Successfully" });
       navigate("/farmer/groups");
     },
     onError(err) {
-      notification.error({ message: getErrorMessage(err) })
-    }
+      notification.error({ message: getErrorMessage(err) });
+    },
   });
 
-  const handleSubmit = (data) => {
+  const handleSubmit = ({description}) => {
     if (isLoading) return;
+    const data = new FormData()
+    data.append("description", description)
+    images.forEach((image,i) => data.append(`images[${i}]`, image.originFileObj))
     mutate(data);
   };
 
@@ -38,7 +44,7 @@ export default function CreateDiscussion() {
       <div className="p-3">
         <Form onFinish={handleSubmit}>
           <div className="border border-slate-200 py-1">
-            <Form.Item name="description" required>
+            <Form.Item name="description" required className="mb-0">
               <Input.TextArea
                 required
                 autoSize={{ minRows: 3, maxRows: 7 }}
@@ -47,13 +53,32 @@ export default function CreateDiscussion() {
               />
             </Form.Item>
             <Button
-              className="mt-2 text-slate-600"
+              htmlType="button"
+              className="text-slate-600"
               type="link"
               icon={<FileImageOutlined />}
+              onClick={(e) => {
+                e.preventDefault()
+                uploader.current.click()
+              }}
             >
               Add Image
             </Button>
           </div>
+          <Upload
+            accept="image/*"
+            fileList={images}
+            onChange={({ fileList }) => setImages(fileList)}
+            className="flex flex-col"
+            listType="text"
+            beforeUpload={() => false}
+            maxCount={3}
+            previewFile={(file) => Promise.resolve(URL.createObjectURL(file))}
+          >
+            <button type="button" ref={uploader} className="hidden">
+              Add Image
+            </button>
+          </Upload>
           <Button
             loading={isLoading}
             htmlType="submit"

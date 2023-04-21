@@ -1,9 +1,9 @@
 import { LikeOutlined, MessageOutlined } from "@ant-design/icons";
-import { Button } from "antd";
+import { Button, Carousel } from "antd";
 import moment from "moment";
 import { Link } from "react-router-dom";
 
-export const GroupPostCard = ({ author, created_at, description, id }) => {
+export const GroupPostCard = ({ author, created_at, description, id, image_urls }) => {
   return (
     <div className="border-y border-slate-300 bg-white p-3 pb-0 sm:border-x">
       <div className="flex">
@@ -19,8 +19,17 @@ export const GroupPostCard = ({ author, created_at, description, id }) => {
         </div>
       </div>
       <div className="border-b border-slate-200 py-3 text-sm">
-        {description}
-        <div className="mt-3 hidden">5 likes</div>
+        <div>{description}</div>
+        {image_urls.length > 0 && (
+          <Carousel className="-mx-3">
+             {image_urls.map(image => (
+              <div key={image}>
+                <img className="w-full aspect-video" src={image} key={image}/>
+              </div>
+            ))}            
+          </Carousel>
+        )}
+        <div className="mt-3">5 likes</div>
       </div>
       <div>
         <Button size="large" type="link" icon={<LikeOutlined />} />

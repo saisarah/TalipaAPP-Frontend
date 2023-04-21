@@ -49,7 +49,7 @@ export default function PostDetails() {
               fullname: "Lenard Mangay-ayam",
               profile_picture:
                 "https://avatars.dicebear.com/api/initials/john+doe.svg",
-            }}c
+            }}
             created_at={Date()}
             description="lorem ipsum"
             id={1}
