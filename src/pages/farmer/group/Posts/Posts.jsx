@@ -1,4 +1,6 @@
+import { fetchGroupPosts } from "@/apis/FarmerGroupApi";
 import Http from "@/helpers/Http";
+import { useFarmerGroupPostCreated } from "@/hooks/listeners/useFarmerGroupPostCreated";
 import { useCurrentUserQuery } from "@/query/queries/useCurrentUserQuery";
 import { LikeOutlined, MessageOutlined } from "@ant-design/icons";
 import { useQuery } from "@tanstack/react-query";
@@ -8,18 +10,20 @@ import EmptyGroupPosts from "./components/EmptyGroupPosts";
 import { GroupPostCard } from "./components/GroupPostCard";
 import LoadingGroupPosts from "./components/LoadingGroupPosts";
 
-const fetchGroupPosts = async () => {
-  const { data } = await Http.get("/farmer-group/posts");
-  return data;
-};
+
 
 const useGroupPostsQuery = () => {
-  return useQuery(["farmer-group", "posts"], fetchGroupPosts);
+  return useQuery(
+    fetchGroupPosts.key(), 
+    fetchGroupPosts
+  );
 };
 
-export default function Posts() {
+export default function Posts({ group }) {
   const { data } = useCurrentUserQuery();
   const { data: posts, isLoading } = useGroupPostsQuery();
+
+  useFarmerGroupPostCreated(group.id)
 
   return (
     <>
