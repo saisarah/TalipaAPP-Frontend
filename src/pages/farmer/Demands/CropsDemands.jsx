@@ -1,9 +1,12 @@
+import { useDemandsUpdatedListener } from "@/hooks/listeners/useDemandsUpdatedListener";
 import { useCropsDemandsQuery } from "@/query/queries/useCropsQuery";
 import { Alert, Spin } from "antd";
 import CropDemandsCard from "./components/CropDemandCard";
 
 export const CropsDemands = () => {
   const { data, isLoading } = useCropsDemandsQuery();
+
+  useDemandsUpdatedListener()
 
   if (isLoading) {
     return (

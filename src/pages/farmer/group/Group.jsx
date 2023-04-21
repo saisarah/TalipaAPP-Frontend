@@ -14,7 +14,7 @@ export default function Group() {
   const { outlet, tabs } = useTabAdvance({
     home: {
       title: "Home",
-      element: <Posts />,
+      element: <Posts group={group}/>,
     },
     join: {
       title: "About",

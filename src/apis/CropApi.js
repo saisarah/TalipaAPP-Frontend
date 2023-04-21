@@ -9,3 +9,4 @@ export const fetchCropsDemands = async () => {
   const { data } = await Http.get("/crops/demands")
   return data
 }
+fetchCropsDemands.key = () => ["crops", "demands"]
