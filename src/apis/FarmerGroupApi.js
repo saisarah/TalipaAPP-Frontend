@@ -5,7 +5,6 @@ export const fetchFarmerGroups = async function () {
   return result.data;
 };
 
-
 export const fetchGroup = async (id) => {
   const { data } = await Http.get(`/farmer-groups/${id}`);
   return data;
@@ -22,3 +21,9 @@ export const fetchPendingInvitations = async () => {
   return data;
 };
 fetchPendingInvitations.key = () => ['farmer-groups', 'invited-members']
+
+export const fetchGroupInvitations = async () => {
+  const { data } = await Http.get("/farmer-groups/invitations");
+  return data;
+};
+fetchGroupInvitations.key = () => ["farmer-groups", "invitations"]

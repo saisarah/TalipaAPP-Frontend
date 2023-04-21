@@ -1,3 +1,4 @@
+import { fetchGroupInvitations } from "@/apis/FarmerGroupApi";
 import { fetchCurrentGroup } from "@/apis/GroupApi";
 import FarmerPageHeader from "@/components/PageHeader/FarmerPageHeader";
 import Http, { getErrorMessage } from "@/helpers/Http";
@@ -6,10 +7,6 @@ import { App, Button, Spin } from "antd";
 import { Navigate } from "react-router-dom";
 import { PendingRequest } from "../PendingRequest/PendingRequest";
 
-const fetchGroupInvitations = async () => {
-  const { data } = await Http.get("/farmer-groups/invitations");
-  return data;
-};
 
 const acceptInvitation = async (group_id) => {
   const { data } = await Http.post(`/farmer-groups/${group_id}/accept`);
@@ -30,7 +27,7 @@ const useAcceptInvitation = (option) => {
 
 const useGroupInvitations = (option) => {
   return useQuery(
-    ["farmer-groups", "invitations"],
+    fetchGroupInvitations.key(),
     fetchGroupInvitations,
     option
   );
