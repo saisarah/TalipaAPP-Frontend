@@ -35,3 +35,10 @@ export const fetchGroupPosts = async () => {
   return data;
 };
 fetchGroupPosts.key = () => ['farmer-group', 'posts']
+
+
+export const fetchGroupPostComments = async (post_id) => {
+  const { data } = await Http.get(`/farmer-group/posts/${post_id}/comments`)
+  return data
+}
+fetchGroupPostComments.key = (post_id) => ["farmer-group", "posts", parseInt(post_id), "comments"]
