@@ -10,7 +10,10 @@ export default function useCropsQuery(options = {}) {
 }
 
 export const useCropsDemandsQuery = () => {
-  return useQuery(["crops", "demans"], fetchCropsDemands)
+  return useQuery(
+    fetchCropsDemands.key(), 
+    fetchCropsDemands
+  )
 }
 
 export const useCrop = (id) => {

@@ -1,6 +1,13 @@
 import { EchoClient } from "@/helpers/Echo";
 import { useEffect, useMemo } from "react";
 
+const LOGGER_ENABLED = true
+
+function log(...params) {
+  if (LOGGER_ENABLED)
+    return console.log(...params)
+}
+
 function useChannel(channel) {
   const channels = useMemo(() => new Map(), []);
 
@@ -14,9 +21,15 @@ function useChannel(channel) {
 }
 
 export function listen(callback, channel, event) {
-  channel.listen(event, callback);
+  log(`Listening to ${event}`)
+
+  channel.listen(event, (...params) => {
+    log(`${event}`)
+    callback(...params)
+  });
 
   return function cleanUp() {
+    log(`Stop Listening to ${event}`)
     channel.stopListening(event);
   };
 }
