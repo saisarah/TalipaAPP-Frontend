@@ -52,8 +52,18 @@ export const PostDetails = () => {
           <Avatar src={author.profile_picture} />
           <div className="ml-2 font-bold">{author.fullname}</div>
           <span className="ml-auto text-base">
-            <Rate count={1} value={1} disabled />
-            <span className="ant-rate-text text-sm text-slate-500">4.5</span>
+            {author.rate > 0 ? (
+              <>
+                <Rate count={1} value={1} disabled />
+                <span className="ant-rate-text text-sm text-slate-500">
+                  {author.rate}
+                </span>
+              </>
+            ) : (
+              <span className="ant-rate-text text-sm text-slate-500">
+                No ratings yet
+              </span>
+            )}
           </span>
         </div>
 
