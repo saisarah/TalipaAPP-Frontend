@@ -45,7 +45,7 @@ export default function OrderInfo() {
             )}
 
             {order.order_status === "completed" && (
-              <RateFarmerButton />
+              <RateFarmerButton farmer={order.post.author} />
             )}
           </div>
         )}
