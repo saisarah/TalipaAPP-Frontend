@@ -20,6 +20,7 @@ import { settings } from "./settings";
 import { wallet } from "./wallet";
 import FarmerLayout from "@/components/FarmerLayout/FarmerLayout";
 import Messages from "@/pages/farmer/Messages/Messages";
+import PricingPage from "@/pages/farmer/Home/PricingPage";
 
 /**
  * All of the path is under farmer route
@@ -35,11 +36,11 @@ const routes = [
   {
     path: "home",
     element: (
-      <Home 
+      <Home
         route={{
           demands: { element: <CropsDemands />, title: "Demands" },
-          sale: { element: <ForSale />, title: "For Sale" },
-          create: { element: <CreateInfo />, title: "Create Post" }
+          sale: { element: <PricingPage />, title: "Pricing Page" },
+          create: { element: <CreateInfo />, title: "Create Post" },
         }}
       />
     ),
@@ -79,13 +80,13 @@ const routes = [
     children: [
       {
         path: "",
-        element: <ThreadsPage />
+        element: <ThreadsPage />,
       },
       {
         path: ":id",
-        element: <ConversationPage />
+        element: <ConversationPage />,
       },
-    ]
+    ],
   },
   {
     path: "notifications",
@@ -102,5 +103,5 @@ const routes = [
 
 export default function FarmerRoutes() {
   const farmerRoutes = useRoutes(routes);
-  return <FarmerLayout>{farmerRoutes}</FarmerLayout>
+  return <FarmerLayout>{farmerRoutes}</FarmerLayout>;
 }
