@@ -39,8 +39,8 @@ export default function Register() {
           </div>
         </div>
 
-        <div className="relative col-span-1 overflow-scroll overflow-x-hidden bg-white  text-center ">
-          <div className="flex text-center">
+        <div className="relative col-span-1 overflow-scroll overflow-x-hidden bg-white  ">
+          <div className="flex">
             <div className=" flex-grow">
               <RegisterContextProvider accountType={accountType}>
                 <div className=" bg-white">
@@ -55,14 +55,14 @@ export default function Register() {
                           }
                         />
                       </Link>
-                      <div className="o relative flex flex-col gap-10 px-10 py-10 md:px-20">
+                      <div className="relative flex flex-col gap-10 px-10 py-10 text-center  md:px-20">
                         <img className="mx-auto ml-1 mt-5" src={logo} alt="" />
-                        <p className="mb-5 text-left font-poppins text-lg font-semibold">
+                        <p className=" mb-5 font-poppins text-lg font-semibold">
                           Choose your account type 👆🏻
                         </p>
                         <ChooseAccountType setAccountType={setAccountType} />
                       </div>
-                      <div className="absolute bottom-0 right-0 left-0">
+                      <div className="absolute bottom-0 right-0 left-0 text-center">
                         © <span className="text-[#86BF88]">Talipa</span>
                         App2023 All rights reserved
                       </div>
