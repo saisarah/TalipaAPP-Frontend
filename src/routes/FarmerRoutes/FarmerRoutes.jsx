@@ -39,7 +39,7 @@ const routes = [
       <Home
         route={{
           demands: { element: <CropsDemands />, title: "Demands" },
-          sale: { element: <PricingPage />, title: "Pricing Page" },
+          // sale: { element: <PricingPage />, title: "Pricing Page" },
           create: { element: <CreateInfo />, title: "Create Post" },
         }}
       />
