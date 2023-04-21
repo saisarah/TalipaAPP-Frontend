@@ -1,3 +1,4 @@
+import { useFarmerGroupRequestApprovedListener } from "@/hooks/listeners/useFarmerGroupRequestApprovedListener";
 import { useMessageReceived } from "@/hooks/listeners/useMessageReceived";
 import { createContext, useContext, useEffect } from "react";
 import { useAppContext } from "./AppContext";
@@ -7,6 +8,7 @@ export const FarmerContent = createContext({});
 export const FarmerContextProvider = ({ children, user }) => {
   const { setContext, setUserID } = useAppContext()
   useMessageReceived(user.id);
+  useFarmerGroupRequestApprovedListener(user.id)
   useEffect(() => {
     setContext("farmer")
     setUserID(user.id)
