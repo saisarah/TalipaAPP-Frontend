@@ -42,7 +42,6 @@ export default function Developers() {
             </div>
             <div className="flex flex-col justify-center">
               <LinkedinFilled className="justify-center text-xl text-[#0077B5]" />
-              <div className="text-xs text-black underline">Follow</div>
             </div>
           </div>
         </a>
@@ -65,7 +64,6 @@ export default function Developers() {
             </div>
             <div className="flex flex-col justify-center">
               <LinkedinFilled className="justify-center text-xl text-[#0077B5]" />
-              <div className="text-xs text-black underline">Follow</div>
             </div>
           </div>
         </a>
@@ -88,7 +86,6 @@ export default function Developers() {
             </div>
             <div className="flex flex-col justify-center">
               <LinkedinFilled className="justify-center text-xl text-[#0077B5]" />
-              <div className="text-xs text-black underline">Follow</div>
             </div>
           </div>
         </a>
@@ -111,7 +108,6 @@ export default function Developers() {
             </div>
             <div className="flex flex-col justify-center">
               <LinkedinFilled className="justify-center text-xl text-[#0077B5]" />
-              <div className="text-xs text-black underline">Follow</div>
             </div>
           </div>
         </a>
@@ -134,7 +130,6 @@ export default function Developers() {
             </div>
             <div className="flex flex-col justify-center">
               <LinkedinFilled className="justify-center text-xl text-[#0077B5]" />
-              <div className="text-xs text-black underline">Follow</div>
             </div>
           </div>
         </a>
@@ -157,7 +152,6 @@ export default function Developers() {
             </div>
             <div className="flex flex-col justify-center">
               <LinkedinFilled className="justify-center text-xl text-[#0077B5]" />
-              <div className="text-xs text-black underline">Follow</div>
             </div>
           </div>
         </a>
@@ -181,7 +175,6 @@ export default function Developers() {
             </div>
             <div className="flex flex-col justify-center">
               <LinkedinFilled className="justify-center text-xl text-[#0077B5]" />
-              <div className="text-xs text-black underline">Follow</div>
             </div>
           </div>
         </a>
