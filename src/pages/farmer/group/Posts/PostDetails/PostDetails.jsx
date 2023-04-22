@@ -20,7 +20,7 @@ const fetchGroupPost = async(post_id) => {
 
 const useGroupPost = (post_id, option) => {
   return useQuery(
-    ["farmer-group", "posts", post_id],
+    ["farmer-group", "posts", parseInt(post_id)],
     () => fetchGroupPost(post_id),
     option
   )
