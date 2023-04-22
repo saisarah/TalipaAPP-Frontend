@@ -16,6 +16,7 @@ export const fetchOrder = async (id) => {
   const { data } = await Http.get(`/orders/${id}`);
   return data;
 };
+fetchOrder.key = (id) => ['orders', parseInt(id)]
 
 export const acceptOrder = async (id) => {
   const { data } = await Http.post(`/orders/${id}`)

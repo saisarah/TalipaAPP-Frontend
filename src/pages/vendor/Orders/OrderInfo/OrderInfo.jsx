@@ -4,6 +4,7 @@ import OrderProfile from "@/components/Orders/OrderProfile";
 import PostLink from "@/components/Orders/PostLink";
 import PageHeader from "@/components/PageHeader/PageHeader";
 import VendorPage from "@/components/VendorPage";
+import { useOrderStatusChangedListener } from "@/hooks/listeners/useOrderStatusChangedListener";
 import { useOrderQuery } from "@/query/queries/useOrdersQuery";
 import { Divider, Spin } from "antd";
 import { useParams } from "react-router-dom";
@@ -12,6 +13,8 @@ import RateFarmerButton from "./components/RateFarmerButton";
 export default function OrderInfo() {
   const { id } = useParams();
   const { data: order, isLoading } = useOrderQuery(id);
+
+  useOrderStatusChangedListener(id)
 
   return (
     <div className="p-4">

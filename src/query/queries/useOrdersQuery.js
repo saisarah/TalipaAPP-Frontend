@@ -3,5 +3,5 @@ import { useQuery } from "@tanstack/react-query"
 
 
 export const useOrderQuery = (id) => {
-    return useQuery(['orders', id], () => fetchOrder(id))
+    return useQuery(fetchOrder.key(id), () => fetchOrder(id))
 }

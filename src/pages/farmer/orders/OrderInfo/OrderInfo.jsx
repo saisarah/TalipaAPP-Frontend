@@ -3,6 +3,7 @@ import OrderProfile from "@/components/Orders/OrderProfile";
 import PostLink from "@/components/Orders/PostLink";
 import Page from "@/components/Page";
 import PageHeader from "@/components/PageHeader/PageHeader";
+import { useOrderStatusChangedListener } from "@/hooks/listeners/useOrderStatusChangedListener";
 import { useOrderQuery } from "@/query/queries/useOrdersQuery";
 import { Divider, Spin } from "antd";
 import { useParams } from "react-router-dom";
@@ -12,6 +13,8 @@ export default function OrderInfo() {
   const { id } = useParams();
 
   const { data: order, isLoading, refetch } = useOrderQuery(id);
+
+  useOrderStatusChangedListener(id)
 
   return (
     <div className="md:p-4">
