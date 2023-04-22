@@ -1,18 +1,26 @@
+import { fetchGroupPostComments } from "@/apis/FarmerGroupApi";
 import Http, { getErrorMessage } from "@/helpers/Http";
 import { SendOutlined } from "@ant-design/icons";
-import { useMutation } from "@tanstack/react-query";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { App, Button, Input } from "antd";
 import { useState } from "react";
 
-const addPostComment = async(post_id, comment) => {
-  const { data } = await Http.post(`/farmer-group/${post_id}/comments`, { comment })
+const addPostComment = async(post_id, content) => {
+  const { data } = await Http.post(`/farmer-group/posts/${post_id}/comments`, { content })
   return data
 }
 
-const useAddPostComment = (post_id, option) => {
+const useAddPostComment = (post_id, option = {}) => {
+  const queryClient = useQueryClient()
   return useMutation(
     (comment) => addPostComment(post_id, comment),
-    option
+    {
+      ...option,
+      onSuccess(data) {
+        queryClient.invalidateQueries(fetchGroupPostComments.key(post_id))
+        option?.onSuccess(data)
+      }
+    }
   )
 }
 

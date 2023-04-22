@@ -2,8 +2,9 @@ import { LikeOutlined, MessageOutlined } from "@ant-design/icons";
 import { Button, Carousel } from "antd";
 import moment from "moment";
 import { Link } from "react-router-dom";
+import LikePostButton from "./LikePostButton";
 
-export const GroupPostCard = ({ author, created_at, description, id, image_urls }) => {
+export const GroupPostCard = ({ author, created_at, description, id, image_urls, likers }) => {
   return (
     <div className="border-y border-slate-300 bg-white p-3 pb-0 sm:border-x">
       <div className="flex">
@@ -29,10 +30,12 @@ export const GroupPostCard = ({ author, created_at, description, id, image_urls 
             ))}            
           </Carousel>
         )}
-        <div className="mt-3">5 likes</div>
+        {likers.length > 0 &&
+          <div className="mt-3">{likers.length} likes</div>
+        }
       </div>
       <div>
-        <Button size="large" type="link" icon={<LikeOutlined />} />
+        <LikePostButton likers={likers} id={id}/>
         <Link to={`/farmer/groups/posts/${id}`}>
           <Button size="large" type="link" icon={<MessageOutlined />} />
         </Link>
