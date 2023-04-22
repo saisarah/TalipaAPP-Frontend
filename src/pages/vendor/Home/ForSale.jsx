@@ -15,10 +15,10 @@ export default function ForSale() {
 
   return (
     <div>
-      <div className="flex items-center justify-end p-4">
-        <div>Filter by: </div>
+      <div className="flex flex-col md:flex-row md:items-center justify-end p-4 gap-x-2">
+        <div className="flex-shrink-0">Filter by: </div>
         <Select
-          className="ml-2 inline-block w-auto flex-shrink-0"
+          className="inline-block w-auto"
           mode="multiple"
           size="small"
           value={cropIds}
