@@ -11,7 +11,7 @@ export default function Banner() {
         <div className="mt-10 w-full max-w-lg text-center font-poppins text-5xl font-bold  text-black dark:text-white md:w-1/2 md:text-left md:text-6xl ">
           Delivering Fresh Commodities Direct to Your Market.
           <div className="mt-10 max-w-xs ">
-            <a href="" download="">
+            <a href="https://github.com/saisarah/TalipaAPP-Frontend/releases/download/v1.0/TalipaAPP_base.apk" download="">
               <button className="flex gap-2 rounded-lg bg-white px-4 py-2 text-sm font-thin text-black  dark:bg-black dark:text-white ">
                 Download now
                 <svg
