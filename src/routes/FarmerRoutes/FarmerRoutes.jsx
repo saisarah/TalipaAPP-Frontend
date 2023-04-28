@@ -14,13 +14,46 @@ import Orders from "@/pages/farmer/orders/Orders";
 import PostDetails from "@/pages/farmer/PostDetails/PostDetails";
 import Reviews from "@/pages/farmer/Profile/components/Reviews";
 import Profile from "@/pages/farmer/Profile/Profile";
-import { useRoutes } from "react-router-dom";
+import { useLocation, useRoutes, useSearchParams } from "react-router-dom";
 import { groups } from "./groups";
 import { settings } from "./settings";
 import { wallet } from "./wallet";
 import FarmerLayout from "@/components/FarmerLayout/FarmerLayout";
 import Messages from "@/pages/farmer/Messages/Messages";
 import PricingPage from "@/pages/farmer/Home/PricingPage";
+import { JaaSMeeting } from "@jitsi/react-sdk";
+import { useCurrentUserQuery } from "@/query/queries/useCurrentUserQuery";
+
+function Meet() {
+
+  const [params] = useSearchParams()
+  const { data:user } = useCurrentUserQuery()
+  const location = useLocation()
+
+  return (
+    <div className="fixed inset-0 z-[1000] bg-white">
+      <JaaSMeeting
+        // domain="code.talipaapp.com"
+        appId="vpaas-magic-cookie-7a745c1e9fdc4357bd854cddb713a42d"
+        jwt={params.get('token')}
+        roomName="TalipaAPP Video Conference"
+        configOverwrite={{
+          startWithAudioMuted: true,
+          disableModeratorIndicator: true,
+          startScreenSharing: false,
+          enableEmailInStats: false,
+          prejoinPageEnabled: false,
+        }}
+        userInfo={{
+          displayName: user.fullname,
+        }}
+        getIFrameRef={(iframeRef) => {
+          iframeRef.style.height = "100%";
+        }}
+      />
+    </div>
+  );
+}
 
 /**
  * All of the path is under farmer route
@@ -95,6 +128,10 @@ const routes = [
   {
     path: "help",
     element: <Help />,
+  },
+  {
+    path: "meet",
+    element: <Meet />,
   },
   ...wallet,
   ...settings,

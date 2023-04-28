@@ -1,8 +1,11 @@
+import { EchoClient } from "@/helpers/Echo";
 import { useFarmerGroupInvitationSent } from "@/hooks/listeners/useFarmerGroupInvitationSent";
 import { useFarmerGroupRequestApprovedListener } from "@/hooks/listeners/useFarmerGroupRequestApprovedListener";
 import { useFarmerGroupRequestSubmitted } from "@/hooks/listeners/useFarmerGroupRequestSubmitted";
 import { useMessageReceived } from "@/hooks/listeners/useMessageReceived";
+import { App } from "antd";
 import { createContext, useContext, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { useAppContext } from "./AppContext";
 
 export const FarmerContent = createContext({});
@@ -21,6 +24,25 @@ export const FarmerContextProvider = ({ children, user }) => {
       setUserID(null)
     }
   }, [])
+
+  const navigate = useNavigate()
+  const { modal } = App.useApp()
+
+  useEffect(() => {
+      console.log(`Listening for calling users.${user.id}`)
+      EchoClient.private(`users.${user.id}`)
+        .listenForWhisper('calling', e => {
+            modal.confirm({
+              content: "Someone is calling",
+              okText: "Accept",
+              cancelText: "Reject",
+              onOk() {
+                window.location.href = '/farmer/meet?token=' + e.token
+                // navigate('/farmer/meet', { state: e.token })
+              }
+            })
+        })
+    }, [user.id])
 
   return (
     <FarmerContent.Provider value={{ user }}>{children}</FarmerContent.Provider>
