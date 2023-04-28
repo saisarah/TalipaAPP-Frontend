@@ -1,5 +1,5 @@
 import { useThreadsQuery } from "@/query/queries/useThreadsQuery";
-import { MessageOutlined } from "@ant-design/icons";
+import { MessageOutlined, PhoneFilled } from "@ant-design/icons";
 import { Button } from "antd";
 import PageHeader from "../PageHeader/PageHeader";
 import Spinner from "../Spinner";
@@ -14,7 +14,9 @@ export default function Threads({ children, threadLink, className = "" }) {
         className={`w-full border-r border-slate-200 md:w-[40%] ${className}`}
       >
         <div className="hidden md:block">
-          <PageHeader title="Conversations" />
+          <PageHeader 
+            title="Conversations" 
+          />
         </div>
         {isLoading ? (
           <Spinner />
