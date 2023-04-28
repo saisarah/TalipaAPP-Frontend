@@ -33,3 +33,5 @@ Http.interceptors.request.use((config) => {
   config.headers["X-Socket-ID"] = EchoClient.socketId(); // Echo instance
   return config;
 });
+
+window.EchoClient = EchoClient

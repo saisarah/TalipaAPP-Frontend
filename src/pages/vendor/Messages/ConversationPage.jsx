@@ -13,20 +13,33 @@ import { Button } from "antd";
 import SkeletonInput from "antd/lib/skeleton/Input";
 import { useEffect, useRef, useState } from "react";
 import { useParams } from "react-router";
+import { EchoClient } from "@/helpers/Echo";
 
 const generateToken = async (id) => {
   const { data } = await Http.post(`/jitsi/${id}`);
   return data;
 };
 
-const useGenerateToken = (id) => {
-  return useMutation(() => generateToken(id));
+const useGenerateToken = (id, option) => {
+  return useMutation(() => generateToken(id), option);
 };
 
 function CallUser({ id }) {
-  const { data: token, mutate, isLoading } = useGenerateToken(id);
-  const { data:user } = useCurrentUserQuery()
-  
+  const {
+    data: token,
+    mutate,
+    isLoading,
+  } = useGenerateToken(id, {
+    onSuccess(token) {
+      console.log({token})
+      EchoClient.private(`users.${id}`).whisper("calling", {
+        user,
+        token: token[1],
+      });
+    },
+  });
+  const { data: user } = useCurrentUserQuery();
+
   useEffect(() => {
     if (!token && id) {
       mutate();
@@ -52,27 +65,20 @@ function CallUser({ id }) {
           userInfo={{
             displayName: user.fullname,
           }}
-          getIFrameRef = { (iframeRef) => { 
-            iframeRef.style.height = '100%'; 
+          getIFrameRef={(iframeRef) => {
+            iframeRef.style.height = "100%";
           }}
         />
       )}
     </div>
   );
-
-  // return (
-  //   <div className="fixed inset-0 z-20 bg-white">
-  //     {isLoading && "Connecting..."}
-  //     <div className="h-full" ref={meet} style={{ display: token ? "block" : "hidden" }}></div>
-  //   </div>
-  // );
 }
 
 export default function ConversationPage() {
   const { id } = useParams();
   const { data: thread, isLoading: isThreadLoading } = useThreadQuery(id);
   const { avatar, name, user_id } = useThreadInfo(thread);
-  const [call, setCall] = useState(false)
+  const [call, setCall] = useState(false);
 
   useReadThread(id);
 
@@ -82,7 +88,13 @@ export default function ConversationPage() {
         back={"/messages"}
         backProps={{ className: "md:hidden" }}
         title={isThreadLoading ? <SkeletonInput /> : name}
-        right={<Button onClick={() => setCall(true)} type="text" icon={<PhoneFilled />} />}
+        right={
+          <Button
+            onClick={() => setCall(true)}
+            type="text"
+            icon={<PhoneFilled />}
+          />
+        }
       />
       <Conversation id={id} avatar={avatar} />
       <SendMessage id={id} />
