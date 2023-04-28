@@ -10,7 +10,8 @@ export const useThreadInfo = (thread) => {
       const receiver = users.find(_u => _u.id != user.id)
       return { 
         avatar: receiver.profile_picture, 
-        name: receiver.fullname
+        name: receiver.fullname,
+        user_id: receiver.id
       };
     }
 
