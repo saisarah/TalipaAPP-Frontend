@@ -182,7 +182,20 @@ export default function FAQ() {
                 the "For Sale" tab and select the desired commodity, choose the
                 quantity, fill out the delivery address and preferred delivery
                 option, and wait for confirmation. Once confirmed, your order
-                will be delivered to the specified address. 
+                will be delivered to the specified address.
+              </p>
+            </div>
+            <div
+              className={`mt-2 max-h-0 overflow-hidden  transition-all duration-300   ${
+                expanded2 ? "max-h-screen" : ""
+              }`}
+            >
+              <p className="leading-relaxed ">
+                To place an order on TalipaAPP, log in to your account, go to
+                the "For Sale" tab and select the desired commodity, choose the
+                quantity, fill out the delivery address and preferred delivery
+                option, and wait for confirmation. Once confirmed, your order
+                will be delivered to the specified address.
               </p>
             </div>
           </div>
