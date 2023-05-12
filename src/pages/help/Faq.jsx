@@ -1,6 +1,5 @@
 import Page from "@/components/Page";
 import PageHeader from "@/components/PageHeader";
-import { RightCircleFilled } from "@ant-design/icons";
 import { Collapse } from "antd";
 
 const { Panel } = Collapse;
@@ -8,7 +7,7 @@ const { Panel } = Collapse;
 const onChange = (key) => {
   console.log(key);
 };
-
+// test
 export default function Faq() {
   return (
     <Page>
